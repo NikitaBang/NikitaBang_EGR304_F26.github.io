@@ -26,6 +26,8 @@ for<br>
 
 ### My Contribution
 
+* **[Block Diagram](01-Block-Diagram/Block-Diagram.md)** — individual block diagram of my main control board (Curiosity Nano, cup sensor, display, buttons, power, and ribbon connectors to my teammates' boards)
+
 * This needs to be updated to reflect a team introduction
 * Content should also help an unfamiliar reader navigate to areas of interest. Information like:
 
