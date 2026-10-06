@@ -26,7 +26,7 @@
 
     
       
-        <title>Individal Block Diagram - EGR 304 Nikita Bangiyev Data Sheet</title>
+        <title>Block Diagram - EGR 304 Nikita Bangiyev Data Sheet</title>
       
     
     
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#block-diagram" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Individal Block Diagram
+              Block Diagram
             
           </span>
         </div>
@@ -351,7 +351,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden="">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -466,12 +468,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    Individal Block Diagram
+    Block Diagram
   </span>
   
 
@@ -482,7 +486,7 @@
         
   
   <span class="md-ellipsis">
-    Individal Block Diagram
+    Block Diagram
   </span>
   
 
@@ -493,6 +497,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -511,9 +517,72 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-block-diagram" class="md-nav__link">
+  <a href="#block-diagram_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Example Block Diagram
+      Block Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microcontroller-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microcontroller I/O
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ribbon-connectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ribbon Connectors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#major-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Major Components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Choices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-my-board-is-different-from-my-teammates" class="md-nav__link">
+    <span class="md-ellipsis">
+      How My Board Is Different From My Teammates'
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
     </span>
   </a>
   
@@ -783,7 +852,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden="">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -791,6 +862,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -809,9 +882,72 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-block-diagram" class="md-nav__link">
+  <a href="#block-diagram_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Example Block Diagram
+      Block Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microcontroller-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microcontroller I/O
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ribbon-connectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ribbon Connectors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#major-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Major Components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Choices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-my-board-is-different-from-my-teammates" class="md-nav__link">
+    <span class="md-ellipsis">
+      How My Board Is Different From My Teammates'
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
     </span>
   </a>
   
@@ -840,21 +976,359 @@
   
 
 
-  <h1>Individal Block Diagram</h1>
-
+<h1 id="block-diagram">Block Diagram</h1>
+<p><strong>Nikita Bangiyev</strong> · Team 201 · Fill-A-Bot: Automatic Liquid Dispenser · EGR 304, Fall 2026</p>
 <h2 id="overview">Overview</h2>
-<p>This needs to be updated with a brief purpose for having the block diagram.
-Things to mention are:
-* power levels
-* sensor
-* Actuator
-* team connections
-* Power source
-* ...</p>
-<p>To get some initial formatting help, one can view <a href="https://embedded-systems-design.github.io/EGR304DataSheetTemplate/Appendix/basic-markdown-examples/">"here"</a> some basic techniques.</p>
-<h2 id="example-block-diagram">Example Block Diagram</h2>
-<p>Showing an example of how to import a screenshot of the block diagram created outside of git and brought into a page.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../individual-block-diagram.png" data-desc-position="bottom"><img alt="Example of Indivial Block diagram " src="../individual-block-diagram.png"></a></p>
+<p>My subsystem is the <strong>main control board</strong> for Fill-A-Bot. It is the I²C host for the team. It reads the user's buttons, tells Clay's pump board when to run, reads the dispensed amount from Cole's flow board and Troy's scale board, and shows the target and dispensed volume on a 4-digit display. My board also has its own sensor: a photoresistor under the cup spot, amplified by an op amp, so the pump can only start when a cup is in place.</p>
+<ul>
+<li><strong>Sensor:</strong> photoresistor cup sensor (LDR1) with an inverting op-amp stage (U3), read by the ADC</li>
+<li><strong>Outputs:</strong> 4-digit 7-segment display (DS1) through an HT16K33 driver (U4), plus three status LEDs</li>
+<li><strong>User input:</strong> four push buttons (UP, DOWN, START, STOP)</li>
+<li><strong>Team connections:</strong> three 8-pin ribbon connectors (J1 Cole, J2 Clay, J3 Troy) with I²C on pins 1–2 and ground on pin 8</li>
+<li><strong>Power:</strong> 9 V 3 A wall adapter → barrel jack → LM7805 linear regulator → 5 V for the whole board</li>
+</ul>
+<h2 id="block-diagram_1">Block Diagram</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../nikita-block-diagram.png" data-desc-position="bottom"><img alt="Individual block diagram of Nikita Bangiyev's main control board" src="../nikita-block-diagram.png" width="100%"></a></p>
+<p><em>Figure 1: Individual block diagram of the main control board (click the image to enlarge it).</em> The editable draw.io source is saved in this repository: <a href="../nikita-block-diagram.drawio">nikita-block-diagram.drawio</a>.</p>
+<h2 id="power">Power</h2>
+<table>
+<thead>
+<tr>
+<th>Region</th>
+<th>Voltage</th>
+<th>Regulated?</th>
+<th>Max current available</th>
+<th>Source</th>
+<th>Blocks in this region</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 V</td>
+<td>9 V DC</td>
+<td>No</td>
+<td>3 A</td>
+<td>Wall adapter into J4 barrel jack</td>
+<td>J4, input side of U2</td>
+</tr>
+<tr>
+<td>5 V</td>
+<td>5 V DC</td>
+<td>Yes (U2, LM7805)</td>
+<td>1.5 A</td>
+<td>U2 output</td>
+<td>U1 Nano (VTG), U3, U4, DS1, LDR1, buttons, LEDs, I²C pull-ups</td>
+</tr>
+</tbody>
+</table>
+<p>The Curiosity Nano is powered through its VTG pin with VOFF tied to GND, which is what the Nano user guide requires when an external supply is used. My estimated 5 V load is about 150 mA (the display is about 100 mA of that, worst case). That means U2 burns about (9 V − 5 V) × 0.15 A ≈ 0.6 W, which is roughly a 33 °C rise for a TO-220 at 54 °C/W, so no heat sink is needed.</p>
+<h2 id="microcontroller-io">Microcontroller I/O</h2>
+<table>
+<thead>
+<tr>
+<th>Peripheral</th>
+<th>Pin</th>
+<th>Direction</th>
+<th>Connects to</th>
+<th>Signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Digital Input (DI)</td>
+<td>RA0</td>
+<td>In</td>
+<td>SW1 UP button</td>
+<td>Digital - Parallel (5 VDC, 1 pin)</td>
+</tr>
+<tr>
+<td>Digital Input (DI)</td>
+<td>RA1</td>
+<td>In</td>
+<td>SW2 DOWN button</td>
+<td>Digital - Parallel (5 VDC, 1 pin)</td>
+</tr>
+<tr>
+<td>Digital Input (DI)</td>
+<td>RA2</td>
+<td>In</td>
+<td>SW3 START button</td>
+<td>Digital - Parallel (5 VDC, 1 pin)</td>
+</tr>
+<tr>
+<td>Digital Input (DI)</td>
+<td>RA3</td>
+<td>In</td>
+<td>SW4 STOP button</td>
+<td>Digital - Parallel (5 VDC, 1 pin)</td>
+</tr>
+<tr>
+<td>ADC (channel ANA5)</td>
+<td>RA5</td>
+<td>In</td>
+<td>U3 op-amp output (cup sensor)</td>
+<td>Analog (0.1–4.9 VDC, 1 pin)</td>
+</tr>
+<tr>
+<td>Digital Output (DO)</td>
+<td>RD0</td>
+<td>Out</td>
+<td>D2 Dispensing LED</td>
+<td>Digital - Parallel (5 VDC, 1 pin)</td>
+</tr>
+<tr>
+<td>Digital Output (DO)</td>
+<td>RD1</td>
+<td>Out</td>
+<td>D3 Done LED</td>
+<td>Digital - Parallel (5 VDC, 1 pin)</td>
+</tr>
+<tr>
+<td>Digital Output (DO)</td>
+<td>RD2</td>
+<td>Out</td>
+<td>D4 Fault / debug LED</td>
+<td>Digital - Parallel (5 VDC, 1 pin)</td>
+</tr>
+<tr>
+<td>I²C1 (host)</td>
+<td>RB2 (SDA), RB1 (SCL)</td>
+<td>Both</td>
+<td>U4 HT16K33, J1, J2, J3</td>
+<td>Digital - Serial (I²C, 5 VDC, 2 pins)</td>
+</tr>
+</tbody>
+</table>
+<p>That is 10 signal pins total. All of them are on the Curiosity Nano edge connector and none are used by an on-board function (LED0 is RF3, SW0 is RB4, and the USB serial port uses RF0/RF1). RB1 and RB2 are the pins the Nano labels as I2C1 SCL and SDA, which are the same pins Clay and Troy use.</p>
+<h2 id="ribbon-connectors">Ribbon Connectors</h2>
+<p>The course standard is an 8-wire ribbon with 2×4 IDC connectors: pins 1–5 digital I/O, pins 6–7 analog I/O, pin 8 ground. My board has one connector per teammate.</p>
+<table>
+<thead>
+<tr>
+<th>Pin</th>
+<th>Course standard</th>
+<th>J1 (Cole)</th>
+<th>J2 (Clay)</th>
+<th>J3 (Troy)</th>
+<th>U1 pin</th>
+<th>Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Digital I/O</td>
+<td>SDA</td>
+<td>SDA</td>
+<td>SDA</td>
+<td>RB2</td>
+<td>Both</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Digital I/O</td>
+<td>SCL</td>
+<td>SCL</td>
+<td>SCL</td>
+<td>RB1</td>
+<td>Main → teammate</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Digital I/O</td>
+<td>NC</td>
+<td>NC</td>
+<td>NC</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Digital I/O</td>
+<td>NC</td>
+<td>NC</td>
+<td>NC</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Digital I/O</td>
+<td>NC</td>
+<td>NC</td>
+<td>NC</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Analog I/O</td>
+<td>NC</td>
+<td>NC</td>
+<td>NC</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Analog I/O</td>
+<td>NC</td>
+<td>NC</td>
+<td>NC</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Ground</td>
+<td>GND</td>
+<td>GND</td>
+<td>GND</td>
+<td>GND</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>The main board is the only I²C host. Each teammate board is an I²C target with its own unique address, which the team will set in the message structure. The HT16K33 on my board uses address 0x70. R1 and R2 (4.7 kΩ to 5 V) are the only pull-up resistors on the bus.</p>
+<blockquote>
+<p><strong>Note:</strong> The current team block diagram shows +5 V on ribbon pin 4. The course standard says ribbon pins 1–7 have to connect to a microcontroller pin, and every board already has its own 9 V supply and 5 V regulator, so my board leaves pin 4 unconnected. The team diagram will be updated to match.</p>
+</blockquote>
+<h2 id="major-components">Major Components</h2>
+<table>
+<thead>
+<tr>
+<th>Ref</th>
+<th>Block</th>
+<th>Manufacturer</th>
+<th>Part number</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U1</td>
+<td>Microcontroller</td>
+<td>Microchip</td>
+<td>PIC18F57Q43 Curiosity Nano (DM164150)</td>
+<td>Required board, VTG = 5 V</td>
+</tr>
+<tr>
+<td>U2</td>
+<td>5 V linear regulator</td>
+<td>Texas Instruments</td>
+<td>LM7805CT (TO-220)</td>
+<td>1.5 A, needs at least 7.5 V in</td>
+</tr>
+<tr>
+<td>J4</td>
+<td>DC barrel jack</td>
+<td>Same Sky</td>
+<td>PJ-102AH</td>
+<td>5.5 × 2.0 mm, rated 24 V / 5 A</td>
+</tr>
+<tr>
+<td>LDR1</td>
+<td>Cup sensor (<strong>sensor</strong>)</td>
+<td>Advanced Photonix</td>
+<td>PDV-P8103</td>
+<td>CdS photoresistor with a 10 kΩ divider resistor</td>
+</tr>
+<tr>
+<td>U3</td>
+<td>Op amp, inverting (<strong>signal conditioning</strong>)</td>
+<td>Microchip</td>
+<td>MCP6002-I/P</td>
+<td>Gain −3 about a 2.5 V reference, rail-to-rail, 1.8–6 V supply</td>
+</tr>
+<tr>
+<td>U4</td>
+<td>LED display driver (<strong>driver</strong>)</td>
+<td>Holtek</td>
+<td>HT16K33 (28-pin SOP)</td>
+<td>I²C, 4.5–5.5 V supply</td>
+</tr>
+<tr>
+<td>DS1</td>
+<td>4-digit 7-segment display (<strong>output</strong>)</td>
+<td>Lucky Light</td>
+<td>KW4-56NCUYA-P</td>
+<td>0.56 in yellow, common cathode (sold as Adafruit 811)</td>
+</tr>
+<tr>
+<td>SW1–SW4</td>
+<td>Push buttons (<strong>user input</strong>)</td>
+<td>Omron</td>
+<td>B3F-1000</td>
+<td>10 kΩ pull-ups to 5 V</td>
+</tr>
+<tr>
+<td>D2–D4</td>
+<td>Status LEDs (<strong>output</strong>)</td>
+<td>—</td>
+<td>yellow / green / red</td>
+<td>470 Ω series resistor each</td>
+</tr>
+<tr>
+<td>J1–J3</td>
+<td>Ribbon connectors</td>
+<td>Würth Elektronik</td>
+<td>61200821621</td>
+<td>2×4 shrouded box header, 2.54 mm</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-choices">Design Choices</h2>
+<ul>
+<li><strong>Display driver on my board:</strong> The display is a bare 7-segment display driven by an HT16K33 chip on my PCB, instead of an Adafruit display with an I²C backpack, because EGR 304 does not allow daughter boards. It shares the I²C bus, so it doesn't use any extra Nano pins.</li>
+<li><strong>Cup sensor as my analog sensor:</strong> A photoresistor and a resistor alone only make a voltage divider, so I added an op-amp gain stage, which the course requires for an analog sensor. It is the same circuit as my photoresistor lab: about 0.1 V at the ADC with no cup and about 4.9 V with a cup covering the sensor.</li>
+<li><strong>No actuator on this board:</strong> The pump is on Clay's board and gets its power there. My board only sends it on/off commands over I²C.</li>
+<li><strong>Proposed choices:</strong> The button, LED and ADC pin assignments and the part numbers for the photoresistor, buttons, LEDs and connectors are my current picks and may change during component selection.</li>
+</ul>
+<h2 id="how-my-board-is-different-from-my-teammates">How My Board Is Different From My Teammates'</h2>
+<table>
+<thead>
+<tr>
+<th>Teammate</th>
+<th>Subsystem</th>
+<th>Main sensing / actuation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nikita Bangiyev (me)</td>
+<td>Main control board</td>
+<td>Photoresistor cup sensor with op amp, display driver and display, buttons, I²C host</td>
+</tr>
+<tr>
+<td>Cole Trask</td>
+<td>Flow sensing</td>
+<td>Flow sensor</td>
+</tr>
+<tr>
+<td>Clay Belsher</td>
+<td>Pump control</td>
+<td>Pump with MOSFET driver (actuator)</td>
+</tr>
+<tr>
+<td>Troy Reynolds</td>
+<td>Liquid amount sensing</td>
+<td>Load cell with HX711</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<ol>
+<li>Microchip Technology Inc., <em>PIC18F57Q43 Curiosity Nano Hardware User Guide</em>, DS40002186B. <a href="https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/UserGuides/PIC18F57Q43-Curiosity-Nano-HW-UserGuide-DS40002186B.pdf">Link</a></li>
+<li>Texas Instruments, <em>LM340, LM340A and LM7805 Family Wide VIN 1.5-A Fixed Voltage Regulators</em>, SNOSBT0L. <a href="https://www.ti.com/lit/ds/symlink/lm340.pdf">Link</a></li>
+<li>Holtek Semiconductor, <em>HT16K33 RAM Mapping 16×8 LED Controller Driver with Keyscan</em>, Rev. 1.10. <a href="https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf">Link</a></li>
+<li>Lucky Light Electronics, <em>KW4-56NXXX 0.56" Quadruple Digit Numeric Displays</em>. <a href="https://cdn-shop.adafruit.com/datasheets/811datasheet.pdf">Link</a></li>
+<li>Microchip Technology Inc., <em>MCP6001/1R/1U/2/4 1 MHz, Low-Power Op Amp</em>, DS20001733L. <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf">Link</a></li>
+<li>Advanced Photonix, <em>PDV-P8103 CdS Photoconductive Photocell</em>. <a href="https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf">Link</a></li>
+<li>Same Sky (formerly CUI Devices), <em>PJ-102AH DC Power Jack</em>, Datasheet. <a href="https://www.sameskydevices.com/product/resource/pj-102ah.pdf">Link</a></li>
+<li>Omron Electronic Components, <em>B3F Tactile Switch</em>. <a href="https://components.omron.com/us-en/products/switches/B3F">Link</a></li>
+<li>Würth Elektronik, <em>WR-BHD 2.54 mm Male Box Header</em>. <a href="https://www.we-online.com/en/components/products/WTB_WR_BHD_BOX_HEADER_2_54MM_MALE_PCB">Link</a></li>
+<li>EGR 304, <em>Fall 2026 Project Description</em> and <em>EGR 304/314 Course Sequence Requirements</em>. <a href="https://embedded-systems-design.bitbucket.io/304/course-info/project-description/">Link</a></li>
+</ol>
 
 
 
@@ -867,6 +1341,8 @@ Things to mention are:
 
 
 
+
+  
 
 
 
@@ -889,6 +1365,8 @@ Things to mention are:
         <footer class="md-footer">
   
     
+      
+        
       
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
