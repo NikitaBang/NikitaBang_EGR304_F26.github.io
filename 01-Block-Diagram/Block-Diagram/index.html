@@ -943,15 +943,16 @@
 <h1 id="block-diagram">Block Diagram</h1>
 <p>Nikita Bangiyev, Team 201, Fill-A-Bot (automatic liquid dispenser)</p>
 <h2 id="overview">Overview</h2>
-<p>I'm doing the main control board. It's the I2C host for the team. It reads the buttons, tells Clay's board to run the pump, gets the flow and weight readings from Cole's and Troy's boards, and shows the amount on a 4-digit display. My sensor is a photoresistor under the cup spot with an op amp, so the pump only starts when a cup is there.</p>
+<p>I'm doing the main control board. It's the I2C host for the team. It reads the buttons, tells Clay's board to run the pump, gets the flow and weight readings from Cole's and Troy's boards, and shows the amount and status on a 16x2 LCD. My sensor is a photoresistor under the cup spot with an op amp, so the pump only starts when a cup is there.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../nikita-block-diagram.png" data-desc-position="bottom"><img alt="Main control board block diagram" src="../nikita-block-diagram.png" width="100%"></a></p>
 <p>Figure 1: Main control board block diagram (click to enlarge). Draw.io file: <a href="../nikita-block-diagram.drawio">nikita-block-diagram.drawio</a></p>
 <h2 id="power">Power</h2>
 <ul>
-<li>9V 3A wall adapter into a barrel jack (unregulated)</li>
-<li>LM7805 makes 5V (regulated, 1.5A max) for the rest of the board</li>
+<li>9V 2A regulated wall adapter (Triad WSU090-2000) into a barrel jack (Same Sky PJ-102AH)</li>
+<li>LM1086IT-5.0 linear regulator makes 5V (1.5A max, 4.9 to 5.1V) for the whole board</li>
+<li>The regulator has a heat sink (Same Sky HSE14-384225P) with an insulating pad, because its tab is at 5V</li>
 <li>The Nano gets 5V on VTG with VOFF tied to GND</li>
-<li>My board draws about 150 mA, so the LM7805 doesn't need a heat sink</li>
+<li>My power budget is 428mA with the 25% margin (see <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a>)</li>
 </ul>
 <h2 id="pin-assignments">Pin Assignments</h2>
 <table>
@@ -964,27 +965,43 @@
 </thead>
 <tbody>
 <tr>
-<td>RA0-RA3</td>
+<td>RA0, RA1, RA4, RA3</td>
 <td>Digital input</td>
-<td>UP, DOWN, START, STOP buttons</td>
+<td>UP, DOWN, START, STOP buttons (active low, 10k pull-ups)</td>
 </tr>
 <tr>
 <td>RA5</td>
 <td>ADC</td>
-<td>Cup sensor (op amp output)</td>
+<td>Cup sensor (op amp output through 1k + 10nF)</td>
+</tr>
+<tr>
+<td>RA2</td>
+<td>DAC output</td>
+<td>Reference voltage for the op amp gain stage</td>
 </tr>
 <tr>
 <td>RD0-RD2</td>
 <td>Digital output</td>
-<td>Dispensing, Done, Fault LEDs</td>
+<td>Dispensing, Done, Fault LEDs (active low, 2.2k each)</td>
+</tr>
+<tr>
+<td>RC0-RC3</td>
+<td>Digital output</td>
+<td>LCD DB4-DB7</td>
+</tr>
+<tr>
+<td>RC4, RC5</td>
+<td>Digital output</td>
+<td>LCD RS and E</td>
 </tr>
 <tr>
 <td>RB2 / RB1</td>
 <td>I2C SDA / SCL</td>
-<td>Display driver and all 3 ribbon connectors</td>
+<td>All 3 ribbon connectors</td>
 </tr>
 </tbody>
 </table>
+<p>START moved from RA2 to RA4 so RA2 can be the DAC output. The full pin table is on my <a href="../../02-Component-Selection/Component-Selection/">Component Selection</a> page.</p>
 <h2 id="ribbon-connectors">Ribbon Connectors</h2>
 <p>J1 goes to Cole, J2 to Clay, and J3 to Troy. All three are wired the same and follow the class standard.</p>
 <table>
@@ -1032,7 +1049,17 @@
 <tr>
 <td>5V regulator (U2)</td>
 <td>Texas Instruments</td>
-<td>LM7805CT</td>
+<td>LM1086IT-5.0/NOPB</td>
+</tr>
+<tr>
+<td>Regulator heat sink (HS1)</td>
+<td>Same Sky</td>
+<td>HSE14-384225P</td>
+</tr>
+<tr>
+<td>9V wall adapter</td>
+<td>Triad Magnetics</td>
+<td>WSU090-2000</td>
 </tr>
 <tr>
 <td>Barrel jack (J4)</td>
@@ -1050,14 +1077,9 @@
 <td>MCP6002-I/P</td>
 </tr>
 <tr>
-<td>Display driver (U4)</td>
-<td>Holtek</td>
-<td>HT16K33</td>
-</tr>
-<tr>
-<td>7-segment display (DS1)</td>
-<td>Lucky Light</td>
-<td>KW4-56NCUYA-P</td>
+<td>16x2 LCD (DS1)</td>
+<td>Newhaven Display</td>
+<td>NHD-0216K1Z-FL-YBW</td>
 </tr>
 <tr>
 <td>Buttons (SW1-SW4)</td>
@@ -1073,16 +1095,18 @@
 </table>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>I put the HT16K33 chip on my own board instead of using an Adafruit display backpack, since daughter boards aren't allowed.</li>
-<li>The op amp is needed because a photoresistor and resistor alone don't count as an analog sensor. It's the same circuit from my photoresistor lab.</li>
-<li>The pin assignments and some part numbers might still change during component selection.</li>
+<li>I switched from a 4-digit 7-segment display to a 16x2 LCD, because the team requirements need words like Ready, Filling, and Finished. The LCD has its own controller, so the HT16K33 driver is gone. It was discontinued anyway.</li>
+<li>The op amp is needed because a photoresistor and resistor alone don't count as an analog sensor. U3A buffers the divider and U3B amplifies it with a gain of -3. The PIC's DAC sets the reference, so it can re-zero for the room light.</li>
+<li>I switched from the LM7805 to the LM1086 because the LCD backlight needs 4.9 to 5.1V, and a 7805 can be 4.75 to 5.25V.</li>
 </ul>
 <h2 id="references">References</h2>
 <ol>
 <li>Microchip, PIC18F57Q43 Curiosity Nano Hardware User Guide. <a href="https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/UserGuides/PIC18F57Q43-Curiosity-Nano-HW-UserGuide-DS40002186B.pdf">Link</a></li>
-<li>Texas Instruments, LM7805 datasheet. <a href="https://www.ti.com/lit/ds/symlink/lm340.pdf">Link</a></li>
-<li>Holtek, HT16K33 datasheet. <a href="https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf">Link</a></li>
-<li>Lucky Light, KW4-56NCUYA-P display datasheet. <a href="https://cdn-shop.adafruit.com/datasheets/811datasheet.pdf">Link</a></li>
+<li>Microchip, PIC18F27/47/57Q43 data sheet. <a href="https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18F27-47-57Q43-Microcontroller-Data-Sheet-XLP-DS40002147.pdf">Link</a></li>
+<li>Texas Instruments, LM1086 datasheet. <a href="https://www.ti.com/lit/ds/symlink/lm1086.pdf">Link</a></li>
+<li>Same Sky, HSE14-384225P heat sink datasheet. <a href="https://www.sameskydevices.com/product/resource/hse14-384225p.pdf">Link</a></li>
+<li>Triad Magnetics, WSU090-2000 datasheet. <a href="https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf">Link</a></li>
+<li>Newhaven Display, NHD-0216K1Z-FL-YBW datasheet. <a href="https://newhavendisplay.com/content/specs/NHD-0216K1Z-FL-YBW.pdf">Link</a></li>
 <li>Microchip, MCP6002 datasheet. <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf">Link</a></li>
 <li>Advanced Photonix, PDV-P8103 datasheet. <a href="https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf">Link</a></li>
 <li>Same Sky, PJ-102AH datasheet. <a href="https://www.sameskydevices.com/product/resource/pj-102ah.pdf">Link</a></li>
