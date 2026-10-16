@@ -27,6 +27,8 @@ for<br>
 ### My Contribution
 
 * [Block Diagram](01-Block-Diagram/Block-Diagram.md): my individual block diagram for the main control board
+* [Component Selection](02-Component-Selection/Component-Selection.md): the parts I picked for the main control board and why
+* [Power Budget](05-Power-Budget/Power-Budget.md): current, voltage, and heat check for my board
 
 * This needs to be updated to reflect a team introduction
 * Content should also help an unfamiliar reader navigate to areas of interest. Information like:
