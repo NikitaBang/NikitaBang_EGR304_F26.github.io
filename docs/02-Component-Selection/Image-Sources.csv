@@ -1,0 +1,21 @@
+file,shows,used for,source,source page,notes
+adapter-triad-wsu090.jpg,Triad Magnetics WSU series wall adapter,Power source options 1 and 3 (WSU090-1300 and WSU090-2000),DigiKey supplier photo,https://www.digikey.com/en/products/detail/triad-magnetics/WSU090-2000/3094951,Series photo shared by both Triad models
+adapter-meanwell-gst18u09.jpg,MEAN WELL GST18U wall adapter,Power source option 2 (GST18U09-P1J),DigiKey supplier photo,https://www.digikey.com/en/products/detail/mean-well-usa-inc/GST18U09-P1J/7703633,Series photo
+regulator-ti-to220.jpg,TI TO-220 (NDE) package,Regulator options 1 and 3 (LM7805CT/NOPB and LM1086IT-5.0/NOPB),DigiKey supplier photo,https://www.digikey.com/en/products/detail/texas-instruments/LM1086IT-5-0-NOPB/363580,Package photo shared by both TI parts
+regulator-st-l7805cv.jpg,ST TO-220 package,Regulator option 2 (L7805CV),DigiKey supplier photo,https://www.digikey.com/en/products/detail/stmicroelectronics/L7805CV/585964,Package photo
+heatsink-hse14-384225p.jpg,Same Sky HSE14-384225P heat sink,Heat sink option 1,DigiKey supplier photo,https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/HSE14-384225P/26460932,
+heatsink-boyd-529802b02500g.jpg,Boyd 529802B02500G heat sink,Heat sink option 2,DigiKey supplier photo,https://www.digikey.com/en/products/detail/boyd-laconia-llc/529802B02500G/1216357,
+heatsink-boyd-530002b02500g.jpg,Boyd 530002B02500G heat sink,Heat sink option 3,DigiKey supplier photo,https://www.digikey.com/en/products/detail/boyd-laconia-llc/530002B02500G/1216384,
+sensor-pdv-p8103.jpg,Advanced Photonix PDV-P8103 photoresistor,Cup sensor option 1,DigiKey supplier photo,https://www.digikey.com/en/products/detail/advanced-photonix/PDV-P8103/480610,
+sensor-tept4400.jpg,Vishay TEPT4400 phototransistor,Cup sensor option 2,DigiKey supplier photo,https://www.digikey.com/en/products/detail/vishay-semiconductor-opto-division/TEPT4400/1681191,
+sensor-bpw34.jpg,Vishay BPW34 photodiode,Cup sensor option 3,DigiKey supplier photo,https://www.digikey.com/en/products/detail/vishay-semiconductor-opto-division/BPW34/1681149,
+opamp-mcp6002-ip.jpg,Microchip 8-pin DIP package,Op amp option 1 (MCP6002-I/P),DigiKey supplier photo,https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875,Package photo
+opamp-tlv2372ip.jpg,TI 8-pin DIP package,Op amp option 2 (TLV2372IP),DigiKey supplier photo,https://www.digikey.com/en/products/detail/texas-instruments/TLV2372IP/413506,Package photo
+opamp-opa2340ua.jpg,TI SOIC-8 package,Op amp option 3 (OPA2340UA/2K5),DigiKey supplier photo,https://www.digikey.com/en/products/detail/texas-instruments/OPA2340UA-2K5/301193,Package photo
+display-7seg-kw4-56ncuya.jpg,4-digit yellow 7-segment display,Display option 1 (KW4-56NCUYA-P / Adafruit 811),DigiKey supplier photo,https://www.digikey.com/en/products/detail/adafruit-industries-llc/811/5774235,
+display-14seg-pdc54.jpg,Kingbright PDC54 14-segment display,Display option 2 (PDC54-11SURKWA),DigiKey supplier photo,https://www.digikey.com/en/products/detail/kingbright/PDC54-11SURKWA/16602198,DigiKey uses its PDC54 series picture for this part
+display-lcd-nhd-0216k1z.jpg,Newhaven NHD-0216K1Z 16x2 LCD,Display option 3 (NHD-0216K1Z-FL-YBW),DigiKey supplier photo,https://www.digikey.com/en/products/detail/newhaven-display-intl/NHD-0216K1Z-FL-YBW/1701171,
+interface-ti-dip16.jpg,TI 16-pin DIP package,Display interface options 1 and 3 (PCF8574N and SN74HC595N),DigiKey supplier photo,https://www.digikey.com/en/products/detail/texas-instruments/PCF8574N/484957,Package photo shared by both TI parts
+interface-mcp23008-ep.jpg,Microchip 18-pin DIP package (generic),Display interface option 2 (MCP23008-E/P),DigiKey supplier photo,https://www.digikey.com/en/products/detail/microchip-technology/MCP23008-E-P/735951,Generic package photo; the marking on the chip is not MCP23008
+lcd-interface.png,Custom PIC-to-LCD wiring drawing,Display interface option 4 and Figure 2,Drawn by Nikita Bangiyev,,
+cup-sensor-circuit.png,Cup sensor conditioning schematic,Figure 1,Drawn by Nikita Bangiyev,,
