@@ -726,9 +726,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#d-external-power-source" class="md-nav__link">
+  <a href="#d-power-source" class="md-nav__link">
     <span class="md-ellipsis">
-      D. External Power Source
+      D. Power Source
     </span>
   </a>
   
@@ -744,33 +744,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#supply-voltage-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supply Voltage Check
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#thermal-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      Thermal Check
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notes-on-the-numbers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Notes on the Numbers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#conclusions" class="md-nav__link">
     <span class="md-ellipsis">
       Conclusions
@@ -780,18 +753,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#downloads" class="md-nav__link">
+  <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
-      Downloads
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
+      Resources
     </span>
   </a>
   
@@ -932,9 +896,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#d-external-power-source" class="md-nav__link">
+  <a href="#d-power-source" class="md-nav__link">
     <span class="md-ellipsis">
-      D. External Power Source
+      D. Power Source
     </span>
   </a>
   
@@ -950,33 +914,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#supply-voltage-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supply Voltage Check
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#thermal-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      Thermal Check
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notes-on-the-numbers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Notes on the Numbers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#conclusions" class="md-nav__link">
     <span class="md-ellipsis">
       Conclusions
@@ -986,18 +923,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#downloads" class="md-nav__link">
+  <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
-      Downloads
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
+      Resources
     </span>
   </a>
   
@@ -1027,77 +955,60 @@
 
 
 <h1 id="power-budget">Power Budget</h1>
-<p>Nikita Bangiyev, Team 201, Fill-A-Bot. Updated October 16, 2026.</p>
 <h2 id="overview">Overview</h2>
-<p>This power budget checks that my 9V adapter and 5V regulator can power everything on my Main Control Board at the same time, with a 25% safety margin. It only covers my board. Cole, Clay, and Troy each have their own adapter and regulator, so their loads are not in my budget.</p>
-<p>My board has one power rail: a 9V wall adapter feeds an LM1086 5V linear regulator, and everything runs from that 5V rail. I followed the class <a href="https://www.dropbox.com/s/wyeqisp0uzyiics/Power%20Budget%20Example.xlsx?dl=0">Power Budget Example</a> template (sections A to E). The full spreadsheet with formulas is in the <a href="#downloads">Downloads</a> section.</p>
-<p><strong>Results:</strong></p>
-<ul>
-<li>5V load: 342.342mA before the margin, <strong>427.928mA</strong> with the 25% margin.</li>
-<li>LM1086 regulator (1,500mA): <strong>1,072.072mA</strong> left, and 792.072mA left before its thermal limit.</li>
-<li>Triad WSU090-2000 adapter (2,000mA): <strong>500mA</strong> left using the class template method, and 1,562.072mA left using the real input current of 437.928mA.</li>
-<li>Regulator junction: about <strong>70.6 C</strong> at a 40 C enclosure temperature. The limit is 125 C.</li>
-<li>Battery life: N/A (no battery).</li>
-</ul>
+<p>This power budget checks that my 9V adapter and 5V regulator can run everything on my Main Control Board at the same time, with a 25% safety margin. It only covers my board, since each teammate has their own adapter and regulator. I used the class power budget template, and everything runs off one 5V rail.</p>
 <h2 id="a-major-components">A. Major Components</h2>
-<p>These are the major components from my <a href="../../02-Component-Selection/Component-Selection/">Component Selection</a> page that use power. Power sources and regulators are not listed here.</p>
 <table>
 <thead>
 <tr>
 <th>Component</th>
 <th>Part number</th>
-<th>Supply range</th>
+<th>Supply voltage</th>
 <th>Qty</th>
 <th>Max current (mA)</th>
 <th>Total (mA)</th>
-<th>Value type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Curiosity Nano: PIC18F57Q43 plus board target circuits</td>
+<td>Curiosity Nano (PIC18F57Q43)</td>
 <td>DM164150</td>
-<td>1.8 to 5.5V, 5V used</td>
+<td>1.8 to 5.5V</td>
 <td>1</td>
 <td>170.000</td>
 <td>170.000</td>
-<td>Derived ceiling</td>
 </tr>
 <tr>
-<td>Dual op amp (U3A + U3B) with feedback load</td>
+<td>Dual op amp</td>
 <td>MCP6002-I/P</td>
-<td>1.8 to 6.0V, 5V used</td>
+<td>1.8 to 6.0V</td>
 <td>1</td>
 <td>0.856</td>
 <td>0.856</td>
-<td>Datasheet max + calculated</td>
 </tr>
 <tr>
-<td>LCD logic, including its built-in ST7066U controller</td>
+<td>LCD logic</td>
 <td>NHD-0216K1Z-FL-YBW</td>
 <td>4.5 to 5.5V</td>
 <td>1</td>
 <td>3.000</td>
 <td>3.000</td>
-<td>Datasheet max</td>
 </tr>
 <tr>
-<td>LCD backlight, full brightness</td>
+<td>LCD backlight</td>
 <td>NHD-0216K1Z-FL-YBW</td>
 <td>4.9 to 5.1V</td>
 <td>1</td>
 <td>156.000</td>
 <td>156.000</td>
-<td>Datasheet max</td>
 </tr>
 <tr>
-<td>LDR cup-sensor divider</td>
-<td>PDV-P8103 + 10k ohm</td>
+<td>Cup sensor (LDR + 10k)</td>
+<td>PDV-P8103</td>
 <td>5V</td>
 <td>1</td>
 <td>0.516</td>
 <td>0.516</td>
-<td>Calculated bound</td>
 </tr>
 <tr>
 <td><strong>Subtotal</strong></td>
@@ -1106,99 +1017,57 @@
 <td></td>
 <td></td>
 <td><strong>330.372</strong></td>
-<td></td>
 </tr>
 </tbody>
 </table>
 <h2 id="b-5v-rail">B. 5V Rail</h2>
-<p>Every load goes on the one 5V rail. I also added the small support currents (pull-ups, LEDs, trimmer), even though they are not major components, so nothing is missed. Every support current uses the worst case: a 5.1V rail and each resistor at its lowest value.</p>
 <table>
 <thead>
 <tr>
-<th>Load on the 5V rail</th>
-<th>Part</th>
+<th>Load</th>
 <th>Total (mA)</th>
-<th>How I got it</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Curiosity Nano</td>
-<td>DM164150</td>
-<td>170.000</td>
-<td>See <a href="#notes-on-the-numbers">Notes on the Numbers</a></td>
+<td>Major components from Section A</td>
+<td>330.372</td>
 </tr>
 <tr>
-<td>Dual op amp</td>
-<td>MCP6002-I/P</td>
-<td>0.856</td>
-<td>2 x 0.170mA IQ max + 5.1V / 9.9k ohm</td>
+<td>2.5V reference divider (two 10k)</td>
+<td>0.258</td>
 </tr>
 <tr>
-<td>LCD logic</td>
-<td>NHD-0216K1Z-FL-YBW</td>
-<td>3.000</td>
-<td>IDD max at 5.0V</td>
-</tr>
-<tr>
-<td>LCD backlight</td>
-<td>NHD-0216K1Z-FL-YBW</td>
-<td>156.000</td>
-<td>ILED max at 5.0V</td>
-</tr>
-<tr>
-<td>LDR divider</td>
-<td>PDV-P8103 + 10k ohm</td>
-<td>0.516</td>
-<td>5.1V / 9.9k ohm</td>
-</tr>
-<tr>
-<td>LCD E pull-down</td>
-<td>100k ohm</td>
+<td>LCD E pull-down (100k)</td>
 <td>0.052</td>
-<td>5.1V / 99k ohm, only while E is high</td>
 </tr>
 <tr>
-<td>LCD contrast trimmer</td>
-<td>10k ohm</td>
+<td>LCD contrast pot (10k)</td>
 <td>0.638</td>
-<td>5.1V / 8k ohm (20% tolerance)</td>
 </tr>
 <tr>
-<td>Three status LEDs</td>
-<td>2.2k ohm each</td>
+<td>3 status LEDs (2.2k each)</td>
 <td>7.026</td>
-<td>3 x 5.1V / 2.178k ohm, no LED drop counted</td>
 </tr>
 <tr>
-<td>Four button pull-ups</td>
-<td>10k ohm each</td>
+<td>4 button pull-ups (10k each)</td>
 <td>2.061</td>
-<td>4 x 5.1V / 9.9k ohm, all pressed</td>
 </tr>
 <tr>
-<td>Two I2C pull-ups</td>
-<td>4.7k ohm each</td>
+<td>2 I2C pull-ups (4.7k each)</td>
 <td>2.193</td>
-<td>2 x 5.1V / 4.653k ohm, both lines low</td>
 </tr>
 <tr>
-<td><strong>Total before margin</strong></td>
-<td></td>
-<td><strong>342.342</strong></td>
-<td></td>
+<td><strong>Total</strong></td>
+<td><strong>342.600</strong></td>
 </tr>
 <tr>
 <td>Safety margin</td>
-<td></td>
 <td>25%</td>
-<td>Added once</td>
 </tr>
 <tr>
-<td><strong>Total 5V current required</strong></td>
-<td></td>
-<td><strong>427.928</strong></td>
-<td>342.342 x 1.25, rounded up</td>
+<td><strong>Total with margin</strong></td>
+<td><strong>428.250</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1208,238 +1077,53 @@
 <tr>
 <th>Regulator</th>
 <th>Part number</th>
-<th>Rating (mA)</th>
-<th>Required (mA)</th>
+<th>Max current (mA)</th>
+<th>Needed (mA)</th>
 <th>Remaining (mA)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>5V low-dropout linear regulator</td>
-<td>TI LM1086IT-5.0/NOPB (TO-220)</td>
-<td>1,500.000</td>
-<td>427.928</td>
-<td><strong>1,072.072</strong></td>
-</tr>
-<tr>
-<td>Same regulator, thermal limit with my heat sink</td>
-<td>HSE14-384225P heat sink</td>
-<td>1,220.000</td>
-<td>427.928</td>
-<td><strong>792.072</strong></td>
+<td>5V linear regulator</td>
+<td>TI LM1086IT-5.0/NOPB</td>
+<td>1,500</td>
+<td>428.250</td>
+<td><strong>1,071.750</strong></td>
 </tr>
 </tbody>
 </table>
-<p>The 1,500mA is what the regulator can supply, not what it uses. The thermal limit is the output current that would heat the junction to 125 C at 40 C (see the <a href="#thermal-check">Thermal Check</a>).</p>
-<h2 id="d-external-power-source">D. External Power Source</h2>
+<h2 id="d-power-source">D. Power Source</h2>
 <table>
 <thead>
 <tr>
 <th>Power source</th>
 <th>Part number</th>
-<th>AC input</th>
-<th>DC output</th>
-<th>Capacity (mA)</th>
+<th>Output</th>
+<th>Max current (mA)</th>
+<th>Regulator connected (mA)</th>
+<th>Remaining (mA)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Regulated 9V wall adapter</td>
-<td>Triad Magnetics WSU090-2000</td>
-<td>90 to 264VAC</td>
+<td>Wall adapter</td>
+<td>Triad WSU090-2000</td>
 <td>9V</td>
-<td>2,000.000</td>
+<td>2,000</td>
+<td>1,500 (LM1086)</td>
+<td><strong>500</strong></td>
 </tr>
 </tbody>
 </table>
-<table>
-<thead>
-<tr>
-<th>Check</th>
-<th>Value (mA)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Regulators on this source: LM1086 rating (class template method)</td>
-<td>1,500.000</td>
-</tr>
-<tr>
-<td><strong>Total remaining, class template method</strong></td>
-<td><strong>500.000</strong></td>
-</tr>
-<tr>
-<td>Regulator output current with margin</td>
-<td>427.928</td>
-</tr>
-<tr>
-<td>Regulator quiescent current, max (added once, after the margin)</td>
-<td>10.000</td>
-</tr>
-<tr>
-<td>Real adapter current needed (a linear regulator draws Iout + Iq)</td>
-<td>437.928</td>
-</tr>
-<tr>
-<td><strong>Adapter current remaining, real load</strong></td>
-<td><strong>1,562.072</strong></td>
-</tr>
-</tbody>
-</table>
-<p>Both checks are positive. The class template subtracts the full regulator rating, so I picked a 2A adapter instead of the 1.3A one that was in my first draft. The 1.3A adapter would have been -200mA with the template method. The adapter only gives about 3.94W of its 18W rating (9V x 437.928mA).</p>
+<p>My real draw from the adapter is 438.250mA (428.250mA plus 10mA for the regulator itself), so there's a lot of room left.</p>
 <h2 id="e-battery-life">E. Battery Life</h2>
-<p>N/A. My board runs from a wall adapter and has no battery.</p>
-<h2 id="supply-voltage-check">Supply Voltage Check</h2>
-<table>
-<thead>
-<tr>
-<th>Check</th>
-<th>Value</th>
-<th>Source</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Adapter output</td>
-<td>9V +/-5%, so 8.55 to 9.45V</td>
-<td>Triad datasheet</td>
-</tr>
-<tr>
-<td>Adapter ripple</td>
-<td>150mV peak-to-peak max</td>
-<td>Triad datasheet</td>
-</tr>
-<tr>
-<td>Lowest regulator input</td>
-<td>8.55V - 0.075V (half the ripple) - 0.067V (cord and jack) = 8.408V</td>
-<td>Calculated</td>
-</tr>
-<tr>
-<td>Input needed for regulation</td>
-<td>5.1V + 1.5V max dropout = 6.6V (also above the 6.5V accuracy minimum)</td>
-<td>LM1086 datasheet</td>
-</tr>
-<tr>
-<td><strong>Dropout headroom</strong></td>
-<td><strong>1.808V</strong></td>
-<td>Calculated</td>
-</tr>
-<tr>
-<td>Regulated 5V rail</td>
-<td>4.900 to 5.100V over line, load, and temperature</td>
-<td>LM1086 datasheet</td>
-</tr>
-<tr>
-<td>LCD backlight range</td>
-<td>4.9 to 5.1V, so the rail is inside it</td>
-<td>LCD datasheet</td>
-</tr>
-<tr>
-<td>LCD logic, PIC, Nano level shifters, MCP6002</td>
-<td>4.5 to 5.5V, 1.8 to 5.5V, 5.5V max, 1.8 to 6.0V</td>
-<td>Datasheets</td>
-</tr>
-</tbody>
-</table>
-<p>The regulator's output range is the reason I picked the LM1086. A 7805 can be 4.75 to 5.25V, which is outside the backlight's range. The 150mV of adapter ripple is rejected by the regulator, so it does not show up on the 5V rail in any way that matters. The regulator needs a 10uF input capacitor and a 10uF tantalum output capacitor to stay stable (TI section 7.4.2).</p>
-<h2 id="thermal-check">Thermal Check</h2>
-<p>A linear regulator turns the extra voltage into heat. I used the worst case: the highest adapter voltage (9.45V), the lowest output (4.9V), the full budget current, and the max quiescent current.</p>
-<table>
-<thead>
-<tr>
-<th>Item</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Regulator heat: (9.45 - 4.9)V x 427.928mA + 9.45V x 10mA</td>
-<td><strong>2.042W</strong></td>
-</tr>
-<tr>
-<td>Junction to tab (LM1086 TO-220, 4.0 C/W used for both sections)</td>
-<td>4 C/W</td>
-</tr>
-<tr>
-<td>Insulating pad allowance (SP900S lists 0.61 C/W)</td>
-<td>1 C/W</td>
-</tr>
-<tr>
-<td>Heat sink HSE14-384225P, still air</td>
-<td>10 C/W</td>
-</tr>
-<tr>
-<td>Total</td>
-<td>15 C/W</td>
-</tr>
-<tr>
-<td>Enclosure temperature (design assumption)</td>
-<td>40 C</td>
-</tr>
-<tr>
-<td><strong>Junction temperature: 40 + 2.042 x 15</strong></td>
-<td><strong>70.6 C</strong></td>
-</tr>
-<tr>
-<td>Limit (control section; the output section allows 150 C)</td>
-<td>125 C</td>
-</tr>
-<tr>
-<td><strong>Margin</strong></td>
-<td><strong>54.4 C</strong></td>
-</tr>
-<tr>
-<td>Heat sink rise above the enclosure air</td>
-<td>about 20 C</td>
-</tr>
-</tbody>
-</table>
-<p>The heat sink is rated at 10 C/W at 1W, and its curve shows 19.2 C of rise at 2W (9.6 C/W), so 10 C/W is a safe number. The rating is for open air, so a closed box will make it run hotter. That is why I used 40 C for the inside of the enclosure. I will keep the heat sink away from the LCD, which is only rated to 70 C.</p>
-<h2 id="notes-on-the-numbers">Notes on the Numbers</h2>
-<p><strong>Curiosity Nano (170mA): a derived ceiling, not a datasheet current.</strong> Microchip only lists the PIC's maximum supply current at 3.0V (8.2mA at 64MHz). It does not list a maximum at 5V, so I could not just copy one. The template still needs a maximum, so I built a safe ceiling instead:</p>
-<ul>
-<li>The PIC's absolute-maximum power dissipation is 800mW. At the lowest rail voltage, 800mW / 4.9V = 163.3mA. My PIC pins sink the LED and pull-up currents and barely source anything (only the LCD E line), so this limits the PIC's own supply current.</li>
-<li>The Nano board adds its yellow user LED (1k ohm from the target supply, up to 5.37mA with no LED drop and a -5% resistor) and about 0.1mA for its level shifters and voltage monitor. I rounded that up to 5.5mA.</li>
-<li>163.3 + 5.5 = 168.8mA, which I rounded up to 170mA.</li>
-</ul>
-<p>The real draw should be much lower. The PIC's typical current at 64MHz is 6.7mA (at 3.0V). The 350mA VSS-pin rating is a stress limit, so I did not use it as a current.</p>
-<p><strong>Op amp (0.856mA).</strong> The MCP6002 uses at most 170uA per amplifier (guaranteed at 25 C). The most current its outputs can push through the 10k ohm and 30k ohm feedback resistors is 5.1V / 9.9k ohm = 0.515mA. The +/-30mA "current at supply pins" in the datasheet is an absolute-maximum stress rating, not current it uses, so my first draft's 30mA was too high.</p>
-<p><strong>LCD (3mA + 156mA).</strong> These are the datasheet maximums at 5.0V and 25 C. The ST7066U controller is inside the LCD, so it is only counted once. The backlight is my biggest real load (130mA typical). At 5.1V it could draw a little more than 156mA, but the 25% margin covers that.</p>
-<p><strong>Value types used:</strong></p>
-<ul>
-<li>Datasheet max: a guaranteed limit from the manufacturer's electrical table.</li>
-<li>Calculated bound: Ohm's law with the rail at 5.1V and the resistor at its minimum value.</li>
-<li>Derived ceiling: built from an absolute-maximum rating because no 5V operating maximum is published.</li>
-<li>Typical values are only mentioned for comparison and are never used in the totals.</li>
-</ul>
+<p>N/A. My board runs off a wall adapter.</p>
 <h2 id="conclusions">Conclusions</h2>
-<p>The Triad WSU090-2000 adapter and the LM1086 regulator can power everything on my board at once with the 25% margin. Every remaining-current number is positive, including the class template check (500mA). The regulator has 1.8V of dropout headroom and stays about 54 C below its temperature limit with the HSE14-384225P heat sink. The 5V rail stays between 4.9 and 5.1V, which keeps the LCD backlight inside its rating. My budget is very conservative, mostly because of the 170mA Nano ceiling and the full-brightness backlight. I expect the real board to draw well under the budget, and I will measure it.</p>
-<p><strong>Still needs testing on the prototype (not done yet):</strong></p>
-<ul>
-<li>Total board current, measured in series with the 9V input</li>
-<li>5V rail voltage under full load</li>
-<li>Regulator and heat sink temperature inside the closed enclosure</li>
-<li>Plug fit and seating in the PJ-102AH jack</li>
-</ul>
-<h2 id="downloads">Downloads</h2>
-<ul>
-<li>Spreadsheet with all formulas: <a href="../Fill-A-Bot-Main-Control-Power-Budget.xlsx">Fill-A-Bot-Main-Control-Power-Budget.xlsx</a></li>
-<li>PDF copy of this page: <a href="../Power-Budget.pdf">Power-Budget.pdf</a></li>
-</ul>
-<h2 id="references">References</h2>
-<ol>
-<li><a href="https://embedded-systems-design.bitbucket.io/304/individual-assignments/component-selection/">Component Selection assignment</a> (Part 2: Power Budget) and the class <a href="https://www.dropbox.com/s/wyeqisp0uzyiics/Power%20Budget%20Example.xlsx?dl=0">Power Budget Example</a>.</li>
-<li>Microchip, <a href="https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18F27-47-57Q43-Microcontroller-Data-Sheet-XLP-DS40002147.pdf">PIC18F27/47/57Q43 data sheet, DS40002147H</a>, sections 47.1 and 47.3.2.</li>
-<li>Microchip, <a href="https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/UserGuides/PIC18F57Q43-Curiosity-Nano-HW-UserGuide-DS40002186B.pdf">PIC18F57Q43 Curiosity Nano hardware user guide, DS40002186B</a>, section 3.3.2 and the schematic.</li>
-<li>Microchip, <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf">MCP6001/2/4 datasheet, DS20001733L</a>.</li>
-<li>Newhaven Display, <a href="https://newhavendisplay.com/content/specs/NHD-0216K1Z-FL-YBW.pdf">NHD-0216K1Z-FL-YBW datasheet</a>.</li>
-<li>Advanced Photonix (Luna), <a href="https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf">PDV-P8103 datasheet</a>.</li>
-<li>Texas Instruments, <a href="https://www.ti.com/lit/ds/symlink/lm1086.pdf">LM1086 datasheet, SNVS039J</a>, sections 6.4, 6.5, 7.4.2, and 10.3.</li>
-<li>Triad Magnetics, <a href="https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf">WSU090-2000 datasheet</a>.</li>
-<li>Same Sky, <a href="https://www.sameskydevices.com/product/resource/hse14-384225p.pdf">HSE14-384225P heat sink datasheet</a>.</li>
-<li>Bergquist, <a href="https://www.digikey.com/en/products/detail/bergquist/SP900S-0-009-00-54/307797">SP900S-0.009-00-54 TO-220 pad, DigiKey product page</a>.</li>
-<li>Same Sky, <a href="https://www.sameskydevices.com/product/resource/pj-102ah.pdf">PJ-102AH barrel jack datasheet</a>.</li>
-</ol>
+<p>The 2A adapter and the LM1086 can easily power everything on my board with the 25% margin, and nothing comes out negative. The biggest load is the LCD backlight. The regulator turns about 2W into heat, so it gets a heat sink, which keeps it around 71 C (its limit is 125 C).</p>
+<p>Microchip only lists the PIC's max current at 3V, not 5V, so I used a safe upper estimate of 170mA for the Nano. The real number should be a lot lower, and I'll measure the actual board current once it's built.</p>
+<h2 id="resources">Resources</h2>
+<p>The full power budget spreadsheet is <a href="../Fill-A-Bot-Main-Control-Power-Budget.xlsx">here</a>, and a PDF of this page is <a href="../Power-Budget.pdf">here</a>.</p>
+<p>Datasheets used: <a href="https://www.ti.com/lit/ds/symlink/lm1086.pdf">LM1086</a>, <a href="https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf">Triad WSU090-2000</a>, <a href="https://newhavendisplay.com/content/specs/NHD-0216K1Z-FL-YBW.pdf">NHD-0216K1Z-FL-YBW LCD</a>, <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf">MCP6002</a>, <a href="https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18F27-47-57Q43-Microcontroller-Data-Sheet-XLP-DS40002147.pdf">PIC18F57Q43</a>, <a href="https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf">PDV-P8103</a>, <a href="https://www.sameskydevices.com/product/resource/hse14-384225p.pdf">HSE14-384225P heat sink</a>.</p>
 
 
 
