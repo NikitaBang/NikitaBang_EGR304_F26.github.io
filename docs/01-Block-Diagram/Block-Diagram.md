@@ -29,15 +29,12 @@ Figure 1: Main control board block diagram (click to enlarge). Draw.io file: [ni
 
 | Pin | Use | Connects to |
 |---|---|---|
-| RA0, RA1, RA4, RA3 | Digital input | UP, DOWN, START, STOP buttons (active low, 10k pull-ups) |
-| RA5 | ADC | Cup sensor (op amp output through 1k + 10nF) |
-| RA2 | DAC output | Reference voltage for the op amp gain stage |
+| RA0-RA3 | Digital input | UP, DOWN, START, STOP buttons (active low, 10k pull-ups) |
+| RA5 | ADC | Cup sensor (op amp output) |
 | RD0-RD2 | Digital output | Dispensing, Done, Fault LEDs (active low, 2.2k each) |
 | RC0-RC3 | Digital output | LCD DB4-DB7 |
 | RC4, RC5 | Digital output | LCD RS and E |
 | RB2 / RB1 | I2C SDA / SCL | All 3 ribbon connectors |
-
-START moved from RA2 to RA4 so RA2 can be the DAC output. The full pin table is on my [Component Selection](../02-Component-Selection/Component-Selection.md) page.
 
 ## Ribbon Connectors
 
@@ -70,7 +67,7 @@ The team diagram currently has +5V on pin 4. I left it unconnected because the c
 ## Notes
 
 - I switched from a 4-digit 7-segment display to a 16x2 LCD, because the team requirements need words like Ready, Filling, and Finished. The LCD has its own controller, so the HT16K33 driver is gone. It was discontinued anyway.
-- The op amp is needed because a photoresistor and resistor alone don't count as an analog sensor. U3A buffers the divider and U3B amplifies it with a gain of -3. The PIC's DAC sets the reference, so it can re-zero for the room light.
+- The op amp is needed because a photoresistor and resistor alone don't count as an analog sensor. U3A buffers the divider and U3B amplifies it with a gain of -3 around a 2.5V reference.
 - I switched from the LM7805 to the LM1086 because the LCD backlight needs 4.9 to 5.1V, and a 7805 can be 4.75 to 5.25V.
 
 ## References
