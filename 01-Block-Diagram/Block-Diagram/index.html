@@ -965,19 +965,14 @@
 </thead>
 <tbody>
 <tr>
-<td>RA0, RA1, RA4, RA3</td>
+<td>RA0-RA3</td>
 <td>Digital input</td>
 <td>UP, DOWN, START, STOP buttons (active low, 10k pull-ups)</td>
 </tr>
 <tr>
 <td>RA5</td>
 <td>ADC</td>
-<td>Cup sensor (op amp output through 1k + 10nF)</td>
-</tr>
-<tr>
-<td>RA2</td>
-<td>DAC output</td>
-<td>Reference voltage for the op amp gain stage</td>
+<td>Cup sensor (op amp output)</td>
 </tr>
 <tr>
 <td>RD0-RD2</td>
@@ -1001,7 +996,6 @@
 </tr>
 </tbody>
 </table>
-<p>START moved from RA2 to RA4 so RA2 can be the DAC output. The full pin table is on my <a href="../../02-Component-Selection/Component-Selection/">Component Selection</a> page.</p>
 <h2 id="ribbon-connectors">Ribbon Connectors</h2>
 <p>J1 goes to Cole, J2 to Clay, and J3 to Troy. All three are wired the same and follow the class standard.</p>
 <table>
@@ -1096,7 +1090,7 @@
 <h2 id="notes">Notes</h2>
 <ul>
 <li>I switched from a 4-digit 7-segment display to a 16x2 LCD, because the team requirements need words like Ready, Filling, and Finished. The LCD has its own controller, so the HT16K33 driver is gone. It was discontinued anyway.</li>
-<li>The op amp is needed because a photoresistor and resistor alone don't count as an analog sensor. U3A buffers the divider and U3B amplifies it with a gain of -3. The PIC's DAC sets the reference, so it can re-zero for the room light.</li>
+<li>The op amp is needed because a photoresistor and resistor alone don't count as an analog sensor. U3A buffers the divider and U3B amplifies it with a gain of -3 around a 2.5V reference.</li>
 <li>I switched from the LM7805 to the LM1086 because the LCD backlight needs 4.9 to 5.1V, and a 7805 can be 4.75 to 5.25V.</li>
 </ul>
 <h2 id="references">References</h2>
