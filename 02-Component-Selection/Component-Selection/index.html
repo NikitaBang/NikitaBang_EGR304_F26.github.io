@@ -561,36 +561,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-5v-linear-regulator" class="md-nav__link">
+  <a href="#2-barrel-jack" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 5V Linear Regulator
+      2. Barrel Jack
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-cup-sensor-analog" class="md-nav__link">
+  <a href="#3-5v-linear-regulator" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Cup Sensor (Analog)
+      3. 5V Linear Regulator
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-op-amp" class="md-nav__link">
+  <a href="#4-regulator-heat-sink" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Op Amp
+      4. Regulator Heat Sink
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-display" class="md-nav__link">
+  <a href="#5-cup-sensor-analog" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Display
+      5. Cup Sensor (Analog)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-op-amp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Op Amp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-display" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Display
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ribbon-cable-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Ribbon Cable Header
     </span>
   </a>
   
@@ -600,6 +627,15 @@
   <a href="#pin-assignments" class="md-nav__link">
     <span class="md-ellipsis">
       Pin Assignments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Budget
     </span>
   </a>
   
@@ -860,36 +896,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-5v-linear-regulator" class="md-nav__link">
+  <a href="#2-barrel-jack" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 5V Linear Regulator
+      2. Barrel Jack
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-cup-sensor-analog" class="md-nav__link">
+  <a href="#3-5v-linear-regulator" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Cup Sensor (Analog)
+      3. 5V Linear Regulator
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-op-amp" class="md-nav__link">
+  <a href="#4-regulator-heat-sink" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Op Amp
+      4. Regulator Heat Sink
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-display" class="md-nav__link">
+  <a href="#5-cup-sensor-analog" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Display
+      5. Cup Sensor (Analog)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-op-amp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Op Amp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-display" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Display
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ribbon-cable-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Ribbon Cable Header
     </span>
   </a>
   
@@ -899,6 +962,15 @@
   <a href="#pin-assignments" class="md-nav__link">
     <span class="md-ellipsis">
       Pin Assignments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Budget
     </span>
   </a>
   
@@ -937,8 +1009,8 @@
 
 
 <h1 id="component-selection">Component Selection</h1>
-<p><strong>Everything on this page is for my individual subsystem, the Main Control Board.</strong></p>
-<p>My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there, runs the team I2C bus, and shows the amount and status on a display. Prices are from DigiKey for one part (October 2026).</p>
+<p><strong>My subsystem: Main Control Board.</strong> This is an individual assignment, so this page covers the blocks in my individual block diagram. Clay's pump, Cole's flow sensor, and Troy's load cell are on their own Component Selection pages. <strong>The parts I picked for my board are in bold.</strong></p>
+<p>My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there, runs the team I2C bus, and shows the amount and status on a display. The assignment says not to make tables for the microcontroller, buttons, LEDs, resistors, or capacitors, so those don't have tables. Prices are from DigiKey for one part (October 2026).</p>
 <h2 id="1-power-source">1. Power Source</h2>
 <table>
 <thead>
@@ -952,7 +1024,7 @@
 <tr>
 <td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../adapter-triad-wsu090.jpg" data-desc-position="bottom"><img alt="Triad WSU090 adapter" src="../adapter-triad-wsu090.jpg" width="110"></a><br>Option 1.<br>Triad Magnetics WSU090-1300<br>9V 1.3A wall adapter<br>$8.65/each<br><a href="https://www.digikey.com/en/products/detail/triad-magnetics/WSU090-1300/3094977">DigiKey</a> / <a href="https://catalog.triadmagnetics.com/Asset/WSU090-1300.pdf">Datasheet</a></td>
 <td>- Most inexpensive adapter<br>- In stock at DigiKey<br>- Long 6 ft cord</td>
-<td>- Less than the regulator's 1.5A rating<br>- Output can be off by 5%<br>- Big body blocks the next outlet</td>
+<td>- Fine for my real load, but less than the regulator's 1.5A rating<br>- Output can be off by 5%<br>- Big body blocks the next outlet</td>
 </tr>
 <tr>
 <td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../adapter-meanwell-gst18u09.jpg" data-desc-position="bottom"><img alt="MEAN WELL GST18U adapter" src="../adapter-meanwell-gst18u09.jpg" width="110"></a><br>Option 2.<br>MEAN WELL GST18U09-P1J<br>9V 2A wall adapter<br>$14.10/each<br><a href="https://www.digikey.com/en/products/detail/mean-well-usa-inc/GST18U09-P1J/7703633">DigiKey</a> / <a href="https://www.meanwellusa.com/upload/pdf/GST18U/GST18U-spec.pdf">Datasheet</a></td>
@@ -960,15 +1032,44 @@
 <td>- Most expensive adapter<br>- Out of stock at DigiKey<br>- Short 1.2 m cord</td>
 </tr>
 <tr>
-<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../adapter-triad-wsu090.jpg" data-desc-position="bottom"><img alt="Triad WSU090 adapter" src="../adapter-triad-wsu090.jpg" width="110"></a><br>Option 3.<br>Triad Magnetics WSU090-2000<br>9V 2A wall adapter<br>$12.43/each<br><a href="https://www.digikey.com/en/products/detail/triad-magnetics/WSU090-2000/3094951">DigiKey</a> / <a href="https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf">Datasheet</a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../adapter-triad-wsu090.jpg" data-desc-position="bottom"><img alt="Triad WSU090 adapter" src="../adapter-triad-wsu090.jpg" width="110"></a><br><strong>Option 3.</strong><br><strong>Triad Magnetics WSU090-2000</strong><br><strong>9V 2A wall adapter</strong><br><strong>$12.43/each</strong><br><a href="https://www.digikey.com/en/products/detail/triad-magnetics/WSU090-2000/3094951">DigiKey</a> / <a href="https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf">Datasheet</a></td>
 <td>- 2A covers the regulator's full 1.5A<br>- In stock at DigiKey<br>- Long 6 ft cord</td>
 <td>- Costs more than the 1.3A one<br>- Output can be off by 5%<br>- Only rated up to 40 C</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Choice:</strong> Option 3: Triad WSU090-2000</p>
-<p><strong>Rationale:</strong> The class power budget checks the adapter against the regulator's full 1.5A rating, so I need at least 1.5A. The 2A Triad passes that, it's in stock, and it costs less than the MEAN WELL. It has the 5.5 x 2.1 mm center-positive plug that fits my barrel jack.</p>
-<h2 id="2-5v-linear-regulator">2. 5V Linear Regulator</h2>
+<p><strong>Choice:</strong> <strong>Option 3: Triad WSU090-2000 (Main Control Board)</strong></p>
+<p><strong>Rationale:</strong> The LM1086 regulator is rated for up to 1.5A, but that's only how much it can supply. It's not what my board actually uses. My board uses 342.6mA. With the 25% safety margin that's 428.25mA, and the regulator uses about 10mA itself, so the adapter has to give about 438mA. All three adapters can do that. The class power budget template also checks the adapter against the regulator's full 1.5A rating, so I picked a 2A adapter to pass that check too (2000mA - 1500mA = 500mA left). The Triad is in stock and costs less than the MEAN WELL, and it has the 5.5 x 2.1 mm center-positive plug. The full numbers are on my <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a> page.</p>
+<h2 id="2-barrel-jack">2. Barrel Jack</h2>
+<table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../jack-pj-102ah.jpg" data-desc-position="bottom"><img alt="Same Sky PJ-102AH jack" src="../jack-pj-102ah.jpg" width="110"></a><br><strong>Option 1.</strong><br><strong>Same Sky PJ-102AH</strong><br><strong>DC barrel jack, 2.0 mm pin, through hole</strong><br><strong>$0.77/each</strong><br><a href="https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/PJ-102AH/408448">DigiKey</a> / <a href="https://www.sameskydevices.com/product/resource/pj-102ah.pdf">Datasheet</a></td>
+<td>- Rated 5A, way more than my board needs<br>- Inexpensive<br>- Lots in stock at DigiKey</td>
+<td>- 2.0 mm pin, so I have to check how tight the 2.1 mm plug fits<br>- Right-angle part has to sit at the board edge<br>- Costs a little more than the PJ-102A</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../jack-pj-102a.jpg" data-desc-position="bottom"><img alt="Same Sky PJ-102A jack" src="../jack-pj-102a.jpg" width="110"></a><br>Option 2.<br>Same Sky PJ-102A<br>DC barrel jack, 2.0 mm pin, through hole<br>$0.70/each<br><a href="https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/PJ-102A/275425">DigiKey</a> / <a href="https://www.sameskydevices.com/product/resource/pj-102a.pdf">Datasheet</a></td>
+<td>- Most inexpensive jack<br>- Same size and pins as the PJ-102AH<br>- Lots in stock at DigiKey</td>
+<td>- Only rated 2.5A<br>- Same 2.0 mm pin fit question<br>- Less extra current room than the AH version</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../jack-rapc722x.jpg" data-desc-position="bottom"><img alt="Switchcraft RAPC722X jack" src="../jack-rapc722x.jpg" width="110"></a><br>Option 3.<br>Switchcraft RAPC722X<br>DC barrel jack, through hole<br>$2.23/each<br><a href="https://www.digikey.com/en/products/detail/switchcraft-inc/RAPC722X/804747">DigiKey</a> / <a href="https://www.switchcraft.com/assets/1/24/rapc722x_cd.pdf">Datasheet</a></td>
+<td>- Rated 5A<br>- Very common jack<br>- Lots in stock at DigiKey</td>
+<td>- Most expensive jack, about 3x the others<br>- Different footprint than the Same Sky jacks<br>- No real advantage for my 0.44A load</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Choice:</strong> <strong>Option 1: Same Sky PJ-102AH (Main Control Board)</strong></p>
+<p><strong>Rationale:</strong> The course requires a barrel jack for the 9V adapter. The PJ-102AH is rated 5A, so it has a lot of room over my 0.44A. It's inexpensive and it's already in my block diagram. DigiKey lists its mating plug as 5.5 x 2.0 mm, and my adapter plug is 5.5 x 2.1 mm, so I'll check the fit when the parts come in.</p>
+<h2 id="3-5v-linear-regulator">3. 5V Linear Regulator</h2>
 <table>
 <thead>
 <tr>
@@ -989,15 +1090,15 @@
 <td>- Output can be 4.75 to 5.25V<br>- About 2V dropout<br>- Gets just as hot as the others</td>
 </tr>
 <tr>
-<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../regulator-ti-to220.jpg" data-desc-position="bottom"><img alt="TI TO-220 regulator" src="../regulator-ti-to220.jpg" width="110"></a><br>Option 3.<br>Texas Instruments LM1086IT-5.0/NOPB<br>5V 1.5A low dropout, TO-220<br>$2.58/each<br><a href="https://www.digikey.com/en/products/detail/texas-instruments/LM1086IT-5-0-NOPB/363580">DigiKey</a> / <a href="https://www.ti.com/lit/ds/symlink/lm1086.pdf">Datasheet</a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../regulator-ti-to220.jpg" data-desc-position="bottom"><img alt="TI TO-220 regulator" src="../regulator-ti-to220.jpg" width="110"></a><br><strong>Option 3.</strong><br><strong>Texas Instruments LM1086IT-5.0/NOPB</strong><br><strong>5V 1.5A low dropout, TO-220</strong><br><strong>$2.58/each</strong><br><a href="https://www.digikey.com/en/products/detail/texas-instruments/LM1086IT-5-0-NOPB/363580">DigiKey</a> / <a href="https://www.ti.com/lit/ds/symlink/lm1086.pdf">Datasheet</a></td>
 <td>- Output stays 4.9 to 5.1V<br>- Only 1.5V max dropout<br>- In stock at DigiKey</td>
-<td>- Needs a 10uF tantalum output cap<br>- Different pinout than a 7805<br>- Costs a little more</td>
+<td>- Needs an output cap with some ESR to stay stable (TI recommends 10uF tantalum or 50uF aluminum)<br>- Different pinout than a 7805<br>- Costs a little more</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Choice:</strong> Option 3: TI LM1086IT-5.0/NOPB</p>
-<p><strong>Rationale:</strong> My LCD backlight needs 4.9 to 5.1V, and the LM1086 is the only one that stays in that range. The 7805s can go up to 5.25V. It turns about 2W into heat at my full budget, so I'm adding a Same Sky HSE14-384225P heat sink with an insulating pad. That keeps it around 71 C, well under its 125 C limit.</p>
-<h2 id="3-cup-sensor-analog">3. Cup Sensor (Analog)</h2>
+<p><strong>Choice:</strong> <strong>Option 3: TI LM1086IT-5.0/NOPB (Main Control Board)</strong></p>
+<p><strong>Rationale:</strong> My LCD backlight needs 4.9 to 5.1V, and the LM1086 is the only one here that stays in that range. The 7805s can go up to 5.25V. I'll put a 10uF tantalum capacitor on the output, which is one of the two options TI recommends for stability.</p>
+<h2 id="4-regulator-heat-sink">4. Regulator Heat Sink</h2>
 <table>
 <thead>
 <tr>
@@ -1008,7 +1109,104 @@
 </thead>
 <tbody>
 <tr>
-<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../sensor-pdv-p8103.jpg" data-desc-position="bottom"><img alt="PDV-P8103 photoresistor" src="../sensor-pdv-p8103.jpg" width="110"></a><br>Option 1.<br>Advanced Photonix PDV-P8103<br>Photoresistor (LDR)<br>$0.72/each<br><a href="https://www.digikey.com/en/products/detail/advanced-photonix/PDV-P8103/480610">DigiKey</a> / <a href="https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf">Datasheet</a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../heatsink-hse14-384225p.jpg" data-desc-position="bottom"><img alt="Same Sky HSE14-384225P heat sink" src="../heatsink-hse14-384225p.jpg" width="110"></a><br><strong>Option 1.</strong><br><strong>Same Sky HSE14-384225P</strong><br><strong>TO-220 heat sink</strong><br><strong>$2.24/each</strong><br><a href="https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/HSE14-384225P/26460932">DigiKey</a> / <a href="https://www.sameskydevices.com/product/resource/hse14-384225p.pdf">Datasheet</a></td>
+<td>- 10 C/W at 1W in still air<br>- Small 41.6 x 25 mm footprint<br>- In stock at DigiKey</td>
+<td>- 38.1 mm tall<br>- Needs an insulating pad since the LM1086 tab is at 5V<br>- Not as strong as the Boyd parts</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../heatsink-boyd-529802b02500g.jpg" data-desc-position="bottom"><img alt="Boyd 529802B02500G heat sink" src="../heatsink-boyd-529802b02500g.jpg" width="110"></a><br>Option 2.<br>Boyd 529802B02500G<br>TO-220 heat sink<br>$2.02/each<br><a href="https://www.digikey.com/en/products/detail/boyd-laconia-llc/529802B02500G/1216357">DigiKey</a> / <a href="https://info.boydcorp.com/hubfs/Thermal/Air-Cooling/Boyd-Board-Level-Heatsinks-Catalog.pdf">Catalog</a></td>
+<td>- Lower thermal resistance (3.7 C/W at a 75 C rise)<br>- Most inexpensive heat sink<br>- Same size footprint</td>
+<td>- Out of stock at DigiKey<br>- Also 38.1 mm tall<br>- More cooling than I need</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../heatsink-boyd-530002b02500g.jpg" data-desc-position="bottom"><img alt="Boyd 530002B02500G heat sink" src="../heatsink-boyd-530002b02500g.jpg" width="110"></a><br>Option 3.<br>Boyd 530002B02500G<br>TO-220 heat sink<br>$4.03/each<br><a href="https://www.digikey.com/en/products/detail/boyd-laconia-llc/530002B02500G/1216384">DigiKey</a> / <a href="https://info.boydcorp.com/hubfs/Thermal/Air-Cooling/Boyd-Board-Level-Heatsinks-Catalog.pdf">Catalog</a></td>
+<td>- Lowest thermal resistance (2.6 C/W at a 75 C rise)<br>- In stock at DigiKey<br>- Same size footprint</td>
+<td>- 63.5 mm tall, hard to fit in a box<br>- Most expensive heat sink<br>- Way more cooling than I need</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Choice:</strong> <strong>Option 1: Same Sky HSE14-384225P (Main Control Board)</strong></p>
+<p><strong>Rationale:</strong> It's in stock, small enough for my board, and enough to keep the regulator cool. The Boyd 529802B02500G is out of stock, and the taller Boyd is way bigger than I need. The Boyd numbers are at a 75 C rise, so they aren't measured the same way as the Same Sky number.</p>
+<p>Here is how I checked the regulator temperature:</p>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>Value</th>
+<th>Where it comes from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Highest adapter voltage</td>
+<td>9.45V</td>
+<td>9V + 5% (Triad datasheet)</td>
+</tr>
+<tr>
+<td>Lowest regulator output</td>
+<td>4.9V</td>
+<td>LM1086 datasheet</td>
+</tr>
+<tr>
+<td>Output current</td>
+<td>428.25mA</td>
+<td>My power budget, with the 25% margin</td>
+</tr>
+<tr>
+<td>Regulator's own current</td>
+<td>10mA max</td>
+<td>LM1086 datasheet</td>
+</tr>
+<tr>
+<td>Heat = (9.45 - 4.9) x 0.42825 + 9.45 x 0.010</td>
+<td>2.04W</td>
+<td>Calculated</td>
+</tr>
+<tr>
+<td>Junction to case</td>
+<td>4.0 C/W</td>
+<td>LM1086 datasheet (TO-220, output section)</td>
+</tr>
+<tr>
+<td>Insulating pad</td>
+<td>1.0 C/W</td>
+<td>My guess (a Bergquist SP900S pad is listed at 0.61 C/W)</td>
+</tr>
+<tr>
+<td>Heat sink</td>
+<td>10 C/W</td>
+<td>HSE14-384225P datasheet (still air, 1W)</td>
+</tr>
+<tr>
+<td>Air inside the enclosure</td>
+<td>40 C</td>
+<td>My assumption</td>
+</tr>
+<tr>
+<td>Junction temp = 40 + 2.04 x (4.0 + 1.0 + 10)</td>
+<td>about 71 C</td>
+<td>Calculated</td>
+</tr>
+<tr>
+<td>Limit</td>
+<td>125 C</td>
+<td>LM1086 datasheet (control section)</td>
+</tr>
+</tbody>
+</table>
+<p>So it should stay well under the limit. The heat sink datasheet shows 19.2 C of rise at 2W (9.6 C/W), so using 10 C/W is a little on the safe side. I'll still check the real temperature once the board is built.</p>
+<h2 id="5-cup-sensor-analog">5. Cup Sensor (Analog)</h2>
+<table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../sensor-pdv-p8103.jpg" data-desc-position="bottom"><img alt="PDV-P8103 photoresistor" src="../sensor-pdv-p8103.jpg" width="110"></a><br><strong>Option 1.</strong><br><strong>Advanced Photonix PDV-P8103</strong><br><strong>Photoresistor (LDR)</strong><br><strong>$0.72/each</strong><br><a href="https://www.digikey.com/en/products/detail/advanced-photonix/PDV-P8103/480610">DigiKey</a> / <a href="https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf">Datasheet</a></td>
 <td>- Big change between light and shadow<br>- Sees normal room light<br>- Used it in my photoresistor lab</td>
 <td>- Slow (about 60ms)<br>- Room light changes the reading<br>- Each one is a little different</td>
 </tr>
@@ -1024,9 +1222,9 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Choice:</strong> Option 1: Advanced Photonix PDV-P8103</p>
+<p><strong>Choice:</strong> <strong>Option 1: Advanced Photonix PDV-P8103 (Main Control Board)</strong></p>
 <p><strong>Rationale:</strong> It's simple, inexpensive, and I already know how it works from lab. It sits under the cup spot with a 10k resistor, and a cup's shadow drops the voltage. A divider alone doesn't count as an analog sensor for this class, so it goes through the op amp below before the ADC. I'll still need to test it with our real cups, since a clear cup may not make much of a shadow.</p>
-<h2 id="4-op-amp">4. Op Amp</h2>
+<h2 id="6-op-amp">6. Op Amp</h2>
 <table>
 <thead>
 <tr>
@@ -1037,7 +1235,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../opamp-mcp6002-ip.jpg" data-desc-position="bottom"><img alt="MCP6002 op amp" src="../opamp-mcp6002-ip.jpg" width="110"></a><br>Option 1.<br>Microchip MCP6002-I/P<br>Dual op amp, 8-pin DIP<br>$0.45/each<br><a href="https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875">DigiKey</a> / <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf">Datasheet</a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../opamp-mcp6002-ip.jpg" data-desc-position="bottom"><img alt="MCP6002 op amp" src="../opamp-mcp6002-ip.jpg" width="110"></a><br><strong>Option 1.</strong><br><strong>Microchip MCP6002-I/P</strong><br><strong>Dual op amp, 8-pin DIP</strong><br><strong>$0.45/each</strong><br><a href="https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875">DigiKey</a> / <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf">Datasheet</a></td>
 <td>- Rail-to-rail on 5V<br>- Two op amps in one chip<br>- Very low current</td>
 <td>- Higher offset voltage<br>- Only 1MHz bandwidth<br>- Doesn't quite reach the rails</td>
 </tr>
@@ -1053,9 +1251,9 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Choice:</strong> Option 1: Microchip MCP6002-I/P</p>
+<p><strong>Choice:</strong> <strong>Option 1: Microchip MCP6002-I/P (Main Control Board)</strong></p>
 <p><strong>Rationale:</strong> A cup sensor is slow, so I don't need a fast op amp. The MCP6002 is inexpensive, comes in a DIP, and has two op amps. One buffers the LDR, and the other amplifies it with a gain of -3 around a 2.5V reference (Rin 10k, Rf 30k). I'll set the cup threshold in code after testing.</p>
-<h2 id="5-display">5. Display</h2>
+<h2 id="7-display">7. Display</h2>
 <table>
 <thead>
 <tr>
@@ -1076,14 +1274,43 @@
 <td>- 4 of them are too wide for my board<br>- Needs a driver chip<br>- Only 8 characters</td>
 </tr>
 <tr>
-<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../display-lcd-nhd-0216k1z.jpg" data-desc-position="bottom"><img alt="16x2 LCD" src="../display-lcd-nhd-0216k1z.jpg" width="110"></a><br>Option 3.<br>Newhaven Display NHD-0216K1Z-FL-YBW<br>16x2 character LCD<br>$7.83/each<br><a href="https://www.digikey.com/en/products/detail/newhaven-display-intl/NHD-0216K1Z-FL-YBW/1701171">DigiKey</a> / <a href="https://newhavendisplay.com/content/specs/NHD-0216K1Z-FL-YBW.pdf">Datasheet</a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../display-lcd-nhd-0216k1z.jpg" data-desc-position="bottom"><img alt="16x2 LCD" src="../display-lcd-nhd-0216k1z.jpg" width="110"></a><br><strong>Option 3.</strong><br><strong>Newhaven Display NHD-0216K1Z-FL-YBW</strong><br><strong>16x2 character LCD</strong><br><strong>$7.83/each</strong><br><a href="https://www.digikey.com/en/products/detail/newhaven-display-intl/NHD-0216K1Z-FL-YBW/1701171">DigiKey</a> / <a href="https://newhavendisplay.com/content/specs/NHD-0216K1Z-FL-YBW.pdf">Datasheet</a></td>
 <td>- Shows the amount, units, and status at once<br>- Built-in controller, no driver chip<br>- Backlight makes it easy to read</td>
 <td>- Backlight uses up to 156mA<br>- Needs a contrast pot<br>- Uses 6 pins</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Choice:</strong> Option 3: Newhaven NHD-0216K1Z-FL-YBW</p>
+<p><strong>Choice:</strong> <strong>Option 3: Newhaven NHD-0216K1Z-FL-YBW (Main Control Board)</strong></p>
 <p><strong>Rationale:</strong> Our team requirements say the display has to show the amount, the units, and words like Ready, Filling, and Finished. The LCD is the only option that can do all of that at once. It wires straight to the Nano in 4-bit mode (RC0-RC5), so I don't need a driver chip or an I2C backpack.</p>
+<h2 id="8-ribbon-cable-header">8. Ribbon Cable Header</h2>
+<table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../header-wurth-61200821621.jpg" data-desc-position="bottom"><img alt="Wurth 61200821621 header" src="../header-wurth-61200821621.jpg" width="110"></a><br><strong>Option 1.</strong><br><strong>Wurth Elektronik 61200821621</strong><br><strong>2x4 box header, 2.54 mm</strong><br><strong>$1.03/each</strong><br><a href="https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61200821621/4846916">DigiKey</a> / <a href="https://www.we-online.com/components/products/datasheet/61200821621.pdf">Datasheet</a></td>
+<td>- Most inexpensive header<br>- Keying slot so the ribbon only goes in one way<br>- Gold-plated contacts</td>
+<td>- No latch to lock the cable in<br>- Shorter shroud than the 3M part<br>- I need three of them (J1-J3)</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../header-3m-n2508-6002-rb.jpg" data-desc-position="bottom"><img alt="3M N2508-6002-RB header" src="../header-3m-n2508-6002-rb.jpg" width="110"></a><br>Option 2.<br>3M N2508-6002-RB<br>2x4 box header, 2.54 mm<br>$2.31/each<br><a href="https://www.digikey.com/en/products/detail/3m/N2508-6002-RB/2609703">DigiKey</a> / <a href="https://multimedia.3m.com/mws/media/330367O/3m-four-wall-header-2500-series-ts-0770.pdf">Datasheet</a></td>
+<td>- Keyed so the cable only fits one way<br>- Rated 5A per contact<br>- Wide -55 to 105 C range</td>
+<td>- Most expensive header, about 2x the others<br>- Fewer in stock<br>- No latch to lock the cable in</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../header-amphenol-75869-132lf.jpg" data-desc-position="bottom"><img alt="Amphenol 75869-132LF header" src="../header-amphenol-75869-132lf.jpg" width="110"></a><br>Option 3.<br>Amphenol ICC 75869-132LF<br>2x4 box header, 2.54 mm<br>$1.10/each<br><a href="https://www.digikey.com/en/products/detail/amphenol-icc-fci/75869-132LF/1524248">DigiKey</a> / <a href="https://www.waldom.com/upload/parts/datasheets/mf-fci/fci-75869-132lf.pdf">Datasheet</a></td>
+<td>- Almost as inexpensive as the Wurth<br>- Keyed so the cable only fits one way<br>- Lots in stock at DigiKey</td>
+<td>- No latch to lock the cable in<br>- Costs a little more than the Wurth<br>- Datasheet link is from a distributor, not Amphenol</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Choice:</strong> <strong>Option 1: Wurth Elektronik 61200821621 (Main Control Board)</strong></p>
+<p><strong>Rationale:</strong> The class uses an 8-wire ribbon cable with a 2x4 connector between boards, and I need three (J1 to Cole, J2 to Clay, J3 to Troy). The Wurth is the least expensive, it's keyed so the cable can't go in backwards, and it's the part already in my block diagram.</p>
 <h2 id="pin-assignments">Pin Assignments</h2>
 <table>
 <thead>
@@ -1095,24 +1322,54 @@
 </thead>
 <tbody>
 <tr>
-<td>RA0-RA3</td>
-<td>Digital input</td>
-<td>UP, DOWN, START, STOP buttons (10k pull-ups)</td>
+<td>RA0</td>
+<td>Digital input (active low)</td>
+<td>SW1 UP button, 10k pull-up</td>
+</tr>
+<tr>
+<td>RA1</td>
+<td>Digital input (active low)</td>
+<td>SW2 DOWN button, 10k pull-up</td>
+</tr>
+<tr>
+<td>RA2</td>
+<td>Digital input (active low)</td>
+<td>SW3 START button, 10k pull-up</td>
+</tr>
+<tr>
+<td>RA3</td>
+<td>Digital input (active low)</td>
+<td>SW4 STOP button, 10k pull-up</td>
 </tr>
 <tr>
 <td>RA5</td>
-<td>ADC</td>
+<td>Analog input (ADC)</td>
 <td>Cup sensor (op amp output)</td>
 </tr>
 <tr>
-<td>RD0-RD2</td>
-<td>Digital output</td>
-<td>Dispensing, Done, Fault LEDs</td>
+<td>RD0</td>
+<td>Digital output (active low)</td>
+<td>D2 Dispensing LED (yellow), 2.2k resistor</td>
 </tr>
 <tr>
-<td>RB2 / RB1</td>
-<td>I2C SDA / SCL</td>
-<td>Ribbon connectors J1-J3, pins 1 and 2</td>
+<td>RD1</td>
+<td>Digital output (active low)</td>
+<td>D3 Done LED (green), 2.2k resistor</td>
+</tr>
+<tr>
+<td>RD2</td>
+<td>Digital output (active low)</td>
+<td>D4 Fault LED (red), 2.2k resistor</td>
+</tr>
+<tr>
+<td>RB2</td>
+<td>I2C SDA</td>
+<td>J1-J3 pin 1, 4.7k pull-up</td>
+</tr>
+<tr>
+<td>RB1</td>
+<td>I2C SCL</td>
+<td>J1-J3 pin 2, 4.7k pull-up</td>
 </tr>
 <tr>
 <td>RC0-RC3</td>
@@ -1137,21 +1394,26 @@
 <tr>
 <td>GND</td>
 <td>Ground</td>
-<td>Board ground and ribbon pin 8</td>
+<td>Board ground and J1-J3 pin 8</td>
 </tr>
 </tbody>
 </table>
+<p>Ribbon pins 3-7 aren't connected on my board.</p>
+<h2 id="power-budget">Power Budget</h2>
+<p>My <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a> is on its own page. The assignment says it's optional for the first submission, but I already finished it.</p>
 <h2 id="references">References</h2>
 <ol>
 <li>Triad Magnetics WSU090-2000: <a href="https://www.digikey.com/en/products/detail/triad-magnetics/WSU090-2000/3094951">DigiKey</a>, <a href="https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf">datasheet</a></li>
+<li>Same Sky PJ-102AH: <a href="https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/PJ-102AH/408448">DigiKey</a>, <a href="https://www.sameskydevices.com/product/resource/pj-102ah.pdf">datasheet</a></li>
 <li>TI LM1086IT-5.0/NOPB: <a href="https://www.digikey.com/en/products/detail/texas-instruments/LM1086IT-5-0-NOPB/363580">DigiKey</a>, <a href="https://www.ti.com/lit/ds/symlink/lm1086.pdf">datasheet</a></li>
-<li>Same Sky HSE14-384225P heat sink: <a href="https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/HSE14-384225P/26460932">DigiKey</a>, <a href="https://www.sameskydevices.com/product/resource/hse14-384225p.pdf">datasheet</a></li>
+<li>Same Sky HSE14-384225P: <a href="https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/HSE14-384225P/26460932">DigiKey</a>, <a href="https://www.sameskydevices.com/product/resource/hse14-384225p.pdf">datasheet</a></li>
 <li>Advanced Photonix PDV-P8103: <a href="https://www.digikey.com/en/products/detail/advanced-photonix/PDV-P8103/480610">DigiKey</a>, <a href="https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf">datasheet</a></li>
 <li>Microchip MCP6002-I/P: <a href="https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875">DigiKey</a>, <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf">datasheet</a></li>
 <li>Newhaven NHD-0216K1Z-FL-YBW: <a href="https://www.digikey.com/en/products/detail/newhaven-display-intl/NHD-0216K1Z-FL-YBW/1701171">DigiKey</a>, <a href="https://newhavendisplay.com/content/specs/NHD-0216K1Z-FL-YBW.pdf">datasheet</a></li>
+<li>Wurth Elektronik 61200821621: <a href="https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61200821621/4846916">DigiKey</a>, <a href="https://www.we-online.com/components/products/datasheet/61200821621.pdf">datasheet</a></li>
 <li>Microchip PIC18F57Q43 Curiosity Nano: <a href="https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/UserGuides/PIC18F57Q43-Curiosity-Nano-HW-UserGuide-DS40002186B.pdf">user guide</a></li>
 </ol>
-<p>Part photos are from DigiKey.</p>
+<p>Part photos are from DigiKey and may not show the exact part.</p>
 
 
 
