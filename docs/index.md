@@ -1,38 +1,33 @@
 ---
 title: Welcome
-tags:
-- tag1
-- tag2
 ---
 <center>
 <font size="6">Nikita Bangiyev Datasheet</font><br>
 as part of<br>
-<font size= "8"> Project Name</font><br>
+<font size="8">Fill-A-Bot</font><br>
 for<br>
-<font size= "5"> Team 201 </font><br>
+<font size="5">Team 201</font><br>
 
-**Submission: 09, 02, 2026**
+**Updated: October 16, 2026**
 </center>
 
 ## Introduction
 
-* This needs to be updated so that a reader gets an idea of the purpose of this datasheet.
+This is my individual datasheet for EGR 304. It shows my part of our team project, the parts I picked for my board, and how my board is powered.
 
 ### Project Summary
 
-* This needs to be updated to reflect <ins>your version</ins> of the team project, so when shared not via the team's report, the reader gets an idea of the direction of the project and how your work will contribute to the overall success.
-* Add context that ties into the link to your [team report.](https://embedded-systems-design.github.io/EGR304TeamTemplate/)
+Fill-A-Bot is our team's automatic liquid dispenser. You pick how much liquid you want, press start, and it fills your cup and stops on its own. Each of us builds our own board, and the boards talk to each other over a ribbon cable. Our full team report is on the [Team 201 website](https://egr304-2026-f-201.github.io/).
 
+* Nikita Bangiyev: Main Control Board (me)
+* Cole Trask: flow sensing
+* Clay Belsher: pump control
+* Troy Reynolds: liquid amount sensing
 
 ### My Contribution
 
-* [Block Diagram](01-Block-Diagram/Block-Diagram.md): my individual block diagram for the main control board
-* [Component Selection](02-Component-Selection/Component-Selection.md): the parts I picked for the main control board and why
-* [Power Budget](05-Power-Budget/Power-Budget.md): current, voltage, and heat check for my board
+I'm doing the Main Control Board. It reads the UP, DOWN, START, and STOP buttons, uses a photoresistor and an op amp to check that a cup is in place, talks to my teammates' boards over I2C, and shows the amount and status on a 16x2 LCD.
 
-* This needs to be updated to reflect a team introduction
-* Content should also help an unfamiliar reader navigate to areas of interest. Information like:
-
-To review the details listed of the material used to construct the subsection, you can review it in the ["BOM"](https://embedded-systems-design.github.io/EGR304DataSheetTemplate/03-BOM/BOM/) section of the datasheet.
-
-For all the sections
+* [Block Diagram](01-Block-Diagram/Block-Diagram.md): how my board is laid out and connected
+* [Component Selection](02-Component-Selection/Component-Selection.md): the parts I picked for my board and why
+* [Power Budget](05-Power-Budget/Power-Budget.md): how much current my board needs and how it's powered
