@@ -26,7 +26,7 @@
 
     
       
-        <title>Schematic - EGR 304 Nikita Bangiyev Data Sheet</title>
+        <title>Schematics - EGR 304 Nikita Bangiyev Data Sheet</title>
       
     
     
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#schematics" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Schematic
+              Schematics
             
           </span>
         </div>
@@ -604,12 +604,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    Schematic
+    Schematics
   </span>
   
 
@@ -620,7 +622,7 @@
         
   
   <span class="md-ellipsis">
-    Schematic
+    Schematics
   </span>
   
 
@@ -632,6 +634,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -640,18 +644,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#ribbon-cables" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Ribbon Cables
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resouces" class="md-nav__link">
+  <a href="#files" class="md-nav__link">
     <span class="md-ellipsis">
-      Resouces
+      Files
     </span>
   </a>
   
@@ -792,6 +796,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -800,18 +806,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#ribbon-cables" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Ribbon Cables
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resouces" class="md-nav__link">
+  <a href="#files" class="md-nav__link">
     <span class="md-ellipsis">
-      Resouces
+      Files
     </span>
   </a>
   
@@ -840,14 +846,51 @@
   
 
 
-  <h1>Schematic</h1>
-
-<h2 id="overview">Overview</h2>
-<p>This schematic is design to support .... (highlight functionally, power, and controller).</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Screenshot.png" data-desc-position="bottom"><img alt="schematic" height:_300_="height:&quot;300;&quot;" src="../Screenshot.png" style="style" width:_350_="width:&quot;350&quot;"></a>
-<strong>Figure ##:</strong> Showing a example schematic.</p>
-<h2 id="resouces">Resouces</h2>
-<p>The schematic as a PDF download is available <a href="../ExampleSchematic.pdf"><em>here</em></a>, and the Zip folder of the project <a href="../dummyZip.zip"><em>here</em></a>.</p>
+<h1 id="schematics">Schematics</h1>
+<p>This is the schematic for my Main Control Board. It has the 9-12V power input and 5V regulator, the Curiosity Nano, the cup sensor with the op amp, the LCD, the buttons and LEDs, and the three ribbon cables that connect to my teammates' boards over UART.</p>
+<p></p>
+<p>Figure 1: Main Control Board schematic (click to enlarge)</p>
+<h2 id="ribbon-cables">Ribbon Cables</h2>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Teammate</th>
+<th>Pin 1</th>
+<th>Pin 2</th>
+<th>Pin 8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>J1</td>
+<td>Cole</td>
+<td>TX (RC6)</td>
+<td>RX (RC7)</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>J2</td>
+<td>Clay</td>
+<td>TX (RD3)</td>
+<td>RX (RD4)</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>J3</td>
+<td>Troy</td>
+<td>TX (RF6)</td>
+<td>RX (RF5)</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table>
+<p>Pin 1 is my TX going to their RX, and pin 2 is their TX coming into my RX.</p>
+<h2 id="files">Files</h2>
+<ul>
+<li><a href="../Nikita-Main-Control-Schematic.pdf">Schematic PDF</a></li>
+<li><a href="../EGR304_Main_Control_Nikita.zip">KiCad project ZIP</a></li>
+</ul>
 
 
 
