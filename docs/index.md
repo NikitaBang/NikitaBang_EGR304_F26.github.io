@@ -8,7 +8,7 @@ as part of<br>
 for<br>
 <font size="5">Team 201</font><br>
 
-**Updated: October 16, 2026**
+**Updated: October 19, 2026**
 </center>
 
 ## Introduction
@@ -26,8 +26,9 @@ Fill-A-Bot is our team's automatic liquid dispenser. You pick how much liquid yo
 
 ### My Contribution
 
-I'm doing the Main Control Board. It reads the UP, DOWN, START, and STOP buttons, uses a photoresistor and an op amp to check that a cup is in place, talks to my teammates' boards over I2C, and shows the amount and status on a 16x2 LCD.
+I'm doing the Main Control Board. It reads the UP, DOWN, START, and STOP buttons, uses a photoresistor and an op amp to check that a cup is in place, talks to my teammates' boards over UART, and shows the amount and status on a 16x2 LCD.
 
 * [Block Diagram](01-Block-Diagram/Block-Diagram.md): how my board is laid out and connected
 * [Component Selection](02-Component-Selection/Component-Selection.md): the parts I picked for my board and why
+* [Schematics](04-Schematic/schematic.md): the full schematic for my board
 * [Power Budget](05-Power-Budget/Power-Budget.md): how much current my board needs and how it's powered
