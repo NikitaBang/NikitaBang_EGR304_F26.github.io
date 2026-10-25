@@ -6,7 +6,7 @@ title: Component Selection
 
 **My subsystem: Main Control Board.** This is an individual assignment, so this page covers the blocks in my individual block diagram. Clay's pump, Cole's flow sensor, and Troy's load cell are on their own Component Selection pages. **The parts I picked for my board are in bold.**
 
-My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there, runs the team I2C bus, and shows the amount and status on a display. The assignment says not to make tables for the microcontroller, buttons, LEDs, resistors, or capacitors, so those don't have tables. Prices are from DigiKey for one part (October 2026).
+My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there, talks to my teammates' boards over UART, and shows the amount and status on a display. The assignment says not to make tables for the microcontroller, buttons, LEDs, resistors, or capacitors, so those don't have tables. Prices are from DigiKey for one part (October 2026).
 
 ## 1. Power Source
 
@@ -18,7 +18,7 @@ My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there
 
 **Choice:** **Option 3: Triad WSU090-2000 (Main Control Board)**
 
-**Rationale:** The LM1086 regulator is rated for up to 1.5A, but that's only how much it can supply. It's not what my board actually uses. My board uses 342.6mA. With the 25% safety margin that's 428.25mA, and the regulator uses about 10mA itself, so the adapter has to give about 438mA. All three adapters can do that. The class power budget template also checks the adapter against the regulator's full 1.5A rating, so I picked a 2A adapter to pass that check too (2000mA - 1500mA = 500mA left). The Triad is in stock and costs less than the MEAN WELL, and it has the 5.5 x 2.1 mm center-positive plug. The full numbers are on my [Power Budget](../05-Power-Budget/Power-Budget.md) page.
+**Rationale:** The LM1086 regulator is rated for up to 1.5A, but that's only how much it can supply. It's not what my board actually uses. My board uses 345.6mA. With the 25% safety margin that's 432.0mA. The regulator uses about 10mA itself and the 9V power LED uses about 2mA, so the adapter has to give about 444mA. All three adapters can do that. The class power budget template also checks the adapter against the regulator's full 1.5A rating, so I picked a 2A adapter to pass that check too (2000mA - 1500mA = 500mA left). The Triad is in stock and costs less than the MEAN WELL, and it has the 5.5 x 2.1 mm center-positive plug. The full numbers are on my [Power Budget](../05-Power-Budget/Power-Budget.md) page.
 
 ## 2. Barrel Jack
 
@@ -62,14 +62,14 @@ Here is how I checked the regulator temperature:
 |---|---|---|
 | Highest adapter voltage | 9.45V | 9V + 5% (Triad datasheet) |
 | Lowest regulator output | 4.9V | LM1086 datasheet |
-| Output current | 428.25mA | My power budget, with the 25% margin |
+| Output current | 432.0mA | My power budget, with the 25% margin |
 | Regulator's own current | 10mA max | LM1086 datasheet |
-| Heat = (9.45 - 4.9) x 0.42825 + 9.45 x 0.010 | 2.04W | Calculated |
+| Heat = (9.45 - 4.9) x 0.4320 + 9.45 x 0.010 | 2.06W | Calculated |
 | Junction to case | 4.0 C/W | LM1086 datasheet (TO-220, output section) |
 | Insulating pad | 1.0 C/W | My guess (a Bergquist SP900S pad is listed at 0.61 C/W) |
 | Heat sink | 10 C/W | HSE14-384225P datasheet (still air, 1W) |
 | Air inside the enclosure | 40 C | My assumption |
-| Junction temp = 40 + 2.04 x (4.0 + 1.0 + 10) | about 71 C | Calculated |
+| Junction temp = 40 + 2.06 x (4.0 + 1.0 + 10) | about 71 C | Calculated |
 | Limit | 125 C | LM1086 datasheet (control section) |
 
 So it should stay well under the limit. The heat sink datasheet shows 19.2 C of rise at 2W (9.6 C/W), so using 10 C/W is a little on the safe side. I'll still check the real temperature once the board is built.
@@ -134,15 +134,24 @@ So it should stay well under the limit. The heat sink datasheet shows 19.2 C of 
 | RD0 | Digital output (active low) | D2 Dispensing LED (yellow), 2.2k resistor |
 | RD1 | Digital output (active low) | D3 Done LED (green), 2.2k resistor |
 | RD2 | Digital output (active low) | D4 Fault LED (red), 2.2k resistor |
-| RB2 | I2C SDA | J1-J3 pin 1, 4.7k pull-up |
-| RB1 | I2C SCL | J1-J3 pin 2, 4.7k pull-up |
-| RC0-RC3 | Digital output | LCD DB4-DB7 |
+| RF2 | Digital output (active low) | D1 Debug LED (red), 2.2k resistor |
+| RF4 | Digital input (active low) | SW5 Debug button, 10k pull-up |
+| RC0 | Digital output | LCD DB4 |
+| RC1 | Digital output | LCD DB5 |
+| RC2 | Digital output | LCD DB6 |
+| RC3 | Digital output | LCD DB7 |
 | RC4 | Digital output | LCD RS |
 | RC5 | Digital output | LCD E |
+| RC6 | UART1 TX | J1 pin 1 (to Cole's RX) |
+| RC7 | UART1 RX | J1 pin 2 (from Cole's TX) |
+| RD3 | UART2 TX | J2 pin 1 (to Clay's RX) |
+| RD4 | UART2 RX | J2 pin 2 (from Clay's TX) |
+| RF6 | UART3 TX | J3 pin 1 (to Troy's RX) |
+| RF5 | UART3 RX | J3 pin 2 (from Troy's TX) |
 | VTG | Power | 5V from the LM1086 (VOFF tied to GND) |
 | GND | Ground | Board ground and J1-J3 pin 8 |
 
-Ribbon pins 3-7 aren't connected on my board.
+Ribbon pins 3-7 aren't connected on my board. There's no power on the ribbon since every board has its own regulator. The spare Nano pins go to the J5 and J6 extra headers.
 
 ## Power Budget
 
