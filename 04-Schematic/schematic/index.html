@@ -723,6 +723,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#how-it-meets-the-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Meets the Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ribbon-cables" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -907,6 +918,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#how-it-meets-the-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Meets the Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ribbon-cables" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1005,6 +1027,16 @@
 <p>This is the schematic for my Main Control Board. It has the 9-12V power input and 5V regulator, the Curiosity Nano, the cup sensor with the op amp, the LCD, the buttons and LEDs, and the three ribbon cables that connect to my teammates' boards over UART.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Nikita-Main-Control-Schematic.png" data-desc-position="bottom"><img alt="Main Control Board schematic" src="../Nikita-Main-Control-Schematic.png" width="100%"></a></p>
 <p>Figure 1: Main Control Board schematic (click to enlarge)</p>
+<h2 id="how-it-meets-the-requirements">How It Meets the Requirements</h2>
+<ul>
+<li><strong>Power:</strong> The barrel jack takes 9-12V, goes through a swappable T800mA fuse, and the LM1086 linear regulator makes 5V. It has the input and output caps from the TI datasheet (10uF tantalum on the output). D6 and D5 show that the 9V and 5V rails are on.</li>
+<li><strong>User input:</strong> UP, DOWN, START, and STOP buttons each have a 10k pull-up and an RC debounce, so the user can pick the amount and start or stop a fill. J9 lets the buttons be mounted off the board.</li>
+<li><strong>Cup sensor:</strong> The photoresistor goes through a buffer, a gain stage, and a low-pass filter into the ADC (RA5). This is how the board knows a cup is there before it starts the pump.</li>
+<li><strong>Display and status:</strong> The 16x2 LCD shows the amount and status, and three LEDs show Dispensing, Done, and Fault.</li>
+<li><strong>Team:</strong> Each teammate gets their own UART on a 2x4 ribbon header. Pin 1 is my TX, pin 2 is my RX, and pin 8 is ground.</li>
+<li><strong>Debugging:</strong> There's a debug LED (RF2), a debug button (RF4), jumpers to cut the power and signal lines, 15 test points, and spare Nano pins on the J5 and J6 headers.</li>
+<li><strong>ERC:</strong> 0 errors and 0 warnings.</li>
+</ul>
 <h2 id="ribbon-cables">Ribbon Cables</h2>
 <table>
 <thead>
