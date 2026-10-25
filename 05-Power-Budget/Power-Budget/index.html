@@ -1135,7 +1135,7 @@
 
 <h1 id="power-budget">Power Budget</h1>
 <h2 id="overview">Overview</h2>
-<p>This power budget checks that my 9V adapter and 5V regulator can run everything on my Main Control Board at the same time, with a 25% safety margin. It only covers my board, since each teammate has their own adapter and regulator. I used the class power budget template, and everything runs off one 5V rail.</p>
+<p>This power budget checks that my 9V adapter and 5V regulator can run everything on my Main Control Board at the same time, with a 25% safety margin. It only covers my board, since each teammate has their own adapter and regulator. I used the class power budget template. Everything runs off one 5V rail except the 9V power LED (D6), which sits before the regulator.</p>
 <h2 id="a-major-components">A. Major Components</h2>
 <table>
 <thead>
@@ -1229,16 +1229,16 @@
 <td>7.026</td>
 </tr>
 <tr>
-<td>4 button pull-ups (10k each)</td>
-<td>2.061</td>
+<td>5 button pull-ups (10k each, includes the debug button)</td>
+<td>2.576</td>
 </tr>
 <tr>
-<td>2 I2C pull-ups (4.7k each)</td>
-<td>2.193</td>
+<td>Debug LED and 5V power LED (2.2k each)</td>
+<td>4.684</td>
 </tr>
 <tr>
 <td><strong>Total</strong></td>
-<td><strong>342.600</strong></td>
+<td><strong>345.606</strong></td>
 </tr>
 <tr>
 <td>Safety margin</td>
@@ -1246,7 +1246,7 @@
 </tr>
 <tr>
 <td><strong>Total with margin</strong></td>
-<td><strong>428.250</strong></td>
+<td><strong>432.008</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1266,8 +1266,8 @@
 <td>5V linear regulator</td>
 <td>TI LM1086IT-5.0/NOPB</td>
 <td>1,500</td>
-<td>428.250</td>
-<td><strong>1,071.750</strong></td>
+<td>432.008</td>
+<td><strong>1,067.992</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1294,7 +1294,7 @@
 </tr>
 </tbody>
 </table>
-<p>My real draw from the adapter is 438.250mA (428.250mA plus 10mA for the regulator itself), so there's a lot of room left.</p>
+<p>My real draw from the adapter is 444.039mA (432.008mA, plus 10mA for the regulator itself, plus 2.031mA for the 9V power LED), so there's a lot of room left.</p>
 <h2 id="e-battery-life">E. Battery Life</h2>
 <p>N/A. My board runs off a wall adapter.</p>
 <h2 id="conclusions">Conclusions</h2>
