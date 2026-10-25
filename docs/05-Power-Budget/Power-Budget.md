@@ -6,7 +6,7 @@ title: Power Budget
 
 ## Overview
 
-This power budget checks that my 9V adapter and 5V regulator can run everything on my Main Control Board at the same time, with a 25% safety margin. It only covers my board, since each teammate has their own adapter and regulator. I used the class power budget template, and everything runs off one 5V rail.
+This power budget checks that my 9V adapter and 5V regulator can run everything on my Main Control Board at the same time, with a 25% safety margin. It only covers my board, since each teammate has their own adapter and regulator. I used the class power budget template. Everything runs off one 5V rail except the 9V power LED (D6), which sits before the regulator.
 
 ## A. Major Components
 
@@ -28,17 +28,17 @@ This power budget checks that my 9V adapter and 5V regulator can run everything 
 | LCD E pull-down (100k) | 0.052 |
 | LCD contrast pot (10k) | 0.638 |
 | 3 status LEDs (2.2k each) | 7.026 |
-| 4 button pull-ups (10k each) | 2.061 |
-| 2 I2C pull-ups (4.7k each) | 2.193 |
-| **Total** | **342.600** |
+| 5 button pull-ups (10k each, includes the debug button) | 2.576 |
+| Debug LED and 5V power LED (2.2k each) | 4.684 |
+| **Total** | **345.606** |
 | Safety margin | 25% |
-| **Total with margin** | **428.250** |
+| **Total with margin** | **432.008** |
 
 ## C. Regulator
 
 | Regulator | Part number | Max current (mA) | Needed (mA) | Remaining (mA) |
 |---|---|---|---|---|
-| 5V linear regulator | TI LM1086IT-5.0/NOPB | 1,500 | 428.250 | **1,071.750** |
+| 5V linear regulator | TI LM1086IT-5.0/NOPB | 1,500 | 432.008 | **1,067.992** |
 
 ## D. Power Source
 
@@ -46,7 +46,7 @@ This power budget checks that my 9V adapter and 5V regulator can run everything 
 |---|---|---|---|---|---|
 | Wall adapter | Triad WSU090-2000 | 9V | 2,000 | 1,500 (LM1086) | **500** |
 
-My real draw from the adapter is 438.250mA (428.250mA plus 10mA for the regulator itself), so there's a lot of room left.
+My real draw from the adapter is 444.039mA (432.008mA, plus 10mA for the regulator itself, plus 2.031mA for the 9V power LED), so there's a lot of room left.
 
 ## E. Battery Life
 
