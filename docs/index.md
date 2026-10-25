@@ -8,7 +8,7 @@ as part of<br>
 for<br>
 <font size="5">Team 201</font><br>
 
-**Updated: October 25, 2026**
+<b>Updated: October 25, 2026</b>
 </center>
 
 ## Introduction
