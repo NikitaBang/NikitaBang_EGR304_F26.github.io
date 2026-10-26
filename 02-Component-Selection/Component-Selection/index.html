@@ -1201,7 +1201,7 @@
 
 <h1 id="component-selection">Component Selection</h1>
 <p><strong>My subsystem: Main Control Board.</strong> This is an individual assignment, so this page covers the blocks in my individual block diagram. Clay's pump, Cole's flow sensor, and Troy's load cell are on their own Component Selection pages. <strong>The parts I picked for my board are in bold.</strong></p>
-<p>My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there, talks to my teammates' boards over UART, and shows the amount and status on a display. The assignment says not to make tables for the microcontroller, buttons, LEDs, resistors, or capacitors, so those don't have tables. Prices are from DigiKey for one part (October 2026).</p>
+<p>My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there, sends and reads simple 2-wire digital signals on the ribbon cables to my teammates' boards, and shows the amount and status on a display. The assignment says not to make tables for the microcontroller, buttons, LEDs, resistors, or capacitors, so those don't have tables. Prices are from DigiKey for one part (October 2026).</p>
 <h2 id="1-power-source">1. Power Source</h2>
 <table>
 <thead>
@@ -1230,7 +1230,7 @@
 </tbody>
 </table>
 <p><strong>Choice:</strong> <strong>Option 3: Triad WSU090-2000 (Main Control Board)</strong></p>
-<p><strong>Rationale:</strong> The LM1086 regulator is rated for up to 1.5A, but that's only how much it can supply. It's not what my board actually uses. My board uses 345.6mA. With the 25% safety margin that's 432.0mA. The regulator uses about 10mA itself and the 9V power LED uses about 2mA, so the adapter has to give about 444mA. All three adapters can do that. The class power budget template also checks the adapter against the regulator's full 1.5A rating, so I picked a 2A adapter to pass that check too (2000mA - 1500mA = 500mA left). The Triad is in stock and costs less than the MEAN WELL, and it has the 5.5 x 2.1 mm center-positive plug. The full numbers are on my <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a> page.</p>
+<p><strong>Rationale:</strong> The LM1086 regulator is rated for up to 1.5A, but that's only how much it can supply. It's not what my board actually uses. My board uses 345.8mA. With the 25% safety margin that's 432.3mA. The regulator uses about 10mA itself and the 9V power LED uses about 2mA, so the adapter has to give about 444mA. All three adapters can do that. The class power budget template also checks the adapter against the regulator's full 1.5A rating, so I picked a 2A adapter to pass that check too (2000mA - 1500mA = 500mA left). The Triad is in stock and costs less than the MEAN WELL, and it has the 5.5 x 2.1 mm center-positive plug. The full numbers are on my <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a> page.</p>
 <h2 id="2-barrel-jack">2. Barrel Jack</h2>
 <table>
 <thead>
@@ -1340,7 +1340,7 @@
 </tr>
 <tr>
 <td>Output current</td>
-<td>432.0mA</td>
+<td>432.3mA</td>
 <td>My power budget, with the 25% margin</td>
 </tr>
 <tr>
@@ -1349,7 +1349,7 @@
 <td>LM1086 datasheet</td>
 </tr>
 <tr>
-<td>Heat = (9.45 - 4.9) x 0.4320 + 9.45 x 0.010</td>
+<td>Heat = (9.45 - 4.9) x 0.4323 + 9.45 x 0.010</td>
 <td>2.06W</td>
 <td>Calculated</td>
 </tr>
@@ -1472,7 +1472,7 @@
 </tbody>
 </table>
 <p><strong>Choice:</strong> <strong>Option 3: Newhaven NHD-0216K1Z-FL-YBW (Main Control Board)</strong></p>
-<p><strong>Rationale:</strong> Our team requirements say the display has to show the amount, the units, and words like Ready, Filling, and Finished. The LCD is the only option that can do all of that at once. It wires straight to the Nano in 4-bit mode (RC0-RC5), so I don't need a driver chip or an I2C backpack.</p>
+<p><strong>Rationale:</strong> Our team requirements say the display has to show the amount, the units, and words like Ready, Filling, and Finished. The LCD is the only option that can do all of that at once. It wires straight to the Nano in 4-bit mode (RC0-RC5), so I don't need a driver chip or a serial backpack board.</p>
 <h2 id="8-ribbon-cable-header">8. Ribbon Cable Header</h2>
 <table>
 <thead>
@@ -1503,138 +1503,176 @@
 <p><strong>Choice:</strong> <strong>Option 1: Wurth Elektronik 61200821621 (Main Control Board)</strong></p>
 <p><strong>Rationale:</strong> The class uses an 8-wire ribbon cable with a 2x4 connector between boards, and I need three (J1 to Cole, J2 to Clay, J3 to Troy). The Wurth is the least expensive, it's keyed so the cable can't go in backwards, and it's the part already in my block diagram.</p>
 <h2 id="pin-assignments">Pin Assignments</h2>
+<p>This is how I'll set up each pin in MCC (Pin Grid View). "Start high" means the pin's LAT bit is set to 1 at power-up. None of the pins use the internal weak pull-ups, because every input already has an outside pull-up or pull-down on my board.</p>
 <table>
 <thead>
 <tr>
 <th>Pin</th>
-<th>Use</th>
+<th>Subsystem</th>
+<th>MCC setting</th>
 <th>Connects to</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>RA0</td>
-<td>Digital input (active low)</td>
-<td>SW1 UP button, 10k pull-up</td>
+<td>Buttons</td>
+<td>Digital input</td>
+<td>SW1 UP button (next preset), 10k pull-up, active low</td>
 </tr>
 <tr>
 <td>RA1</td>
-<td>Digital input (active low)</td>
-<td>SW2 DOWN button, 10k pull-up</td>
+<td>Buttons</td>
+<td>Digital input</td>
+<td>SW2 DOWN button (last preset), 10k pull-up, active low</td>
 </tr>
 <tr>
 <td>RA2</td>
-<td>Digital input (active low)</td>
-<td>SW3 START button, 10k pull-up</td>
+<td>Buttons</td>
+<td>Digital input</td>
+<td>SW3 START button, 10k pull-up, active low</td>
 </tr>
 <tr>
 <td>RA3</td>
-<td>Digital input (active low)</td>
-<td>SW4 STOP button, 10k pull-up</td>
-</tr>
-<tr>
-<td>RA5</td>
-<td>Analog input (ADC)</td>
-<td>Cup sensor (op amp output)</td>
-</tr>
-<tr>
-<td>RD0</td>
-<td>Digital output (active low)</td>
-<td>D2 Dispensing LED (yellow), 2.2k resistor</td>
-</tr>
-<tr>
-<td>RD1</td>
-<td>Digital output (active low)</td>
-<td>D3 Done LED (green), 2.2k resistor</td>
-</tr>
-<tr>
-<td>RD2</td>
-<td>Digital output (active low)</td>
-<td>D4 Fault LED (red), 2.2k resistor</td>
-</tr>
-<tr>
-<td>RF2</td>
-<td>Digital output (active low)</td>
-<td>D1 Debug LED (red), 2.2k resistor</td>
+<td>Buttons</td>
+<td>Digital input</td>
+<td>SW4 STOP button (cancel), 10k pull-up, active low</td>
 </tr>
 <tr>
 <td>RF4</td>
-<td>Digital input (active low)</td>
-<td>SW5 Debug button, 10k pull-up</td>
+<td>Debug</td>
+<td>Digital input</td>
+<td>SW5 debug button, 10k pull-up, active low</td>
+</tr>
+<tr>
+<td>RA5</td>
+<td>Cup sensor</td>
+<td>Analog input (ADC channel ANA5)</td>
+<td>Op amp and low-pass filter output</td>
+</tr>
+<tr>
+<td>RD0</td>
+<td>Status LEDs</td>
+<td>Digital output, start high</td>
+<td>D2 Dispensing LED (yellow), 2.2k, active low</td>
+</tr>
+<tr>
+<td>RD1</td>
+<td>Status LEDs</td>
+<td>Digital output, start high</td>
+<td>D3 Done LED (green), 2.2k, active low</td>
+</tr>
+<tr>
+<td>RD2</td>
+<td>Status LEDs</td>
+<td>Digital output, start high</td>
+<td>D4 Fault LED (red), 2.2k, active low</td>
+</tr>
+<tr>
+<td>RF2</td>
+<td>Debug</td>
+<td>Digital output, start high</td>
+<td>D1 debug LED (red), 2.2k, active low</td>
 </tr>
 <tr>
 <td>RC0</td>
-<td>Digital output</td>
+<td>LCD</td>
+<td>Digital output, start low</td>
 <td>LCD DB4</td>
 </tr>
 <tr>
 <td>RC1</td>
-<td>Digital output</td>
+<td>LCD</td>
+<td>Digital output, start low</td>
 <td>LCD DB5</td>
 </tr>
 <tr>
 <td>RC2</td>
-<td>Digital output</td>
+<td>LCD</td>
+<td>Digital output, start low</td>
 <td>LCD DB6</td>
 </tr>
 <tr>
 <td>RC3</td>
-<td>Digital output</td>
+<td>LCD</td>
+<td>Digital output, start low</td>
 <td>LCD DB7</td>
 </tr>
 <tr>
 <td>RC4</td>
-<td>Digital output</td>
+<td>LCD</td>
+<td>Digital output, start low</td>
 <td>LCD RS</td>
 </tr>
 <tr>
 <td>RC5</td>
-<td>Digital output</td>
-<td>LCD E</td>
-</tr>
-<tr>
-<td>RC6</td>
-<td>UART1 TX</td>
-<td>J1 pin 1 (to Cole's RX)</td>
+<td>LCD</td>
+<td>Digital output, start low</td>
+<td>LCD E (100k pull-down R24)</td>
 </tr>
 <tr>
 <td>RC7</td>
-<td>UART1 RX</td>
-<td>J1 pin 2 (from Cole's TX)</td>
+<td>Flow status from Cole</td>
+<td>Digital input</td>
+<td>J1 pin 3 (S1), 100k pull-down</td>
 </tr>
 <tr>
-<td>RD3</td>
-<td>UART2 TX</td>
-<td>J2 pin 1 (to Clay's RX)</td>
+<td>RC6</td>
+<td>Flow status from Cole</td>
+<td>Digital input</td>
+<td>J1 pin 4 (S0), 100k pull-down</td>
 </tr>
 <tr>
 <td>RD4</td>
-<td>UART2 RX</td>
-<td>J2 pin 2 (from Clay's TX)</td>
+<td>Pump command to Clay</td>
+<td>Digital output, start low</td>
+<td>J2 pin 1 (C1)</td>
+</tr>
+<tr>
+<td>RD3</td>
+<td>Pump command to Clay</td>
+<td>Digital output, start low</td>
+<td>J2 pin 2 (C0)</td>
 </tr>
 <tr>
 <td>RF6</td>
-<td>UART3 TX</td>
-<td>J3 pin 1 (to Troy's RX)</td>
+<td>Weight command to Troy</td>
+<td>Digital output, start low</td>
+<td>J3 pin 1 (C1)</td>
 </tr>
 <tr>
 <td>RF5</td>
-<td>UART3 RX</td>
-<td>J3 pin 2 (from Troy's TX)</td>
+<td>Weight command to Troy</td>
+<td>Digital output, start low</td>
+<td>J3 pin 2 (C0)</td>
+</tr>
+<tr>
+<td>RE1</td>
+<td>Weight status from Troy</td>
+<td>Digital input</td>
+<td>J3 pin 3 (S1), 100k pull-down</td>
+</tr>
+<tr>
+<td>RE0</td>
+<td>Weight status from Troy</td>
+<td>Digital input</td>
+<td>J3 pin 4 (S0), 100k pull-down</td>
 </tr>
 <tr>
 <td>VTG</td>
 <td>Power</td>
+<td></td>
 <td>5V from the LM1086 (VOFF tied to GND)</td>
 </tr>
 <tr>
 <td>GND</td>
 <td>Ground</td>
+<td></td>
 <td>Board ground and J1-J3 pin 8</td>
 </tr>
 </tbody>
 </table>
-<p>Ribbon pins 3-7 aren't connected on my board. There's no power on the ribbon since every board has its own regulator. The spare Nano pins go to the J5 and J6 extra headers.</p>
+<p>The ribbon signals don't use UART, I2C, or SPI. Each one is 2 plain digital pins, so it has 4 states (00, 01, 10, 11), and 00 is the safe default. The ribbon outputs start low so the pump command is 00 (stop) at power-up, and the 100k pull-downs make an unplugged cable read 00. The codes for each signal are on my <a href="../../01-Block-Diagram/Block-Diagram/">Block Diagram</a> page. Ribbon pins 5-7 aren't connected on my board, and there's no power on the ribbon since every board has its own regulator. The spare Nano pins go to the J5 and J6 extra headers.</p>
 <h2 id="power-budget">Power Budget</h2>
 <p>My <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a> is on its own page. The assignment says it's optional for the first submission, but I already finished it.</p>
 <h2 id="references">References</h2>
