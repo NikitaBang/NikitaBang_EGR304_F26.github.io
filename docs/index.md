@@ -17,7 +17,7 @@ This is my individual datasheet for EGR 304. It shows my part of our team projec
 
 ### Project Summary
 
-Fill-A-Bot is our team's automatic liquid dispenser. You pick how much liquid you want, press start, and it fills your cup and stops on its own. Each of us builds our own board, and the boards talk to each other over a ribbon cable. Our full team report is on the [Team 201 website](https://egr304-2026-f-201.github.io/).
+Fill-A-Bot is our team's automatic liquid dispenser. You pick how much liquid you want, press start, and it fills your cup and stops on its own. Each of us builds our own board, and the boards talk to each other over ribbon cables using plain digital wires (2 wires per signal, 4 states). Our full team report is on the [Team 201 website](https://egr304-2026-f-201.github.io/).
 
 * Nikita Bangiyev: Main Control Board (me)
 * Cole Trask: flow sensing
@@ -26,7 +26,7 @@ Fill-A-Bot is our team's automatic liquid dispenser. You pick how much liquid yo
 
 ### My Contribution
 
-I'm doing the Main Control Board. It reads the UP, DOWN, START, and STOP buttons, uses a photoresistor and an op amp to check that a cup is in place, talks to my teammates' boards over UART, and shows the amount and status on a 16x2 LCD.
+I'm doing the Main Control Board. It reads the UP, DOWN, START, and STOP buttons, uses a photoresistor and an op amp to check that a cup is in place, sends simple 2-wire digital signals to my teammates' boards (pump command to Clay, preset to Troy) and reads theirs back (flow status from Cole, weight status from Troy), and shows the amount and status on a 16x2 LCD.
 
 * [Block Diagram](01-Block-Diagram/Block-Diagram.md): how my board is laid out and connected
 * [Component Selection](02-Component-Selection/Component-Selection.md): the parts I picked for my board and why
