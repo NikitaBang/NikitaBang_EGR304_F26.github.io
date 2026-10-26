@@ -745,6 +745,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#signal-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal Codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-in-rev-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changes in Rev 3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#files" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -940,6 +962,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#signal-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal Codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-in-rev-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changes in Rev 3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#files" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1024,18 +1068,19 @@
 
 
 <h1 id="schematics">Schematics</h1>
-<p>This is the schematic for my Main Control Board. It has the 9-12V power input and 5V regulator, the Curiosity Nano, the cup sensor with the op amp, the LCD, the buttons and LEDs, and the three ribbon cables that connect to my teammates' boards over UART.</p>
+<p>This is the schematic for my Main Control Board (rev 3, October 25, 2026). It has the 9-12V power input and 5V regulator, the Curiosity Nano, the cup sensor with the op amp, the LCD, the buttons and LEDs, and the three ribbon cables to my teammates' boards. Each signal on the ribbons is 2 plain digital wires with 4 states (00, 01, 10, 11). There's no UART, I2C, or SPI between boards.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Nikita-Main-Control-Schematic.png" data-desc-position="bottom"><img alt="Main Control Board schematic" src="../Nikita-Main-Control-Schematic.png" width="100%"></a></p>
 <p>Figure 1: Main Control Board schematic (click to enlarge)</p>
 <h2 id="how-it-meets-the-requirements">How It Meets the Requirements</h2>
 <ul>
-<li><strong>Power:</strong> The barrel jack takes 9-12V, goes through a swappable T800mA fuse, and the LM1086 linear regulator makes 5V. It has the input and output caps from the TI datasheet (10uF tantalum on the output). D6 and D5 show that the 9V and 5V rails are on.</li>
-<li><strong>User input:</strong> UP, DOWN, START, and STOP buttons each have a 10k pull-up and an RC debounce, so the user can pick the amount and start or stop a fill. J9 lets the buttons be mounted off the board.</li>
+<li><strong>Power:</strong> The barrel jack takes 9-12V, goes through a swappable T800mA fuse, and the LM1086 linear regulator makes 5V. It has the input and output caps from the TI datasheet (10uF tantalum on the output) and a 0.1uF bypass cap at every IC power pin. D6 and D5 show that the 9V and 5V rails are on.</li>
+<li><strong>User input:</strong> UP and DOWN pick one of the 4 fill presets, START starts the fill, and STOP cancels it at any time. Each button has a 10k pull-up and an RC debounce. J9 lets the buttons be mounted off the board.</li>
 <li><strong>Cup sensor:</strong> The photoresistor goes through a buffer, a gain stage, and a low-pass filter into the ADC (RA5). This is how the board knows a cup is there before it starts the pump.</li>
-<li><strong>Display and status:</strong> The 16x2 LCD shows the amount and status, and three LEDs show Dispensing, Done, and Fault.</li>
-<li><strong>Team:</strong> Each teammate gets their own UART on a 2x4 ribbon header. Pin 1 is my TX, pin 2 is my RX, and pin 8 is ground.</li>
-<li><strong>Debugging:</strong> There's a debug LED (RF2), a debug button (RF4), jumpers to cut the power and signal lines, 15 test points, and spare Nano pins on the J5 and J6 headers.</li>
-<li><strong>ERC:</strong> 0 errors and 0 warnings.</li>
+<li><strong>Display and status:</strong> The 16x2 LCD shows the preset amount and status (Ready, Filling, Finished, Error), and three LEDs show Dispensing, Done, and Fault. The Fault LED flashes when there's no flow.</li>
+<li><strong>Team:</strong> J1, J2, and J3 follow the class ribbon standard with pin 8 as ground and no power pin. Pins 1-2 are always my outputs and pins 3-4 are always the teammate's outputs back to me. My board sends the pump command to Clay (RD4, RD3) and the preset to Troy (RF6, RF5), and reads the weight status from Troy (RE1, RE0) and the flow status from Cole (RC7, RC6).</li>
+<li><strong>Safe defaults:</strong> The ribbon outputs start low, so the pump command is 00 (stop) at power-up. R26-R29 are 100k pull-downs on my four ribbon inputs, so an unplugged cable reads 00 (no flow or not ready) instead of floating.</li>
+<li><strong>Debugging:</strong> There's a debug LED (RF2), a debug button (RF4), jumpers to cut the power and every ribbon signal, 17 test points (including one on every ribbon signal), and spare Nano pins on the J5 and J6 headers.</li>
+<li><strong>ERC:</strong> 0 errors and 0 warnings (the report is in the KiCad ZIP).</li>
 </ul>
 <h2 id="ribbon-cables">Ribbon Cables</h2>
 <table>
@@ -1045,34 +1090,94 @@
 <th>Teammate</th>
 <th>Pin 1</th>
 <th>Pin 2</th>
+<th>Pin 3</th>
+<th>Pin 4</th>
+<th>Pins 5-7</th>
 <th>Pin 8</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>J1</td>
-<td>Cole</td>
-<td>TX (RC6)</td>
-<td>RX (RC7)</td>
+<td>Cole (flow)</td>
+<td>NC</td>
+<td>NC</td>
+<td>Flow S1 in (RC7)</td>
+<td>Flow S0 in (RC6)</td>
+<td>NC</td>
 <td>GND</td>
 </tr>
 <tr>
 <td>J2</td>
-<td>Clay</td>
-<td>TX (RD3)</td>
-<td>RX (RD4)</td>
+<td>Clay (pump)</td>
+<td>Pump C1 out (RD4)</td>
+<td>Pump C0 out (RD3)</td>
+<td>NC</td>
+<td>NC</td>
+<td>NC</td>
 <td>GND</td>
 </tr>
 <tr>
 <td>J3</td>
-<td>Troy</td>
-<td>TX (RF6)</td>
-<td>RX (RF5)</td>
+<td>Troy (weight)</td>
+<td>Weight C1 out (RF6)</td>
+<td>Weight C0 out (RF5)</td>
+<td>Weight S1 in (RE1)</td>
+<td>Weight S0 in (RE0)</td>
+<td>NC</td>
 <td>GND</td>
 </tr>
 </tbody>
 </table>
-<p>Pin 1 is my TX going to their RX, and pin 2 is their TX coming into my RX.</p>
+<p>Each ribbon signal goes through a jumper (JP3, JP4, JP6-JP11) and has a test point, so I can unplug one line or check it with a meter.</p>
+<h2 id="signal-codes">Signal Codes</h2>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>00</th>
+<th>01</th>
+<th>10</th>
+<th>11</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pump command (to Clay)</td>
+<td>Stop</td>
+<td>Run</td>
+<td>Not used (stop)</td>
+<td>Not used (stop)</td>
+</tr>
+<tr>
+<td>Weight command (to Troy)</td>
+<td>Preset 1</td>
+<td>Preset 2</td>
+<td>Preset 3</td>
+<td>Preset 4</td>
+</tr>
+<tr>
+<td>Weight status (from Troy)</td>
+<td>Not ready</td>
+<td>Below target</td>
+<td>Target reached</td>
+<td>Error</td>
+</tr>
+<tr>
+<td>Flow status (from Cole)</td>
+<td>No flow</td>
+<td>Flowing</td>
+<td>Not used (no flow)</td>
+<td>Sensor fault</td>
+</tr>
+</tbody>
+</table>
+<h2 id="changes-in-rev-3">Changes in Rev 3</h2>
+<ul>
+<li>Took out the UART lines on J1-J3 and wired the 2-wire, 4-state signals above.</li>
+<li>Added R26-R29 (100k pull-downs) on the four ribbon inputs.</li>
+<li>Added JP10, JP11, TP16, and TP17 for Troy's two status lines.</li>
+</ul>
 <h2 id="files">Files</h2>
 <ul>
 <li><a href="../Nikita-Main-Control-Schematic.pdf">Schematic PDF</a></li>
