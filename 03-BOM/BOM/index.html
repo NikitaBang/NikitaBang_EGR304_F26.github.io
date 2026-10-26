@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#bill-of-materials" class="md-skip">
           Skip to content
         </a>
       
@@ -614,6 +614,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -656,6 +658,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -675,10 +679,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bill-of-materials-example-as-table" class="md-nav__link">
+  <a href="#bill-of-materials_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bill of Materials Example (as Table)
+        Bill of Materials
       
     </span>
   </a>
@@ -686,10 +690,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bill-of-materials-example-as-image" class="md-nav__link">
+  <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bill of Materials Example (as Image)
+        Notes
       
     </span>
   </a>
@@ -904,6 +908,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -923,10 +929,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bill-of-materials-example-as-table" class="md-nav__link">
+  <a href="#bill-of-materials_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bill of Materials Example (as Table)
+        Bill of Materials
       
     </span>
   </a>
@@ -934,10 +940,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bill-of-materials-example-as-image" class="md-nav__link">
+  <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bill of Materials Example (as Image)
+        Notes
       
     </span>
   </a>
@@ -1017,59 +1023,424 @@
   
 
 
-  <h1>Bill of Materials</h1>
-
+<h1 id="bill-of-materials">Bill of Materials</h1>
 <h2 id="overview">Overview</h2>
-<p>written context</p>
-<h2 id="bill-of-materials-example-as-table">Bill of Materials Example (as Table)</h2>
-<p><em>Table ##: An example of one approach to adding your BOM table to this section.</em></p>
+<p>This is the full parts list for my Main Control Board. Every part in my schematic has its manufacturer part number saved in the KiCad file (the MPN field), so this table matches the schematic, the block diagram, and my Component Selection page. Prices are DigiKey prices for one piece (checked October 2026).</p>
+<p>One board costs about <strong>$65.38</strong> in parts (97 parts on 42 lines), including the 9V wall adapter. The PCB itself isn't included yet.</p>
+<h2 id="bill-of-materials_1">Bill of Materials</h2>
+<p><em>Table 1: Main Control Board bill of materials</em></p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;"><strong>Part Name/Description</strong></th>
-<th style="text-align: left;"><strong>Qty</strong></th>
-<th style="text-align: left;"><strong>Unit Cost</strong></th>
-<th style="text-align: left;"><strong>Total Cost</strong></th>
-<th style="text-align: left;"><strong>Manufacture</strong></th>
-<th style="text-align: left;"><strong>Manufacturer #</strong></th>
-<th style="text-align: left;"><strong>Vendor Link</strong></th>
-<th style="text-align: left;"><strong>Datasheet Link</strong></th>
-<th style="text-align: left;"><strong>Schematic Reference Designators</strong></th>
+<th>Part</th>
+<th>Qty</th>
+<th>Unit Cost</th>
+<th>Total Cost</th>
+<th>Manufacturer</th>
+<th>Manufacturer # (DigiKey link)</th>
+<th>Schematic Reference</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">8-bit SIPO/SISO Shift Register, SOIC-16 package</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">$0.49</td>
-<td style="text-align: left;">$ 0.49</td>
-<td style="text-align: left;">NXP</td>
-<td style="text-align: left;">74HC595D,112</td>
-<td style="text-align: left;"><a href="https://www.digikey.com/en/products/detail/nexperia-usa-inc/74HC595D-112/763550">DigiKey</a></td>
-<td style="text-align: left;"><a href="https://assets.nexperia.com/documents/data-sheet/74HC_HCT595.pdf">datasheet link</a></td>
-<td style="text-align: left;">U1</td>
+<td>Curiosity Nano board (PIC18F57Q43)</td>
+<td>1</td>
+<td>$10.61</td>
+<td>$10.61</td>
+<td>Microchip</td>
+<td><a href="https://www.digikey.com/en/products/detail/microchip-technology/DM164150/11586705">DM164150</a></td>
+<td>U1</td>
 </tr>
 <tr>
-<td style="text-align: left;">0.1 µF Ceramic Capacitor, +/-10%, X7R, 50V, 0805 package</td>
-<td style="text-align: left;">10</td>
-<td style="text-align: left;">0.2750</td>
-<td style="text-align: left;">$2.75</td>
-<td style="text-align: left;">KEMET</td>
-<td style="text-align: left;">C0805F104K5RACTU</td>
-<td style="text-align: left;">PRLTA 109</td>
-<td style="text-align: left;">n/a</td>
-<td style="text-align: left;">C2, C4, C6, C7, C8, C9, C10, C11, C12, C16</td>
+<td>5V 1.5A linear regulator, TO-220</td>
+<td>1</td>
+<td>$2.58</td>
+<td>$2.58</td>
+<td>Texas Instruments</td>
+<td><a href="https://www.digikey.com/en/products/detail/texas-instruments/LM1086IT-5-0-NOPB/363580">LM1086IT-5.0/NOPB</a></td>
+<td>U2</td>
+</tr>
+<tr>
+<td>TO-220 heat sink</td>
+<td>1</td>
+<td>$2.24</td>
+<td>$2.24</td>
+<td>Same Sky</td>
+<td><a href="https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/HSE14-384225P/26460932">HSE14-384225P</a></td>
+<td>U2</td>
+</tr>
+<tr>
+<td>TO-220 insulating thermal pad</td>
+<td>1</td>
+<td>$0.35</td>
+<td>$0.35</td>
+<td>Bergquist</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=SP900S-0.009-00-104">SP900S-0.009-00-104</a></td>
+<td>U2</td>
+</tr>
+<tr>
+<td>Dual op amp, 8-pin DIP</td>
+<td>1</td>
+<td>$0.45</td>
+<td>$0.45</td>
+<td>Microchip</td>
+<td><a href="https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875">MCP6002-I/P</a></td>
+<td>U3</td>
+</tr>
+<tr>
+<td>16x2 character LCD</td>
+<td>1</td>
+<td>$7.83</td>
+<td>$7.83</td>
+<td>Newhaven Display</td>
+<td><a href="https://www.digikey.com/en/products/detail/newhaven-display-intl/NHD-0216K1Z-FL-YBW/1701171">NHD-0216K1Z-FL-YBW</a></td>
+<td>DS1</td>
+</tr>
+<tr>
+<td>16-pin male header for the LCD</td>
+<td>1</td>
+<td>$0.28</td>
+<td>$0.28</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=PRPC016SAAN-RC">PRPC016SAAN-RC</a></td>
+<td>DS1</td>
+</tr>
+<tr>
+<td>Photoresistor (cup sensor)</td>
+<td>1</td>
+<td>$0.72</td>
+<td>$0.72</td>
+<td>Advanced Photonix</td>
+<td><a href="https://www.digikey.com/en/products/detail/advanced-photonix/PDV-P8103/480610">PDV-P8103</a></td>
+<td>LDR1</td>
+</tr>
+<tr>
+<td>9V 2A wall adapter</td>
+<td>1</td>
+<td>$12.43</td>
+<td>$12.43</td>
+<td>Triad Magnetics</td>
+<td><a href="https://www.digikey.com/en/products/detail/triad-magnetics/WSU090-2000/3094951">WSU090-2000</a></td>
+<td>off-board</td>
+</tr>
+<tr>
+<td>DC barrel jack</td>
+<td>1</td>
+<td>$0.77</td>
+<td>$0.77</td>
+<td>Same Sky</td>
+<td><a href="https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/PJ-102AH/408448">PJ-102AH</a></td>
+<td>J4</td>
+</tr>
+<tr>
+<td>Fuse, T800mA 250V, 5x20mm time-lag</td>
+<td>1</td>
+<td>$1.56</td>
+<td>$1.56</td>
+<td>Littelfuse</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=0218.800MXP">0218.800MXP</a></td>
+<td>F1</td>
+</tr>
+<tr>
+<td>5x20mm fuse holder, PCB</td>
+<td>1</td>
+<td>$1.36</td>
+<td>$1.36</td>
+<td>Schurter</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=0031.8201">0031.8201</a></td>
+<td>F1</td>
+</tr>
+<tr>
+<td>2x4 box header (ribbon)</td>
+<td>3</td>
+<td>$1.03</td>
+<td>$3.09</td>
+<td>Wurth Elektronik</td>
+<td><a href="https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61200821621/4846916">61200821621</a></td>
+<td>J1, J2, J3</td>
+</tr>
+<tr>
+<td>2x8 pin header (spare pins)</td>
+<td>2</td>
+<td>$0.28</td>
+<td>$0.56</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=PRPC008DAAN-RC">PRPC008DAAN-RC</a></td>
+<td>J5, J6</td>
+</tr>
+<tr>
+<td>1x16 socket (LCD)</td>
+<td>1</td>
+<td>$0.93</td>
+<td>$0.93</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=PPTC161LFBN-RC">PPTC161LFBN-RC</a></td>
+<td>J7</td>
+</tr>
+<tr>
+<td>1x3 pin header (cup sensor)</td>
+<td>1</td>
+<td>$0.10</td>
+<td>$0.10</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=PRPC003SAAN-RC">PRPC003SAAN-RC</a></td>
+<td>J8</td>
+</tr>
+<tr>
+<td>1x5 pin header (remote buttons)</td>
+<td>1</td>
+<td>$0.11</td>
+<td>$0.11</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=PRPC005SAAN-RC">PRPC005SAAN-RC</a></td>
+<td>J9</td>
+</tr>
+<tr>
+<td>1x2 pin header (jumper)</td>
+<td>11</td>
+<td>$0.10</td>
+<td>$1.10</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=PRPC002SAAN-RC">PRPC002SAAN-RC</a></td>
+<td>JP1-JP11</td>
+</tr>
+<tr>
+<td>Jumper shunt</td>
+<td>11</td>
+<td>$0.10</td>
+<td>$1.10</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=SPC02SYAN">SPC02SYAN</a></td>
+<td>JP1-JP11</td>
+</tr>
+<tr>
+<td>Tactile push button</td>
+<td>5</td>
+<td>$0.35</td>
+<td>$1.75</td>
+<td>Omron (now Aratas)</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=B3F-1000">B3F-1000</a></td>
+<td>SW1-SW5</td>
+</tr>
+<tr>
+<td>10k trimmer pot (LCD contrast)</td>
+<td>1</td>
+<td>$2.53</td>
+<td>$2.53</td>
+<td>Bourns</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=3296W-1-103LF">3296W-1-103LF</a></td>
+<td>RV1</td>
+</tr>
+<tr>
+<td>LED, red, 0805 (debug)</td>
+<td>1</td>
+<td>$0.16</td>
+<td>$0.16</td>
+<td>Lite-On</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=LTST-C171KRKT">LTST-C171KRKT</a></td>
+<td>D1</td>
+</tr>
+<tr>
+<td>LED, yellow, 5 mm (Dispensing)</td>
+<td>1</td>
+<td>$0.23</td>
+<td>$0.23</td>
+<td>Kingbright</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=WP7113YD">WP7113YD</a></td>
+<td>D2</td>
+</tr>
+<tr>
+<td>LED, green, 5 mm (Done)</td>
+<td>1</td>
+<td>$0.23</td>
+<td>$0.23</td>
+<td>Kingbright</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=WP7113GD">WP7113GD</a></td>
+<td>D3</td>
+</tr>
+<tr>
+<td>LED, red, 5 mm (Fault)</td>
+<td>1</td>
+<td>$0.16</td>
+<td>$0.16</td>
+<td>Wurth Elektronik</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=151051RS11000">151051RS11000</a></td>
+<td>D4</td>
+</tr>
+<tr>
+<td>LED, green, 0805 (power)</td>
+<td>2</td>
+<td>$0.15</td>
+<td>$0.30</td>
+<td>Lite-On</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=LTST-C171GKT">LTST-C171GKT</a></td>
+<td>D5, D6</td>
+</tr>
+<tr>
+<td>Resistor 2.2k 1% 0.125W, 0805</td>
+<td>2</td>
+<td>$0.10</td>
+<td>$0.20</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=RC0805FR-072K2L">RC0805FR-072K2L</a></td>
+<td>R1, R4</td>
+</tr>
+<tr>
+<td>Resistor 10k 1% 0.125W, 0805</td>
+<td>2</td>
+<td>$0.10</td>
+<td>$0.20</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=RC0805FR-0710KL">RC0805FR-0710KL</a></td>
+<td>R2, R3</td>
+</tr>
+<tr>
+<td>Resistor 4.7k 1% 0.125W, 0805</td>
+<td>1</td>
+<td>$0.10</td>
+<td>$0.10</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=RC0805FR-074K7L">RC0805FR-074K7L</a></td>
+<td>R25</td>
+</tr>
+<tr>
+<td>Resistor 10k 1% 0.25W, axial</td>
+<td>12</td>
+<td>$0.10</td>
+<td>$1.20</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-10K">MFR-25FRF52-10K</a></td>
+<td>R5-R8, R11-R18</td>
+</tr>
+<tr>
+<td>Resistor 30k 1% 0.25W, axial</td>
+<td>1</td>
+<td>$0.10</td>
+<td>$0.10</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-30K">MFR-25FRF52-30K</a></td>
+<td>R9</td>
+</tr>
+<tr>
+<td>Resistor 1k 1% 0.25W, axial</td>
+<td>1</td>
+<td>$0.11</td>
+<td>$0.11</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-1K">MFR-25FRF52-1K</a></td>
+<td>R10</td>
+</tr>
+<tr>
+<td>Resistor 2.2k 1% 0.25W, axial</td>
+<td>3</td>
+<td>$0.10</td>
+<td>$0.30</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-2K2">MFR-25FRF52-2K2</a></td>
+<td>R19, R20, R21</td>
+</tr>
+<tr>
+<td>Resistor 100k 1% 0.25W, axial</td>
+<td>5</td>
+<td>$0.11</td>
+<td>$0.55</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-100K">MFR-25FRF52-100K</a></td>
+<td>R24, R26-R29</td>
+</tr>
+<tr>
+<td>Capacitor 1uF 25V X7R, 0805</td>
+<td>1</td>
+<td>$0.28</td>
+<td>$0.28</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=CC0805KKX7R8BB105">CC0805KKX7R8BB105</a></td>
+<td>C1</td>
+</tr>
+<tr>
+<td>Capacitor 0.1uF 25V X7R, 0805</td>
+<td>1</td>
+<td>$0.10</td>
+<td>$0.10</td>
+<td>Samsung</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=CL21B104KACNNNC">CL21B104KACNNNC</a></td>
+<td>C2</td>
+</tr>
+<tr>
+<td>Capacitor 10uF 25V aluminum, radial</td>
+<td>1</td>
+<td>$0.21</td>
+<td>$0.21</td>
+<td>KEMET</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=ESK106M025AC3AA">ESK106M025AC3AA</a></td>
+<td>C3</td>
+</tr>
+<tr>
+<td>Capacitor 10uF 16V tantalum, radial</td>
+<td>1</td>
+<td>$4.10</td>
+<td>$4.10</td>
+<td>KEMET</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=T350E106K016AT">T350E106K016AT</a></td>
+<td>C4</td>
+</tr>
+<tr>
+<td>Capacitor 0.1uF 50V X7R, radial</td>
+<td>1</td>
+<td>$0.27</td>
+<td>$0.27</td>
+<td>TDK</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=FG18X7R1H104KNT06">FG18X7R1H104KNT06</a></td>
+<td>C5</td>
+</tr>
+<tr>
+<td>Capacitor 0.1uF 25V X7R, radial</td>
+<td>3</td>
+<td>$0.59</td>
+<td>$1.77</td>
+<td>KEMET</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=C320C104K3R5TA">C320C104K3R5TA</a></td>
+<td>C6, C14, C16</td>
+</tr>
+<tr>
+<td>Capacitor 1uF 25V X7R, radial</td>
+<td>6</td>
+<td>$0.33</td>
+<td>$1.98</td>
+<td>TDK</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=FG18X7R1E105KRT06">FG18X7R1E105KRT06</a></td>
+<td>C7, C8, C10-C13</td>
+</tr>
+<tr>
+<td>Capacitor 10uF 16V aluminum, radial</td>
+<td>2</td>
+<td>$0.19</td>
+<td>$0.38</td>
+<td>KEMET</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=ESK106M016AC3AA">ESK106M016AC3AA</a></td>
+<td>C9, C15</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>97</strong></td>
+<td></td>
+<td><strong>$65.38</strong></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p>Note: Setting it up as a table is nice because it is completely viewable without scaling issues. <ins>Downside</ins> is that you have to do the math.</p>
+<h2 id="notes">Notes</h2>
 <ul>
-<li>You could also import your BOM via a screenshot of the spreadsheet created BOM</li>
+<li>TP1-TP17 are bare test pads on the PCB, so they don't need a part.</li>
+<li>JP1-JP11 are 2-pin headers with a jumper shunt on each, so the shunts are their own line.</li>
+<li>The LCD plugs into J7, a 16-pin socket, so the LCD gets a 16-pin male header soldered on.</li>
+<li>The screw, nut, and shoulder washer that hold U2 on its heat sink aren't picked yet.</li>
+<li>How the Nano attaches to the PCB (sockets or soldered headers) gets picked with the PCB layout.</li>
+<li>The ribbon cables between boards are shared by the team, so they aren't on my BOM.</li>
+<li>The Omron B3F switch line is now sold under the Aratas name on DigiKey. The part number didn't change.</li>
 </ul>
-<h2 id="bill-of-materials-example-as-image">Bill of Materials Example (as Image)</h2>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../BOM-Screenshot.png" data-desc-position="bottom"><img _2000_="&quot;2000&quot;" alt="" src="../BOM-Screenshot.png" style="style" width:="width:"></a>
-<strong>Figure 2:</strong> Example Bill of Materials as a screenshot.</p>
-<p>As you can see, the text can be difficult to read without opening the image.</p>
 
 
 
