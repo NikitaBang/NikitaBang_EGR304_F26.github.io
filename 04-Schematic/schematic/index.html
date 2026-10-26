@@ -1072,15 +1072,18 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Nikita-Main-Control-Schematic.png" data-desc-position="bottom"><img alt="Main Control Board schematic" src="../Nikita-Main-Control-Schematic.png" width="100%"></a></p>
 <p>Figure 1: Main Control Board schematic (click to enlarge)</p>
 <h2 id="how-it-meets-the-requirements">How It Meets the Requirements</h2>
+<p>The numbers in brackets are from our team's <a href="https://egr304-2026-f-201.github.io/04-Product-Requirements/">Product Requirements</a> page ("Design" means the Requirement Criteria Specifications list).</p>
 <ul>
-<li><strong>Power:</strong> The barrel jack takes 9-12V, goes through a swappable T800mA fuse, and the LM1086 linear regulator makes 5V. It has the input and output caps from the TI datasheet (10uF tantalum on the output) and a 0.1uF bypass cap at every IC power pin. D6 and D5 show that the 9V and 5V rails are on.</li>
-<li><strong>User input:</strong> UP and DOWN pick one of the 4 fill presets, START starts the fill, and STOP cancels it at any time. Each button has a 10k pull-up and an RC debounce. J9 lets the buttons be mounted off the board.</li>
-<li><strong>Cup sensor:</strong> The photoresistor goes through a buffer, a gain stage, and a low-pass filter into the ADC (RA5). This is how the board knows a cup is there before it starts the pump.</li>
-<li><strong>Display and status:</strong> The 16x2 LCD shows the preset amount and status (Ready, Filling, Finished, Error), and three LEDs show Dispensing, Done, and Fault. The Fault LED flashes when there's no flow.</li>
-<li><strong>Team:</strong> J1, J2, and J3 follow the class ribbon standard with pin 8 as ground and no power pin. Pins 1-2 are always my outputs and pins 3-4 are always the teammate's outputs back to me. My board sends the pump command to Clay (RD4, RD3) and the preset to Troy (RF6, RF5), and reads the weight status from Troy (RE1, RE0) and the flow status from Cole (RC7, RC6).</li>
-<li><strong>Safe defaults:</strong> The ribbon outputs start low, so the pump command is 00 (stop) at power-up. R26-R29 are 100k pull-downs on my four ribbon inputs, so an unplugged cable reads 00 (no flow or not ready) instead of floating.</li>
+<li><strong>Power [6.7]:</strong> The barrel jack takes 9-12V, goes through a swappable T800mA fuse, and the LM1086 linear regulator makes 5V. It has the input and output caps from the TI datasheet (10uF tantalum on the output) and a 0.1uF bypass cap at every IC power pin. The worst-case load is 432mA with margin, well under the regulator's 1.5A, and the heat sink keeps it near 71 C. D6 and D5 show that the 9V and 5V rails are on.</li>
+<li><strong>Picking the amount [2.1, 3.1, 4.1, Design 2.4]:</strong> UP and DOWN pick one of the 4 fill presets, and START starts the fill. Each button has a 10k pull-up and an RC debounce, so one press reads as one press. J9 lets the buttons be mounted off the board.</li>
+<li><strong>Stopping at any time [6.1, Design 1.5, Design 3.4]:</strong> STOP is its own button on RA3. The firmware sets the pump command to 00 (stop) from any step.</li>
+<li><strong>Cup sensor:</strong> The photoresistor goes through a buffer, a gain stage, and a low-pass filter into the ADC (RA5), so the pump only starts when a cup is in place. This answers the open question on our requirements page about checking for a container before dispensing.</li>
+<li><strong>Display and status [3.2, 3.3, 3.4, Design 2.1]:</strong> The 16x2 LCD shows the preset amount and the status (Ready, Filling, Finished, Error). Three LEDs show Dispensing, Done, and Fault, and the Fault LED flashes when there's no flow.</li>
+<li><strong>Measuring and stopping at the target [1.2, 2.2, 2.3, 6.4]:</strong> My board sends the preset to Troy's board (RF6, RF5) and the run command to Clay's board (RD4, RD3). It watches the weight status from Troy (RE1, RE0) and the flow status from Cole (RC7, RC6), and stops the pump when the target is reached. J1, J2, and J3 follow the class ribbon standard with pin 8 as ground and no power pin. Pins 1-2 are always my outputs and pins 3-4 are always the teammate's outputs back to me.</li>
+<li><strong>No unintended dispensing [2.6]:</strong> The ribbon outputs start low, so the pump command is 00 (stop) at power-up. R26-R29 are 100k pull-downs on my four ribbon inputs, so an unplugged cable reads 00 (no flow or not ready) instead of floating, and the pump won't run.</li>
+<li><strong>Repeat fills [2.4]:</strong> After a fill is done, the firmware goes back to picking a preset without a restart.</li>
 <li><strong>Debugging:</strong> There's a debug LED (RF2), a debug button (RF4), jumpers to cut the power and every ribbon signal, 17 test points (including one on every ribbon signal), and spare Nano pins on the J5 and J6 headers.</li>
-<li><strong>ERC:</strong> 0 errors and 0 warnings (the report is in the KiCad ZIP).</li>
+<li><strong>Part numbers and ERC:</strong> Every part has its manufacturer part number in the KiCad file, matching my <a href="../../03-BOM/BOM/">BOM</a>. ERC shows 0 errors and 0 warnings (the report is in the KiCad ZIP).</li>
 </ul>
 <h2 id="ribbon-cables">Ribbon Cables</h2>
 <table>
@@ -1177,6 +1180,7 @@
 <li>Took out the UART lines on J1-J3 and wired the 2-wire, 4-state signals above.</li>
 <li>Added R26-R29 (100k pull-downs) on the four ribbon inputs.</li>
 <li>Added JP10, JP11, TP16, and TP17 for Troy's two status lines.</li>
+<li>Added the manufacturer part number (MPN field) to every part.</li>
 </ul>
 <h2 id="files">Files</h2>
 <ul>
