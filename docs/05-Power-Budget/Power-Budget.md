@@ -25,20 +25,20 @@ This power budget checks that my 9V adapter and 5V regulator can run everything 
 |---|---|
 | Major components from Section A | 330.372 |
 | 2.5V reference divider (two 10k) | 0.258 |
-| LCD E pull-down (100k) | 0.052 |
+| 100k pull-downs driven high: LCD E (R24) plus my 4 ribbon outputs into teammates' 100k pull-downs | 0.260 |
 | LCD contrast pot (10k) | 0.638 |
 | 3 status LEDs (2.2k each) | 7.026 |
 | 5 button pull-ups (10k each, includes the debug button) | 2.576 |
 | Debug LED and 5V power LED (2.2k each) | 4.684 |
-| **Total** | **345.606** |
+| **Total** | **345.814** |
 | Safety margin | 25% |
-| **Total with margin** | **432.008** |
+| **Total with margin** | **432.268** |
 
 ## C. Regulator
 
 | Regulator | Part number | Max current (mA) | Needed (mA) | Remaining (mA) |
 |---|---|---|---|---|
-| 5V linear regulator | TI LM1086IT-5.0/NOPB | 1,500 | 432.008 | **1,067.992** |
+| 5V linear regulator | TI LM1086IT-5.0/NOPB | 1,500 | 432.268 | **1,067.732** |
 
 ## D. Power Source
 
@@ -46,7 +46,7 @@ This power budget checks that my 9V adapter and 5V regulator can run everything 
 |---|---|---|---|---|---|
 | Wall adapter | Triad WSU090-2000 | 9V | 2,000 | 1,500 (LM1086) | **500** |
 
-My real draw from the adapter is 444.039mA (432.008mA, plus 10mA for the regulator itself, plus 2.031mA for the 9V power LED), so there's a lot of room left.
+My real draw from the adapter is 444.299mA (432.268mA, plus 10mA for the regulator itself, plus 2.031mA for the 9V power LED), so there's a lot of room left.
 
 ## E. Battery Life
 
@@ -60,6 +60,6 @@ Microchip only lists the PIC's max current at 3V, not 5V, so I used a safe upper
 
 ## Resources
 
-The full power budget spreadsheet is [here](Fill-A-Bot-Main-Control-Power-Budget.xlsx), and a PDF of this page is [here](Power-Budget.pdf).
+The full power budget spreadsheet is [here](Fill-A-Bot-Main-Control-Power-Budget.xlsx) (also zipped [here](Fill-A-Bot-Main-Control-Power-Budget.zip)), and a PDF of this page is [here](Power-Budget.pdf).
 
 Datasheets used: [LM1086](https://www.ti.com/lit/ds/symlink/lm1086.pdf), [Triad WSU090-2000](https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf), [NHD-0216K1Z-FL-YBW LCD](https://newhavendisplay.com/content/specs/NHD-0216K1Z-FL-YBW.pdf), [MCP6002](https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf), [PIC18F57Q43](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18F27-47-57Q43-Microcontroller-Data-Sheet-XLP-DS40002147.pdf), [PDV-P8103](https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf), [HSE14-384225P heat sink](https://www.sameskydevices.com/product/resource/hse14-384225p.pdf).
