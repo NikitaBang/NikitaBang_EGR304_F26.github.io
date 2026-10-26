@@ -45,5 +45,5 @@ STOP cancels from any state. A weight status of 11 (error) also goes to the erro
 | Rev | Date | Changes |
 |---|---|---|
 | 1 | Oct 19, 2026 | First schematic (UART ribbon) |
-| 2 | Oct 25, 2026 | Footprints on every part, 9V power LED (R25, D6), LCD notes |
-| 3 | Oct 25, 2026 | 2-wire, 4-state ribbon signals, 100k pull-downs on the ribbon inputs, jumpers and test points on every ribbon signal |
+| 2 | Oct 25, 2026 | Footprints, 9V power LED (R25, D6), LCD notes |
+| 3 | Oct 25, 2026 | 2-wire, 4-state ribbon signals, 100k pull-downs on the ribbon inputs, jumpers and test points on every ribbon signal, manufacturer part numbers on every part |
