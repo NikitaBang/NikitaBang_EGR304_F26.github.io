@@ -961,7 +961,7 @@ for<br>
 <h2 id="introduction">Introduction</h2>
 <p>This is my individual datasheet for EGR 304. It shows my part of our team project, the parts I picked for my board, and how my board is powered.</p>
 <h3 id="project-summary">Project Summary</h3>
-<p>Fill-A-Bot is our team's automatic liquid dispenser. You pick how much liquid you want, press start, and it fills your cup and stops on its own. Each of us builds our own board, and the boards talk to each other over a ribbon cable. Our full team report is on the <a href="https://egr304-2026-f-201.github.io/">Team 201 website</a>.</p>
+<p>Fill-A-Bot is our team's automatic liquid dispenser. You pick how much liquid you want, press start, and it fills your cup and stops on its own. Each of us builds our own board, and the boards talk to each other over ribbon cables using plain digital wires (2 wires per signal, 4 states). Our full team report is on the <a href="https://egr304-2026-f-201.github.io/">Team 201 website</a>.</p>
 <ul>
 <li>Nikita Bangiyev: Main Control Board (me)</li>
 <li>Cole Trask: flow sensing</li>
@@ -969,7 +969,7 @@ for<br>
 <li>Troy Reynolds: liquid amount sensing</li>
 </ul>
 <h3 id="my-contribution">My Contribution</h3>
-<p>I'm doing the Main Control Board. It reads the UP, DOWN, START, and STOP buttons, uses a photoresistor and an op amp to check that a cup is in place, talks to my teammates' boards over UART, and shows the amount and status on a 16x2 LCD.</p>
+<p>I'm doing the Main Control Board. It reads the UP, DOWN, START, and STOP buttons, uses a photoresistor and an op amp to check that a cup is in place, sends simple 2-wire digital signals to my teammates' boards (pump command to Clay, preset to Troy) and reads theirs back (flow status from Cole, weight status from Troy), and shows the amount and status on a 16x2 LCD.</p>
 <ul>
 <li><a href="01-Block-Diagram/Block-Diagram/">Block Diagram</a>: how my board is laid out and connected</li>
 <li><a href="02-Component-Selection/Component-Selection/">Component Selection</a>: the parts I picked for my board and why</li>
