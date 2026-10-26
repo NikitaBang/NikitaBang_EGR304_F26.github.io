@@ -29,7 +29,7 @@
 
     
       
-        <title>Appendix - Main Page - EGR 304 Nikita Bangiyev Data Sheet</title>
+        <title>Appendix - EGR 304 Nikita Bangiyev Data Sheet</title>
       
     
     
@@ -91,6 +91,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#appendix" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -122,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Appendix - Main Page
+              Appendix
             
           </span>
         </div>
@@ -916,6 +921,49 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#ribbon-wiring-for-all-four-boards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ribbon Wiring for All Four Boards
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-board-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Board States
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revision-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revision History
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -988,9 +1036,156 @@
   
 
 
-  <h1>Appendix - Main Page</h1>
-
-<p>The Appendix is where supporting information goes that is not in the main body.</p>
+<h1 id="appendix">Appendix</h1>
+<p>Extra info that supports the main pages.</p>
+<h2 id="ribbon-wiring-for-all-four-boards">Ribbon Wiring for All Four Boards</h2>
+<p>On Oct 22 our team dropped UART and I2C between boards. Each signal is now 2 plain digital wires (4 states), and 00 is the safe default. The ribbon cable is straight through, so pin 1 on my header is pin 1 on the teammate's header. This is what each board has to wire to match my board.</p>
+<table>
+<thead>
+<tr>
+<th>Ribbon pin</th>
+<th>Cole (flow, J1)</th>
+<th>Clay (pump, J2)</th>
+<th>Troy (weight, J3)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Not used</td>
+<td>Pump command C1 in (from my RD4)</td>
+<td>Weight command C1 in (from my RF6)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not used</td>
+<td>Pump command C0 in (from my RD3)</td>
+<td>Weight command C0 in (from my RF5)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Flow status S1 out (to my RC7)</td>
+<td>Not used</td>
+<td>Weight status S1 out (to my RE1)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Flow status S0 out (to my RC6)</td>
+<td>Not used</td>
+<td>Weight status S0 out (to my RE0)</td>
+</tr>
+<tr>
+<td>5-7</td>
+<td>Not used</td>
+<td>Not used</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>8</td>
+<td>GND</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>All boards use 5V logic.</li>
+<li>Every input gets a 100k pull-down, so an unplugged cable reads 00.</li>
+<li>Every output starts low (00) at power-up.</li>
+<li>There's no power pin on the ribbon.</li>
+</ul>
+<h2 id="main-board-states">Main Board States</h2>
+<p>This is the plan for my board's firmware, based on Cole's software flow chart. It's a draft and the timing numbers will be tuned on the real boards.</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Pump command</th>
+<th>Weight command</th>
+<th>What it's waiting for</th>
+<th>Goes to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Idle / select preset</td>
+<td>00 (stop)</td>
+<td>Preset 1-4</td>
+<td>UP / DOWN change the preset. START with a cup in place and weight status 01</td>
+<td>Filling</td>
+</tr>
+<tr>
+<td>Filling</td>
+<td>01 (run)</td>
+<td>Preset (locked)</td>
+<td>Weight status 10</td>
+<td>Done</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>No flow (flow status not 01) for 3 seconds, or flow status 11</td>
+<td>Error</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>STOP pressed, or the cup is removed</td>
+<td>Cancel</td>
+</tr>
+<tr>
+<td>Error (no flow)</td>
+<td>00 (stop)</td>
+<td>Preset</td>
+<td>Fault LED flashes until STOP is pressed</td>
+<td>Idle</td>
+</tr>
+<tr>
+<td>Done / reset</td>
+<td>00 (stop)</td>
+<td>Preset</td>
+<td>Shows Finished for 3 seconds</td>
+<td>Idle</td>
+</tr>
+<tr>
+<td>Cancel</td>
+<td>00 (stop)</td>
+<td>Preset</td>
+<td>Shows Canceled for 1 second</td>
+<td>Idle</td>
+</tr>
+</tbody>
+</table>
+<p>STOP cancels from any state. A weight status of 11 (error) also goes to the error state, with a different message on the LCD. The ribbon inputs only count once they read the same 3 times in a row (10 ms apart), so a read in the middle of a change gets ignored. The container weight is hard-coded on Troy's board for the demo.</p>
+<h2 id="revision-history">Revision History</h2>
+<table>
+<thead>
+<tr>
+<th>Rev</th>
+<th>Date</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Oct 19, 2026</td>
+<td>First schematic (UART ribbon)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Oct 25, 2026</td>
+<td>Footprints on every part, 9V power LED (R25, D6), LCD notes</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Oct 25, 2026</td>
+<td>2-wire, 4-state ribbon signals, 100k pull-downs on the ribbon inputs, jumpers and test points on every ribbon signal</td>
+</tr>
+</tbody>
+</table>
 
 
 
