@@ -6,7 +6,7 @@ title: Component Selection
 
 **My subsystem: Main Control Board.** This is an individual assignment, so this page covers the blocks in my individual block diagram. Clay's pump, Cole's flow sensor, and Troy's load cell are on their own Component Selection pages. **The parts I picked for my board are in bold.**
 
-My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there, talks to my teammates' boards over UART, and shows the amount and status on a display. The assignment says not to make tables for the microcontroller, buttons, LEDs, resistors, or capacitors, so those don't have tables. Prices are from DigiKey for one part (October 2026).
+My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there, sends and reads simple 2-wire digital signals on the ribbon cables to my teammates' boards, and shows the amount and status on a display. The assignment says not to make tables for the microcontroller, buttons, LEDs, resistors, or capacitors, so those don't have tables. Prices are from DigiKey for one part (October 2026).
 
 ## 1. Power Source
 
@@ -18,7 +18,7 @@ My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there
 
 **Choice:** **Option 3: Triad WSU090-2000 (Main Control Board)**
 
-**Rationale:** The LM1086 regulator is rated for up to 1.5A, but that's only how much it can supply. It's not what my board actually uses. My board uses 345.6mA. With the 25% safety margin that's 432.0mA. The regulator uses about 10mA itself and the 9V power LED uses about 2mA, so the adapter has to give about 444mA. All three adapters can do that. The class power budget template also checks the adapter against the regulator's full 1.5A rating, so I picked a 2A adapter to pass that check too (2000mA - 1500mA = 500mA left). The Triad is in stock and costs less than the MEAN WELL, and it has the 5.5 x 2.1 mm center-positive plug. The full numbers are on my [Power Budget](../05-Power-Budget/Power-Budget.md) page.
+**Rationale:** The LM1086 regulator is rated for up to 1.5A, but that's only how much it can supply. It's not what my board actually uses. My board uses 345.8mA. With the 25% safety margin that's 432.3mA. The regulator uses about 10mA itself and the 9V power LED uses about 2mA, so the adapter has to give about 444mA. All three adapters can do that. The class power budget template also checks the adapter against the regulator's full 1.5A rating, so I picked a 2A adapter to pass that check too (2000mA - 1500mA = 500mA left). The Triad is in stock and costs less than the MEAN WELL, and it has the 5.5 x 2.1 mm center-positive plug. The full numbers are on my [Power Budget](../05-Power-Budget/Power-Budget.md) page.
 
 ## 2. Barrel Jack
 
@@ -62,9 +62,9 @@ Here is how I checked the regulator temperature:
 |---|---|---|
 | Highest adapter voltage | 9.45V | 9V + 5% (Triad datasheet) |
 | Lowest regulator output | 4.9V | LM1086 datasheet |
-| Output current | 432.0mA | My power budget, with the 25% margin |
+| Output current | 432.3mA | My power budget, with the 25% margin |
 | Regulator's own current | 10mA max | LM1086 datasheet |
-| Heat = (9.45 - 4.9) x 0.4320 + 9.45 x 0.010 | 2.06W | Calculated |
+| Heat = (9.45 - 4.9) x 0.4323 + 9.45 x 0.010 | 2.06W | Calculated |
 | Junction to case | 4.0 C/W | LM1086 datasheet (TO-220, output section) |
 | Insulating pad | 1.0 C/W | My guess (a Bergquist SP900S pad is listed at 0.61 C/W) |
 | Heat sink | 10 C/W | HSE14-384225P datasheet (still air, 1W) |
@@ -108,7 +108,7 @@ So it should stay well under the limit. The heat sink datasheet shows 19.2 C of 
 
 **Choice:** **Option 3: Newhaven NHD-0216K1Z-FL-YBW (Main Control Board)**
 
-**Rationale:** Our team requirements say the display has to show the amount, the units, and words like Ready, Filling, and Finished. The LCD is the only option that can do all of that at once. It wires straight to the Nano in 4-bit mode (RC0-RC5), so I don't need a driver chip or an I2C backpack.
+**Rationale:** Our team requirements say the display has to show the amount, the units, and words like Ready, Filling, and Finished. The LCD is the only option that can do all of that at once. It wires straight to the Nano in 4-bit mode (RC0-RC5), so I don't need a driver chip or a serial backpack board.
 
 ## 8. Ribbon Cable Header
 
@@ -124,34 +124,38 @@ So it should stay well under the limit. The heat sink datasheet shows 19.2 C of 
 
 ## Pin Assignments
 
-| Pin | Use | Connects to |
-|---|---|---|
-| RA0 | Digital input (active low) | SW1 UP button, 10k pull-up |
-| RA1 | Digital input (active low) | SW2 DOWN button, 10k pull-up |
-| RA2 | Digital input (active low) | SW3 START button, 10k pull-up |
-| RA3 | Digital input (active low) | SW4 STOP button, 10k pull-up |
-| RA5 | Analog input (ADC) | Cup sensor (op amp output) |
-| RD0 | Digital output (active low) | D2 Dispensing LED (yellow), 2.2k resistor |
-| RD1 | Digital output (active low) | D3 Done LED (green), 2.2k resistor |
-| RD2 | Digital output (active low) | D4 Fault LED (red), 2.2k resistor |
-| RF2 | Digital output (active low) | D1 Debug LED (red), 2.2k resistor |
-| RF4 | Digital input (active low) | SW5 Debug button, 10k pull-up |
-| RC0 | Digital output | LCD DB4 |
-| RC1 | Digital output | LCD DB5 |
-| RC2 | Digital output | LCD DB6 |
-| RC3 | Digital output | LCD DB7 |
-| RC4 | Digital output | LCD RS |
-| RC5 | Digital output | LCD E |
-| RC6 | UART1 TX | J1 pin 1 (to Cole's RX) |
-| RC7 | UART1 RX | J1 pin 2 (from Cole's TX) |
-| RD3 | UART2 TX | J2 pin 1 (to Clay's RX) |
-| RD4 | UART2 RX | J2 pin 2 (from Clay's TX) |
-| RF6 | UART3 TX | J3 pin 1 (to Troy's RX) |
-| RF5 | UART3 RX | J3 pin 2 (from Troy's TX) |
-| VTG | Power | 5V from the LM1086 (VOFF tied to GND) |
-| GND | Ground | Board ground and J1-J3 pin 8 |
+This is how I'll set up each pin in MCC (Pin Grid View). "Start high" means the pin's LAT bit is set to 1 at power-up. None of the pins use the internal weak pull-ups, because every input already has an outside pull-up or pull-down on my board.
 
-Ribbon pins 3-7 aren't connected on my board. There's no power on the ribbon since every board has its own regulator. The spare Nano pins go to the J5 and J6 extra headers.
+| Pin | Subsystem | MCC setting | Connects to |
+|---|---|---|---|
+| RA0 | Buttons | Digital input | SW1 UP button (next preset), 10k pull-up, active low |
+| RA1 | Buttons | Digital input | SW2 DOWN button (last preset), 10k pull-up, active low |
+| RA2 | Buttons | Digital input | SW3 START button, 10k pull-up, active low |
+| RA3 | Buttons | Digital input | SW4 STOP button (cancel), 10k pull-up, active low |
+| RF4 | Debug | Digital input | SW5 debug button, 10k pull-up, active low |
+| RA5 | Cup sensor | Analog input (ADC channel ANA5) | Op amp and low-pass filter output |
+| RD0 | Status LEDs | Digital output, start high | D2 Dispensing LED (yellow), 2.2k, active low |
+| RD1 | Status LEDs | Digital output, start high | D3 Done LED (green), 2.2k, active low |
+| RD2 | Status LEDs | Digital output, start high | D4 Fault LED (red), 2.2k, active low |
+| RF2 | Debug | Digital output, start high | D1 debug LED (red), 2.2k, active low |
+| RC0 | LCD | Digital output, start low | LCD DB4 |
+| RC1 | LCD | Digital output, start low | LCD DB5 |
+| RC2 | LCD | Digital output, start low | LCD DB6 |
+| RC3 | LCD | Digital output, start low | LCD DB7 |
+| RC4 | LCD | Digital output, start low | LCD RS |
+| RC5 | LCD | Digital output, start low | LCD E (100k pull-down R24) |
+| RC7 | Flow status from Cole | Digital input | J1 pin 3 (S1), 100k pull-down |
+| RC6 | Flow status from Cole | Digital input | J1 pin 4 (S0), 100k pull-down |
+| RD4 | Pump command to Clay | Digital output, start low | J2 pin 1 (C1) |
+| RD3 | Pump command to Clay | Digital output, start low | J2 pin 2 (C0) |
+| RF6 | Weight command to Troy | Digital output, start low | J3 pin 1 (C1) |
+| RF5 | Weight command to Troy | Digital output, start low | J3 pin 2 (C0) |
+| RE1 | Weight status from Troy | Digital input | J3 pin 3 (S1), 100k pull-down |
+| RE0 | Weight status from Troy | Digital input | J3 pin 4 (S0), 100k pull-down |
+| VTG | Power | | 5V from the LM1086 (VOFF tied to GND) |
+| GND | Ground | | Board ground and J1-J3 pin 8 |
+
+The ribbon signals don't use UART, I2C, or SPI. Each one is 2 plain digital pins, so it has 4 states (00, 01, 10, 11), and 00 is the safe default. The ribbon outputs start low so the pump command is 00 (stop) at power-up, and the 100k pull-downs make an unplugged cable read 00. The codes for each signal are on my [Block Diagram](../01-Block-Diagram/Block-Diagram.md) page. Ribbon pins 5-7 aren't connected on my board, and there's no power on the ribbon since every board has its own regulator. The spare Nano pins go to the J5 and J6 extra headers.
 
 ## Power Budget
 
