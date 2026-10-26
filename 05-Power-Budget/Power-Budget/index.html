@@ -1217,8 +1217,8 @@
 <td>0.258</td>
 </tr>
 <tr>
-<td>LCD E pull-down (100k)</td>
-<td>0.052</td>
+<td>100k pull-downs driven high: LCD E (R24) plus my 4 ribbon outputs into teammates' 100k pull-downs</td>
+<td>0.260</td>
 </tr>
 <tr>
 <td>LCD contrast pot (10k)</td>
@@ -1238,7 +1238,7 @@
 </tr>
 <tr>
 <td><strong>Total</strong></td>
-<td><strong>345.606</strong></td>
+<td><strong>345.814</strong></td>
 </tr>
 <tr>
 <td>Safety margin</td>
@@ -1246,7 +1246,7 @@
 </tr>
 <tr>
 <td><strong>Total with margin</strong></td>
-<td><strong>432.008</strong></td>
+<td><strong>432.268</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1266,8 +1266,8 @@
 <td>5V linear regulator</td>
 <td>TI LM1086IT-5.0/NOPB</td>
 <td>1,500</td>
-<td>432.008</td>
-<td><strong>1,067.992</strong></td>
+<td>432.268</td>
+<td><strong>1,067.732</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1294,14 +1294,14 @@
 </tr>
 </tbody>
 </table>
-<p>My real draw from the adapter is 444.039mA (432.008mA, plus 10mA for the regulator itself, plus 2.031mA for the 9V power LED), so there's a lot of room left.</p>
+<p>My real draw from the adapter is 444.299mA (432.268mA, plus 10mA for the regulator itself, plus 2.031mA for the 9V power LED), so there's a lot of room left.</p>
 <h2 id="e-battery-life">E. Battery Life</h2>
 <p>N/A. My board runs off a wall adapter.</p>
 <h2 id="conclusions">Conclusions</h2>
 <p>The 2A adapter and the LM1086 can easily power everything on my board with the 25% margin, and nothing comes out negative. The biggest load is the LCD backlight. The regulator turns about 2W into heat, so it gets a heat sink, which keeps it around 71 C (its limit is 125 C).</p>
 <p>Microchip only lists the PIC's max current at 3V, not 5V, so I used a safe upper estimate of 170mA for the Nano. The real number should be a lot lower, and I'll measure the actual board current once it's built.</p>
 <h2 id="resources">Resources</h2>
-<p>The full power budget spreadsheet is <a href="../Fill-A-Bot-Main-Control-Power-Budget.xlsx">here</a>, and a PDF of this page is <a href="../Power-Budget.pdf">here</a>.</p>
+<p>The full power budget spreadsheet is <a href="../Fill-A-Bot-Main-Control-Power-Budget.xlsx">here</a> (also zipped <a href="../Fill-A-Bot-Main-Control-Power-Budget.zip">here</a>), and a PDF of this page is <a href="../Power-Budget.pdf">here</a>.</p>
 <p>Datasheets used: <a href="https://www.ti.com/lit/ds/symlink/lm1086.pdf">LM1086</a>, <a href="https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf">Triad WSU090-2000</a>, <a href="https://newhavendisplay.com/content/specs/NHD-0216K1Z-FL-YBW.pdf">NHD-0216K1Z-FL-YBW LCD</a>, <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf">MCP6002</a>, <a href="https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18F27-47-57Q43-Microcontroller-Data-Sheet-XLP-DS40002147.pdf">PIC18F57Q43</a>, <a href="https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf">PDV-P8103</a>, <a href="https://www.sameskydevices.com/product/resource/hse14-384225p.pdf">HSE14-384225P heat sink</a>.</p>
 
 
