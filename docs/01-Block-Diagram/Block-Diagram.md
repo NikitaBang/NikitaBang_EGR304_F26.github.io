@@ -15,6 +15,8 @@ I'm doing the main control board. The user picks one of 4 fill presets with the 
 
 The boards don't use UART, I2C, or SPI. Each signal between two boards is just 2 plain digital wires driven high or low, so it can send 4 states (00, 01, 10, 11). My board has 2 of these outputs (pump command and weight command) and 2 inputs (weight status and flow status).
 
+For this prototype, Fill-A-Bot is meant for home kitchen use with plain drinking water only (tap or filtered, room temperature). The projected customer is someone at home who wants a set amount of water without using a measuring cup, like for cooking, coffee, or filling a water bottle. We picked kitchen use over lab use because a lab version would have to follow lab rules for cleaning, sterilization, and chemical safety, which adds a lot of restrictions we can't meet this semester. Fill-A-Bot is not sterile and isn't meant for chemicals, medicine, or other liquids. The parts that touch the water should be food-safe and easy to rinse, and the electronics stay separated from the water. On my Main Control Board, the user interface and the +5V/VIN power stay separated from the water. A lab version could be a later step. See Target Customer and Use on our team's [Product Requirements](https://egr304-2026-f-201.github.io/04-Product-Requirements/#target-customer-and-use) page.
+
 ![Main control board block diagram](nikita-block-diagram.png){ width="100%" }
 
 Figure 1: Main control board block diagram (click to enlarge)
