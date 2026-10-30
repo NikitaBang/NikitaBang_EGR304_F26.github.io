@@ -31,32 +31,21 @@ Source files: [nikita-block-diagram-source.zip](nikita-block-diagram-source.zip)
 - D6 lights up when 9V is in, and D5 lights up when 5V is on
 - My power budget is 432mA with the 25% margin (see [Power Budget](../05-Power-Budget/Power-Budget.md))
 
-## Pin Assignments
+## Blocks
 
-| Pin | Use | Connects to |
+| Block | What it does | Signal to or from the microcontroller |
 |---|---|---|
-| RA0 | Digital input | SW1 UP button, next preset (active low, 10k pull-up) |
-| RA1 | Digital input | SW2 DOWN button, last preset |
-| RA2 | Digital input | SW3 START button, start the fill |
-| RA3 | Digital input | SW4 STOP button, cancel |
-| RF4 | Digital input | SW5 debug button |
-| RA5 | ADC | Cup sensor (op amp and low-pass filter output) |
-| RD0 | Digital output | D2 Dispensing LED (active low, 2.2k) |
-| RD1 | Digital output | D3 Done LED |
-| RD2 | Digital output | D4 Fault LED |
-| RF2 | Digital output | D1 debug LED |
-| RC0 | Digital output | LCD DB4 |
-| RC1 | Digital output | LCD DB5 |
-| RC2 | Digital output | LCD DB6 |
-| RC3 | Digital output | LCD DB7 |
-| RC4 | Digital output | LCD RS |
-| RC5 | Digital output | LCD E |
-| RC7 / RC6 | Digital inputs | Flow status S1 / S0, from Cole (J1 pins 3 / 4) |
-| RD4 / RD3 | Digital outputs | Pump command C1 / C0, to Clay (J2 pins 1 / 2) |
-| RF6 / RF5 | Digital outputs | Weight command C1 / C0, to Troy (J3 pins 1 / 2) |
-| RE1 / RE0 | Digital inputs | Weight status S1 / S0, from Troy (J3 pins 3 / 4) |
+| Power | Barrel jack, T800mA fuse, and the LM1086 5V regulator. Powers every block on the board. | +5V (power) |
+| Buttons | UP and DOWN pick a preset, START starts the fill, STOP cancels | Digital in |
+| Cup Sensor | Photoresistor, op amp buffer and gain stage, then a low-pass filter. Tells the board a cup is there. | Analog in |
+| Debug | Debug button and debug LED for testing | Digital in / out |
+| Microcontroller | PIC18F57Q43 Curiosity Nano. Runs the fill sequence. | |
+| 16x2 LCD | Shows the preset amount and the status (Ready, Filling, Finished, Error) | 4-bit parallel |
+| Status LEDs | Dispensing, Done, and Fault | Digital out |
+| Expansion Headers | Spare pins for fixes later | Digital in / out |
+| Ribbon Headers | One 8-wire ribbon to each teammate's board | 2-bit commands out, 2-bit status in |
 
-All four inputs from the ribbons (RC7, RC6, RE1, RE0) have a 100k pull-down, so an unplugged cable reads 00.
+The exact PIC pins are on my [Component Selection](../02-Component-Selection/Component-Selection.md) page (MCC pin table) and on my [schematic](../04-Schematic/schematic.md). I left them off the block diagram to keep it simple.
 
 ## Ribbon Connectors
 
@@ -64,12 +53,12 @@ J1 goes to Cole, J2 to Clay, and J3 to Troy. All three use the same layout and f
 
 | Pin | J1 (Cole) | J2 (Clay) | J3 (Troy) |
 |---|---|---|---|
-| 1 | Not connected | Pump command C1 out (RD4) | Weight command C1 out (RF6) |
-| 2 | Not connected | Pump command C0 out (RD3) | Weight command C0 out (RF5) |
-| 3 | Flow status S1 in (RC7) | Not connected | Weight status S1 in (RE1) |
-| 4 | Flow status S0 in (RC6) | Not connected | Weight status S0 in (RE0) |
+| 1-2 | Not connected | Pump command out | Weight command (preset) out |
+| 3-4 | Flow status in | Not connected | Weight status in |
 | 5-7 | Not connected | Not connected | Not connected |
 | 8 | GND | GND | GND |
+
+My four inputs have 100k pull-downs, so an unplugged cable reads 00.
 
 There's no power pin on the ribbon. Every board has its own adapter and regulator, and pins 1-7 have to go to the microcontroller. All signals are 5V logic.
 
@@ -106,6 +95,7 @@ The team is still picking the four preset amounts. The weight command can sit at
 
 - I switched from a 4-digit 7-segment display to a 16x2 LCD, because the team requirements need words like Ready, Filling, and Finished. The LCD has its own controller, so the HT16K33 driver is gone. It was discontinued anyway.
 - The op amp is needed because a photoresistor and resistor alone don't count as an analog sensor. U3A buffers the divider and U3B amplifies it with a gain of -3 around a 2.5V reference. Then R10 and C9 make a low-pass filter (about 16 Hz) before the ADC.
+- After the design review (Oct 26) I simplified this diagram: no pin numbers, one block per function, one outline for my board, red arrows for power and black arrows for signals. The 5V now shows as one "+5V to every block" arrow instead of a long wire.
 - The team ribbon used to be I2C, and then UART. On Oct 22 we dropped both (the professor suggested it), so now each signal is 2 plain digital wires with 4 states. It's simpler to wire, test with an LED or meter, and debug.
 - I switched from the LM7805 to the LM1086 because the LCD backlight needs 4.9 to 5.1V, and a 7805 can be 4.75 to 5.25V.
 
