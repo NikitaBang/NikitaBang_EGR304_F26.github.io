@@ -60,6 +60,6 @@ Microchip only lists the PIC's max current at 3V, not 5V, so I used a safe upper
 
 ## Resources
 
-The full power budget spreadsheet is [here](Fill-A-Bot-Main-Control-Power-Budget.xlsx) (also zipped [here](Fill-A-Bot-Main-Control-Power-Budget.zip)), and a PDF of this page is [here](Power-Budget.pdf).
+The full power budget spreadsheet is [here](Fill-A-Bot-Main-Control-Power-Budget.xlsx) (also zipped [here](Fill-A-Bot-Main-Control-Power-Budget.zip)), and a PDF of this page is [here](Power-Budget.pdf). The cleaned-up power budget spreadsheet is [here](Power_Budget_Nikita_Bangiyev.xlsx).
 
 Datasheets used: [LM1086](https://www.ti.com/lit/ds/symlink/lm1086.pdf), [Triad WSU090-2000](https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf), [NHD-0216K1Z-FL-YBW LCD](https://newhavendisplay.com/content/specs/NHD-0216K1Z-FL-YBW.pdf), [MCP6002](https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf), [PIC18F57Q43](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18F27-47-57Q43-Microcontroller-Data-Sheet-XLP-DS40002147.pdf), [PDV-P8103](https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf), [HSE14-384225P heat sink](https://www.sameskydevices.com/product/resource/hse14-384225p.pdf).
