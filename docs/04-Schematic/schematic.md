@@ -12,7 +12,7 @@ Figure 1: Main Control Board schematic (click to enlarge)
 
 ## How It Meets the Requirements
 
-The numbers in brackets are from our team's [Product Requirements](https://egr304-2026-f-201.github.io/04-Product-Requirements/) page ("Design" means the Requirement Criteria Specifications list).
+The numbers in brackets are from our team's [Product Requirements](https://egr304-2026-f-201.github.io/04-Product-Requirements/) page.
 
 - **Power [6.7]:** The barrel jack takes 9-12V, goes through a swappable T800mA fuse, and the LM1086 linear regulator makes 5V. It has the input and output caps from the TI datasheet (10uF tantalum on the output) and a 0.1uF bypass cap at every IC power pin. The worst-case load is 432mA with margin, well under the regulator's 1.5A, and the heat sink keeps it near 71 C. D6 and D5 show that the 9V and 5V rails are on.
 - **Picking the amount [2.1, 3.1, 4.1, Design 2.4]:** UP and DOWN pick one of the 4 fill presets, and START starts the fill. Each button has a 10k pull-up and an RC debounce, so one press reads as one press. J9 lets the buttons be mounted off the board.
