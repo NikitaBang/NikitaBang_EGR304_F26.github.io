@@ -1064,7 +1064,7 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Nikita-Main-Control-Schematic.png" data-desc-position="bottom"><img alt="Main Control Board schematic" src="../Nikita-Main-Control-Schematic.png" width="100%"></a></p>
 <p>Figure 1: Main Control Board schematic (click to enlarge)</p>
 <h2 id="how-it-meets-the-requirements">How It Meets the Requirements</h2>
-<p>The numbers in brackets are from our team's <a href="https://egr304-2026-f-201.github.io/04-Product-Requirements/">Product Requirements</a> page ("Design" means the Requirement Criteria Specifications list).</p>
+<p>The numbers in brackets are from our team's <a href="https://egr304-2026-f-201.github.io/04-Product-Requirements/">Product Requirements</a> page.</p>
 <ul>
 <li><strong>Power [6.7]:</strong> The barrel jack takes 9-12V, goes through a swappable T800mA fuse, and the LM1086 linear regulator makes 5V. It has the input and output caps from the TI datasheet (10uF tantalum on the output) and a 0.1uF bypass cap at every IC power pin. The worst-case load is 432mA with margin, well under the regulator's 1.5A, and the heat sink keeps it near 71 C. D6 and D5 show that the 9V and 5V rails are on.</li>
 <li><strong>Picking the amount [2.1, 3.1, 4.1, Design 2.4]:</strong> UP and DOWN pick one of the 4 fill presets, and START starts the fill. Each button has a 10k pull-up and an RC debounce, so one press reads as one press. J9 lets the buttons be mounted off the board.</li>
