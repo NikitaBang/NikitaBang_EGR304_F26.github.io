@@ -4,7 +4,7 @@ title: Schematics
 
 # Schematics
 
-This is the schematic for my Main Control Board (rev 3, October 25, 2026). It has the 9-12V power input and 5V regulator, the Curiosity Nano, the cup sensor with the op amp, the LCD, the buttons and LEDs, and the three ribbon cables to my teammates' boards. Each signal on the ribbons is 2 plain digital wires with 4 states (00, 01, 10, 11). There's no UART, I2C, or SPI between boards.
+This is the schematic for my Main Control Board (rev 4, October 30, 2026). It has the 9-12V power input and 5V regulator, the Curiosity Nano, the cup sensor with the op amp, the LCD, the buttons and LEDs, and the three ribbon cables to my teammates' boards. Each signal on the ribbons is 2 plain digital wires with 4 states (00, 01, 10, 11). There's no UART, I2C, or SPI between boards.
 
 ![Main Control Board schematic](Nikita-Main-Control-Schematic.png){ width="100%" }
 
@@ -44,12 +44,9 @@ Each ribbon signal goes through a jumper (JP3, JP4, JP6-JP11) and has a test poi
 | Weight status (from Troy) | Not ready | Below target | Target reached | Error |
 | Flow status (from Cole) | No flow | Flowing | Not used (no flow) | Sensor fault |
 
-## Changes in Rev 3
+## Changes in Rev 4
 
-- Took out the UART lines on J1-J3 and wired the 2-wire, 4-state signals above.
-- Added R26-R29 (100k pull-downs) on the four ribbon inputs.
-- Added JP10, JP11, TP16, and TP17 for Troy's two status lines.
-- Added the manufacturer part number (MPN field) to every part.
+After the design review I cleaned up the schematic without adding or removing any parts: the 9V LED branch and the fuse output now use a VIN power arrow instead of a long wire, and the 100k pull-downs (R26-R29) sit right on their ribbon lines next to J1 and J3 instead of being joined by net labels from another section. I also renamed the spare Nano nets so they don't look like UART (GPIO_RF0, GPIO_RF1, GPIO_RF3, DBG_BTN_RF4) and moved the signal codes into one note in the ribbon section.
 
 ## Files
 
