@@ -582,10 +582,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pin-assignments" class="md-nav__link">
+  <a href="#blocks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pin Assignments
+        Blocks
       
     </span>
   </a>
@@ -991,10 +991,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pin-assignments" class="md-nav__link">
+  <a href="#blocks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pin Assignments
+        Blocks
       
     </span>
   </a>
@@ -1151,119 +1151,64 @@
 <li>D6 lights up when 9V is in, and D5 lights up when 5V is on</li>
 <li>My power budget is 432mA with the 25% margin (see <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a>)</li>
 </ul>
-<h2 id="pin-assignments">Pin Assignments</h2>
+<h2 id="blocks">Blocks</h2>
 <table>
 <thead>
 <tr>
-<th>Pin</th>
-<th>Use</th>
-<th>Connects to</th>
+<th>Block</th>
+<th>What it does</th>
+<th>Signal to or from the microcontroller</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>RA0</td>
-<td>Digital input</td>
-<td>SW1 UP button, next preset (active low, 10k pull-up)</td>
+<td>Power</td>
+<td>Barrel jack, T800mA fuse, and the LM1086 5V regulator. Powers every block on the board.</td>
+<td>+5V (power)</td>
 </tr>
 <tr>
-<td>RA1</td>
-<td>Digital input</td>
-<td>SW2 DOWN button, last preset</td>
+<td>Buttons</td>
+<td>UP and DOWN pick a preset, START starts the fill, STOP cancels</td>
+<td>Digital in</td>
 </tr>
 <tr>
-<td>RA2</td>
-<td>Digital input</td>
-<td>SW3 START button, start the fill</td>
+<td>Cup Sensor</td>
+<td>Photoresistor, op amp buffer and gain stage, then a low-pass filter. Tells the board a cup is there.</td>
+<td>Analog in</td>
 </tr>
 <tr>
-<td>RA3</td>
-<td>Digital input</td>
-<td>SW4 STOP button, cancel</td>
+<td>Debug</td>
+<td>Debug button and debug LED for testing</td>
+<td>Digital in / out</td>
 </tr>
 <tr>
-<td>RF4</td>
-<td>Digital input</td>
-<td>SW5 debug button</td>
+<td>Microcontroller</td>
+<td>PIC18F57Q43 Curiosity Nano. Runs the fill sequence.</td>
+<td></td>
 </tr>
 <tr>
-<td>RA5</td>
-<td>ADC</td>
-<td>Cup sensor (op amp and low-pass filter output)</td>
+<td>16x2 LCD</td>
+<td>Shows the preset amount and the status (Ready, Filling, Finished, Error)</td>
+<td>4-bit parallel</td>
 </tr>
 <tr>
-<td>RD0</td>
-<td>Digital output</td>
-<td>D2 Dispensing LED (active low, 2.2k)</td>
+<td>Status LEDs</td>
+<td>Dispensing, Done, and Fault</td>
+<td>Digital out</td>
 </tr>
 <tr>
-<td>RD1</td>
-<td>Digital output</td>
-<td>D3 Done LED</td>
+<td>Expansion Headers</td>
+<td>Spare pins for fixes later</td>
+<td>Digital in / out</td>
 </tr>
 <tr>
-<td>RD2</td>
-<td>Digital output</td>
-<td>D4 Fault LED</td>
-</tr>
-<tr>
-<td>RF2</td>
-<td>Digital output</td>
-<td>D1 debug LED</td>
-</tr>
-<tr>
-<td>RC0</td>
-<td>Digital output</td>
-<td>LCD DB4</td>
-</tr>
-<tr>
-<td>RC1</td>
-<td>Digital output</td>
-<td>LCD DB5</td>
-</tr>
-<tr>
-<td>RC2</td>
-<td>Digital output</td>
-<td>LCD DB6</td>
-</tr>
-<tr>
-<td>RC3</td>
-<td>Digital output</td>
-<td>LCD DB7</td>
-</tr>
-<tr>
-<td>RC4</td>
-<td>Digital output</td>
-<td>LCD RS</td>
-</tr>
-<tr>
-<td>RC5</td>
-<td>Digital output</td>
-<td>LCD E</td>
-</tr>
-<tr>
-<td>RC7 / RC6</td>
-<td>Digital inputs</td>
-<td>Flow status S1 / S0, from Cole (J1 pins 3 / 4)</td>
-</tr>
-<tr>
-<td>RD4 / RD3</td>
-<td>Digital outputs</td>
-<td>Pump command C1 / C0, to Clay (J2 pins 1 / 2)</td>
-</tr>
-<tr>
-<td>RF6 / RF5</td>
-<td>Digital outputs</td>
-<td>Weight command C1 / C0, to Troy (J3 pins 1 / 2)</td>
-</tr>
-<tr>
-<td>RE1 / RE0</td>
-<td>Digital inputs</td>
-<td>Weight status S1 / S0, from Troy (J3 pins 3 / 4)</td>
+<td>Ribbon Headers</td>
+<td>One 8-wire ribbon to each teammate's board</td>
+<td>2-bit commands out, 2-bit status in</td>
 </tr>
 </tbody>
 </table>
-<p>All four inputs from the ribbons (RC7, RC6, RE1, RE0) have a 100k pull-down, so an unplugged cable reads 00.</p>
+<p>The exact PIC pins are on my <a href="../../02-Component-Selection/Component-Selection/">Component Selection</a> page (MCC pin table) and on my <a href="../../04-Schematic/schematic/">schematic</a>. I left them off the block diagram to keep it simple.</p>
 <h2 id="ribbon-connectors">Ribbon Connectors</h2>
 <p>J1 goes to Cole, J2 to Clay, and J3 to Troy. All three use the same layout and follow the class standard (pins 1-5 digital, 6-7 analog, 8 ground). Pins 1-2 are always my outputs, pins 3-4 are always the teammate's outputs coming back to me, and pin 8 is ground.</p>
 <table>
@@ -1277,28 +1222,16 @@
 </thead>
 <tbody>
 <tr>
-<td>1</td>
+<td>1-2</td>
 <td>Not connected</td>
-<td>Pump command C1 out (RD4)</td>
-<td>Weight command C1 out (RF6)</td>
+<td>Pump command out</td>
+<td>Weight command (preset) out</td>
 </tr>
 <tr>
-<td>2</td>
+<td>3-4</td>
+<td>Flow status in</td>
 <td>Not connected</td>
-<td>Pump command C0 out (RD3)</td>
-<td>Weight command C0 out (RF5)</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Flow status S1 in (RC7)</td>
-<td>Not connected</td>
-<td>Weight status S1 in (RE1)</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Flow status S0 in (RC6)</td>
-<td>Not connected</td>
-<td>Weight status S0 in (RE0)</td>
+<td>Weight status in</td>
 </tr>
 <tr>
 <td>5-7</td>
@@ -1314,6 +1247,7 @@
 </tr>
 </tbody>
 </table>
+<p>My four inputs have 100k pull-downs, so an unplugged cable reads 00.</p>
 <p>There's no power pin on the ribbon. Every board has its own adapter and regulator, and pins 1-7 have to go to the microcontroller. All signals are 5V logic.</p>
 <h2 id="signal-codes">Signal Codes</h2>
 <p>Bit 1 is the first pin of the pair and bit 0 is the second. 00 is the safe default on every signal.</p>
@@ -1435,6 +1369,7 @@
 <ul>
 <li>I switched from a 4-digit 7-segment display to a 16x2 LCD, because the team requirements need words like Ready, Filling, and Finished. The LCD has its own controller, so the HT16K33 driver is gone. It was discontinued anyway.</li>
 <li>The op amp is needed because a photoresistor and resistor alone don't count as an analog sensor. U3A buffers the divider and U3B amplifies it with a gain of -3 around a 2.5V reference. Then R10 and C9 make a low-pass filter (about 16 Hz) before the ADC.</li>
+<li>After the design review (Oct 26) I simplified this diagram: no pin numbers, one block per function, one outline for my board, red arrows for power and black arrows for signals. The 5V now shows as one "+5V to every block" arrow instead of a long wire.</li>
 <li>The team ribbon used to be I2C, and then UART. On Oct 22 we dropped both (the professor suggested it), so now each signal is 2 plain digital wires with 4 states. It's simpler to wire, test with an LED or meter, and debug.</li>
 <li>I switched from the LM7805 to the LM1086 because the LCD backlight needs 4.9 to 5.1V, and a 7805 can be 4.75 to 5.25V.</li>
 </ul>
