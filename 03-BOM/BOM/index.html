@@ -974,8 +974,7 @@
 <h1 id="bill-of-materials">Bill of Materials</h1>
 <p><strong>Main Control Board, Fill-A-Bot (schematic Rev 4).</strong> Nikita Bangiyev, EGR 304, Oct 30, 2026.</p>
 <p>Every part on the schematic is listed, grouped by value, along with the hardware for debugging and expansion: jumpers and shunts, test points, sockets, headers and the fuse holder. Order quantity = 1 for the breadboard + 1 for the PCB + 1-2 spares. Parts from Peralta 109 or the class kit, and parts I already own, are listed at $0. No parts are smaller than 0805, and there are no new breakout modules.</p>
-<p><strong>DigiKey order: 23 lines, $57.91</strong> before tax and shipping (under the $60 budget per team member) before tax and shipping. DigiKey cart link: <a href="https://www.digikey.com/short/9r941nzv">DigiKey cart</a></p>
-<p>The 10 µF 16 V electrolytic (C9, C15) and 10 µF tantalum (C4) part numbers were rejected by DigiKey's cart, so those will come from Peralta or be reordered.</p>
+<p><strong>DigiKey order: 23 BOM lines (22 cart lines, since C3 and C9/C15 use the same part), $47.78</strong> before tax and shipping, under the $60 budget per team member. DigiKey cart link: <a href="https://www.digikey.com/short/bt910f3t">DigiKey cart</a></p>
 <table>
 <thead>
 <tr>
@@ -1083,14 +1082,14 @@
 <td>F1 (holder)</td>
 <td>5x20 mm fuse holder, PCB</td>
 <td>Schurter</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=0031.8201">0031.8201</a></td>
+<td><a href="https://www.digikey.com/en/products/detail/schurter-inc/0031-8201/669925">0031.8201</a></td>
 <td>DigiKey</td>
-<td>486-1259-ND</td>
+<td>486-1258-ND</td>
 <td>1</td>
 <td>2</td>
 <td>$1.36</td>
 <td>$2.72</td>
-<td>Matches the KiCad footprint. Oct 25 price; DigiKey part # needs checking.</td>
+<td>Matches the KiCad footprint. In stock.</td>
 </tr>
 <tr>
 <td>8</td>
@@ -1291,30 +1290,30 @@
 <tr>
 <td>22</td>
 <td>C9, C15</td>
-<td>Cap 10uF 16V aluminum radial</td>
+<td>Cap 10uF 25V aluminum radial (16V min)</td>
 <td>KEMET</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=ESK106M016AC3AA">ESK106M016AC3AA</a></td>
+<td><a href="https://www.digikey.com/en/products/detail/kemet/ESK106M025AC3AA/18167956">ESK106M025AC3AA</a></td>
 <td>DigiKey</td>
-<td>399-ESK106M016AC3AA-ND</td>
+<td>399-ESK106M025AC3AA-ND</td>
 <td>2</td>
 <td>5</td>
-<td>$0.19</td>
-<td>$0.95</td>
-<td>Oct 25 price.</td>
+<td>$0.21</td>
+<td>$1.05</td>
+<td>25V part, same footprint as C3.</td>
 </tr>
 <tr>
 <td>23</td>
 <td>C4</td>
 <td>Cap 10uF 16V tantalum radial</td>
-<td>KEMET</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=T350E106K016AT">T350E106K016AT</a></td>
+<td>KYOCERA AVX</td>
+<td><a href="https://www.digikey.com/en/products/detail/kyocera-avx/TAP106K016SCS/563942">TAP106K016SCS</a></td>
 <td>DigiKey</td>
-<td>399-T350E106K016AT-ND</td>
+<td>478-1839-ND</td>
 <td>1</td>
 <td>3</td>
-<td>$4.10</td>
-<td>$12.30</td>
-<td>Oct 25 price. Body is 5.5 mm on a 5.0 mm footprint, so check it.</td>
+<td>$0.69</td>
+<td>$2.07</td>
+<td>In stock. 2.5 mm lead spacing; bend leads to fit the 5.0 mm footprint.</td>
 </tr>
 <tr>
 <td>24</td>
@@ -1612,7 +1611,7 @@
 </tr>
 </tbody>
 </table>
-<p>| | | <strong>DigiKey order total</strong> | | | | | | | | <strong>$57.91</strong> | |</p>
+<p>| | | <strong>DigiKey order total</strong> | | | | | | | | <strong>$47.78</strong> | |</p>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>The EGR 304 budget is $60 per team member, so the order keeps 1 for the breadboard + 1 for the PCB + at most 1 spare. Lab-stock parts come from Peralta 109.</li>
