@@ -56,7 +56,6 @@ Every part on the schematic is listed, grouped by value, along with the hardware
 | 42 | R9 | Resistor 30k 1% 1/4W axial | Yageo | MFR-25FRF52-30K | Peralta | 13-MFR-25FRF52-30KCT-ND | 1 | 4 | $0.00 | $0.00 | Was out of stock at DigiKey on Oct 30. Get it from the Peralta resistor stock or use an alternate. |
 | 43 | U3 (socket) | 8-pin DIP IC socket | - | n/a | Peralta | n/a | 1 | 2 | $0.00 | $0.00 | From Peralta 109, $0. |
 | 44 | U1 (sockets) | 1x40 female header, cut to 1x28 (Nano socket) | - | n/a | Peralta | n/a | 2 | 3 | $0.00 | $0.00 | From class stock, $0. |
-
 | | | **DigiKey order total** | | | | | | | | **$47.78** | |
 
 ## Notes
