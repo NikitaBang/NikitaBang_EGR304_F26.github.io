@@ -8,7 +8,9 @@ title: Bill of Materials
 
 Every part on the schematic is listed, grouped by value, along with the hardware for debugging and expansion: jumpers and shunts, test points, sockets, headers and the fuse holder. Order quantity = 1 for the breadboard + 1 for the PCB + 1-2 spares. Parts from Peralta 109 or the class kit, and parts I already own, are listed at $0. No parts are smaller than 0805, and there are no new breakout modules.
 
-**DigiKey order: 23 lines, $57.91** before tax and shipping (under the $60 budget per team member) before tax and shipping. DigiKey cart link: *[cart link to be added]*
+**DigiKey order: 23 lines, $57.91** before tax and shipping (under the $60 budget per team member) before tax and shipping. DigiKey cart link: [DigiKey cart](https://www.digikey.com/short/9r941nzv)
+
+The 10 µF 16 V electrolytic (C9, C15) and 10 µF tantalum (C4) part numbers were rejected by DigiKey's cart, so those will come from Peralta or be reordered.
 
 | # | Ref | Description | Manufacturer | MPN | Vendor | Vendor Part # | Qty/Board | Order Qty | Unit | Ext. | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|
