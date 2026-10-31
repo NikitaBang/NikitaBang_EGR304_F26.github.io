@@ -8,9 +8,7 @@ title: Bill of Materials
 
 Every part on the schematic is listed, grouped by value, along with the hardware for debugging and expansion: jumpers and shunts, test points, sockets, headers and the fuse holder. Order quantity = 1 for the breadboard + 1 for the PCB + 1-2 spares. Parts from Peralta 109 or the class kit, and parts I already own, are listed at $0. No parts are smaller than 0805, and there are no new breakout modules.
 
-**DigiKey order: 23 lines, $57.91** before tax and shipping (under the $60 budget per team member) before tax and shipping. DigiKey cart link: [DigiKey cart](https://www.digikey.com/short/9r941nzv)
-
-The 10 µF 16 V electrolytic (C9, C15) and 10 µF tantalum (C4) part numbers were rejected by DigiKey's cart, so those will come from Peralta or be reordered.
+**DigiKey order: 23 BOM lines (22 cart lines, since C3 and C9/C15 use the same part), $47.78** before tax and shipping, under the $60 budget per team member. DigiKey cart link: [DigiKey cart](https://www.digikey.com/short/bt910f3t)
 
 | # | Ref | Description | Manufacturer | MPN | Vendor | Vendor Part # | Qty/Board | Order Qty | Unit | Ext. | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -20,7 +18,7 @@ The 10 µF 16 V electrolytic (C9, C15) and 10 µF tantalum (C4) part numbers wer
 | 4 | U3 | Dual op amp, 8-pin DIP | Microchip | [MCP6002-I/P](https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875) | DigiKey | MCP6002-I/P-ND | 1 | 3 | $0.45 | $1.35 | U3A/B/C are one package. |
 | 5 | DS1 | 16x2 character LCD, 5V, yellow-green backlight | Newhaven Display | [NHD-0216K1Z-FL-YBW](https://www.digikey.com/en/products/detail/newhaven-display-intl/NHD-0216K1Z-FL-YBW/1701171) | DigiKey | NHD-0216K1Z-FL-YBW-ND | 1 | 1 | $7.83 | $7.83 | Plugs into J7. |
 | 6 | LDR1 | Photoresistor (cup sensor) | Advanced Photonix | [PDV-P8103](https://www.digikey.com/en/products/detail/advanced-photonix/PDV-P8103/480610) | DigiKey | PDV-P8103-ND | 1 | 3 | $0.77 | $2.31 | Off-board on J8. |
-| 7 | F1 (holder) | 5x20 mm fuse holder, PCB | Schurter | [0031.8201](https://www.digikey.com/en/products/result?keywords=0031.8201) | DigiKey | 486-1259-ND | 1 | 2 | $1.36 | $2.72 | Matches the KiCad footprint. Oct 25 price; DigiKey part # needs checking. |
+| 7 | F1 (holder) | 5x20 mm fuse holder, PCB | Schurter | [0031.8201](https://www.digikey.com/en/products/detail/schurter-inc/0031-8201/669925) | DigiKey | 486-1258-ND | 1 | 2 | $1.36 | $2.72 | Matches the KiCad footprint. In stock. |
 | 8 | J1, J2, J3 | 2x4 box header, 2.54 mm (ribbon to teammates) | Wurth Elektronik | [61200821621](https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61200821621/4846916) | DigiKey | 732-5395-ND | 3 | 4 | $1.03 | $4.12 | Ribbon cables are shared by the team. |
 | 9 | J7 | 1x16 female socket, 2.54 mm (LCD) | Sullins | [PPTC161LFBN-RC](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PPTC161LFBN-RC/810154) | DigiKey | S7014-ND | 1 | 2 | $0.93 | $1.86 |  |
 | 10 | JP1-JP11 (shunts) | Jumper shunt, 2.54 mm | Sullins | [SPC02SYAN](https://www.digikey.com/en/products/detail/sullins-connector-solutions/SPC02SYAN/76375) | DigiKey | S9001-ND | 11 | 12 | $0.03 | $0.36 | Extra spares because shunts get lost. |
@@ -35,8 +33,8 @@ The 10 µF 16 V electrolytic (C9, C15) and 10 µF tantalum (C4) part numbers wer
 | 19 | C1 | Cap 1uF 25V X7R 0805 | Yageo | [CC0805KKX7R8BB105](https://www.digikey.com/en/products/detail/yageo/CC0805KKX7R8BB105/2833621) | DigiKey | 311-1456-1-ND | 1 | 2 | $0.28 | $0.56 |  |
 | 20 | C7, C8, C10-C13 | Cap 1uF 25V X7R radial | TDK | [FG18X7R1E105KRT06](https://www.digikey.com/en/products/detail/tdk/FG18X7R1E105KRT06/5802875) | DigiKey | 445-173261-1-ND | 6 | 13 | $0.20 | $2.55 | Button debounce caps. |
 | 21 | C3 | Cap 10uF 25V aluminum radial | KEMET | [ESK106M025AC3AA](https://www.digikey.com/en/products/detail/kemet/ESK106M025AC3AA/18167956) | DigiKey | 399-ESK106M025AC3AA-ND | 1 | 3 | $0.21 | $0.63 |  |
-| 22 | C9, C15 | Cap 10uF 16V aluminum radial | KEMET | [ESK106M016AC3AA](https://www.digikey.com/en/products/result?keywords=ESK106M016AC3AA) | DigiKey | 399-ESK106M016AC3AA-ND | 2 | 5 | $0.19 | $0.95 | Oct 25 price. |
-| 23 | C4 | Cap 10uF 16V tantalum radial | KEMET | [T350E106K016AT](https://www.digikey.com/en/products/result?keywords=T350E106K016AT) | DigiKey | 399-T350E106K016AT-ND | 1 | 3 | $4.10 | $12.30 | Oct 25 price. Body is 5.5 mm on a 5.0 mm footprint, so check it. |
+| 22 | C9, C15 | Cap 10uF 25V aluminum radial (16V min) | KEMET | [ESK106M025AC3AA](https://www.digikey.com/en/products/detail/kemet/ESK106M025AC3AA/18167956) | DigiKey | 399-ESK106M025AC3AA-ND | 2 | 5 | $0.21 | $1.05 | 25V part, same footprint as C3. |
+| 23 | C4 | Cap 10uF 16V tantalum radial | KYOCERA AVX | [TAP106K016SCS](https://www.digikey.com/en/products/detail/kyocera-avx/TAP106K016SCS/563942) | DigiKey | 478-1839-ND | 1 | 3 | $0.69 | $2.07 | In stock. 2.5 mm lead spacing; bend leads to fit the 5.0 mm footprint. |
 | 24 | U1 | PIC18F57Q43 Curiosity Nano dev board | Microchip | [DM164150](https://www.digikey.com/en/products/detail/microchip-technology/DM164150/11586705) | Already owned | 150-DM164150-ND | 1 | 0 | $0.00 | $0.00 | Already owned; not ordered. Plugs into female sockets. |
 | 25 | TP1-TP17 | Test point, bare PCB pad | - | n/a | PCB (no part) | n/a | 17 | 0 | $0.00 | $0.00 | Nothing to buy. |
 | 26 | DS1 (header) | 1x16 male header, 2.54 mm (on the LCD) | Sullins | [PRPC016SAAN-RC](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC016SAAN-RC/2775238) | Peralta | 35-PRPC016SAAN-RC-ND | 1 | 2 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
@@ -59,7 +57,7 @@ The 10 µF 16 V electrolytic (C9, C15) and 10 µF tantalum (C4) part numbers wer
 | 43 | U3 (socket) | 8-pin DIP IC socket | - | n/a | Peralta | n/a | 1 | 2 | $0.00 | $0.00 | From Peralta 109, $0. |
 | 44 | U1 (sockets) | 1x40 female header, cut to 1x28 (Nano socket) | - | n/a | Peralta | n/a | 2 | 3 | $0.00 | $0.00 | From class stock, $0. |
 
-| | | **DigiKey order total** | | | | | | | | **$57.91** | |
+| | | **DigiKey order total** | | | | | | | | **$47.78** | |
 
 ## Notes
 
