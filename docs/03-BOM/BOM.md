@@ -4,68 +4,65 @@ title: Bill of Materials
 
 # Bill of Materials
 
-## Overview
+**Main Control Board, Fill-A-Bot (schematic Rev 4).** Nikita Bangiyev, EGR 304, Oct 30, 2026.
 
-This is the full parts list for my Main Control Board. Every part in my schematic has its manufacturer part number saved in the KiCad file (the MPN field), so this table matches the schematic, the block diagram, and my Component Selection page. Prices are DigiKey prices for one piece (checked October 2026).
+Every part on the schematic is listed, grouped by value, along with the hardware for debugging and expansion: jumpers and shunts, test points, sockets, headers and the fuse holder. Order quantity = 1 for the breadboard + 1 for the PCB + 1-2 spares. Parts from Peralta 109 or the class kit, and parts I already own, are listed at $0. No parts are smaller than 0805, and there are no new breakout modules.
 
-One board costs about **$65.38** in parts (97 parts on 42 lines), including the 9V wall adapter. The PCB itself isn't included yet.
+**DigiKey order: 23 lines, $57.91** before tax and shipping (under the $60 budget per team member) before tax and shipping. DigiKey cart link: *[cart link to be added]*
 
-## Bill of Materials
+| # | Ref | Description | Manufacturer | MPN | Vendor | Vendor Part # | Qty/Board | Order Qty | Unit | Ext. | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | U2 | 5V 1.5A linear regulator, TO-220 | Texas Instruments | [LM1086IT-5.0/NOPB](https://www.digikey.com/en/products/detail/texas-instruments/LM1086IT-5-0-NOPB/363580) | DigiKey | LM1086IT-5.0/NOPB-ND | 1 | 3 | $2.44 | $7.32 | Was out of stock at DigiKey on Oct 30. If it is not restocked, get it from Peralta or use an alternate. |
+| 2 | U2 (heat sink) | TO-220 heat sink | Same Sky | [HSE14-384225P](https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/HSE14-384225P/26460932) | DigiKey | 2223-HSE14-384225P-ND | 1 | 2 | $2.24 | $4.48 | Not a schematic symbol. |
+| 3 | U2 (pad) | TO-220 insulating thermal pad | Bergquist | [SP900S-0.009-00-104](https://www.digikey.com/en/products/detail/bergquist/SP900S-0-009-00-104/307800) | DigiKey | BER178-ND | 1 | 3 | $0.35 | $1.05 | U2 tab is at 5V, so it needs an insulator. |
+| 4 | U3 | Dual op amp, 8-pin DIP | Microchip | [MCP6002-I/P](https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875) | DigiKey | MCP6002-I/P-ND | 1 | 3 | $0.45 | $1.35 | U3A/B/C are one package. |
+| 5 | DS1 | 16x2 character LCD, 5V, yellow-green backlight | Newhaven Display | [NHD-0216K1Z-FL-YBW](https://www.digikey.com/en/products/detail/newhaven-display-intl/NHD-0216K1Z-FL-YBW/1701171) | DigiKey | NHD-0216K1Z-FL-YBW-ND | 1 | 1 | $7.83 | $7.83 | Plugs into J7. |
+| 6 | LDR1 | Photoresistor (cup sensor) | Advanced Photonix | [PDV-P8103](https://www.digikey.com/en/products/detail/advanced-photonix/PDV-P8103/480610) | DigiKey | PDV-P8103-ND | 1 | 3 | $0.77 | $2.31 | Off-board on J8. |
+| 7 | F1 (holder) | 5x20 mm fuse holder, PCB | Schurter | [0031.8201](https://www.digikey.com/en/products/result?keywords=0031.8201) | DigiKey | 486-1259-ND | 1 | 2 | $1.36 | $2.72 | Matches the KiCad footprint. Oct 25 price; DigiKey part # needs checking. |
+| 8 | J1, J2, J3 | 2x4 box header, 2.54 mm (ribbon to teammates) | Wurth Elektronik | [61200821621](https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61200821621/4846916) | DigiKey | 732-5395-ND | 3 | 4 | $1.03 | $4.12 | Ribbon cables are shared by the team. |
+| 9 | J7 | 1x16 female socket, 2.54 mm (LCD) | Sullins | [PPTC161LFBN-RC](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PPTC161LFBN-RC/810154) | DigiKey | S7014-ND | 1 | 2 | $0.93 | $1.86 |  |
+| 10 | JP1-JP11 (shunts) | Jumper shunt, 2.54 mm | Sullins | [SPC02SYAN](https://www.digikey.com/en/products/detail/sullins-connector-solutions/SPC02SYAN/76375) | DigiKey | S9001-ND | 11 | 12 | $0.03 | $0.36 | Extra spares because shunts get lost. |
+| 11 | RV1 | 10k trimmer pot, 25-turn (LCD contrast) | Bourns | [3296W-1-103LF](https://www.digikey.com/en/products/detail/bourns-inc/3296W-1-103LF/1088045) | DigiKey | 3296W-103LF-ND | 1 | 2 | $2.53 | $5.06 |  |
+| 12 | D1 | LED red 0805 | Lite-On | [LTST-C171KRKT](https://www.digikey.com/en/products/detail/liteon/LTST-C171KRKT/386801) | DigiKey | 160-1427-1-ND | 1 | 2 | $0.16 | $0.32 |  |
+| 13 | D2 | LED yellow 5 mm | Kingbright | [WP7113YD](https://www.digikey.com/en/products/result?keywords=WP7113YD) | DigiKey | 754-1264-ND | 1 | 3 | $0.23 | $0.69 | Oct 25 price. |
+| 14 | D5, D6 | LED green 0805 | Lite-On | [LTST-C171GKT](https://www.digikey.com/en/products/detail/liteon/LTST-C171GKT/386793) | DigiKey | 160-1423-1-ND | 2 | 3 | $0.15 | $0.45 |  |
+| 15 | R1, R4 | Resistor 2.2k 1% 1/8W 0805 | Yageo | [RC0805FR-072K2L](https://www.digikey.com/en/products/detail/yageo/RC0805FR-072K2L/727676) | DigiKey | 311-2.20KCRCT-ND | 2 | 3 | $0.10 | $0.30 |  |
+| 16 | R2, R3 | Resistor 10k 1% 1/8W 0805 | Yageo | [RC0805FR-0710KL](https://www.digikey.com/en/products/detail/yageo/RC0805FR-0710KL/727535) | DigiKey | 311-10.0KCRCT-ND | 2 | 3 | $0.10 | $0.30 |  |
+| 17 | R25 | Resistor 4.7k 1% 1/8W 0805 | Yageo | [RC0805FR-074K7L](https://www.digikey.com/en/products/detail/yageo/RC0805FR-074K7L/727929) | DigiKey | 311-4.70KCRCT-ND | 1 | 2 | $0.10 | $0.20 |  |
+| 18 | C2 | Cap 0.1uF 25V X7R 0805 | Samsung | [CL21B104KACNNNC](https://www.digikey.com/en/products/detail/samsung-electro-mechanics/CL21B104KACNNNC/3886757) | DigiKey | 1276-1099-1-ND | 1 | 2 | $0.10 | $0.20 |  |
+| 19 | C1 | Cap 1uF 25V X7R 0805 | Yageo | [CC0805KKX7R8BB105](https://www.digikey.com/en/products/detail/yageo/CC0805KKX7R8BB105/2833621) | DigiKey | 311-1456-1-ND | 1 | 2 | $0.28 | $0.56 |  |
+| 20 | C7, C8, C10-C13 | Cap 1uF 25V X7R radial | TDK | [FG18X7R1E105KRT06](https://www.digikey.com/en/products/detail/tdk/FG18X7R1E105KRT06/5802875) | DigiKey | 445-173261-1-ND | 6 | 13 | $0.20 | $2.55 | Button debounce caps. |
+| 21 | C3 | Cap 10uF 25V aluminum radial | KEMET | [ESK106M025AC3AA](https://www.digikey.com/en/products/detail/kemet/ESK106M025AC3AA/18167956) | DigiKey | 399-ESK106M025AC3AA-ND | 1 | 3 | $0.21 | $0.63 |  |
+| 22 | C9, C15 | Cap 10uF 16V aluminum radial | KEMET | [ESK106M016AC3AA](https://www.digikey.com/en/products/result?keywords=ESK106M016AC3AA) | DigiKey | 399-ESK106M016AC3AA-ND | 2 | 5 | $0.19 | $0.95 | Oct 25 price. |
+| 23 | C4 | Cap 10uF 16V tantalum radial | KEMET | [T350E106K016AT](https://www.digikey.com/en/products/result?keywords=T350E106K016AT) | DigiKey | 399-T350E106K016AT-ND | 1 | 3 | $4.10 | $12.30 | Oct 25 price. Body is 5.5 mm on a 5.0 mm footprint, so check it. |
+| 24 | U1 | PIC18F57Q43 Curiosity Nano dev board | Microchip | [DM164150](https://www.digikey.com/en/products/detail/microchip-technology/DM164150/11586705) | Already owned | 150-DM164150-ND | 1 | 0 | $0.00 | $0.00 | Already owned; not ordered. Plugs into female sockets. |
+| 25 | TP1-TP17 | Test point, bare PCB pad | - | n/a | PCB (no part) | n/a | 17 | 0 | $0.00 | $0.00 | Nothing to buy. |
+| 26 | DS1 (header) | 1x16 male header, 2.54 mm (on the LCD) | Sullins | [PRPC016SAAN-RC](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC016SAAN-RC/2775238) | Peralta | 35-PRPC016SAAN-RC-ND | 1 | 2 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 27 | J5, J6 | 2x8 male header, 2.54 mm (expansion) | Sullins | [PRPC008DAAN-RC](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC008DAAN-RC/2775286) | Peralta | 35-PRPC008DAAN-RC-ND | 2 | 3 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 28 | J8 | 1x3 male header (cup sensor) | Sullins | [PRPC003SAAN-RC](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC003SAAN-RC/2775251) | Peralta | 35-PRPC003SAAN-RC-ND | 1 | 2 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 29 | J9 | 1x5 male header (remote buttons) | Sullins | [PRPC005SAAN-RC](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC005SAAN-RC/2775249) | Peralta | 35-PRPC005SAAN-RC-ND | 1 | 2 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 30 | JP1-JP11 | 1x2 male header (jumpers) | Sullins | [PRPC002SAAN-RC](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC002SAAN-RC/2775252) | Peralta | 35-PRPC002SAAN-RC-ND | 11 | 12 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 31 | SW1-SW5 | Tactile push button 6x6 mm, THT | Omron (Aratas) | [B3F-1000](https://www.digikey.com/en/products/result?keywords=B3F-1000) | Peralta | SW400-ND | 5 | 11 | $0.00 | $0.00 | From Peralta 109 stock, $0. Oct 25 price. |
+| 32 | D3 | LED green 5 mm | Kingbright | [WP7113GD](https://www.digikey.com/en/products/detail/kingbright/WP7113GD/1747662) | Peralta | 754-1263-ND | 1 | 3 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 33 | D4 | LED red 5 mm | Wurth Elektronik | [151051RS11000](https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/151051RS11000/4490012) | Peralta | 732-5016-ND | 1 | 3 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 34 | R5-R8, R11-R18 | Resistor 10k 1% 1/4W axial | Yageo | [MFR-25FRF52-10K](https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-10K) | Peralta | 13-MFR-25FRF52-10KCT-ND | 12 | 25 | $0.00 | $0.00 | From Peralta 109 stock, $0. Oct 25 price. |
+| 35 | R10 | Resistor 1k 1% 1/4W axial | Yageo | [MFR-25FRF52-1K](https://www.digikey.com/en/products/detail/yageo/MFR-25FRF52-1K/12993) | Peralta | 13-MFR-25FRF52-1KCT-ND | 1 | 3 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 36 | R19, R20, R21 | Resistor 2.2k 1% 1/4W axial | Yageo | [MFR-25FRF52-2K2](https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-2K2) | Peralta | 13-MFR-25FRF52-2K2CT-ND | 3 | 7 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 37 | R24, R26-R29 | Resistor 100k 1% 1/4W axial | Yageo | [MFR-25FRF52-100K](https://www.digikey.com/en/products/detail/yageo/MFR-25FRF52-100K/14630) | Peralta | 13-MFR-25FRF52-100KCT-ND | 5 | 11 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 38 | C5 | Cap 0.1uF 50V X7R radial | TDK | [FG18X7R1H104KNT06](https://www.digikey.com/en/products/detail/tdk/FG18X7R1H104KNT06/5802879) | Peralta | 445-173265-1-ND | 1 | 3 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 39 | C6, C14, C16 | Cap 0.1uF 25V X7R radial | KEMET | [C320C104K3R5TA](https://www.digikey.com/en/products/result?keywords=C320C104K3R5TA) | Peralta | 399-C320C104K3R5TA-ND | 3 | 7 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 40 | J4 | DC barrel jack, 2.1 mm, PCB | Same Sky | PJ-102AH | Peralta | CP-102AH-ND | 1 | 2 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
+| 41 | F1 | Fuse, T800mA 250V, 5x20 mm time-lag | Littelfuse | 0218.800MXP | Peralta | F1744-ND | 1 | 4 | $0.00 | $0.00 | From Peralta 109 (5x20 800 mA), $0. Must be time-lag; if not, order F1744-ND at $1.56. |
+| 42 | R9 | Resistor 30k 1% 1/4W axial | Yageo | MFR-25FRF52-30K | Peralta | 13-MFR-25FRF52-30KCT-ND | 1 | 4 | $0.00 | $0.00 | Was out of stock at DigiKey on Oct 30. Get it from the Peralta resistor stock or use an alternate. |
+| 43 | U3 (socket) | 8-pin DIP IC socket | - | n/a | Peralta | n/a | 1 | 2 | $0.00 | $0.00 | From Peralta 109, $0. |
+| 44 | U1 (sockets) | 1x40 female header, cut to 1x28 (Nano socket) | - | n/a | Peralta | n/a | 2 | 3 | $0.00 | $0.00 | From class stock, $0. |
 
-*Table 1: Main Control Board bill of materials*
-
-| Part | Qty | Unit Cost | Total Cost | Manufacturer | Manufacturer # (DigiKey link) | Schematic Reference |
-|---|---|---|---|---|---|---|
-| Curiosity Nano board (PIC18F57Q43) | 1 | $10.61 | $10.61 | Microchip | [DM164150](https://www.digikey.com/en/products/detail/microchip-technology/DM164150/11586705) | U1 |
-| 5V 1.5A linear regulator, TO-220 | 1 | $2.58 | $2.58 | Texas Instruments | [LM1086IT-5.0/NOPB](https://www.digikey.com/en/products/detail/texas-instruments/LM1086IT-5-0-NOPB/363580) | U2 |
-| TO-220 heat sink | 1 | $2.24 | $2.24 | Same Sky | [HSE14-384225P](https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/HSE14-384225P/26460932) | U2 |
-| TO-220 insulating thermal pad | 1 | $0.35 | $0.35 | Bergquist | [SP900S-0.009-00-104](https://www.digikey.com/en/products/result?keywords=SP900S-0.009-00-104) | U2 |
-| Dual op amp, 8-pin DIP | 1 | $0.45 | $0.45 | Microchip | [MCP6002-I/P](https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875) | U3 |
-| 16x2 character LCD | 1 | $7.83 | $7.83 | Newhaven Display | [NHD-0216K1Z-FL-YBW](https://www.digikey.com/en/products/detail/newhaven-display-intl/NHD-0216K1Z-FL-YBW/1701171) | DS1 |
-| 16-pin male header for the LCD | 1 | $0.28 | $0.28 | Sullins | [PRPC016SAAN-RC](https://www.digikey.com/en/products/result?keywords=PRPC016SAAN-RC) | DS1 |
-| Photoresistor (cup sensor) | 1 | $0.72 | $0.72 | Advanced Photonix | [PDV-P8103](https://www.digikey.com/en/products/detail/advanced-photonix/PDV-P8103/480610) | LDR1 |
-| 9V 2A wall adapter | 1 | $12.43 | $12.43 | Triad Magnetics | [WSU090-2000](https://www.digikey.com/en/products/detail/triad-magnetics/WSU090-2000/3094951) | off-board |
-| DC barrel jack | 1 | $0.77 | $0.77 | Same Sky | [PJ-102AH](https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/PJ-102AH/408448) | J4 |
-| Fuse, T800mA 250V, 5x20mm time-lag | 1 | $1.56 | $1.56 | Littelfuse | [0218.800MXP](https://www.digikey.com/en/products/result?keywords=0218.800MXP) | F1 |
-| 5x20mm fuse holder, PCB | 1 | $1.36 | $1.36 | Schurter | [0031.8201](https://www.digikey.com/en/products/result?keywords=0031.8201) | F1 |
-| 2x4 box header (ribbon) | 3 | $1.03 | $3.09 | Wurth Elektronik | [61200821621](https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61200821621/4846916) | J1, J2, J3 |
-| 2x8 pin header (spare pins) | 2 | $0.28 | $0.56 | Sullins | [PRPC008DAAN-RC](https://www.digikey.com/en/products/result?keywords=PRPC008DAAN-RC) | J5, J6 |
-| 1x16 socket (LCD) | 1 | $0.93 | $0.93 | Sullins | [PPTC161LFBN-RC](https://www.digikey.com/en/products/result?keywords=PPTC161LFBN-RC) | J7 |
-| 1x3 pin header (cup sensor) | 1 | $0.10 | $0.10 | Sullins | [PRPC003SAAN-RC](https://www.digikey.com/en/products/result?keywords=PRPC003SAAN-RC) | J8 |
-| 1x5 pin header (remote buttons) | 1 | $0.11 | $0.11 | Sullins | [PRPC005SAAN-RC](https://www.digikey.com/en/products/result?keywords=PRPC005SAAN-RC) | J9 |
-| 1x2 pin header (jumper) | 11 | $0.10 | $1.10 | Sullins | [PRPC002SAAN-RC](https://www.digikey.com/en/products/result?keywords=PRPC002SAAN-RC) | JP1-JP11 |
-| Jumper shunt | 11 | $0.10 | $1.10 | Sullins | [SPC02SYAN](https://www.digikey.com/en/products/result?keywords=SPC02SYAN) | JP1-JP11 |
-| Tactile push button | 5 | $0.35 | $1.75 | Omron (now Aratas) | [B3F-1000](https://www.digikey.com/en/products/result?keywords=B3F-1000) | SW1-SW5 |
-| 10k trimmer pot (LCD contrast) | 1 | $2.53 | $2.53 | Bourns | [3296W-1-103LF](https://www.digikey.com/en/products/result?keywords=3296W-1-103LF) | RV1 |
-| LED, red, 0805 (debug) | 1 | $0.16 | $0.16 | Lite-On | [LTST-C171KRKT](https://www.digikey.com/en/products/result?keywords=LTST-C171KRKT) | D1 |
-| LED, yellow, 5 mm (Dispensing) | 1 | $0.23 | $0.23 | Kingbright | [WP7113YD](https://www.digikey.com/en/products/result?keywords=WP7113YD) | D2 |
-| LED, green, 5 mm (Done) | 1 | $0.23 | $0.23 | Kingbright | [WP7113GD](https://www.digikey.com/en/products/result?keywords=WP7113GD) | D3 |
-| LED, red, 5 mm (Fault) | 1 | $0.16 | $0.16 | Wurth Elektronik | [151051RS11000](https://www.digikey.com/en/products/result?keywords=151051RS11000) | D4 |
-| LED, green, 0805 (power) | 2 | $0.15 | $0.30 | Lite-On | [LTST-C171GKT](https://www.digikey.com/en/products/result?keywords=LTST-C171GKT) | D5, D6 |
-| Resistor 2.2k 1% 0.125W, 0805 | 2 | $0.10 | $0.20 | Yageo | [RC0805FR-072K2L](https://www.digikey.com/en/products/result?keywords=RC0805FR-072K2L) | R1, R4 |
-| Resistor 10k 1% 0.125W, 0805 | 2 | $0.10 | $0.20 | Yageo | [RC0805FR-0710KL](https://www.digikey.com/en/products/result?keywords=RC0805FR-0710KL) | R2, R3 |
-| Resistor 4.7k 1% 0.125W, 0805 | 1 | $0.10 | $0.10 | Yageo | [RC0805FR-074K7L](https://www.digikey.com/en/products/result?keywords=RC0805FR-074K7L) | R25 |
-| Resistor 10k 1% 0.25W, axial | 12 | $0.10 | $1.20 | Yageo | [MFR-25FRF52-10K](https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-10K) | R5-R8, R11-R18 |
-| Resistor 30k 1% 0.25W, axial | 1 | $0.10 | $0.10 | Yageo | [MFR-25FRF52-30K](https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-30K) | R9 |
-| Resistor 1k 1% 0.25W, axial | 1 | $0.11 | $0.11 | Yageo | [MFR-25FRF52-1K](https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-1K) | R10 |
-| Resistor 2.2k 1% 0.25W, axial | 3 | $0.10 | $0.30 | Yageo | [MFR-25FRF52-2K2](https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-2K2) | R19, R20, R21 |
-| Resistor 100k 1% 0.25W, axial | 5 | $0.11 | $0.55 | Yageo | [MFR-25FRF52-100K](https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-100K) | R24, R26-R29 |
-| Capacitor 1uF 25V X7R, 0805 | 1 | $0.28 | $0.28 | Yageo | [CC0805KKX7R8BB105](https://www.digikey.com/en/products/result?keywords=CC0805KKX7R8BB105) | C1 |
-| Capacitor 0.1uF 25V X7R, 0805 | 1 | $0.10 | $0.10 | Samsung | [CL21B104KACNNNC](https://www.digikey.com/en/products/result?keywords=CL21B104KACNNNC) | C2 |
-| Capacitor 10uF 25V aluminum, radial | 1 | $0.21 | $0.21 | KEMET | [ESK106M025AC3AA](https://www.digikey.com/en/products/result?keywords=ESK106M025AC3AA) | C3 |
-| Capacitor 10uF 16V tantalum, radial | 1 | $4.10 | $4.10 | KEMET | [T350E106K016AT](https://www.digikey.com/en/products/result?keywords=T350E106K016AT) | C4 |
-| Capacitor 0.1uF 50V X7R, radial | 1 | $0.27 | $0.27 | TDK | [FG18X7R1H104KNT06](https://www.digikey.com/en/products/result?keywords=FG18X7R1H104KNT06) | C5 |
-| Capacitor 0.1uF 25V X7R, radial | 3 | $0.59 | $1.77 | KEMET | [C320C104K3R5TA](https://www.digikey.com/en/products/result?keywords=C320C104K3R5TA) | C6, C14, C16 |
-| Capacitor 1uF 25V X7R, radial | 6 | $0.33 | $1.98 | TDK | [FG18X7R1E105KRT06](https://www.digikey.com/en/products/result?keywords=FG18X7R1E105KRT06) | C7, C8, C10-C13 |
-| Capacitor 10uF 16V aluminum, radial | 2 | $0.19 | $0.38 | KEMET | [ESK106M016AC3AA](https://www.digikey.com/en/products/result?keywords=ESK106M016AC3AA) | C9, C15 |
-| **Total** | **97** | | **$65.38** | | | |
+| | | **DigiKey order total** | | | | | | | | **$57.91** | |
 
 ## Notes
 
-- TP1-TP17 are bare test pads on the PCB, so they don't need a part.
-- JP1-JP11 are 2-pin headers with a jumper shunt on each, so the shunts are their own line.
-- The LCD plugs into J7, a 16-pin socket, so the LCD gets a 16-pin male header soldered on.
-- The screw, nut, and shoulder washer that hold U2 on its heat sink aren't picked yet.
-- How the Nano attaches to the PCB (sockets or soldered headers) gets picked with the PCB layout.
-- The ribbon cables between boards are shared by the team, so they aren't on my BOM.
-- The Omron B3F switch line is now sold under the Aratas name on DigiKey. The part number didn't change.
+- The EGR 304 budget is $60 per team member, so the order keeps 1 for the breadboard + 1 for the PCB + at most 1 spare. Lab-stock parts come from Peralta 109.
+- The LCD and the Nano move from the breadboard to the PCB. The Curiosity Nano is already owned.
+- Prices are DigiKey prices checked on Oct 30, 2026, except the lines marked "Oct 25 price".
+- On Oct 30, DigiKey showed the LM1086 and the 30k resistor as out of stock. If they are not restocked, I will use Peralta stock or an alternate.
+- The ribbon cables are shared by the team.

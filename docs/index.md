@@ -34,5 +34,6 @@ I'm doing the Main Control Board. It reads the UP, DOWN, START, and STOP buttons
 
 * [Block Diagram](01-Block-Diagram/Block-Diagram.md): how my board is laid out and connected
 * [Component Selection](02-Component-Selection/Component-Selection.md): the parts I picked for my board and why
+* [Bill of Materials](03-BOM/BOM.md): every part on my board, with order quantities and costs
 * [Schematics](04-Schematic/schematic.md): the full schematic for my board
 * [Power Budget](05-Power-Budget/Power-Budget.md): how much current my board needs and how it's powered
