@@ -668,28 +668,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bill-of-materials_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bill of Materials
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -910,28 +888,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bill-of-materials_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bill of Materials
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1016,422 +972,653 @@
 
 
 <h1 id="bill-of-materials">Bill of Materials</h1>
-<h2 id="overview">Overview</h2>
-<p>This is the full parts list for my Main Control Board. Every part in my schematic has its manufacturer part number saved in the KiCad file (the MPN field), so this table matches the schematic, the block diagram, and my Component Selection page. Prices are DigiKey prices for one piece (checked October 2026).</p>
-<p>One board costs about <strong>$65.38</strong> in parts (97 parts on 42 lines), including the 9V wall adapter. The PCB itself isn't included yet.</p>
-<h2 id="bill-of-materials_1">Bill of Materials</h2>
-<p><em>Table 1: Main Control Board bill of materials</em></p>
+<p><strong>Main Control Board, Fill-A-Bot (schematic Rev 4).</strong> Nikita Bangiyev, EGR 304, Oct 30, 2026.</p>
+<p>Every part on the schematic is listed, grouped by value, along with the hardware for debugging and expansion: jumpers and shunts, test points, sockets, headers and the fuse holder. Order quantity = 1 for the breadboard + 1 for the PCB + 1-2 spares. Parts from Peralta 109 or the class kit, and parts I already own, are listed at $0. No parts are smaller than 0805, and there are no new breakout modules.</p>
+<p><strong>DigiKey order: 23 lines, $57.91</strong> before tax and shipping (under the $60 budget per team member) before tax and shipping. DigiKey cart link: <em>[cart link to be added]</em></p>
 <table>
 <thead>
 <tr>
-<th>Part</th>
-<th>Qty</th>
-<th>Unit Cost</th>
-<th>Total Cost</th>
+<th>#</th>
+<th>Ref</th>
+<th>Description</th>
 <th>Manufacturer</th>
-<th>Manufacturer # (DigiKey link)</th>
-<th>Schematic Reference</th>
+<th>MPN</th>
+<th>Vendor</th>
+<th>Vendor Part #</th>
+<th>Qty/Board</th>
+<th>Order Qty</th>
+<th>Unit</th>
+<th>Ext.</th>
+<th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Curiosity Nano board (PIC18F57Q43)</td>
 <td>1</td>
-<td>$10.61</td>
-<td>$10.61</td>
-<td>Microchip</td>
-<td><a href="https://www.digikey.com/en/products/detail/microchip-technology/DM164150/11586705">DM164150</a></td>
-<td>U1</td>
-</tr>
-<tr>
+<td>U2</td>
 <td>5V 1.5A linear regulator, TO-220</td>
-<td>1</td>
-<td>$2.58</td>
-<td>$2.58</td>
 <td>Texas Instruments</td>
 <td><a href="https://www.digikey.com/en/products/detail/texas-instruments/LM1086IT-5-0-NOPB/363580">LM1086IT-5.0/NOPB</a></td>
-<td>U2</td>
+<td>DigiKey</td>
+<td>LM1086IT-5.0/NOPB-ND</td>
+<td>1</td>
+<td>3</td>
+<td>$2.44</td>
+<td>$7.32</td>
+<td>Was out of stock at DigiKey on Oct 30. If it is not restocked, get it from Peralta or use an alternate.</td>
 </tr>
 <tr>
+<td>2</td>
+<td>U2 (heat sink)</td>
 <td>TO-220 heat sink</td>
-<td>1</td>
-<td>$2.24</td>
-<td>$2.24</td>
 <td>Same Sky</td>
 <td><a href="https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/HSE14-384225P/26460932">HSE14-384225P</a></td>
-<td>U2</td>
+<td>DigiKey</td>
+<td>2223-HSE14-384225P-ND</td>
+<td>1</td>
+<td>2</td>
+<td>$2.24</td>
+<td>$4.48</td>
+<td>Not a schematic symbol.</td>
 </tr>
 <tr>
+<td>3</td>
+<td>U2 (pad)</td>
 <td>TO-220 insulating thermal pad</td>
-<td>1</td>
-<td>$0.35</td>
-<td>$0.35</td>
 <td>Bergquist</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=SP900S-0.009-00-104">SP900S-0.009-00-104</a></td>
-<td>U2</td>
+<td><a href="https://www.digikey.com/en/products/detail/bergquist/SP900S-0-009-00-104/307800">SP900S-0.009-00-104</a></td>
+<td>DigiKey</td>
+<td>BER178-ND</td>
+<td>1</td>
+<td>3</td>
+<td>$0.35</td>
+<td>$1.05</td>
+<td>U2 tab is at 5V, so it needs an insulator.</td>
 </tr>
 <tr>
+<td>4</td>
+<td>U3</td>
 <td>Dual op amp, 8-pin DIP</td>
-<td>1</td>
-<td>$0.45</td>
-<td>$0.45</td>
 <td>Microchip</td>
 <td><a href="https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875">MCP6002-I/P</a></td>
-<td>U3</td>
+<td>DigiKey</td>
+<td>MCP6002-I/P-ND</td>
+<td>1</td>
+<td>3</td>
+<td>$0.45</td>
+<td>$1.35</td>
+<td>U3A/B/C are one package.</td>
 </tr>
 <tr>
-<td>16x2 character LCD</td>
-<td>1</td>
-<td>$7.83</td>
-<td>$7.83</td>
+<td>5</td>
+<td>DS1</td>
+<td>16x2 character LCD, 5V, yellow-green backlight</td>
 <td>Newhaven Display</td>
 <td><a href="https://www.digikey.com/en/products/detail/newhaven-display-intl/NHD-0216K1Z-FL-YBW/1701171">NHD-0216K1Z-FL-YBW</a></td>
-<td>DS1</td>
-</tr>
-<tr>
-<td>16-pin male header for the LCD</td>
+<td>DigiKey</td>
+<td>NHD-0216K1Z-FL-YBW-ND</td>
 <td>1</td>
-<td>$0.28</td>
-<td>$0.28</td>
-<td>Sullins</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=PRPC016SAAN-RC">PRPC016SAAN-RC</a></td>
-<td>DS1</td>
+<td>1</td>
+<td>$7.83</td>
+<td>$7.83</td>
+<td>Plugs into J7.</td>
 </tr>
 <tr>
+<td>6</td>
+<td>LDR1</td>
 <td>Photoresistor (cup sensor)</td>
-<td>1</td>
-<td>$0.72</td>
-<td>$0.72</td>
 <td>Advanced Photonix</td>
 <td><a href="https://www.digikey.com/en/products/detail/advanced-photonix/PDV-P8103/480610">PDV-P8103</a></td>
-<td>LDR1</td>
-</tr>
-<tr>
-<td>9V 2A wall adapter</td>
+<td>DigiKey</td>
+<td>PDV-P8103-ND</td>
 <td>1</td>
-<td>$12.43</td>
-<td>$12.43</td>
-<td>Triad Magnetics</td>
-<td><a href="https://www.digikey.com/en/products/detail/triad-magnetics/WSU090-2000/3094951">WSU090-2000</a></td>
-<td>off-board</td>
-</tr>
-<tr>
-<td>DC barrel jack</td>
-<td>1</td>
+<td>3</td>
 <td>$0.77</td>
-<td>$0.77</td>
-<td>Same Sky</td>
-<td><a href="https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/PJ-102AH/408448">PJ-102AH</a></td>
-<td>J4</td>
+<td>$2.31</td>
+<td>Off-board on J8.</td>
 </tr>
 <tr>
-<td>Fuse, T800mA 250V, 5x20mm time-lag</td>
-<td>1</td>
-<td>$1.56</td>
-<td>$1.56</td>
-<td>Littelfuse</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=0218.800MXP">0218.800MXP</a></td>
-<td>F1</td>
-</tr>
-<tr>
-<td>5x20mm fuse holder, PCB</td>
-<td>1</td>
-<td>$1.36</td>
-<td>$1.36</td>
+<td>7</td>
+<td>F1 (holder)</td>
+<td>5x20 mm fuse holder, PCB</td>
 <td>Schurter</td>
 <td><a href="https://www.digikey.com/en/products/result?keywords=0031.8201">0031.8201</a></td>
-<td>F1</td>
+<td>DigiKey</td>
+<td>486-1259-ND</td>
+<td>1</td>
+<td>2</td>
+<td>$1.36</td>
+<td>$2.72</td>
+<td>Matches the KiCad footprint. Oct 25 price; DigiKey part # needs checking.</td>
 </tr>
 <tr>
-<td>2x4 box header (ribbon)</td>
-<td>3</td>
-<td>$1.03</td>
-<td>$3.09</td>
+<td>8</td>
+<td>J1, J2, J3</td>
+<td>2x4 box header, 2.54 mm (ribbon to teammates)</td>
 <td>Wurth Elektronik</td>
 <td><a href="https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61200821621/4846916">61200821621</a></td>
-<td>J1, J2, J3</td>
+<td>DigiKey</td>
+<td>732-5395-ND</td>
+<td>3</td>
+<td>4</td>
+<td>$1.03</td>
+<td>$4.12</td>
+<td>Ribbon cables are shared by the team.</td>
 </tr>
 <tr>
-<td>2x8 pin header (spare pins)</td>
+<td>9</td>
+<td>J7</td>
+<td>1x16 female socket, 2.54 mm (LCD)</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/detail/sullins-connector-solutions/PPTC161LFBN-RC/810154">PPTC161LFBN-RC</a></td>
+<td>DigiKey</td>
+<td>S7014-ND</td>
+<td>1</td>
+<td>2</td>
+<td>$0.93</td>
+<td>$1.86</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>JP1-JP11 (shunts)</td>
+<td>Jumper shunt, 2.54 mm</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/detail/sullins-connector-solutions/SPC02SYAN/76375">SPC02SYAN</a></td>
+<td>DigiKey</td>
+<td>S9001-ND</td>
+<td>11</td>
+<td>12</td>
+<td>$0.03</td>
+<td>$0.36</td>
+<td>Extra spares because shunts get lost.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>RV1</td>
+<td>10k trimmer pot, 25-turn (LCD contrast)</td>
+<td>Bourns</td>
+<td><a href="https://www.digikey.com/en/products/detail/bourns-inc/3296W-1-103LF/1088045">3296W-1-103LF</a></td>
+<td>DigiKey</td>
+<td>3296W-103LF-ND</td>
+<td>1</td>
+<td>2</td>
+<td>$2.53</td>
+<td>$5.06</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>D1</td>
+<td>LED red 0805</td>
+<td>Lite-On</td>
+<td><a href="https://www.digikey.com/en/products/detail/liteon/LTST-C171KRKT/386801">LTST-C171KRKT</a></td>
+<td>DigiKey</td>
+<td>160-1427-1-ND</td>
+<td>1</td>
+<td>2</td>
+<td>$0.16</td>
+<td>$0.32</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>D2</td>
+<td>LED yellow 5 mm</td>
+<td>Kingbright</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=WP7113YD">WP7113YD</a></td>
+<td>DigiKey</td>
+<td>754-1264-ND</td>
+<td>1</td>
+<td>3</td>
+<td>$0.23</td>
+<td>$0.69</td>
+<td>Oct 25 price.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>D5, D6</td>
+<td>LED green 0805</td>
+<td>Lite-On</td>
+<td><a href="https://www.digikey.com/en/products/detail/liteon/LTST-C171GKT/386793">LTST-C171GKT</a></td>
+<td>DigiKey</td>
+<td>160-1423-1-ND</td>
+<td>2</td>
+<td>3</td>
+<td>$0.15</td>
+<td>$0.45</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>R1, R4</td>
+<td>Resistor 2.2k 1% 1/8W 0805</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/detail/yageo/RC0805FR-072K2L/727676">RC0805FR-072K2L</a></td>
+<td>DigiKey</td>
+<td>311-2.20KCRCT-ND</td>
+<td>2</td>
+<td>3</td>
+<td>$0.10</td>
+<td>$0.30</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>R2, R3</td>
+<td>Resistor 10k 1% 1/8W 0805</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/detail/yageo/RC0805FR-0710KL/727535">RC0805FR-0710KL</a></td>
+<td>DigiKey</td>
+<td>311-10.0KCRCT-ND</td>
+<td>2</td>
+<td>3</td>
+<td>$0.10</td>
+<td>$0.30</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>R25</td>
+<td>Resistor 4.7k 1% 1/8W 0805</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/detail/yageo/RC0805FR-074K7L/727929">RC0805FR-074K7L</a></td>
+<td>DigiKey</td>
+<td>311-4.70KCRCT-ND</td>
+<td>1</td>
+<td>2</td>
+<td>$0.10</td>
+<td>$0.20</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>C2</td>
+<td>Cap 0.1uF 25V X7R 0805</td>
+<td>Samsung</td>
+<td><a href="https://www.digikey.com/en/products/detail/samsung-electro-mechanics/CL21B104KACNNNC/3886757">CL21B104KACNNNC</a></td>
+<td>DigiKey</td>
+<td>1276-1099-1-ND</td>
+<td>1</td>
+<td>2</td>
+<td>$0.10</td>
+<td>$0.20</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>C1</td>
+<td>Cap 1uF 25V X7R 0805</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/detail/yageo/CC0805KKX7R8BB105/2833621">CC0805KKX7R8BB105</a></td>
+<td>DigiKey</td>
+<td>311-1456-1-ND</td>
+<td>1</td>
 <td>2</td>
 <td>$0.28</td>
 <td>$0.56</td>
-<td>Sullins</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=PRPC008DAAN-RC">PRPC008DAAN-RC</a></td>
-<td>J5, J6</td>
+<td></td>
 </tr>
 <tr>
-<td>1x16 socket (LCD)</td>
-<td>1</td>
-<td>$0.93</td>
-<td>$0.93</td>
-<td>Sullins</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=PPTC161LFBN-RC">PPTC161LFBN-RC</a></td>
-<td>J7</td>
-</tr>
-<tr>
-<td>1x3 pin header (cup sensor)</td>
-<td>1</td>
-<td>$0.10</td>
-<td>$0.10</td>
-<td>Sullins</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=PRPC003SAAN-RC">PRPC003SAAN-RC</a></td>
-<td>J8</td>
-</tr>
-<tr>
-<td>1x5 pin header (remote buttons)</td>
-<td>1</td>
-<td>$0.11</td>
-<td>$0.11</td>
-<td>Sullins</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=PRPC005SAAN-RC">PRPC005SAAN-RC</a></td>
-<td>J9</td>
-</tr>
-<tr>
-<td>1x2 pin header (jumper)</td>
-<td>11</td>
-<td>$0.10</td>
-<td>$1.10</td>
-<td>Sullins</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=PRPC002SAAN-RC">PRPC002SAAN-RC</a></td>
-<td>JP1-JP11</td>
-</tr>
-<tr>
-<td>Jumper shunt</td>
-<td>11</td>
-<td>$0.10</td>
-<td>$1.10</td>
-<td>Sullins</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=SPC02SYAN">SPC02SYAN</a></td>
-<td>JP1-JP11</td>
-</tr>
-<tr>
-<td>Tactile push button</td>
-<td>5</td>
-<td>$0.35</td>
-<td>$1.75</td>
-<td>Omron (now Aratas)</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=B3F-1000">B3F-1000</a></td>
-<td>SW1-SW5</td>
-</tr>
-<tr>
-<td>10k trimmer pot (LCD contrast)</td>
-<td>1</td>
-<td>$2.53</td>
-<td>$2.53</td>
-<td>Bourns</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=3296W-1-103LF">3296W-1-103LF</a></td>
-<td>RV1</td>
-</tr>
-<tr>
-<td>LED, red, 0805 (debug)</td>
-<td>1</td>
-<td>$0.16</td>
-<td>$0.16</td>
-<td>Lite-On</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=LTST-C171KRKT">LTST-C171KRKT</a></td>
-<td>D1</td>
-</tr>
-<tr>
-<td>LED, yellow, 5 mm (Dispensing)</td>
-<td>1</td>
-<td>$0.23</td>
-<td>$0.23</td>
-<td>Kingbright</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=WP7113YD">WP7113YD</a></td>
-<td>D2</td>
-</tr>
-<tr>
-<td>LED, green, 5 mm (Done)</td>
-<td>1</td>
-<td>$0.23</td>
-<td>$0.23</td>
-<td>Kingbright</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=WP7113GD">WP7113GD</a></td>
-<td>D3</td>
-</tr>
-<tr>
-<td>LED, red, 5 mm (Fault)</td>
-<td>1</td>
-<td>$0.16</td>
-<td>$0.16</td>
-<td>Wurth Elektronik</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=151051RS11000">151051RS11000</a></td>
-<td>D4</td>
-</tr>
-<tr>
-<td>LED, green, 0805 (power)</td>
-<td>2</td>
-<td>$0.15</td>
-<td>$0.30</td>
-<td>Lite-On</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=LTST-C171GKT">LTST-C171GKT</a></td>
-<td>D5, D6</td>
-</tr>
-<tr>
-<td>Resistor 2.2k 1% 0.125W, 0805</td>
-<td>2</td>
-<td>$0.10</td>
-<td>$0.20</td>
-<td>Yageo</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=RC0805FR-072K2L">RC0805FR-072K2L</a></td>
-<td>R1, R4</td>
-</tr>
-<tr>
-<td>Resistor 10k 1% 0.125W, 0805</td>
-<td>2</td>
-<td>$0.10</td>
-<td>$0.20</td>
-<td>Yageo</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=RC0805FR-0710KL">RC0805FR-0710KL</a></td>
-<td>R2, R3</td>
-</tr>
-<tr>
-<td>Resistor 4.7k 1% 0.125W, 0805</td>
-<td>1</td>
-<td>$0.10</td>
-<td>$0.10</td>
-<td>Yageo</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=RC0805FR-074K7L">RC0805FR-074K7L</a></td>
-<td>R25</td>
-</tr>
-<tr>
-<td>Resistor 10k 1% 0.25W, axial</td>
-<td>12</td>
-<td>$0.10</td>
-<td>$1.20</td>
-<td>Yageo</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-10K">MFR-25FRF52-10K</a></td>
-<td>R5-R8, R11-R18</td>
-</tr>
-<tr>
-<td>Resistor 30k 1% 0.25W, axial</td>
-<td>1</td>
-<td>$0.10</td>
-<td>$0.10</td>
-<td>Yageo</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-30K">MFR-25FRF52-30K</a></td>
-<td>R9</td>
-</tr>
-<tr>
-<td>Resistor 1k 1% 0.25W, axial</td>
-<td>1</td>
-<td>$0.11</td>
-<td>$0.11</td>
-<td>Yageo</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-1K">MFR-25FRF52-1K</a></td>
-<td>R10</td>
-</tr>
-<tr>
-<td>Resistor 2.2k 1% 0.25W, axial</td>
-<td>3</td>
-<td>$0.10</td>
-<td>$0.30</td>
-<td>Yageo</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-2K2">MFR-25FRF52-2K2</a></td>
-<td>R19, R20, R21</td>
-</tr>
-<tr>
-<td>Resistor 100k 1% 0.25W, axial</td>
-<td>5</td>
-<td>$0.11</td>
-<td>$0.55</td>
-<td>Yageo</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-100K">MFR-25FRF52-100K</a></td>
-<td>R24, R26-R29</td>
-</tr>
-<tr>
-<td>Capacitor 1uF 25V X7R, 0805</td>
-<td>1</td>
-<td>$0.28</td>
-<td>$0.28</td>
-<td>Yageo</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=CC0805KKX7R8BB105">CC0805KKX7R8BB105</a></td>
-<td>C1</td>
-</tr>
-<tr>
-<td>Capacitor 0.1uF 25V X7R, 0805</td>
-<td>1</td>
-<td>$0.10</td>
-<td>$0.10</td>
-<td>Samsung</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=CL21B104KACNNNC">CL21B104KACNNNC</a></td>
-<td>C2</td>
-</tr>
-<tr>
-<td>Capacitor 10uF 25V aluminum, radial</td>
-<td>1</td>
-<td>$0.21</td>
-<td>$0.21</td>
-<td>KEMET</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=ESK106M025AC3AA">ESK106M025AC3AA</a></td>
-<td>C3</td>
-</tr>
-<tr>
-<td>Capacitor 10uF 16V tantalum, radial</td>
-<td>1</td>
-<td>$4.10</td>
-<td>$4.10</td>
-<td>KEMET</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=T350E106K016AT">T350E106K016AT</a></td>
-<td>C4</td>
-</tr>
-<tr>
-<td>Capacitor 0.1uF 50V X7R, radial</td>
-<td>1</td>
-<td>$0.27</td>
-<td>$0.27</td>
-<td>TDK</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=FG18X7R1H104KNT06">FG18X7R1H104KNT06</a></td>
-<td>C5</td>
-</tr>
-<tr>
-<td>Capacitor 0.1uF 25V X7R, radial</td>
-<td>3</td>
-<td>$0.59</td>
-<td>$1.77</td>
-<td>KEMET</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=C320C104K3R5TA">C320C104K3R5TA</a></td>
-<td>C6, C14, C16</td>
-</tr>
-<tr>
-<td>Capacitor 1uF 25V X7R, radial</td>
-<td>6</td>
-<td>$0.33</td>
-<td>$1.98</td>
-<td>TDK</td>
-<td><a href="https://www.digikey.com/en/products/result?keywords=FG18X7R1E105KRT06">FG18X7R1E105KRT06</a></td>
+<td>20</td>
 <td>C7, C8, C10-C13</td>
+<td>Cap 1uF 25V X7R radial</td>
+<td>TDK</td>
+<td><a href="https://www.digikey.com/en/products/detail/tdk/FG18X7R1E105KRT06/5802875">FG18X7R1E105KRT06</a></td>
+<td>DigiKey</td>
+<td>445-173261-1-ND</td>
+<td>6</td>
+<td>13</td>
+<td>$0.20</td>
+<td>$2.55</td>
+<td>Button debounce caps.</td>
 </tr>
 <tr>
-<td>Capacitor 10uF 16V aluminum, radial</td>
-<td>2</td>
-<td>$0.19</td>
-<td>$0.38</td>
+<td>21</td>
+<td>C3</td>
+<td>Cap 10uF 25V aluminum radial</td>
+<td>KEMET</td>
+<td><a href="https://www.digikey.com/en/products/detail/kemet/ESK106M025AC3AA/18167956">ESK106M025AC3AA</a></td>
+<td>DigiKey</td>
+<td>399-ESK106M025AC3AA-ND</td>
+<td>1</td>
+<td>3</td>
+<td>$0.21</td>
+<td>$0.63</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>C9, C15</td>
+<td>Cap 10uF 16V aluminum radial</td>
 <td>KEMET</td>
 <td><a href="https://www.digikey.com/en/products/result?keywords=ESK106M016AC3AA">ESK106M016AC3AA</a></td>
-<td>C9, C15</td>
+<td>DigiKey</td>
+<td>399-ESK106M016AC3AA-ND</td>
+<td>2</td>
+<td>5</td>
+<td>$0.19</td>
+<td>$0.95</td>
+<td>Oct 25 price.</td>
 </tr>
 <tr>
-<td><strong>Total</strong></td>
-<td><strong>97</strong></td>
-<td></td>
-<td><strong>$65.38</strong></td>
-<td></td>
-<td></td>
-<td></td>
+<td>23</td>
+<td>C4</td>
+<td>Cap 10uF 16V tantalum radial</td>
+<td>KEMET</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=T350E106K016AT">T350E106K016AT</a></td>
+<td>DigiKey</td>
+<td>399-T350E106K016AT-ND</td>
+<td>1</td>
+<td>3</td>
+<td>$4.10</td>
+<td>$12.30</td>
+<td>Oct 25 price. Body is 5.5 mm on a 5.0 mm footprint, so check it.</td>
+</tr>
+<tr>
+<td>24</td>
+<td>U1</td>
+<td>PIC18F57Q43 Curiosity Nano dev board</td>
+<td>Microchip</td>
+<td><a href="https://www.digikey.com/en/products/detail/microchip-technology/DM164150/11586705">DM164150</a></td>
+<td>Already owned</td>
+<td>150-DM164150-ND</td>
+<td>1</td>
+<td>0</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>Already owned; not ordered. Plugs into female sockets.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>TP1-TP17</td>
+<td>Test point, bare PCB pad</td>
+<td>-</td>
+<td>n/a</td>
+<td>PCB (no part)</td>
+<td>n/a</td>
+<td>17</td>
+<td>0</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>Nothing to buy.</td>
+</tr>
+<tr>
+<td>26</td>
+<td>DS1 (header)</td>
+<td>1x16 male header, 2.54 mm (on the LCD)</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC016SAAN-RC/2775238">PRPC016SAAN-RC</a></td>
+<td>Peralta</td>
+<td>35-PRPC016SAAN-RC-ND</td>
+<td>1</td>
+<td>2</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>27</td>
+<td>J5, J6</td>
+<td>2x8 male header, 2.54 mm (expansion)</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC008DAAN-RC/2775286">PRPC008DAAN-RC</a></td>
+<td>Peralta</td>
+<td>35-PRPC008DAAN-RC-ND</td>
+<td>2</td>
+<td>3</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>28</td>
+<td>J8</td>
+<td>1x3 male header (cup sensor)</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC003SAAN-RC/2775251">PRPC003SAAN-RC</a></td>
+<td>Peralta</td>
+<td>35-PRPC003SAAN-RC-ND</td>
+<td>1</td>
+<td>2</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>29</td>
+<td>J9</td>
+<td>1x5 male header (remote buttons)</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC005SAAN-RC/2775249">PRPC005SAAN-RC</a></td>
+<td>Peralta</td>
+<td>35-PRPC005SAAN-RC-ND</td>
+<td>1</td>
+<td>2</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>30</td>
+<td>JP1-JP11</td>
+<td>1x2 male header (jumpers)</td>
+<td>Sullins</td>
+<td><a href="https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC002SAAN-RC/2775252">PRPC002SAAN-RC</a></td>
+<td>Peralta</td>
+<td>35-PRPC002SAAN-RC-ND</td>
+<td>11</td>
+<td>12</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>31</td>
+<td>SW1-SW5</td>
+<td>Tactile push button 6x6 mm, THT</td>
+<td>Omron (Aratas)</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=B3F-1000">B3F-1000</a></td>
+<td>Peralta</td>
+<td>SW400-ND</td>
+<td>5</td>
+<td>11</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0. Oct 25 price.</td>
+</tr>
+<tr>
+<td>32</td>
+<td>D3</td>
+<td>LED green 5 mm</td>
+<td>Kingbright</td>
+<td><a href="https://www.digikey.com/en/products/detail/kingbright/WP7113GD/1747662">WP7113GD</a></td>
+<td>Peralta</td>
+<td>754-1263-ND</td>
+<td>1</td>
+<td>3</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>33</td>
+<td>D4</td>
+<td>LED red 5 mm</td>
+<td>Wurth Elektronik</td>
+<td><a href="https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/151051RS11000/4490012">151051RS11000</a></td>
+<td>Peralta</td>
+<td>732-5016-ND</td>
+<td>1</td>
+<td>3</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>34</td>
+<td>R5-R8, R11-R18</td>
+<td>Resistor 10k 1% 1/4W axial</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-10K">MFR-25FRF52-10K</a></td>
+<td>Peralta</td>
+<td>13-MFR-25FRF52-10KCT-ND</td>
+<td>12</td>
+<td>25</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0. Oct 25 price.</td>
+</tr>
+<tr>
+<td>35</td>
+<td>R10</td>
+<td>Resistor 1k 1% 1/4W axial</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/detail/yageo/MFR-25FRF52-1K/12993">MFR-25FRF52-1K</a></td>
+<td>Peralta</td>
+<td>13-MFR-25FRF52-1KCT-ND</td>
+<td>1</td>
+<td>3</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>36</td>
+<td>R19, R20, R21</td>
+<td>Resistor 2.2k 1% 1/4W axial</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=MFR-25FRF52-2K2">MFR-25FRF52-2K2</a></td>
+<td>Peralta</td>
+<td>13-MFR-25FRF52-2K2CT-ND</td>
+<td>3</td>
+<td>7</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>37</td>
+<td>R24, R26-R29</td>
+<td>Resistor 100k 1% 1/4W axial</td>
+<td>Yageo</td>
+<td><a href="https://www.digikey.com/en/products/detail/yageo/MFR-25FRF52-100K/14630">MFR-25FRF52-100K</a></td>
+<td>Peralta</td>
+<td>13-MFR-25FRF52-100KCT-ND</td>
+<td>5</td>
+<td>11</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>38</td>
+<td>C5</td>
+<td>Cap 0.1uF 50V X7R radial</td>
+<td>TDK</td>
+<td><a href="https://www.digikey.com/en/products/detail/tdk/FG18X7R1H104KNT06/5802879">FG18X7R1H104KNT06</a></td>
+<td>Peralta</td>
+<td>445-173265-1-ND</td>
+<td>1</td>
+<td>3</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>39</td>
+<td>C6, C14, C16</td>
+<td>Cap 0.1uF 25V X7R radial</td>
+<td>KEMET</td>
+<td><a href="https://www.digikey.com/en/products/result?keywords=C320C104K3R5TA">C320C104K3R5TA</a></td>
+<td>Peralta</td>
+<td>399-C320C104K3R5TA-ND</td>
+<td>3</td>
+<td>7</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>40</td>
+<td>J4</td>
+<td>DC barrel jack, 2.1 mm, PCB</td>
+<td>Same Sky</td>
+<td>PJ-102AH</td>
+<td>Peralta</td>
+<td>CP-102AH-ND</td>
+<td>1</td>
+<td>2</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 stock, $0.</td>
+</tr>
+<tr>
+<td>41</td>
+<td>F1</td>
+<td>Fuse, T800mA 250V, 5x20 mm time-lag</td>
+<td>Littelfuse</td>
+<td>0218.800MXP</td>
+<td>Peralta</td>
+<td>F1744-ND</td>
+<td>1</td>
+<td>4</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109 (5x20 800 mA), $0. Must be time-lag; if not, order F1744-ND at $1.56.</td>
+</tr>
+<tr>
+<td>42</td>
+<td>R9</td>
+<td>Resistor 30k 1% 1/4W axial</td>
+<td>Yageo</td>
+<td>MFR-25FRF52-30K</td>
+<td>Peralta</td>
+<td>13-MFR-25FRF52-30KCT-ND</td>
+<td>1</td>
+<td>4</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>Was out of stock at DigiKey on Oct 30. Get it from the Peralta resistor stock or use an alternate.</td>
+</tr>
+<tr>
+<td>43</td>
+<td>U3 (socket)</td>
+<td>8-pin DIP IC socket</td>
+<td>-</td>
+<td>n/a</td>
+<td>Peralta</td>
+<td>n/a</td>
+<td>1</td>
+<td>2</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From Peralta 109, $0.</td>
+</tr>
+<tr>
+<td>44</td>
+<td>U1 (sockets)</td>
+<td>1x40 female header, cut to 1x28 (Nano socket)</td>
+<td>-</td>
+<td>n/a</td>
+<td>Peralta</td>
+<td>n/a</td>
+<td>2</td>
+<td>3</td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td>From class stock, $0.</td>
 </tr>
 </tbody>
 </table>
+<p>| | | <strong>DigiKey order total</strong> | | | | | | | | <strong>$57.91</strong> | |</p>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>TP1-TP17 are bare test pads on the PCB, so they don't need a part.</li>
-<li>JP1-JP11 are 2-pin headers with a jumper shunt on each, so the shunts are their own line.</li>
-<li>The LCD plugs into J7, a 16-pin socket, so the LCD gets a 16-pin male header soldered on.</li>
-<li>The screw, nut, and shoulder washer that hold U2 on its heat sink aren't picked yet.</li>
-<li>How the Nano attaches to the PCB (sockets or soldered headers) gets picked with the PCB layout.</li>
-<li>The ribbon cables between boards are shared by the team, so they aren't on my BOM.</li>
-<li>The Omron B3F switch line is now sold under the Aratas name on DigiKey. The part number didn't change.</li>
+<li>The EGR 304 budget is $60 per team member, so the order keeps 1 for the breadboard + 1 for the PCB + at most 1 spare. Lab-stock parts come from Peralta 109.</li>
+<li>The LCD and the Nano move from the breadboard to the PCB. The Curiosity Nano is already owned.</li>
+<li>Prices are DigiKey prices checked on Oct 30, 2026, except the lines marked "Oct 25 price".</li>
+<li>On Oct 30, DigiKey showed the LM1086 and the 30k resistor as out of stock. If they are not restocked, I will use Peralta stock or an alternate.</li>
+<li>The ribbon cables are shared by the team.</li>
 </ul>
 
 
