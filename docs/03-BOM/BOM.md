@@ -4,15 +4,15 @@ title: Bill of Materials
 
 # Bill of Materials
 
-**Main Control Board, Fill-A-Bot (schematic Rev 4).** Nikita Bangiyev, EGR 304, Oct 30, 2026.
+**Main Control Board, Fill-A-Bot (schematic Rev 5).** Nikita Bangiyev, EGR 304, Nov 4, 2026.
 
 Every part on the schematic is listed, grouped by value, along with the hardware for debugging and expansion: jumpers and shunts, test points, sockets, headers and the fuse holder. Order quantity = 1 for the breadboard + 1 for the PCB + 1-2 spares. Parts from Peralta 109 or the class kit, and parts I already own, are listed at $0. No parts are smaller than 0805, and there are no new breakout modules.
 
-**DigiKey order: 23 BOM lines (22 cart lines, since C3 and C9/C15 use the same part), $47.78** before tax and shipping, under the $60 budget per team member. DigiKey cart link: [DigiKey cart](https://www.digikey.com/short/bt910f3t)
+**DigiKey order: 23 BOM lines (22 cart lines, since C3 and C9/C15 use the same part), $47.81** before tax and shipping, under the $60 budget per team member. Ordered Nov 4, 2026 (DigiKey PG11581).
 
 | # | Ref | Description | Manufacturer | MPN | Vendor | Vendor Part # | Qty/Board | Order Qty | Unit | Ext. | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | U2 | 5V 1.5A linear regulator, TO-220 | Texas Instruments | [LM1086IT-5.0/NOPB](https://www.digikey.com/en/products/detail/texas-instruments/LM1086IT-5-0-NOPB/363580) | DigiKey | LM1086IT-5.0/NOPB-ND | 1 | 3 | $2.44 | $7.32 | Was out of stock at DigiKey on Oct 30. If it is not restocked, get it from Peralta or use an alternate. |
+| 1 | U2 | 5V 3A low-dropout linear regulator, TO-220 | STMicroelectronics | [LD1085V50](https://www.digikey.com/en/products/detail/stmicroelectronics/LD1085V50/669220) | DigiKey | 497-3436-5-ND | 1 | 3 | $2.45 | $7.35 | Replaces the backordered LM1086IT-5.0. Approved by Dr. Nichols and ordered Nov 4, 2026. Price checked Nov 2. |
 | 2 | U2 (heat sink) | TO-220 heat sink | Same Sky | [HSE14-384225P](https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/HSE14-384225P/26460932) | DigiKey | 2223-HSE14-384225P-ND | 1 | 2 | $2.24 | $4.48 | Not a schematic symbol. |
 | 3 | U2 (pad) | TO-220 insulating thermal pad | Bergquist | [SP900S-0.009-00-104](https://www.digikey.com/en/products/detail/bergquist/SP900S-0-009-00-104/307800) | DigiKey | BER178-ND | 1 | 3 | $0.35 | $1.05 | U2 tab is at 5V, so it needs an insulator. |
 | 4 | U3 | Dual op amp, 8-pin DIP | Microchip | [MCP6002-I/P](https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875) | DigiKey | MCP6002-I/P-ND | 1 | 3 | $0.45 | $1.35 | U3A/B/C are one package. |
@@ -34,7 +34,7 @@ Every part on the schematic is listed, grouped by value, along with the hardware
 | 20 | C7, C8, C10-C13 | Cap 1uF 25V X7R radial | TDK | [FG18X7R1E105KRT06](https://www.digikey.com/en/products/detail/tdk/FG18X7R1E105KRT06/5802875) | DigiKey | 445-173261-1-ND | 6 | 13 | $0.20 | $2.55 | Button debounce caps. |
 | 21 | C3 | Cap 10uF 25V aluminum radial | KEMET | [ESK106M025AC3AA](https://www.digikey.com/en/products/detail/kemet/ESK106M025AC3AA/18167956) | DigiKey | 399-ESK106M025AC3AA-ND | 1 | 3 | $0.21 | $0.63 |  |
 | 22 | C9, C15 | Cap 10uF 25V aluminum radial (16V min) | KEMET | [ESK106M025AC3AA](https://www.digikey.com/en/products/detail/kemet/ESK106M025AC3AA/18167956) | DigiKey | 399-ESK106M025AC3AA-ND | 2 | 5 | $0.21 | $1.05 | 25V part, same footprint as C3. |
-| 23 | C4 | Cap 10uF 16V tantalum radial | KYOCERA AVX | [TAP106K016SCS](https://www.digikey.com/en/products/detail/kyocera-avx/TAP106K016SCS/563942) | DigiKey | 478-1839-ND | 1 | 3 | $0.69 | $2.07 | In stock. 2.5 mm lead spacing; bend leads to fit the 5.0 mm footprint. |
+| 23 | C4 | Cap 10uF 16V tantalum radial | KYOCERA AVX | [TAP106K016SCS](https://www.digikey.com/en/products/detail/kyocera-avx/TAP106K016SCS/563942) | DigiKey | 478-1839-ND | 1 | 3 | $0.69 | $2.07 | In stock. Footprint CP_Radial_Tantal_D5.0mm_P2.50mm (5.0 mm body, 2.50 mm lead spacing). |
 | 24 | U1 | PIC18F57Q43 Curiosity Nano dev board | Microchip | [DM164150](https://www.digikey.com/en/products/detail/microchip-technology/DM164150/11586705) | Already owned | 150-DM164150-ND | 1 | 0 | $0.00 | $0.00 | Already owned; not ordered. Plugs into female sockets. |
 | 25 | TP1-TP17 | Test point, bare PCB pad | - | n/a | PCB (no part) | n/a | 17 | 0 | $0.00 | $0.00 | Nothing to buy. |
 | 26 | DS1 (header) | 1x16 male header, 2.54 mm (on the LCD) | Sullins | [PRPC016SAAN-RC](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC016SAAN-RC/2775238) | Peralta | 35-PRPC016SAAN-RC-ND | 1 | 2 | $0.00 | $0.00 | From Peralta 109 stock, $0. |
@@ -56,12 +56,12 @@ Every part on the schematic is listed, grouped by value, along with the hardware
 | 42 | R9 | Resistor 30k 1% 1/4W axial | Yageo | MFR-25FRF52-30K | Peralta | 13-MFR-25FRF52-30KCT-ND | 1 | 4 | $0.00 | $0.00 | Was out of stock at DigiKey on Oct 30. Get it from the Peralta resistor stock or use an alternate. |
 | 43 | U3 (socket) | 8-pin DIP IC socket | - | n/a | Peralta | n/a | 1 | 2 | $0.00 | $0.00 | From Peralta 109, $0. |
 | 44 | U1 (sockets) | 1x40 female header, cut to 1x28 (Nano socket) | - | n/a | Peralta | n/a | 2 | 3 | $0.00 | $0.00 | From class stock, $0. |
-| | | **DigiKey order total** | | | | | | | | **$47.78** | |
+| | | **DigiKey order total** | | | | | | | | **$47.81** | |
 
 ## Notes
 
 - The EGR 304 budget is $60 per team member, so the order keeps 1 for the breadboard + 1 for the PCB + at most 1 spare. Lab-stock parts come from Peralta 109.
 - The LCD and the Nano move from the breadboard to the PCB. The Curiosity Nano is already owned.
 - Prices are DigiKey prices checked on Oct 30, 2026, except the lines marked "Oct 25 price".
-- On Oct 30, DigiKey showed the LM1086 and the 30k resistor as out of stock. If they are not restocked, I will use Peralta stock or an alternate.
+- On Oct 30, DigiKey showed the LM1086 and the 30k resistor as out of stock. The LM1086 is replaced by the ST LD1085V50 (same pinout and 4.9 to 5.1V output), ordered Nov 4. If the 30k is not restocked, I will use Peralta stock or an alternate.
 - The ribbon cables are shared by the team.
