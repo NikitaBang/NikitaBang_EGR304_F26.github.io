@@ -4,7 +4,7 @@ title: Schematics
 
 # Schematics
 
-This is the schematic for my Main Control Board (rev 4, October 30, 2026). It has the 9-12V power input and 5V regulator, the Curiosity Nano, the cup sensor with the op amp, the LCD, the buttons and LEDs, and the three ribbon cables to my teammates' boards. Each signal on the ribbons is 2 plain digital wires with 4 states (00, 01, 10, 11). There's no UART, I2C, or SPI between boards.
+This is the schematic for my Main Control Board (rev 5, November 4, 2026). It has the 9-12V power input and 5V regulator, the Curiosity Nano, the cup sensor with the op amp, the LCD, the buttons and LEDs, and the three ribbon cables to my teammates' boards. Each signal on the ribbons is 2 plain digital wires with 4 states (00, 01, 10, 11). There's no UART, I2C, or SPI between boards.
 
 ![Main Control Board schematic](Nikita-Main-Control-Schematic.png){ width="100%" }
 
@@ -14,7 +14,7 @@ Figure 1: Main Control Board schematic (click to enlarge)
 
 The numbers in brackets are from our team's [Product Requirements](https://egr304-2026-f-201.github.io/04-Product-Requirements/) page.
 
-- **Power [6.7]:** The barrel jack takes 9-12V, goes through a swappable T800mA fuse, and the LM1086 linear regulator makes 5V. It has the input and output caps from the TI datasheet (10uF tantalum on the output) and a 0.1uF bypass cap at every IC power pin. The worst-case load is 432mA with margin, well under the regulator's 1.5A, and the heat sink keeps it near 71 C. D6 and D5 show that the 9V and 5V rails are on.
+- **Power [6.7]:** The barrel jack takes 9-12V, goes through a swappable T800mA fuse, and the LD1085V50 linear regulator makes 5V. It has 10uF caps on the input and output, which meets the 10uF minimum in the ST datasheet (10uF tantalum on the output), and a 0.1uF bypass cap at every IC power pin. The worst-case load is 432mA with margin, well under the regulator's 3A, and the heat sink keeps it near 69 C. D6 and D5 show that the 9V and 5V rails are on.
 - **Picking the amount [2.1, 3.1, 4.1, Design 2.4]:** UP and DOWN pick one of the 4 fill presets, and START starts the fill. Each button has a 10k pull-up and an RC debounce, so one press reads as one press. J9 lets the buttons be mounted off the board.
 - **Stopping at any time [6.1, Design 1.5, Design 3.4]:** STOP is its own button on RA3. The firmware sets the pump command to 00 (stop) from any step.
 - **Cup sensor:** The photoresistor goes through a buffer, a gain stage, and a low-pass filter into the ADC (RA5), so the pump only starts when a cup is in place. This answers the open question on our requirements page about checking for a container before dispensing.
@@ -35,6 +35,8 @@ The numbers in brackets are from our team's [Product Requirements](https://egr30
 
 Each ribbon signal goes through a jumper (JP3, JP4, JP6-JP11) and has a test point, so I can unplug one line or check it with a meter.
 
+J1-J3 are 2x4 IDC box headers (Wurth 61200821621). In the schematic they use the counter-clockwise 2x4 symbol that the team agreed on (Cole, Nov 3). The pin numbers and signals above didn't change.
+
 ## Signal Codes
 
 | Signal | 00 | 01 | 10 | 11 |
@@ -43,6 +45,10 @@ Each ribbon signal goes through a jumper (JP3, JP4, JP6-JP11) and has a test poi
 | Weight command (to Troy) | Preset 1 | Preset 2 | Preset 3 | Preset 4 |
 | Weight status (from Troy) | Not ready | Below target | Target reached | Error |
 | Flow status (from Cole) | No flow | Flowing | Not used (no flow) | Sensor fault |
+
+## Changes in Rev 5
+
+The LM1086 regulator was backordered, so U2 is now the ST LD1085V50 (same TO-220 pinout and the same 4.9 to 5.1V output). J1-J3 now use the counter-clockwise 2x4 connector symbol, and C4's part number is now the KYOCERA AVX TAP106K016SCS that I ordered. No connections changed: the Rev 5 netlist matches Rev 4, and ERC shows 0 errors and 0 warnings.
 
 ## Changes in Rev 4
 
