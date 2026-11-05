@@ -972,9 +972,9 @@
 
 
 <h1 id="bill-of-materials">Bill of Materials</h1>
-<p><strong>Main Control Board, Fill-A-Bot (schematic Rev 4).</strong> Nikita Bangiyev, EGR 304, Oct 30, 2026.</p>
+<p><strong>Main Control Board, Fill-A-Bot (schematic Rev 5).</strong> Nikita Bangiyev, EGR 304, Nov 4, 2026.</p>
 <p>Every part on the schematic is listed, grouped by value, along with the hardware for debugging and expansion: jumpers and shunts, test points, sockets, headers and the fuse holder. Order quantity = 1 for the breadboard + 1 for the PCB + 1-2 spares. Parts from Peralta 109 or the class kit, and parts I already own, are listed at $0. No parts are smaller than 0805, and there are no new breakout modules.</p>
-<p><strong>DigiKey order: 23 BOM lines (22 cart lines, since C3 and C9/C15 use the same part), $47.78</strong> before tax and shipping, under the $60 budget per team member. DigiKey cart link: <a href="https://www.digikey.com/short/bt910f3t">DigiKey cart</a></p>
+<p><strong>DigiKey order: 23 BOM lines (22 cart lines, since C3 and C9/C15 use the same part), $47.81</strong> before tax and shipping, under the $60 budget per team member. Ordered Nov 4, 2026 (DigiKey PG11581).</p>
 <table>
 <thead>
 <tr>
@@ -996,16 +996,16 @@
 <tr>
 <td>1</td>
 <td>U2</td>
-<td>5V 1.5A linear regulator, TO-220</td>
-<td>Texas Instruments</td>
-<td><a href="https://www.digikey.com/en/products/detail/texas-instruments/LM1086IT-5-0-NOPB/363580">LM1086IT-5.0/NOPB</a></td>
+<td>5V 3A low-dropout linear regulator, TO-220</td>
+<td>STMicroelectronics</td>
+<td><a href="https://www.digikey.com/en/products/detail/stmicroelectronics/LD1085V50/669220">LD1085V50</a></td>
 <td>DigiKey</td>
-<td>LM1086IT-5.0/NOPB-ND</td>
+<td>497-3436-5-ND</td>
 <td>1</td>
 <td>3</td>
-<td>$2.44</td>
-<td>$7.32</td>
-<td>Was out of stock at DigiKey on Oct 30. If it is not restocked, get it from Peralta or use an alternate.</td>
+<td>$2.45</td>
+<td>$7.35</td>
+<td>Replaces the backordered LM1086IT-5.0. Approved by Dr. Nichols and ordered Nov 4, 2026. Price checked Nov 2.</td>
 </tr>
 <tr>
 <td>2</td>
@@ -1313,7 +1313,7 @@
 <td>3</td>
 <td>$0.69</td>
 <td>$2.07</td>
-<td>In stock. 2.5 mm lead spacing; bend leads to fit the 5.0 mm footprint.</td>
+<td>In stock. Footprint CP_Radial_Tantal_D5.0mm_P2.50mm (5.0 mm body, 2.50 mm lead spacing).</td>
 </tr>
 <tr>
 <td>24</td>
@@ -1620,7 +1620,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><strong>$47.78</strong></td>
+<td><strong>$47.81</strong></td>
 <td></td>
 </tr>
 </tbody>
@@ -1630,7 +1630,7 @@
 <li>The EGR 304 budget is $60 per team member, so the order keeps 1 for the breadboard + 1 for the PCB + at most 1 spare. Lab-stock parts come from Peralta 109.</li>
 <li>The LCD and the Nano move from the breadboard to the PCB. The Curiosity Nano is already owned.</li>
 <li>Prices are DigiKey prices checked on Oct 30, 2026, except the lines marked "Oct 25 price".</li>
-<li>On Oct 30, DigiKey showed the LM1086 and the 30k resistor as out of stock. If they are not restocked, I will use Peralta stock or an alternate.</li>
+<li>On Oct 30, DigiKey showed the LM1086 and the 30k resistor as out of stock. The LM1086 is replaced by the ST LD1085V50 (same pinout and 4.9 to 5.1V output), ordered Nov 4. If the 30k is not restocked, I will use Peralta stock or an alternate.</li>
 <li>The ribbon cables are shared by the team.</li>
 </ul>
 
