@@ -27,7 +27,7 @@ Source files: [nikita-block-diagram-source.zip](nikita-block-diagram-source.zip)
 
 - 9V 2A regulated wall adapter (Triad WSU090-2000) into a barrel jack (Same Sky PJ-102AH)
 - T800mA fuse (Littelfuse 0218.800MXP) in a 5x20mm holder right after the jack
-- LM1086IT-5.0 linear regulator makes 5V (1.5A max, 4.9 to 5.1V) for the whole board
+- LD1085V50 linear regulator makes 5V (3A max, 4.9 to 5.1V) for the whole board
 - The regulator has a heat sink (Same Sky HSE14-384225P) with an insulating pad, because its tab is at 5V
 - The Nano gets 5V on VTG with VOFF tied to GND
 - D6 lights up when 9V is in, and D5 lights up when 5V is on
@@ -37,7 +37,7 @@ Source files: [nikita-block-diagram-source.zip](nikita-block-diagram-source.zip)
 
 | Block | What it does | Signal to or from the microcontroller |
 |---|---|---|
-| Power | Barrel jack, T800mA fuse, and the LM1086 5V regulator. Powers every block on the board. | +5V (power) |
+| Power | Barrel jack, T800mA fuse, and the LD1085V50 5V regulator. Powers every block on the board. | +5V (power) |
 | Buttons | UP and DOWN pick a preset, START starts the fill, STOP cancels | Digital in |
 | Cup Sensor | Photoresistor, op amp buffer and gain stage, then a low-pass filter. Tells the board a cup is there. | Analog in |
 | Debug | Debug button and debug LED for testing | Digital in / out |
@@ -82,7 +82,7 @@ The team is still picking the four preset amounts. The weight command can sit at
 | Part | Manufacturer | Part # |
 |---|---|---|
 | Curiosity Nano (U1) | Microchip | PIC18F57Q43 (DM164150) |
-| 5V regulator (U2) | Texas Instruments | LM1086IT-5.0/NOPB |
+| 5V regulator (U2) | STMicroelectronics | LD1085V50 |
 | Regulator heat sink | Same Sky | HSE14-384225P |
 | 9V wall adapter | Triad Magnetics | WSU090-2000 |
 | Barrel jack (J4) | Same Sky | PJ-102AH |
@@ -99,13 +99,13 @@ The team is still picking the four preset amounts. The weight command can sit at
 - The op amp is needed because a photoresistor and resistor alone don't count as an analog sensor. U3A buffers the divider and U3B amplifies it with a gain of -3 around a 2.5V reference. Then R10 and C9 make a low-pass filter (about 16 Hz) before the ADC.
 - After the design review (Oct 26) I simplified this diagram: no pin numbers, one block per function, one outline for my board, red arrows for power and black arrows for signals. The 5V now shows as one "+5V to every block" arrow instead of a long wire.
 - The team ribbon used to be I2C, and then UART. On Oct 22 we dropped both (the professor suggested it), so now each signal is 2 plain digital wires with 4 states. It's simpler to wire, test with an LED or meter, and debug.
-- I switched from the LM7805 to the LM1086 because the LCD backlight needs 4.9 to 5.1V, and a 7805 can be 4.75 to 5.25V.
+- I switched from the LM7805 to the LM1086 because the LCD backlight needs 4.9 to 5.1V, and a 7805 can be 4.75 to 5.25V. The LM1086 was then backordered, so in Rev 5 (Nov 4) I changed to the ST LD1085V50. It has the same pinout and the same 4.9 to 5.1V output range.
 
 ## References
 
 1. Microchip, PIC18F57Q43 Curiosity Nano Hardware User Guide. [Link](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/UserGuides/PIC18F57Q43-Curiosity-Nano-HW-UserGuide-DS40002186B.pdf)
 2. Microchip, PIC18F27/47/57Q43 data sheet. [Link](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18F27-47-57Q43-Microcontroller-Data-Sheet-XLP-DS40002147.pdf)
-3. Texas Instruments, LM1086 datasheet. [Link](https://www.ti.com/lit/ds/symlink/lm1086.pdf)
+3. STMicroelectronics, LD1085 datasheet. [Link](https://www.st.com/resource/en/datasheet/ld1085.pdf)
 4. Same Sky, HSE14-384225P heat sink datasheet. [Link](https://www.sameskydevices.com/product/resource/hse14-384225p.pdf)
 5. Triad Magnetics, WSU090-2000 datasheet. [Link](https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf)
 6. Newhaven Display, NHD-0216K1Z-FL-YBW datasheet. [Link](https://newhavendisplay.com/content/specs/NHD-0216K1Z-FL-YBW.pdf)
