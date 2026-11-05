@@ -1281,6 +1281,38 @@
 </table>
 <p><strong>Choice:</strong> <strong>Option 3: TI LM1086IT-5.0/NOPB (Main Control Board)</strong></p>
 <p><strong>Rationale:</strong> My LCD backlight needs 4.9 to 5.1V, and the LM1086 is the only one here that stays in that range. The 7805s can go up to 5.25V. I'll put a 10uF tantalum capacitor on the output, which is one of the two options TI recommends for stability.</p>
+<p><strong>Update (Rev 5, Nov 4, 2026):</strong> The LM1086 was backordered, so U2 is now the STMicroelectronics LD1085V50 (<a href="https://www.digikey.com/en/products/detail/stmicroelectronics/LD1085V50/669220">DigiKey</a> / <a href="https://www.st.com/resource/en/datasheet/ld1085.pdf">Datasheet</a>). The table above is how I picked the regulator in October. The LD1085V50 has the same TO-220 pinout (1 GND, 2 OUT, 3 IN) and the same 4.9 to 5.1V output over load and temperature, it's rated for 3A, and it only needs a 10uF minimum output capacitor for stability, so my 10uF tantalum still works. Heat check with the LD1085V50, done the same way as in the heat sink section below:</p>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>Value</th>
+<th>Where it comes from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heat = (9.45 - 4.9) x 0.4323 + 9.45 x 0.010</td>
+<td>2.06W</td>
+<td>Same as before (LD1085 datasheet: 4.9V lowest output, 10mA max quiescent current)</td>
+</tr>
+<tr>
+<td>Junction to case</td>
+<td>3 C/W</td>
+<td>LD1085 datasheet (TO-220)</td>
+</tr>
+<tr>
+<td>Junction temp = 40 + 2.06 x (3 + 1.0 + 10)</td>
+<td>about 69 C</td>
+<td>Calculated (same pad and heat sink)</td>
+</tr>
+<tr>
+<td>Limit</td>
+<td>125 C</td>
+<td>LD1085 datasheet (operating junction temperature)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="4-regulator-heat-sink">4. Regulator Heat Sink</h2>
 <table>
 <thead>
@@ -1654,7 +1686,7 @@
 <td>VTG</td>
 <td>Power</td>
 <td></td>
-<td>5V from the LM1086 (VOFF tied to GND)</td>
+<td>5V from the LD1085V50 (VOFF tied to GND)</td>
 </tr>
 <tr>
 <td>GND</td>
