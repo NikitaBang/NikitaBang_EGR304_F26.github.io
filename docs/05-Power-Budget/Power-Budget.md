@@ -48,6 +48,8 @@ This power budget checks that my 9V adapter and 5V regulator can run everything 
 
 My real draw from the adapter is 444.299mA (432.268mA, plus 10mA for the regulator itself, plus 2.031mA for the 9V power LED), so there's a lot of room left.
 
+**Update (Rev 5, Nov 4, 2026):** U2 is now the ST LD1085V50 because the LM1086 was backordered. I left the budget above as it was. With the LD1085V50, the regulator's 3A rating is no longer the limit; the 2A adapter is, and the real worst case is about 444mA, so there's still about 1.5A of margin.
+
 ## E. Battery Life
 
 N/A. My board runs off a wall adapter.
