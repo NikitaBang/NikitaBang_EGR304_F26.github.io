@@ -48,3 +48,4 @@ STOP cancels from any state. A weight status of 11 (error) also goes to the erro
 | 2 | Oct 25, 2026 | Footprints, 9V power LED (R25, D6), LCD notes |
 | 3 | Oct 25, 2026 | 2-wire, 4-state ribbon signals, 100k pull-downs on the ribbon inputs, jumpers and test points on every ribbon signal, manufacturer part numbers on every part |
 | 4 | Oct 30, 2026 | Cleanup after the design review: VIN power arrows instead of a long wire, pull-downs wired next to the ribbon headers, spare-pin nets renamed, simpler block diagram with no pin numbers |
+| 5 | Nov 4, 2026 | U2 changed to the ST LD1085V50 (LM1086 backordered); J1-J3 drawn with the counter-clockwise 2x4 connector symbol (team decision, Nov 3); C4 part number changed to TAP106K016SCS; no connection changes |
