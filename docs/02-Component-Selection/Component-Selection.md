@@ -44,6 +44,15 @@ My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there
 
 **Rationale:** My LCD backlight needs 4.9 to 5.1V, and the LM1086 is the only one here that stays in that range. The 7805s can go up to 5.25V. I'll put a 10uF tantalum capacitor on the output, which is one of the two options TI recommends for stability.
 
+**Update (Rev 5, Nov 4, 2026):** The LM1086 was backordered, so U2 is now the STMicroelectronics LD1085V50 ([DigiKey](https://www.digikey.com/en/products/detail/stmicroelectronics/LD1085V50/669220) / [Datasheet](https://www.st.com/resource/en/datasheet/ld1085.pdf)). The table above is how I picked the regulator in October. The LD1085V50 has the same TO-220 pinout (1 GND, 2 OUT, 3 IN) and the same 4.9 to 5.1V output over load and temperature, it's rated for 3A, and it only needs a 10uF minimum output capacitor for stability, so my 10uF tantalum still works. Heat check with the LD1085V50, done the same way as in the heat sink section below:
+
+| What | Value | Where it comes from |
+|---|---|---|
+| Heat = (9.45 - 4.9) x 0.4323 + 9.45 x 0.010 | 2.06W | Same as before (LD1085 datasheet: 4.9V lowest output, 10mA max quiescent current) |
+| Junction to case | 3 C/W | LD1085 datasheet (TO-220) |
+| Junction temp = 40 + 2.06 x (3 + 1.0 + 10) | about 69 C | Calculated (same pad and heat sink) |
+| Limit | 125 C | LD1085 datasheet (operating junction temperature) |
+
 ## 4. Regulator Heat Sink
 
 | Solution | Pros | Cons |
@@ -152,7 +161,7 @@ This is how I'll set up each pin in MCC (Pin Grid View). "Start high" means the 
 | RF5 | Weight command to Troy | Digital output, start low | J3 pin 2 (C0) |
 | RE1 | Weight status from Troy | Digital input | J3 pin 3 (S1), 100k pull-down |
 | RE0 | Weight status from Troy | Digital input | J3 pin 4 (S0), 100k pull-down |
-| VTG | Power | | 5V from the LM1086 (VOFF tied to GND) |
+| VTG | Power | | 5V from the LD1085V50 (VOFF tied to GND) |
 | GND | Ground | | Board ground and J1-J3 pin 8 |
 
 The ribbon signals don't use UART, I2C, or SPI. Each one is 2 plain digital pins, so it has 4 states (00, 01, 10, 11), and 00 is the safe default. The ribbon outputs start low so the pump command is 00 (stop) at power-up, and the 100k pull-downs make an unplugged cable read 00. The codes for each signal are on my [Block Diagram](../01-Block-Diagram/Block-Diagram.md) page. Ribbon pins 5-7 aren't connected on my board, and there's no power on the ribbon since every board has its own regulator. The spare Nano pins go to the J5 and J6 extra headers.
