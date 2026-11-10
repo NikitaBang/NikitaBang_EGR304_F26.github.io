@@ -9,11 +9,11 @@ hide:
 
 Nikita Bangiyev, Team 201, Fill-A-Bot
 
-![Main control board block diagram](nikita-block-diagram.png){ width="100%" }
+![Main control board block diagram](nikita-block-diagram-rev7.png){ width="100%" }
 
 Figure 1: Main Control Board block diagram (Rev 7)
 
-Source files: [nikita-block-diagram-source.zip](nikita-block-diagram-source.zip) (draw.io file and PNG)
+Source files: [nikita-block-diagram-rev7-source.zip](nikita-block-diagram-rev7-source.zip) (draw.io file and PNG)
 
 ## How It Works
 
