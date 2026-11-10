@@ -11,7 +11,7 @@ Nikita Bangiyev, Team 201, Fill-A-Bot (automatic liquid dispenser)
 
 ## Overview
 
-I'm doing the main control board. The user picks one of 4 fill presets with the UP and DOWN buttons and presses START. My board tells Troy's board which preset was picked, tells Clay's board to run the pump, and then watches the flow status from Cole's board and the weight status from Troy's board. When Troy's board says the target is reached, my board stops the pump. If Cole's board says there's no flow, my board stops the pump and flashes the Fault LED. The amount and status show on a 16x2 LCD. My sensor is a photoresistor under the cup spot with an op amp and a low-pass filter, so the pump only starts when a cup is there.
+I'm doing the main control board. The user picks one of 4 fill presets with the UP and DOWN buttons and presses START. My board tells Troy's board which preset was picked, tells Clay's board to run the pump, and then watches the flow status from Cole's board and the weight status from Troy's board. When Troy's board says the target is reached, my board stops the pump. If Cole's board says there's no flow, my board stops the pump and flashes the Fault LED. Three status LEDs show Dispensing, Done, and Fault. My sensor is a photoresistor under the cup spot with an op amp and a low-pass filter, so the pump only starts when a cup is there.
 
 The boards don't use UART, I2C, or SPI. Each signal between two boards is just 2 plain digital wires driven high or low, so it can send 4 states (00, 01, 10, 11). My board has 2 of these outputs (pump command and weight command) and 2 inputs (weight status and flow status).
 
@@ -19,7 +19,7 @@ For this prototype, Fill-A-Bot is meant for home kitchen use with plain drinking
 
 ![Main control board block diagram](nikita-block-diagram.png){ width="100%" }
 
-Figure 1: Main control board block diagram (click to enlarge)
+Figure 1: Main control board block diagram, Rev 7 (click to enlarge)
 
 Source files: [nikita-block-diagram-source.zip](nikita-block-diagram-source.zip) (draw.io file and PNG)
 
@@ -31,7 +31,7 @@ Source files: [nikita-block-diagram-source.zip](nikita-block-diagram-source.zip)
 - The regulator has a heat sink (Same Sky HSE14-384225P) with an insulating pad, because its tab is at 5V
 - The Nano gets 5V on VTG with VOFF tied to GND
 - D6 lights up when 9V is in, and D5 lights up when 5V is on
-- My power budget is 432mA with the 25% margin (see [Power Budget](../05-Power-Budget/Power-Budget.md))
+- My power budget is 432mA with the 25% margin (see [Power Budget](../05-Power-Budget/Power-Budget.md)). That number still counts the 16x2 LCD from Rev 5, so the real Rev 7 current is lower.
 
 ## Blocks
 
@@ -42,9 +42,8 @@ Source files: [nikita-block-diagram-source.zip](nikita-block-diagram-source.zip)
 | Cup Sensor | Photoresistor, op amp buffer and gain stage, then a low-pass filter. Tells the board a cup is there. | Analog in |
 | Debug | Debug button and debug LED for testing | Digital in / out |
 | Microcontroller | PIC18F57Q43 Curiosity Nano. Runs the fill sequence. | |
-| 16x2 LCD | Shows the preset amount and the status (Ready, Filling, Finished, Error) | 4-bit parallel |
 | Status LEDs | Dispensing, Done, and Fault | Digital out |
-| Expansion Headers | Spare pins for fixes later | Digital in / out |
+| Expansion Headers | J5 (2x5 header with 8 spare pins) and 14 test pads on the other spare pins, for fixes later | Digital in / out |
 | Ribbon Headers | One 8-wire ribbon to each teammate's board | 2-bit commands out, 2-bit status in |
 
 The exact PIC pins are on my [Component Selection](../02-Component-Selection/Component-Selection.md) page (MCC pin table) and on my [schematic](../04-Schematic/schematic.md). I left them off the block diagram to keep it simple.
@@ -89,13 +88,14 @@ The team is still picking the four preset amounts. The weight command can sit at
 | Fuse (F1) | Littelfuse | 0218.800MXP |
 | Photoresistor (LDR1) | Advanced Photonix | PDV-P8103 |
 | Op amp (U3) | Microchip | MCP6002-I/P |
-| 16x2 LCD (DS1) | Newhaven Display | NHD-0216K1Z-FL-YBW |
 | Buttons (SW1-SW5) | Omron | B3F-1000 |
 | Ribbon headers (J1-J3) | Wurth Elektronik | 61200821621 |
 
 ## Notes
 
-- I switched from a 4-digit 7-segment display to a 16x2 LCD, because the team requirements need words like Ready, Filling, and Finished. The LCD has its own controller, so the HT16K33 driver is gone. It was discontinued anyway.
+- In Rev 7 (Nov 7) I took the 16x2 LCD off my board, along with its socket, contrast pot, and backlight jumper. So the diagram doesn't have an LCD block anymore, and the right side is just the Status LEDs and the Expansion Headers. The LCD pins on the Nano (RC0-RC5) are spare pins now.
+- Rev 7 also removed the second expansion header (J6), the remote button header (J9), and the jumpers on the ribbon lines, and added a diode on each ribbon output. None of that changes the blocks, so the diagram stays the same otherwise.
+- Before Rev 7, I had switched from a 4-digit 7-segment display to a 16x2 LCD, because the team requirements need words like Ready, Filling, and Finished. The LCD has its own controller, so the HT16K33 driver was gone too.
 - The op amp is needed because a photoresistor and resistor alone don't count as an analog sensor. U3A buffers the divider and U3B amplifies it with a gain of -3 around a 2.5V reference. Then R10 and C9 make a low-pass filter (about 16 Hz) before the ADC.
 - After the design review (Oct 26) I simplified this diagram: no pin numbers, one block per function, one outline for my board, red arrows for power and black arrows for signals. The 5V now shows as one "+5V to every block" arrow instead of a long wire.
 - The team ribbon used to be I2C, and then UART. On Oct 22 we dropped both (the professor suggested it), so now each signal is 2 plain digital wires with 4 states. It's simpler to wire, test with an LED or meter, and debug.
@@ -108,10 +108,9 @@ The team is still picking the four preset amounts. The weight command can sit at
 3. STMicroelectronics, LD1085 datasheet. [Link](https://www.st.com/resource/en/datasheet/ld1085.pdf)
 4. Same Sky, HSE14-384225P heat sink datasheet. [Link](https://www.sameskydevices.com/product/resource/hse14-384225p.pdf)
 5. Triad Magnetics, WSU090-2000 datasheet. [Link](https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf)
-6. Newhaven Display, NHD-0216K1Z-FL-YBW datasheet. [Link](https://newhavendisplay.com/content/specs/NHD-0216K1Z-FL-YBW.pdf)
-7. Microchip, MCP6002 datasheet. [Link](https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf)
-8. Advanced Photonix, PDV-P8103 datasheet. [Link](https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf)
-9. Same Sky, PJ-102AH datasheet. [Link](https://www.sameskydevices.com/product/resource/pj-102ah.pdf)
-10. Omron, B3F tactile switch. [Link](https://components.omron.com/us-en/products/switches/B3F)
-11. Wurth Elektronik, WR-BHD box header. [Link](https://www.we-online.com/en/components/products/WTB_WR_BHD_BOX_HEADER_2_54MM_MALE_PCB)
-12. EGR 304 Project Description. [Link](https://embedded-systems-design.bitbucket.io/304/course-info/project-description/)
+6. Microchip, MCP6002 datasheet. [Link](https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf)
+7. Advanced Photonix, PDV-P8103 datasheet. [Link](https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf)
+8. Same Sky, PJ-102AH datasheet. [Link](https://www.sameskydevices.com/product/resource/pj-102ah.pdf)
+9. Omron, B3F tactile switch. [Link](https://components.omron.com/us-en/products/switches/B3F)
+10. Wurth Elektronik, WR-BHD box header. [Link](https://www.we-online.com/en/components/products/WTB_WR_BHD_BOX_HEADER_2_54MM_MALE_PCB)
+11. EGR 304 Project Description. [Link](https://embedded-systems-design.bitbucket.io/304/course-info/project-description/)

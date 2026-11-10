@@ -35,10 +35,10 @@ This is the plan for my board's firmware, based on Cole's software flow chart. I
 | | | | No flow (flow status not 01) for 3 seconds, or flow status 11 | Error |
 | | | | STOP pressed, or the cup is removed | Cancel |
 | Error (no flow) | 00 (stop) | Preset | Fault LED flashes until STOP is pressed | Idle |
-| Done / reset | 00 (stop) | Preset | Shows Finished for 3 seconds | Idle |
-| Cancel | 00 (stop) | Preset | Shows Canceled for 1 second | Idle |
+| Done / reset | 00 (stop) | Preset | Done LED stays on for 3 seconds | Idle |
+| Cancel | 00 (stop) | Preset | Status LEDs off for 1 second | Idle |
 
-STOP cancels from any state. A weight status of 11 (error) also goes to the error state, with a different message on the LCD. The ribbon inputs only count once they read the same 3 times in a row (10 ms apart), so a read in the middle of a change gets ignored. The container weight is hard-coded on Troy's board for the demo.
+STOP cancels from any state. A weight status of 11 (error) also goes to the error state. The ribbon inputs only count once they read the same 3 times in a row (10 ms apart), so a read in the middle of a change gets ignored. The container weight is hard-coded on Troy's board for the demo.
 
 ## Revision History
 
@@ -49,3 +49,6 @@ STOP cancels from any state. A weight status of 11 (error) also goes to the erro
 | 3 | Oct 25, 2026 | 2-wire, 4-state ribbon signals, 100k pull-downs on the ribbon inputs, jumpers and test points on every ribbon signal, manufacturer part numbers on every part |
 | 4 | Oct 30, 2026 | Cleanup after the design review: VIN power arrows instead of a long wire, pull-downs wired next to the ribbon headers, spare-pin nets renamed, simpler block diagram with no pin numbers |
 | 5 | Nov 4, 2026 | U2 changed to the ST LD1085V50 (LM1086 backordered); J1-J3 drawn with the counter-clockwise 2x4 connector symbol (team decision, Nov 3); C4 part number changed to TAP106K016SCS; no connection changes |
+| 6 | Nov 6, 2026 | Footprints moved into my NB footprint library, Curiosity Nano socket and HS1 heat sink footprints added, PCB rules set up; no connection changes |
+| 7 | Nov 7, 2026 | 16x2 LCD and its parts removed; J6, J9, and the ribbon jumpers removed; J5 changed to a 2x5 header; test pads TP18-TP31 added; diodes D7-D10 and pull-downs R30-R33 added on the ribbon outputs |
+| 7 (PCB) | Nov 9, 2026 | PCB finished: trace fixes, large bold NB on top copper, 3D models for D7-D10 and J5, silkscreen cleanup after the JLCPCB DFM check, 5 mil solder mask clearance |

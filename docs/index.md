@@ -8,12 +8,12 @@ as part of<br>
 for<br>
 <font size="5">Team 201</font><br>
 
-<b>Updated: October 30, 2026</b>
+<b>Updated: November 9, 2026</b>
 </center>
 
 ## Introduction
 
-This is my individual datasheet for EGR 304. It shows my part of our team project, the parts I picked for my board, and how my board is powered.
+This is my individual datasheet for EGR 304. It shows my part of our team project, the parts I picked for my board, how my board is powered, and my schematic and PCB.
 
 ## Target Customer and Use
 
@@ -30,10 +30,11 @@ Fill-A-Bot is our team's automatic liquid dispenser. You pick how much liquid yo
 
 ## My Contribution
 
-I'm doing the Main Control Board. It reads the UP, DOWN, START, and STOP buttons, uses a photoresistor and an op amp to check that a cup is in place, sends simple 2-wire digital signals to my teammates' boards (pump command to Clay, preset to Troy) and reads theirs back (flow status from Cole, weight status from Troy), and shows the amount and status on a 16x2 LCD.
+I'm doing the Main Control Board. It reads the UP, DOWN, START, and STOP buttons, uses a photoresistor and an op amp to check that a cup is in place, sends simple 2-wire digital signals to my teammates' boards (pump command to Clay, preset to Troy) and reads theirs back (flow status from Cole, weight status from Troy), and shows the status on three LEDs (Dispensing, Done, and Fault).
 
 * [Block Diagram](01-Block-Diagram/Block-Diagram.md): how my board is laid out and connected
 * [Component Selection](02-Component-Selection/Component-Selection.md): the parts I picked for my board and why
 * [Bill of Materials](03-BOM/BOM.md): every part on my board, with order quantities and costs
 * [Schematics](04-Schematic/schematic.md): the full schematic for my board
 * [Power Budget](05-Power-Budget/Power-Budget.md): how much current my board needs and how it's powered
+* [PCB](06-PCB/PCB.md): the 2-layer PCB layout for my board, with the KiCad project and Gerber files
