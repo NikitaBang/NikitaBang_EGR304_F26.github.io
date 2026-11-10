@@ -339,6 +339,28 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../06-PCB/PCB/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  06 PCB
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../Appendix/" class="md-tabs__link">
           
   
@@ -560,21 +582,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#power" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Power
+        How It Works
       
     </span>
   </a>
@@ -604,17 +615,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#signal-codes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Signal Codes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#parts" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -626,10 +626,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#changes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Notes
+        Changes
       
     </span>
   </a>
@@ -893,6 +893,61 @@
     
       
         
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../06-PCB/PCB/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 PCB
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
           
         
       
@@ -969,21 +1024,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#power" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Power
+        How It Works
       
     </span>
   </a>
@@ -1013,17 +1057,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#signal-codes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Signal Codes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#parts" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1035,10 +1068,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#changes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Notes
+        Changes
       
     </span>
   </a>
@@ -1134,84 +1167,69 @@
 
 
 <h1 id="block-diagram">Block Diagram</h1>
-<p>Nikita Bangiyev, Team 201, Fill-A-Bot (automatic liquid dispenser)</p>
-<h2 id="overview">Overview</h2>
-<p>I'm doing the main control board. The user picks one of 4 fill presets with the UP and DOWN buttons and presses START. My board tells Troy's board which preset was picked, tells Clay's board to run the pump, and then watches the flow status from Cole's board and the weight status from Troy's board. When Troy's board says the target is reached, my board stops the pump. If Cole's board says there's no flow, my board stops the pump and flashes the Fault LED. The amount and status show on a 16x2 LCD. My sensor is a photoresistor under the cup spot with an op amp and a low-pass filter, so the pump only starts when a cup is there.</p>
-<p>The boards don't use UART, I2C, or SPI. Each signal between two boards is just 2 plain digital wires driven high or low, so it can send 4 states (00, 01, 10, 11). My board has 2 of these outputs (pump command and weight command) and 2 inputs (weight status and flow status).</p>
-<p>For this prototype, Fill-A-Bot is meant for home kitchen use with plain drinking water only (tap or filtered, room temperature). The projected customer is someone at home who wants a set amount of water without using a measuring cup, like for cooking, coffee, or filling a water bottle. We picked kitchen use over lab use because a lab version would have to follow lab rules for cleaning, sterilization, and chemical safety, which adds a lot of restrictions we can't meet this semester. Fill-A-Bot is not sterile and isn't meant for chemicals, medicine, or other liquids. The parts that touch the water should be food-safe and easy to rinse, and the electronics stay separated from the water. On my Main Control Board, the user interface and the +5V/VIN power stay separated from the water. A lab version could be a later step. See Target Customer and Use on our team's <a href="https://egr304-2026-f-201.github.io/04-Product-Requirements/#target-customer-and-use">Product Requirements</a> page.</p>
+<p>Nikita Bangiyev, Team 201, Fill-A-Bot</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../nikita-block-diagram.png" data-desc-position="bottom"><img alt="Main control board block diagram" src="../nikita-block-diagram.png" width="100%"></a></p>
-<p>Figure 1: Main control board block diagram (click to enlarge)</p>
+<p>Figure 1: Main Control Board block diagram (Rev 7)</p>
 <p>Source files: <a href="../nikita-block-diagram-source.zip">nikita-block-diagram-source.zip</a> (draw.io file and PNG)</p>
-<h2 id="power">Power</h2>
-<ul>
-<li>9V 2A regulated wall adapter (Triad WSU090-2000) into a barrel jack (Same Sky PJ-102AH)</li>
-<li>T800mA fuse (Littelfuse 0218.800MXP) in a 5x20mm holder right after the jack</li>
-<li>LD1085V50 linear regulator makes 5V (3A max, 4.9 to 5.1V) for the whole board</li>
-<li>The regulator has a heat sink (Same Sky HSE14-384225P) with an insulating pad, because its tab is at 5V</li>
-<li>The Nano gets 5V on VTG with VOFF tied to GND</li>
-<li>D6 lights up when 9V is in, and D5 lights up when 5V is on</li>
-<li>My power budget is 432mA with the 25% margin (see <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a>)</li>
-</ul>
+<h2 id="how-it-works">How It Works</h2>
+<p>The user presses UP for preset 1 or DOWN for preset 2, then presses START. My board sends the preset to Troy's board and tells Clay's board to run the pump. While it fills, my board watches the weight status from Troy and the flow status from Cole. When Troy's board says the target is reached, my board stops the pump. If Cole's board says there's no flow, it stops the pump and flashes the Fault LED. STOP cancels at any time.</p>
+<p>A photoresistor under the cup spot goes through an op amp and a low-pass filter into the ADC, so the pump only starts when there's a cup. Three LEDs show Dispensing, Done, and Fault.</p>
+<p>The boards don't use UART, I2C, or SPI. Each signal between boards is 2 plain wires, so it has 4 states (00, 01, 10, 11), and 00 is always the safe one.</p>
 <h2 id="blocks">Blocks</h2>
 <table>
 <thead>
 <tr>
 <th>Block</th>
 <th>What it does</th>
-<th>Signal to or from the microcontroller</th>
+<th>Signal</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Power</td>
-<td>Barrel jack, T800mA fuse, and the LD1085V50 5V regulator. Powers every block on the board.</td>
-<td>+5V (power)</td>
+<td>9V adapter, barrel jack, T800mA fuse, and the LD1085V50 5V regulator on a heat sink. D6 lights up when 9V is in and D5 when 5V is on.</td>
+<td>+5V to every block</td>
+</tr>
+<tr>
+<td>Microcontroller</td>
+<td>PIC18F57Q43 Curiosity Nano. Runs the fill. 5V goes to VTG and VOFF is tied to GND.</td>
+<td></td>
 </tr>
 <tr>
 <td>Buttons</td>
-<td>UP and DOWN pick a preset, START starts the fill, STOP cancels</td>
+<td>UP, DOWN, START, STOP with pull-ups and RC debounce</td>
 <td>Digital in</td>
 </tr>
 <tr>
 <td>Cup Sensor</td>
-<td>Photoresistor, op amp buffer and gain stage, then a low-pass filter. Tells the board a cup is there.</td>
+<td>Photoresistor, op amp buffer and gain stage, low-pass filter</td>
 <td>Analog in</td>
 </tr>
 <tr>
-<td>Debug</td>
-<td>Debug button and debug LED for testing</td>
-<td>Digital in / out</td>
-</tr>
-<tr>
-<td>Microcontroller</td>
-<td>PIC18F57Q43 Curiosity Nano. Runs the fill sequence.</td>
-<td></td>
-</tr>
-<tr>
-<td>16x2 LCD</td>
-<td>Shows the preset amount and the status (Ready, Filling, Finished, Error)</td>
-<td>4-bit parallel</td>
-</tr>
-<tr>
 <td>Status LEDs</td>
-<td>Dispensing, Done, and Fault</td>
+<td>Dispensing, Done, Fault</td>
 <td>Digital out</td>
 </tr>
 <tr>
+<td>Debug</td>
+<td>Debug button and LED</td>
+<td>Digital in / out</td>
+</tr>
+<tr>
 <td>Expansion Headers</td>
-<td>Spare pins for fixes later</td>
+<td>J5 (8 spare pins) and 14 test pads on the other spare pins</td>
 <td>Digital in / out</td>
 </tr>
 <tr>
 <td>Ribbon Headers</td>
-<td>One 8-wire ribbon to each teammate's board</td>
-<td>2-bit commands out, 2-bit status in</td>
+<td>J1 to Cole, J2 to Clay, J3 to Troy</td>
+<td>2-bit out, 2-bit in</td>
 </tr>
 </tbody>
 </table>
-<p>The exact PIC pins are on my <a href="../../02-Component-Selection/Component-Selection/">Component Selection</a> page (MCC pin table) and on my <a href="../../04-Schematic/schematic/">schematic</a>. I left them off the block diagram to keep it simple.</p>
+<p>I left the PIC pin numbers off the diagram to keep it simple. They're on my <a href="../../02-Component-Selection/Component-Selection/">Component Selection</a> and <a href="../../04-Schematic/schematic/">Schematics</a> pages.</p>
 <h2 id="ribbon-connectors">Ribbon Connectors</h2>
-<p>J1 goes to Cole, J2 to Clay, and J3 to Troy. All three use the same layout and follow the class standard (pins 1-5 digital, 6-7 analog, 8 ground). Pins 1-2 are always my outputs, pins 3-4 are always the teammate's outputs coming back to me, and pin 8 is ground.</p>
+<p>All three headers follow the class standard: 8 wires, pin 8 is ground, and no power pin. Pins 1-2 are my outputs and pins 3-4 come back from the teammate. My inputs have 100k pull-downs, so an unplugged cable reads 00.</p>
 <table>
 <thead>
 <tr>
@@ -1224,21 +1242,21 @@
 <tbody>
 <tr>
 <td>1-2</td>
-<td>Not connected</td>
+<td>Not used</td>
 <td>Pump command out</td>
-<td>Weight command (preset) out</td>
+<td>Preset out</td>
 </tr>
 <tr>
 <td>3-4</td>
 <td>Flow status in</td>
-<td>Not connected</td>
+<td>Not used</td>
 <td>Weight status in</td>
 </tr>
 <tr>
 <td>5-7</td>
-<td>Not connected</td>
-<td>Not connected</td>
-<td>Not connected</td>
+<td>Not used</td>
+<td>Not used</td>
+<td>Not used</td>
 </tr>
 <tr>
 <td>8</td>
@@ -1248,15 +1266,10 @@
 </tr>
 </tbody>
 </table>
-<p>My four inputs have 100k pull-downs, so an unplugged cable reads 00.</p>
-<p>There's no power pin on the ribbon. Every board has its own adapter and regulator, and pins 1-7 have to go to the microcontroller. All signals are 5V logic.</p>
-<h2 id="signal-codes">Signal Codes</h2>
-<p>Bit 1 is the first pin of the pair and bit 0 is the second. 00 is the safe default on every signal.</p>
 <table>
 <thead>
 <tr>
 <th>Signal</th>
-<th>Direction</th>
 <th>00</th>
 <th>01</th>
 <th>10</th>
@@ -1265,32 +1278,28 @@
 </thead>
 <tbody>
 <tr>
-<td>Pump command</td>
-<td>Me to Clay</td>
+<td>Pump command (to Clay)</td>
 <td>Stop</td>
 <td>Run</td>
 <td>Not used (stop)</td>
 <td>Not used (stop)</td>
 </tr>
 <tr>
-<td>Weight command</td>
-<td>Me to Troy</td>
+<td>Preset (to Troy)</td>
 <td>Preset 1</td>
 <td>Preset 2</td>
 <td>Preset 3</td>
 <td>Preset 4</td>
 </tr>
 <tr>
-<td>Weight status</td>
-<td>Troy to me</td>
+<td>Weight status (from Troy)</td>
 <td>Not ready</td>
-<td>Below target (filling)</td>
+<td>Below target</td>
 <td>Target reached</td>
 <td>Error</td>
 </tr>
 <tr>
-<td>Flow status</td>
-<td>Cole to me</td>
+<td>Flow status (from Cole)</td>
 <td>No flow</td>
 <td>Flowing</td>
 <td>Not used (no flow)</td>
@@ -1298,7 +1307,7 @@
 </tr>
 </tbody>
 </table>
-<p>The team is still picking the four preset amounts. The weight command can sit at Preset 1 by default because it never turns anything on. Only the pump command does, and its default is Stop.</p>
+<p>Right now I only use Preset 1 (UP) and Preset 2 (DOWN). The other two codes are still there in case we add more presets.</p>
 <h2 id="parts">Parts</h2>
 <table>
 <thead>
@@ -1350,11 +1359,6 @@
 <td>MCP6002-I/P</td>
 </tr>
 <tr>
-<td>16x2 LCD (DS1)</td>
-<td>Newhaven Display</td>
-<td>NHD-0216K1Z-FL-YBW</td>
-</tr>
-<tr>
 <td>Buttons (SW1-SW5)</td>
 <td>Omron</td>
 <td>B3F-1000</td>
@@ -1366,13 +1370,12 @@
 </tr>
 </tbody>
 </table>
-<h2 id="notes">Notes</h2>
+<h2 id="changes">Changes</h2>
 <ul>
-<li>I switched from a 4-digit 7-segment display to a 16x2 LCD, because the team requirements need words like Ready, Filling, and Finished. The LCD has its own controller, so the HT16K33 driver is gone. It was discontinued anyway.</li>
-<li>The op amp is needed because a photoresistor and resistor alone don't count as an analog sensor. U3A buffers the divider and U3B amplifies it with a gain of -3 around a 2.5V reference. Then R10 and C9 make a low-pass filter (about 16 Hz) before the ADC.</li>
-<li>After the design review (Oct 26) I simplified this diagram: no pin numbers, one block per function, one outline for my board, red arrows for power and black arrows for signals. The 5V now shows as one "+5V to every block" arrow instead of a long wire.</li>
-<li>The team ribbon used to be I2C, and then UART. On Oct 22 we dropped both (the professor suggested it), so now each signal is 2 plain digital wires with 4 states. It's simpler to wire, test with an LED or meter, and debug.</li>
-<li>I switched from the LM7805 to the LM1086 because the LCD backlight needs 4.9 to 5.1V, and a 7805 can be 4.75 to 5.25V. The LM1086 was then backordered, so in Rev 5 (Nov 4) I changed to the ST LD1085V50. It has the same pinout and the same 4.9 to 5.1V output range.</li>
+<li>Rev 7 (Nov 7): I took the 16x2 LCD off the board, so its block is gone. The status shows on the LEDs now.</li>
+<li>Rev 5 (Nov 4): The LM1086 regulator was backordered, so I switched to the LD1085V50. Same pinout and same 4.9 to 5.1V output.</li>
+<li>After the Oct 26 design review I simplified the diagram: no pin numbers, one block per function, red arrows for power, and black arrows for signals.</li>
+<li>On Oct 22 the team dropped I2C and UART between boards (the professor suggested it) and went with 2-wire signals.</li>
 </ul>
 <h2 id="references">References</h2>
 <ol>
@@ -1381,7 +1384,6 @@
 <li>STMicroelectronics, LD1085 datasheet. <a href="https://www.st.com/resource/en/datasheet/ld1085.pdf">Link</a></li>
 <li>Same Sky, HSE14-384225P heat sink datasheet. <a href="https://www.sameskydevices.com/product/resource/hse14-384225p.pdf">Link</a></li>
 <li>Triad Magnetics, WSU090-2000 datasheet. <a href="https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf">Link</a></li>
-<li>Newhaven Display, NHD-0216K1Z-FL-YBW datasheet. <a href="https://newhavendisplay.com/content/specs/NHD-0216K1Z-FL-YBW.pdf">Link</a></li>
 <li>Microchip, MCP6002 datasheet. <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf">Link</a></li>
 <li>Advanced Photonix, PDV-P8103 datasheet. <a href="https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf">Link</a></li>
 <li>Same Sky, PJ-102AH datasheet. <a href="https://www.sameskydevices.com/product/resource/pj-102ah.pdf">Link</a></li>

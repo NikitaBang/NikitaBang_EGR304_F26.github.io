@@ -339,6 +339,28 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../06-PCB/PCB/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  06 PCB
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../Appendix/" class="md-tabs__link">
           
   
@@ -668,6 +690,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#changes-in-rev-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changes in Rev 7
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -814,6 +847,61 @@
     
       
         
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../06-PCB/PCB/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 PCB
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
           
         
       
@@ -886,6 +974,17 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#changes-in-rev-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changes in Rev 7
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
@@ -972,9 +1071,8 @@
 
 
 <h1 id="bill-of-materials">Bill of Materials</h1>
-<p><strong>Main Control Board, Fill-A-Bot (schematic Rev 5).</strong> Nikita Bangiyev, EGR 304, Nov 4, 2026.</p>
-<p>Every part on the schematic is listed, grouped by value, along with the hardware for debugging and expansion: jumpers and shunts, test points, sockets, headers and the fuse holder. Order quantity = 1 for the breadboard + 1 for the PCB + 1-2 spares. Parts from Peralta 109 or the class kit, and parts I already own, are listed at $0. No parts are smaller than 0805, and there are no new breakout modules.</p>
-<p><strong>DigiKey order: 23 BOM lines (22 cart lines, since C3 and C9/C15 use the same part), $47.81</strong> before tax and shipping, under the $60 budget per team member. Ordered Nov 4, 2026 (DigiKey PG11581).</p>
+<p>This is the parts list I ordered on Nov 4, 2026 for my Main Control Board (schematic Rev 5). The DigiKey part came to $47.81 before tax and shipping, which is under the $60 budget per person (DigiKey order PG11581). I ordered 1 of each part for the breadboard, 1 for the PCB, and 1-2 spares. Parts from Peralta 109 and parts I already had are listed at $0. Nothing is smaller than 0805.</p>
+<p>Rev 7 changed some parts after this order. That's listed under the table.</p>
 <table>
 <thead>
 <tr>
@@ -1005,7 +1103,7 @@
 <td>3</td>
 <td>$2.45</td>
 <td>$7.35</td>
-<td>Replaces the backordered LM1086IT-5.0. Approved by Dr. Nichols and ordered Nov 4, 2026. Price checked Nov 2.</td>
+<td>Replaced the backordered LM1086. Approved by Dr. Nichols.</td>
 </tr>
 <tr>
 <td>2</td>
@@ -1033,7 +1131,7 @@
 <td>3</td>
 <td>$0.35</td>
 <td>$1.05</td>
-<td>U2 tab is at 5V, so it needs an insulator.</td>
+<td>U2's tab is at 5V.</td>
 </tr>
 <tr>
 <td>4</td>
@@ -1131,7 +1229,7 @@
 <td>12</td>
 <td>$0.03</td>
 <td>$0.36</td>
-<td>Extra spares because shunts get lost.</td>
+<td>Extra because shunts get lost.</td>
 </tr>
 <tr>
 <td>11</td>
@@ -1313,7 +1411,7 @@
 <td>3</td>
 <td>$0.69</td>
 <td>$2.07</td>
-<td>In stock. Footprint CP_Radial_Tantal_D5.0mm_P2.50mm (5.0 mm body, 2.50 mm lead spacing).</td>
+<td>5 mm body, 2.5 mm lead spacing.</td>
 </tr>
 <tr>
 <td>24</td>
@@ -1327,7 +1425,7 @@
 <td>0</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>Already owned; not ordered. Plugs into female sockets.</td>
+<td>Already had one.</td>
 </tr>
 <tr>
 <td>25</td>
@@ -1355,7 +1453,7 @@
 <td>2</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>27</td>
@@ -1369,7 +1467,7 @@
 <td>3</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>28</td>
@@ -1383,7 +1481,7 @@
 <td>2</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>29</td>
@@ -1397,7 +1495,7 @@
 <td>2</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>30</td>
@@ -1411,7 +1509,7 @@
 <td>12</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>31</td>
@@ -1425,7 +1523,7 @@
 <td>11</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0. Oct 25 price.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>32</td>
@@ -1439,7 +1537,7 @@
 <td>3</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>33</td>
@@ -1453,7 +1551,7 @@
 <td>3</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>34</td>
@@ -1467,7 +1565,7 @@
 <td>25</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0. Oct 25 price.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>35</td>
@@ -1481,7 +1579,7 @@
 <td>3</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>36</td>
@@ -1495,7 +1593,7 @@
 <td>7</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>37</td>
@@ -1509,7 +1607,7 @@
 <td>11</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>38</td>
@@ -1523,7 +1621,7 @@
 <td>3</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>39</td>
@@ -1537,7 +1635,7 @@
 <td>7</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>40</td>
@@ -1551,7 +1649,7 @@
 <td>2</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 stock, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>41</td>
@@ -1565,7 +1663,7 @@
 <td>4</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109 (5x20 800 mA), $0. Must be time-lag; if not, order F1744-ND at $1.56.</td>
+<td>Peralta stock. Has to be time-lag.</td>
 </tr>
 <tr>
 <td>42</td>
@@ -1579,7 +1677,7 @@
 <td>4</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>Was out of stock at DigiKey on Oct 30. Get it from the Peralta resistor stock or use an alternate.</td>
+<td>Out of stock at DigiKey on Oct 30, so Peralta stock.</td>
 </tr>
 <tr>
 <td>43</td>
@@ -1593,7 +1691,7 @@
 <td>2</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From Peralta 109, $0.</td>
+<td>Peralta stock.</td>
 </tr>
 <tr>
 <td>44</td>
@@ -1607,7 +1705,7 @@
 <td>3</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>From class stock, $0.</td>
+<td>Class stock.</td>
 </tr>
 <tr>
 <td></td>
@@ -1625,12 +1723,12 @@
 </tr>
 </tbody>
 </table>
+<h2 id="changes-in-rev-7">Changes in Rev 7</h2>
+<p>Rev 7 took the LCD (DS1), its socket (J7), and the contrast pot (RV1) off the board, along with J6, J9, the ribbon jumpers (JP3-JP11), R24, and C7, C14, C15, and C16. It added four 1N5817 diodes on the ribbon outputs (D7-D10, Vishay 1N5817-E3/53) and four 10k pull-downs (R30-R33, Yageo MFR-25FRF52-10K), and J5 is now a 2x5 header (Sullins PRPC005DAAN-RC). The table above is still what I ordered on Nov 4.</p>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>The EGR 304 budget is $60 per team member, so the order keeps 1 for the breadboard + 1 for the PCB + at most 1 spare. Lab-stock parts come from Peralta 109.</li>
-<li>The LCD and the Nano move from the breadboard to the PCB. The Curiosity Nano is already owned.</li>
-<li>Prices are DigiKey prices checked on Oct 30, 2026, except the lines marked "Oct 25 price".</li>
-<li>On Oct 30, DigiKey showed the LM1086 and the 30k resistor as out of stock. The LM1086 is replaced by the ST LD1085V50 (same pinout and 4.9 to 5.1V output), ordered Nov 4. If the 30k is not restocked, I will use Peralta stock or an alternate.</li>
+<li>Prices are DigiKey prices from Oct 30, 2026, except the lines marked "Oct 25 price".</li>
+<li>The LM1086 and the 30k resistor were out of stock on Oct 30. The LD1085V50 replaced the LM1086, and the 30k comes from Peralta stock.</li>
 <li>The ribbon cables are shared by the team.</li>
 </ul>
 
