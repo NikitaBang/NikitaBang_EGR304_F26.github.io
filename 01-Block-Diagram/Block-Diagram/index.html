@@ -1168,9 +1168,9 @@
 
 <h1 id="block-diagram">Block Diagram</h1>
 <p>Nikita Bangiyev, Team 201, Fill-A-Bot</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../nikita-block-diagram.png" data-desc-position="bottom"><img alt="Main control board block diagram" src="../nikita-block-diagram.png" width="100%"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../nikita-block-diagram-rev7.png" data-desc-position="bottom"><img alt="Main control board block diagram" src="../nikita-block-diagram-rev7.png" width="100%"></a></p>
 <p>Figure 1: Main Control Board block diagram (Rev 7)</p>
-<p>Source files: <a href="../nikita-block-diagram-source.zip">nikita-block-diagram-source.zip</a> (draw.io file and PNG)</p>
+<p>Source files: <a href="../nikita-block-diagram-rev7-source.zip">nikita-block-diagram-rev7-source.zip</a> (draw.io file and PNG)</p>
 <h2 id="how-it-works">How It Works</h2>
 <p>The user presses UP for preset 1 or DOWN for preset 2, then presses START. My board sends the preset to Troy's board and tells Clay's board to run the pump. While it fills, my board watches the weight status from Troy and the flow status from Cole. When Troy's board says the target is reached, my board stops the pump. If Cole's board says there's no flow, it stops the pump and flashes the Fault LED. STOP cancels at any time.</p>
 <p>A photoresistor under the cup spot goes through an op amp and a low-pass filter into the ADC, so the pump only starts when there's a cup. Three LEDs show Dispensing, Done, and Fault.</p>
