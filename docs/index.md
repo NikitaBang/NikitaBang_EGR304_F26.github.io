@@ -11,30 +11,28 @@ for<br>
 <b>Updated: November 9, 2026</b>
 </center>
 
-## Introduction
+## About
 
-This is my individual datasheet for EGR 304. It shows my part of our team project, the parts I picked for my board, how my board is powered, and my schematic and PCB.
+This is my individual datasheet for EGR 304. It covers my part of our team project, the Main Control Board for Fill-A-Bot.
 
-## Target Customer and Use
+## Fill-A-Bot
 
-For this prototype, Fill-A-Bot is meant for home kitchen use with plain drinking water only (tap or filtered, room temperature). The projected customer is someone at home who wants a set amount of water without using a measuring cup, like for cooking, coffee, or filling a water bottle. We picked kitchen use over lab use because a lab version would have to follow lab rules for cleaning, sterilization, and chemical safety, which adds a lot of restrictions we can't meet this semester. Fill-A-Bot is not sterile and isn't meant for chemicals, medicine, or other liquids. The parts that touch the water should be food-safe and easy to rinse, and the electronics stay separated from the water. A lab version could be a later step. See Target Customer and Use on our team's [Product Requirements](https://egr304-2026-f-201.github.io/04-Product-Requirements/#target-customer-and-use) page.
-
-## Project Summary
-
-Fill-A-Bot is our team's automatic liquid dispenser. You pick how much liquid you want, press start, and it fills your cup and stops on its own. Each of us builds our own board, and the boards talk to each other over ribbon cables using plain digital wires (2 wires per signal, 4 states). Our full team report is on the [Team 201 website](https://egr304-2026-f-201.github.io/).
+Fill-A-Bot is our team's automatic water dispenser. You pick an amount, press start, and it fills your cup and stops by itself. Each of us builds one board, and the boards talk to each other over ribbon cables. Our team site is [here](https://egr304-2026-f-201.github.io/).
 
 * Nikita Bangiyev: Main Control Board (me)
 * Cole Trask: flow sensing
 * Clay Belsher: pump control
 * Troy Reynolds: liquid amount sensing
 
-## My Contribution
+It's meant for home kitchen use with plain drinking water, like getting a set amount of water for cooking, coffee, or a water bottle without a measuring cup. We picked kitchen use over lab use because a lab version would need cleaning, sterilization, and chemical safety rules we can't meet this semester. It isn't sterile and isn't meant for other liquids. There's more on this on our team's [Product Requirements](https://egr304-2026-f-201.github.io/04-Product-Requirements/#target-customer-and-use) page.
 
-I'm doing the Main Control Board. It reads the UP, DOWN, START, and STOP buttons, uses a photoresistor and an op amp to check that a cup is in place, sends simple 2-wire digital signals to my teammates' boards (pump command to Clay, preset to Troy) and reads theirs back (flow status from Cole, weight status from Troy), and shows the status on three LEDs (Dispensing, Done, and Fault).
+## My Board
 
-* [Block Diagram](01-Block-Diagram/Block-Diagram.md): how my board is laid out and connected
-* [Component Selection](02-Component-Selection/Component-Selection.md): the parts I picked for my board and why
-* [Bill of Materials](03-BOM/BOM.md): every part on my board, with order quantities and costs
-* [Schematics](04-Schematic/schematic.md): the full schematic for my board
-* [Power Budget](05-Power-Budget/Power-Budget.md): how much current my board needs and how it's powered
-* [PCB](06-PCB/PCB.md): the 2-layer PCB layout for my board, with the KiCad project and Gerber files
+My board has the buttons and status LEDs the user sees, a light sensor that checks for a cup, and the Curiosity Nano that runs the fill. It tells Troy's board which preset was picked and tells Clay's board when to run the pump. Then it reads the weight status from Troy and the flow status from Cole, and stops the pump when the cup is full.
+
+* [Block Diagram](01-Block-Diagram/Block-Diagram.md)
+* [Component Selection](02-Component-Selection/Component-Selection.md)
+* [Bill of Materials](03-BOM/BOM.md)
+* [Schematics](04-Schematic/schematic.md)
+* [Power Budget](05-Power-Budget/Power-Budget.md)
+* [PCB](06-PCB/PCB.md)

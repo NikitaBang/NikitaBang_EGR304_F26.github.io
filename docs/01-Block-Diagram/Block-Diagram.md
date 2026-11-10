@@ -7,74 +7,56 @@ hide:
 
 # Block Diagram
 
-Nikita Bangiyev, Team 201, Fill-A-Bot (automatic liquid dispenser)
-
-## Overview
-
-I'm doing the main control board. The user picks one of 4 fill presets with the UP and DOWN buttons and presses START. My board tells Troy's board which preset was picked, tells Clay's board to run the pump, and then watches the flow status from Cole's board and the weight status from Troy's board. When Troy's board says the target is reached, my board stops the pump. If Cole's board says there's no flow, my board stops the pump and flashes the Fault LED. Three status LEDs show Dispensing, Done, and Fault. My sensor is a photoresistor under the cup spot with an op amp and a low-pass filter, so the pump only starts when a cup is there.
-
-The boards don't use UART, I2C, or SPI. Each signal between two boards is just 2 plain digital wires driven high or low, so it can send 4 states (00, 01, 10, 11). My board has 2 of these outputs (pump command and weight command) and 2 inputs (weight status and flow status).
-
-For this prototype, Fill-A-Bot is meant for home kitchen use with plain drinking water only (tap or filtered, room temperature). The projected customer is someone at home who wants a set amount of water without using a measuring cup, like for cooking, coffee, or filling a water bottle. We picked kitchen use over lab use because a lab version would have to follow lab rules for cleaning, sterilization, and chemical safety, which adds a lot of restrictions we can't meet this semester. Fill-A-Bot is not sterile and isn't meant for chemicals, medicine, or other liquids. The parts that touch the water should be food-safe and easy to rinse, and the electronics stay separated from the water. On my Main Control Board, the user interface and the +5V/VIN power stay separated from the water. A lab version could be a later step. See Target Customer and Use on our team's [Product Requirements](https://egr304-2026-f-201.github.io/04-Product-Requirements/#target-customer-and-use) page.
+Nikita Bangiyev, Team 201, Fill-A-Bot
 
 ![Main control board block diagram](nikita-block-diagram.png){ width="100%" }
 
-Figure 1: Main control board block diagram, Rev 7 (click to enlarge)
+Figure 1: Main Control Board block diagram (Rev 7)
 
 Source files: [nikita-block-diagram-source.zip](nikita-block-diagram-source.zip) (draw.io file and PNG)
 
-## Power
+## How It Works
 
-- 9V 2A regulated wall adapter (Triad WSU090-2000) into a barrel jack (Same Sky PJ-102AH)
-- T800mA fuse (Littelfuse 0218.800MXP) in a 5x20mm holder right after the jack
-- LD1085V50 linear regulator makes 5V (3A max, 4.9 to 5.1V) for the whole board
-- The regulator has a heat sink (Same Sky HSE14-384225P) with an insulating pad, because its tab is at 5V
-- The Nano gets 5V on VTG with VOFF tied to GND
-- D6 lights up when 9V is in, and D5 lights up when 5V is on
-- My power budget is 432mA with the 25% margin (see [Power Budget](../05-Power-Budget/Power-Budget.md)). That number still counts the 16x2 LCD from Rev 5, so the real Rev 7 current is lower.
+The user presses UP for preset 1 or DOWN for preset 2, then presses START. My board sends the preset to Troy's board and tells Clay's board to run the pump. While it fills, my board watches the weight status from Troy and the flow status from Cole. When Troy's board says the target is reached, my board stops the pump. If Cole's board says there's no flow, it stops the pump and flashes the Fault LED. STOP cancels at any time.
+
+A photoresistor under the cup spot goes through an op amp and a low-pass filter into the ADC, so the pump only starts when there's a cup. Three LEDs show Dispensing, Done, and Fault.
+
+The boards don't use UART, I2C, or SPI. Each signal between boards is 2 plain wires, so it has 4 states (00, 01, 10, 11), and 00 is always the safe one.
 
 ## Blocks
 
-| Block | What it does | Signal to or from the microcontroller |
+| Block | What it does | Signal |
 |---|---|---|
-| Power | Barrel jack, T800mA fuse, and the LD1085V50 5V regulator. Powers every block on the board. | +5V (power) |
-| Buttons | UP and DOWN pick a preset, START starts the fill, STOP cancels | Digital in |
-| Cup Sensor | Photoresistor, op amp buffer and gain stage, then a low-pass filter. Tells the board a cup is there. | Analog in |
-| Debug | Debug button and debug LED for testing | Digital in / out |
-| Microcontroller | PIC18F57Q43 Curiosity Nano. Runs the fill sequence. | |
-| Status LEDs | Dispensing, Done, and Fault | Digital out |
-| Expansion Headers | J5 (2x5 header with 8 spare pins) and 14 test pads on the other spare pins, for fixes later | Digital in / out |
-| Ribbon Headers | One 8-wire ribbon to each teammate's board | 2-bit commands out, 2-bit status in |
+| Power | 9V adapter, barrel jack, T800mA fuse, and the LD1085V50 5V regulator on a heat sink. D6 lights up when 9V is in and D5 when 5V is on. | +5V to every block |
+| Microcontroller | PIC18F57Q43 Curiosity Nano. Runs the fill. 5V goes to VTG and VOFF is tied to GND. | |
+| Buttons | UP, DOWN, START, STOP with pull-ups and RC debounce | Digital in |
+| Cup Sensor | Photoresistor, op amp buffer and gain stage, low-pass filter | Analog in |
+| Status LEDs | Dispensing, Done, Fault | Digital out |
+| Debug | Debug button and LED | Digital in / out |
+| Expansion Headers | J5 (8 spare pins) and 14 test pads on the other spare pins | Digital in / out |
+| Ribbon Headers | J1 to Cole, J2 to Clay, J3 to Troy | 2-bit out, 2-bit in |
 
-The exact PIC pins are on my [Component Selection](../02-Component-Selection/Component-Selection.md) page (MCC pin table) and on my [schematic](../04-Schematic/schematic.md). I left them off the block diagram to keep it simple.
+I left the PIC pin numbers off the diagram to keep it simple. They're on my [Component Selection](../02-Component-Selection/Component-Selection.md) and [Schematics](../04-Schematic/schematic.md) pages.
 
 ## Ribbon Connectors
 
-J1 goes to Cole, J2 to Clay, and J3 to Troy. All three use the same layout and follow the class standard (pins 1-5 digital, 6-7 analog, 8 ground). Pins 1-2 are always my outputs, pins 3-4 are always the teammate's outputs coming back to me, and pin 8 is ground.
+All three headers follow the class standard: 8 wires, pin 8 is ground, and no power pin. Pins 1-2 are my outputs and pins 3-4 come back from the teammate. My inputs have 100k pull-downs, so an unplugged cable reads 00.
 
 | Pin | J1 (Cole) | J2 (Clay) | J3 (Troy) |
 |---|---|---|---|
-| 1-2 | Not connected | Pump command out | Weight command (preset) out |
-| 3-4 | Flow status in | Not connected | Weight status in |
-| 5-7 | Not connected | Not connected | Not connected |
+| 1-2 | Not used | Pump command out | Preset out |
+| 3-4 | Flow status in | Not used | Weight status in |
+| 5-7 | Not used | Not used | Not used |
 | 8 | GND | GND | GND |
 
-My four inputs have 100k pull-downs, so an unplugged cable reads 00.
+| Signal | 00 | 01 | 10 | 11 |
+|---|---|---|---|---|
+| Pump command (to Clay) | Stop | Run | Not used (stop) | Not used (stop) |
+| Preset (to Troy) | Preset 1 | Preset 2 | Preset 3 | Preset 4 |
+| Weight status (from Troy) | Not ready | Below target | Target reached | Error |
+| Flow status (from Cole) | No flow | Flowing | Not used (no flow) | Sensor fault |
 
-There's no power pin on the ribbon. Every board has its own adapter and regulator, and pins 1-7 have to go to the microcontroller. All signals are 5V logic.
-
-## Signal Codes
-
-Bit 1 is the first pin of the pair and bit 0 is the second. 00 is the safe default on every signal.
-
-| Signal | Direction | 00 | 01 | 10 | 11 |
-|---|---|---|---|---|---|
-| Pump command | Me to Clay | Stop | Run | Not used (stop) | Not used (stop) |
-| Weight command | Me to Troy | Preset 1 | Preset 2 | Preset 3 | Preset 4 |
-| Weight status | Troy to me | Not ready | Below target (filling) | Target reached | Error |
-| Flow status | Cole to me | No flow | Flowing | Not used (no flow) | Sensor fault |
-
-The team is still picking the four preset amounts. The weight command can sit at Preset 1 by default because it never turns anything on. Only the pump command does, and its default is Stop.
+Right now I only use Preset 1 (UP) and Preset 2 (DOWN). The other two codes are still there in case we add more presets.
 
 ## Parts
 
@@ -91,15 +73,12 @@ The team is still picking the four preset amounts. The weight command can sit at
 | Buttons (SW1-SW5) | Omron | B3F-1000 |
 | Ribbon headers (J1-J3) | Wurth Elektronik | 61200821621 |
 
-## Notes
+## Changes
 
-- In Rev 7 (Nov 7) I took the 16x2 LCD off my board, along with its socket, contrast pot, and backlight jumper. So the diagram doesn't have an LCD block anymore, and the right side is just the Status LEDs and the Expansion Headers. The LCD pins on the Nano (RC0-RC5) are spare pins now.
-- Rev 7 also removed the second expansion header (J6), the remote button header (J9), and the jumpers on the ribbon lines, and added a diode on each ribbon output. None of that changes the blocks, so the diagram stays the same otherwise.
-- Before Rev 7, I had switched from a 4-digit 7-segment display to a 16x2 LCD, because the team requirements need words like Ready, Filling, and Finished. The LCD has its own controller, so the HT16K33 driver was gone too.
-- The op amp is needed because a photoresistor and resistor alone don't count as an analog sensor. U3A buffers the divider and U3B amplifies it with a gain of -3 around a 2.5V reference. Then R10 and C9 make a low-pass filter (about 16 Hz) before the ADC.
-- After the design review (Oct 26) I simplified this diagram: no pin numbers, one block per function, one outline for my board, red arrows for power and black arrows for signals. The 5V now shows as one "+5V to every block" arrow instead of a long wire.
-- The team ribbon used to be I2C, and then UART. On Oct 22 we dropped both (the professor suggested it), so now each signal is 2 plain digital wires with 4 states. It's simpler to wire, test with an LED or meter, and debug.
-- I switched from the LM7805 to the LM1086 because the LCD backlight needs 4.9 to 5.1V, and a 7805 can be 4.75 to 5.25V. The LM1086 was then backordered, so in Rev 5 (Nov 4) I changed to the ST LD1085V50. It has the same pinout and the same 4.9 to 5.1V output range.
+- Rev 7 (Nov 7): I took the 16x2 LCD off the board, so its block is gone. The status shows on the LEDs now.
+- Rev 5 (Nov 4): The LM1086 regulator was backordered, so I switched to the LD1085V50. Same pinout and same 4.9 to 5.1V output.
+- After the Oct 26 design review I simplified the diagram: no pin numbers, one block per function, red arrows for power, and black arrows for signals.
+- On Oct 22 the team dropped I2C and UART between boards (the professor suggested it) and went with 2-wire signals.
 
 ## References
 

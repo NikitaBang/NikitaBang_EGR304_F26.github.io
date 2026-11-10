@@ -4,9 +4,7 @@ title: Component Selection
 
 # Component Selection
 
-**My subsystem: Main Control Board.** This is an individual assignment, so this page covers the blocks in my individual block diagram. Clay's pump, Cole's flow sensor, and Troy's load cell are on their own Component Selection pages. **The parts I picked for my board are in bold.**
-
-My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there, sends and reads simple 2-wire digital signals on the ribbon cables to my teammates' boards, and shows the amount and status on a display. The assignment says not to make tables for the microcontroller, buttons, LEDs, resistors, or capacitors, so those don't have tables. Prices are from DigiKey for one part (October 2026).
+These are the parts I picked for my Main Control Board. My teammates' parts are on their own pages. The parts I picked are in bold. The assignment says not to make tables for the microcontroller, buttons, LEDs, resistors, or capacitors, so those don't have one. Prices are DigiKey prices for one part from October 2026.
 
 ## 1. Power Source
 
@@ -18,7 +16,7 @@ My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there
 
 **Choice:** **Option 3: Triad WSU090-2000 (Main Control Board)**
 
-**Rationale:** The LM1086 regulator is rated for up to 1.5A, but that's only how much it can supply. It's not what my board actually uses. My board uses 345.8mA. With the 25% safety margin that's 432.3mA. The regulator uses about 10mA itself and the 9V power LED uses about 2mA, so the adapter has to give about 444mA. All three adapters can do that. The class power budget template also checks the adapter against the regulator's full 1.5A rating, so I picked a 2A adapter to pass that check too (2000mA - 1500mA = 500mA left). The Triad is in stock and costs less than the MEAN WELL, and it has the 5.5 x 2.1 mm center-positive plug. The full numbers are on my [Power Budget](../05-Power-Budget/Power-Budget.md) page.
+**Rationale:** My board needs about 444mA from the adapter (432mA with the 25% margin, plus the regulator and the 9V LED), so all three would work. The class power budget template checks the adapter against the regulator's full 1.5A rating though, so I went with a 2A one. The Triad is in stock, costs less than the MEAN WELL, and has a 5.5 x 2.1 mm center-positive plug. The numbers are on my [Power Budget](../05-Power-Budget/Power-Budget.md) page.
 
 ## 2. Barrel Jack
 
@@ -30,7 +28,7 @@ My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there
 
 **Choice:** **Option 1: Same Sky PJ-102AH (Main Control Board)**
 
-**Rationale:** The course requires a barrel jack for the 9V adapter. The PJ-102AH is rated 5A, so it has a lot of room over my 0.44A. It's inexpensive and it's already in my block diagram. DigiKey lists its mating plug as 5.5 x 2.0 mm, and my adapter plug is 5.5 x 2.1 mm, so I'll check the fit when the parts come in.
+**Rationale:** The class needs a barrel jack for the adapter. The PJ-102AH is rated 5A, which is way more than my 0.44A, and it's cheap. Its mating plug is listed as 5.5 x 2.0 mm and my adapter is 5.5 x 2.1 mm, so I'll check the fit when the parts come in.
 
 ## 3. 5V Linear Regulator
 
@@ -42,16 +40,9 @@ My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there
 
 **Choice:** **Option 3: TI LM1086IT-5.0/NOPB (Main Control Board)**
 
-**Rationale:** My LCD backlight needs 4.9 to 5.1V, and the LM1086 is the only one here that stays in that range. The 7805s can go up to 5.25V. I'll put a 10uF tantalum capacitor on the output, which is one of the two options TI recommends for stability.
+**Rationale:** At the time my LCD backlight needed 4.9 to 5.1V, and the LM1086 was the only one here that stays in that range. The 7805s can go up to 5.25V.
 
-**Update (Rev 5, Nov 4, 2026):** The LM1086 was backordered, so U2 is now the STMicroelectronics LD1085V50 ([DigiKey](https://www.digikey.com/en/products/detail/stmicroelectronics/LD1085V50/669220) / [Datasheet](https://www.st.com/resource/en/datasheet/ld1085.pdf)). The table above is how I picked the regulator in October. The LD1085V50 has the same TO-220 pinout (1 GND, 2 OUT, 3 IN) and the same 4.9 to 5.1V output over load and temperature, it's rated for 3A, and it only needs a 10uF minimum output capacitor for stability, so my 10uF tantalum still works. Heat check with the LD1085V50, done the same way as in the heat sink section below:
-
-| What | Value | Where it comes from |
-|---|---|---|
-| Heat = (9.45 - 4.9) x 0.4323 + 9.45 x 0.010 | 2.06W | Same as before (LD1085 datasheet: 4.9V lowest output, 10mA max quiescent current) |
-| Junction to case | 3 C/W | LD1085 datasheet (TO-220) |
-| Junction temp = 40 + 2.06 x (3 + 1.0 + 10) | about 69 C | Calculated (same pad and heat sink) |
-| Limit | 125 C | LD1085 datasheet (operating junction temperature) |
+**Update (Rev 5):** The LM1086 got backordered, so I switched to the ST LD1085V50 ([DigiKey](https://www.digikey.com/en/products/detail/stmicroelectronics/LD1085V50/669220) / [Datasheet](https://www.st.com/resource/en/datasheet/ld1085.pdf)). It has the same TO-220 pinout and the same 4.9 to 5.1V output, it's rated for 3A, and my 10uF tantalum output cap still meets its 10uF minimum. The heat check below uses the LD1085V50.
 
 ## 4. Regulator Heat Sink
 
@@ -63,25 +54,25 @@ My board reads the UP, DOWN, START, and STOP buttons, checks that a cup is there
 
 **Choice:** **Option 1: Same Sky HSE14-384225P (Main Control Board)**
 
-**Rationale:** It's in stock, small enough for my board, and enough to keep the regulator cool. The Boyd 529802B02500G is out of stock, and the taller Boyd is way bigger than I need. The Boyd numbers are at a 75 C rise, so they aren't measured the same way as the Same Sky number.
+**Rationale:** It's in stock, small, and enough to keep the regulator cool. The first Boyd is out of stock and the tall Boyd is way more than I need.
 
-Here is how I checked the regulator temperature:
+Heat check:
 
 | What | Value | Where it comes from |
 |---|---|---|
 | Highest adapter voltage | 9.45V | 9V + 5% (Triad datasheet) |
-| Lowest regulator output | 4.9V | LM1086 datasheet |
+| Lowest regulator output | 4.9V | LD1085 datasheet |
 | Output current | 432.3mA | My power budget, with the 25% margin |
-| Regulator's own current | 10mA max | LM1086 datasheet |
+| Regulator's own current | 10mA max | LD1085 datasheet |
 | Heat = (9.45 - 4.9) x 0.4323 + 9.45 x 0.010 | 2.06W | Calculated |
-| Junction to case | 4.0 C/W | LM1086 datasheet (TO-220, output section) |
+| Junction to case | 3 C/W | LD1085 datasheet (TO-220) |
 | Insulating pad | 1.0 C/W | My guess (a Bergquist SP900S pad is listed at 0.61 C/W) |
 | Heat sink | 10 C/W | HSE14-384225P datasheet (still air, 1W) |
 | Air inside the enclosure | 40 C | My assumption |
-| Junction temp = 40 + 2.06 x (4.0 + 1.0 + 10) | about 71 C | Calculated |
-| Limit | 125 C | LM1086 datasheet (control section) |
+| Junction temp = 40 + 2.06 x (3 + 1.0 + 10) | about 69 C | Calculated |
+| Limit | 125 C | LD1085 datasheet |
 
-So it should stay well under the limit. The heat sink datasheet shows 19.2 C of rise at 2W (9.6 C/W), so using 10 C/W is a little on the safe side. I'll still check the real temperature once the board is built.
+So it stays well under the limit. I'll still check the real temperature once the board is built.
 
 ## 5. Cup Sensor (Analog)
 
@@ -93,7 +84,7 @@ So it should stay well under the limit. The heat sink datasheet shows 19.2 C of 
 
 **Choice:** **Option 1: Advanced Photonix PDV-P8103 (Main Control Board)**
 
-**Rationale:** It's simple, inexpensive, and I already know how it works from lab. It sits under the cup spot with a 10k resistor, and a cup's shadow drops the voltage. A divider alone doesn't count as an analog sensor for this class, so it goes through the op amp below before the ADC. I'll still need to test it with our real cups, since a clear cup may not make much of a shadow.
+**Rationale:** It's simple, cheap, and I already used it in lab. It sits under the cup spot with a 10k resistor, and the cup's shadow drops the voltage. A divider alone doesn't count as an analog sensor for this class, so it goes through the op amp below. I still need to test it with our real cups, since a clear cup might not make much of a shadow.
 
 ## 6. Op Amp
 
@@ -105,7 +96,7 @@ So it should stay well under the limit. The heat sink datasheet shows 19.2 C of 
 
 **Choice:** **Option 1: Microchip MCP6002-I/P (Main Control Board)**
 
-**Rationale:** A cup sensor is slow, so I don't need a fast op amp. The MCP6002 is inexpensive, comes in a DIP, and has two op amps. One buffers the LDR, and the other amplifies it with a gain of -3 around a 2.5V reference (Rin 10k, Rf 30k). I'll set the cup threshold in code after testing.
+**Rationale:** A cup sensor doesn't need a fast op amp. The MCP6002 is cheap, comes in a DIP, and has two op amps in it. One buffers the LDR and the other has a gain of -3 around a 2.5V reference (10k in, 30k feedback). I'll set the cup threshold in code after testing.
 
 ## 7. Display
 
@@ -117,7 +108,9 @@ So it should stay well under the limit. The heat sink datasheet shows 19.2 C of 
 
 **Choice:** **Option 3: Newhaven NHD-0216K1Z-FL-YBW (Main Control Board)**
 
-**Rationale:** Our team requirements say the display has to show the amount, the units, and words like Ready, Filling, and Finished. The LCD is the only option that can do all of that at once. It wires straight to the Nano in 4-bit mode (RC0-RC5), so I don't need a driver chip or a serial backpack board.
+**Rationale:** Our team requirements say the display has to show the amount, the units, and words like Ready and Filling, and the LCD was the only one that could do all of that.
+
+**Update (Rev 7):** I took the LCD off my board in Rev 7, so my board doesn't have a display anymore. The status shows on three LEDs, and UP and DOWN pick preset 1 or preset 2.
 
 ## 8. Ribbon Cable Header
 
@@ -129,52 +122,46 @@ So it should stay well under the limit. The heat sink datasheet shows 19.2 C of 
 
 **Choice:** **Option 1: Wurth Elektronik 61200821621 (Main Control Board)**
 
-**Rationale:** The class uses an 8-wire ribbon cable with a 2x4 connector between boards, and I need three (J1 to Cole, J2 to Clay, J3 to Troy). The Wurth is the least expensive, it's keyed so the cable can't go in backwards, and it's the part already in my block diagram.
+**Rationale:** The class uses an 8-wire ribbon with a 2x4 connector, and I need three (J1 to Cole, J2 to Clay, J3 to Troy). The Wurth is the cheapest and it's keyed so the cable can't go in backwards.
 
 ## Pin Assignments
 
-This is how I'll set up each pin in MCC (Pin Grid View). "Start high" means the pin's LAT bit is set to 1 at power-up. None of the pins use the internal weak pull-ups, because every input already has an outside pull-up or pull-down on my board.
+This is how I set up each pin in MCC (Rev 7). "Start high" means the LAT bit is 1 at power-up. None of the pins use the internal weak pull-ups, because every input already has a pull-up or pull-down on the board.
 
 | Pin | Subsystem | MCC setting | Connects to |
 |---|---|---|---|
-| RA0 | Buttons | Digital input | SW1 UP button (next preset), 10k pull-up, active low |
-| RA1 | Buttons | Digital input | SW2 DOWN button (last preset), 10k pull-up, active low |
+| RA0 | Buttons | Digital input | SW1 UP button (preset 1), 10k pull-up, active low |
+| RA1 | Buttons | Digital input | SW2 DOWN button (preset 2), 10k pull-up, active low |
 | RA2 | Buttons | Digital input | SW3 START button, 10k pull-up, active low |
-| RA3 | Buttons | Digital input | SW4 STOP button (cancel), 10k pull-up, active low |
+| RA3 | Buttons | Digital input | SW4 STOP button, 10k pull-up, active low |
 | RF4 | Debug | Digital input | SW5 debug button, 10k pull-up, active low |
-| RA5 | Cup sensor | Analog input (ADC channel ANA5) | Op amp and low-pass filter output |
+| RA5 | Cup sensor | Analog input (ANA5) | Op amp and low-pass filter output |
 | RD0 | Status LEDs | Digital output, start high | D2 Dispensing LED (yellow), 2.2k, active low |
 | RD1 | Status LEDs | Digital output, start high | D3 Done LED (green), 2.2k, active low |
 | RD2 | Status LEDs | Digital output, start high | D4 Fault LED (red), 2.2k, active low |
 | RF2 | Debug | Digital output, start high | D1 debug LED (red), 2.2k, active low |
-| RC0 | LCD | Digital output, start low | LCD DB4 |
-| RC1 | LCD | Digital output, start low | LCD DB5 |
-| RC2 | LCD | Digital output, start low | LCD DB6 |
-| RC3 | LCD | Digital output, start low | LCD DB7 |
-| RC4 | LCD | Digital output, start low | LCD RS |
-| RC5 | LCD | Digital output, start low | LCD E (100k pull-down R24) |
 | RC7 | Flow status from Cole | Digital input | J1 pin 3 (S1), 100k pull-down |
 | RC6 | Flow status from Cole | Digital input | J1 pin 4 (S0), 100k pull-down |
-| RD4 | Pump command to Clay | Digital output, start low | J2 pin 1 (C1) |
-| RD3 | Pump command to Clay | Digital output, start low | J2 pin 2 (C0) |
-| RF6 | Weight command to Troy | Digital output, start low | J3 pin 1 (C1) |
-| RF5 | Weight command to Troy | Digital output, start low | J3 pin 2 (C0) |
+| RD4 | Pump command to Clay | Digital output, start low | J2 pin 1 (C1) through D7 |
+| RD3 | Pump command to Clay | Digital output, start low | J2 pin 2 (C0) through D8 |
+| RF6 | Preset to Troy | Digital output, start low | J3 pin 1 (C1) through D9 |
+| RF5 | Preset to Troy | Digital output, start low | J3 pin 2 (C0) through D10 |
 | RE1 | Weight status from Troy | Digital input | J3 pin 3 (S1), 100k pull-down |
 | RE0 | Weight status from Troy | Digital input | J3 pin 4 (S0), 100k pull-down |
 | VTG | Power | | 5V from the LD1085V50 (VOFF tied to GND) |
 | GND | Ground | | Board ground and J1-J3 pin 8 |
 
-The ribbon signals don't use UART, I2C, or SPI. Each one is 2 plain digital pins, so it has 4 states (00, 01, 10, 11), and 00 is the safe default. The ribbon outputs start low so the pump command is 00 (stop) at power-up, and the 100k pull-downs make an unplugged cable read 00. The codes for each signal are on my [Block Diagram](../01-Block-Diagram/Block-Diagram.md) page. Ribbon pins 5-7 aren't connected on my board, and there's no power on the ribbon since every board has its own regulator. The spare Nano pins go to the J5 and J6 extra headers.
+RC0-RC5 used to run the LCD. They're spare pins now and go to test pads, along with the other spare pins. J5 has 8 more spare pins. The signal codes are on my [Block Diagram](../01-Block-Diagram/Block-Diagram.md) page.
 
 ## Power Budget
 
-My [Power Budget](../05-Power-Budget/Power-Budget.md) is on its own page. The assignment says it's optional for the first submission, but I already finished it.
+My [Power Budget](../05-Power-Budget/Power-Budget.md) is on its own page.
 
 ## References
 
 1. Triad Magnetics WSU090-2000: [DigiKey](https://www.digikey.com/en/products/detail/triad-magnetics/WSU090-2000/3094951), [datasheet](https://catalog.triadmagnetics.com/Asset/WSU090-2000.pdf)
 2. Same Sky PJ-102AH: [DigiKey](https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/PJ-102AH/408448), [datasheet](https://www.sameskydevices.com/product/resource/pj-102ah.pdf)
-3. TI LM1086IT-5.0/NOPB: [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/LM1086IT-5-0-NOPB/363580), [datasheet](https://www.ti.com/lit/ds/symlink/lm1086.pdf)
+3. TI LM1086IT-5.0/NOPB: [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/LM1086IT-5-0-NOPB/363580), [datasheet](https://www.ti.com/lit/ds/symlink/lm1086.pdf). ST LD1085V50 (used from Rev 5): [DigiKey](https://www.digikey.com/en/products/detail/stmicroelectronics/LD1085V50/669220), [datasheet](https://www.st.com/resource/en/datasheet/ld1085.pdf)
 4. Same Sky HSE14-384225P: [DigiKey](https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/HSE14-384225P/26460932), [datasheet](https://www.sameskydevices.com/product/resource/hse14-384225p.pdf)
 5. Advanced Photonix PDV-P8103: [DigiKey](https://www.digikey.com/en/products/detail/advanced-photonix/PDV-P8103/480610), [datasheet](https://media.digikey.com/pdf/data%20sheets/photonic%20detetectors%20inc%20pdfs/pdv-p8103.pdf)
 6. Microchip MCP6002-I/P: [DigiKey](https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875), [datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf)

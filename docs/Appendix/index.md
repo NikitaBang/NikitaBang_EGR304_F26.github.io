@@ -4,41 +4,36 @@ title: Appendix
 
 # Appendix
 
-Extra info that supports the main pages.
-
 ## Ribbon Wiring for All Four Boards
 
-On Oct 22 our team dropped UART and I2C between boards. Each signal is now 2 plain digital wires (4 states), and 00 is the safe default. The ribbon cable is straight through, so pin 1 on my header is pin 1 on the teammate's header. This is what each board has to wire to match my board.
+Each signal between boards is 2 plain wires (4 states), and 00 is the safe default. The ribbon is straight through, so pin 1 on my header is pin 1 on the teammate's header. This is what each board has to wire to match mine.
 
 | Ribbon pin | Cole (flow, J1) | Clay (pump, J2) | Troy (weight, J3) |
 |---|---|---|---|
-| 1 | Not used | Pump command C1 in (from my RD4) | Weight command C1 in (from my RF6) |
-| 2 | Not used | Pump command C0 in (from my RD3) | Weight command C0 in (from my RF5) |
+| 1 | Not used | Pump command C1 in (from my RD4) | Preset C1 in (from my RF6) |
+| 2 | Not used | Pump command C0 in (from my RD3) | Preset C0 in (from my RF5) |
 | 3 | Flow status S1 out (to my RC7) | Not used | Weight status S1 out (to my RE1) |
 | 4 | Flow status S0 out (to my RC6) | Not used | Weight status S0 out (to my RE0) |
 | 5-7 | Not used | Not used | Not used |
 | 8 | GND | GND | GND |
 
-- All boards use 5V logic.
-- Every input gets a 100k pull-down, so an unplugged cable reads 00.
-- Every output starts low (00) at power-up.
-- There's no power pin on the ribbon.
+All boards use 5V logic. Every input has a 100k pull-down so an unplugged cable reads 00, and every output starts low at power-up. There's no power pin on the ribbon. My outputs go through a diode, so a high on my side shows up as about 4.7V.
 
 ## Main Board States
 
-This is the plan for my board's firmware, based on Cole's software flow chart. It's a draft and the timing numbers will be tuned on the real boards.
+This is the plan for my firmware, based on Cole's flow chart. The timing numbers will get tuned on the real boards.
 
-| State | Pump command | Weight command | What it's waiting for | Goes to |
+| State | Pump command | Preset | Waiting for | Goes to |
 |---|---|---|---|---|
-| Idle / select preset | 00 (stop) | Preset 1-4 | UP / DOWN change the preset. START with a cup in place and weight status 01 | Filling |
-| Filling | 01 (run) | Preset (locked) | Weight status 10 | Done |
-| | | | No flow (flow status not 01) for 3 seconds, or flow status 11 | Error |
-| | | | STOP pressed, or the cup is removed | Cancel |
-| Error (no flow) | 00 (stop) | Preset | Fault LED flashes until STOP is pressed | Idle |
-| Done / reset | 00 (stop) | Preset | Done LED stays on for 3 seconds | Idle |
-| Cancel | 00 (stop) | Preset | Status LEDs off for 1 second | Idle |
+| Idle | 00 (stop) | Preset 1 or 2 | UP picks preset 1, DOWN picks preset 2. START with a cup in place and weight status 01 | Filling |
+| Filling | 01 (run) | Locked | Weight status 10 | Done |
+| | | | No flow for 3 seconds, or flow status 11 | Error |
+| | | | STOP, or the cup is removed | Cancel |
+| Error | 00 (stop) | Preset | Fault LED flashes until STOP | Idle |
+| Done | 00 (stop) | Preset | Done LED stays on for 3 seconds | Idle |
+| Cancel | 00 (stop) | Preset | LEDs off for 1 second | Idle |
 
-STOP cancels from any state. A weight status of 11 (error) also goes to the error state. The ribbon inputs only count once they read the same 3 times in a row (10 ms apart), so a read in the middle of a change gets ignored. The container weight is hard-coded on Troy's board for the demo.
+STOP cancels from any state, and a weight status of 11 (error) also goes to Error. A ribbon input only counts once it reads the same 3 times in a row (10 ms apart), so a read in the middle of a change gets ignored. The container weight is hard-coded on Troy's board for the demo.
 
 ## Revision History
 
@@ -46,9 +41,9 @@ STOP cancels from any state. A weight status of 11 (error) also goes to the erro
 |---|---|---|
 | 1 | Oct 19, 2026 | First schematic (UART ribbon) |
 | 2 | Oct 25, 2026 | Footprints, 9V power LED (R25, D6), LCD notes |
-| 3 | Oct 25, 2026 | 2-wire, 4-state ribbon signals, 100k pull-downs on the ribbon inputs, jumpers and test points on every ribbon signal, manufacturer part numbers on every part |
-| 4 | Oct 30, 2026 | Cleanup after the design review: VIN power arrows instead of a long wire, pull-downs wired next to the ribbon headers, spare-pin nets renamed, simpler block diagram with no pin numbers |
-| 5 | Nov 4, 2026 | U2 changed to the ST LD1085V50 (LM1086 backordered); J1-J3 drawn with the counter-clockwise 2x4 connector symbol (team decision, Nov 3); C4 part number changed to TAP106K016SCS; no connection changes |
-| 6 | Nov 6, 2026 | Footprints moved into my NB footprint library, Curiosity Nano socket and HS1 heat sink footprints added, PCB rules set up; no connection changes |
-| 7 | Nov 7, 2026 | 16x2 LCD and its parts removed; J6, J9, and the ribbon jumpers removed; J5 changed to a 2x5 header; test pads TP18-TP31 added; diodes D7-D10 and pull-downs R30-R33 added on the ribbon outputs |
-| 7 (PCB) | Nov 9, 2026 | PCB finished: trace fixes, large bold NB on top copper, 3D models for D7-D10 and J5, silkscreen cleanup after the JLCPCB DFM check, 5 mil solder mask clearance |
+| 3 | Oct 25, 2026 | 2-wire ribbon signals, 100k pull-downs, jumpers and test points on the ribbon signals, part numbers on every part |
+| 4 | Oct 30, 2026 | Cleanup after the design review, simpler block diagram |
+| 5 | Nov 4, 2026 | Regulator changed to the LD1085V50, new ribbon connector symbol, new C4 part number |
+| 6 | Nov 6, 2026 | Footprints moved into my NB library, Nano socket and heat sink footprints added |
+| 7 | Nov 7, 2026 | LCD, J6, J9, and the ribbon jumpers removed. Diodes and pull-downs added on the ribbon outputs. J5 changed to 2x5 and spare pins sent to test pads |
+| 7 (PCB) | Nov 9, 2026 | PCB finished: trace fixes, bigger NB, 3D models, silkscreen cleanup, 5 mil solder mask clearance |
