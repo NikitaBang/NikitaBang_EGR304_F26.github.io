@@ -80,7 +80,7 @@ Figure 4: DRC results with the board in the same screenshot
 I built and tested the board for the subsystem verification. It matches this layout, with a few differences:
 
 - D7-D10 are 1N4007 diodes instead of 1N5817. They use the same DO-41 footprint.
-- D1, D5, D6, R1, R4, and R25 aren't installed. These are the surface-mount indicator LEDs and their resistors, and hand-soldering them was too much work without the proper equipment. Their pads are empty.
+- D1, D5, and D6 aren't installed. These are the surface-mount indicator LEDs, and hand-soldering them was too much work without the proper equipment. Their pads are empty. Their resistors (R1, R4, R25) are installed.
 - The HS1 heat sink isn't installed. The current is small and the regulator stayed cool during testing.
 
 The KiCad ZIP above is Rev 7.1, which marks these parts DNP. The copper and the Gerbers didn't change.

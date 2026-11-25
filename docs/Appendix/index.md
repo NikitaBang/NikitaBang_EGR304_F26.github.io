@@ -47,4 +47,4 @@ STOP cancels from any state, and a weight status of 11 (error) also goes to Erro
 | 6 | Nov 6, 2026 | Footprints moved into my NB library, Nano socket and heat sink footprints added |
 | 7 | Nov 7, 2026 | LCD, J6, J9, and the ribbon jumpers removed. Diodes and pull-downs added on the ribbon outputs. J5 changed to 2x5 and spare pins sent to test pads |
 | 7 (PCB) | Nov 9, 2026 | PCB finished: trace fixes, bigger NB, 3D models, silkscreen cleanup, 5 mil solder mask clearance |
-| 7.1 | Nov 25, 2026 | As built: D7-D10 are 1N4007. D1, D5, D6, R1, R4, R25 (surface-mount indicator LEDs and resistors) and the HS1 heat sink marked not installed. Hardware test code added |
+| 7.1 | Nov 25, 2026 | As built: D7-D10 are 1N4007. D1, D5, D6 (surface-mount indicator LEDs) and the HS1 heat sink marked not installed. Hardware test code added |

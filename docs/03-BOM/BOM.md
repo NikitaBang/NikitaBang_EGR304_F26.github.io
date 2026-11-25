@@ -63,7 +63,7 @@ Rev 7 took the LCD (DS1), its socket (J7), and the contrast pot (RV1) off the bo
 ## As Built (Nov 25)
 
 - D7-D10: I used 1N4007 diodes instead of the 1N5817s.
-- D1, D5, D6, R1, R4, R25: ordered but not installed. They're surface-mount, and hand-soldering them was too much work without the proper equipment. They're only indicators.
+- D1, D5, D6: ordered but not installed. They're surface-mount LEDs, and hand-soldering them was too much work without the proper equipment. They're only indicators. Their resistors (R1, R4, R25) are installed.
 - Heat sink: ordered but not installed, since the current is small without the LCD.
 
 ## Notes

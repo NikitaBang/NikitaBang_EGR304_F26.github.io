@@ -44,7 +44,7 @@ SW5 is the debug button (RF4). D1, the debug LED on RF2, isn't installed. TP2-TP
 
 ### Not installed (DNP)
 
-I didn't install D1, D5, D6, R1, R4, or R25. These are the surface-mount indicator LEDs and their resistors. Hand-soldering parts that small was too much work, and we didn't have the proper equipment for it. They're only indicators, so nothing else on the board depends on them. I also left off the HS1 heat sink, since the current is small. These parts are marked DNP on the schematic, and their pads on the PCB are empty.
+I didn't install D1, D5, or D6. These are the surface-mount indicator LEDs. Hand-soldering LEDs that small was too much work, and we didn't have the proper equipment for it. They're only indicators, so nothing else on the board depends on them. Their resistors (R1, R4, R25) are installed, but with no LED they carry no current. I also left off the HS1 heat sink, since the current is small. These parts are marked DNP on the schematic, and their pads on the PCB are empty.
 
 ERC shows 0 errors and 0 warnings, and every part I have to buy has its manufacturer part number in the KiCad file.
 
@@ -76,7 +76,7 @@ J1-J3 are Wurth 61200821621 2x4 box headers, drawn with the counter-clockwise sy
 
 | Rev | Date | What changed |
 |---|---|---|
-| 7.1 | Nov 25 | As built, no wiring changes. D7-D10 are 1N4007 instead of 1N5817, so a high on the ribbon is about 4.4V. D1, D5, D6, R1, R4, and R25 (the surface-mount indicator LEDs and resistors) and HS1 (heat sink) are marked DNP. |
+| 7.1 | Nov 25 | As built, no wiring changes. D7-D10 are 1N4007 instead of 1N5817, so a high on the ribbon is about 4.4V. D1, D5, and D6 (the surface-mount indicator LEDs) and HS1 (heat sink) are marked DNP. |
 | 7 | Nov 7 | Took off the 16x2 LCD and its parts (J7, RV1, JP5, R24), plus C7, C14, C15, and C16. Took off J6, J9, the ribbon jumpers (JP3, JP4, JP6-JP11), and TP1, TP6, and TP10-TP17. Added the diodes D7-D10 and pull-downs R30-R33 on the ribbon outputs. J5 is now 2x5, and the spare pins go to test pads TP18-TP31. |
 | 6 | Nov 6 | No wiring changes. Moved the footprints into my NB library and added the Nano socket and heat sink footprints. |
 | 5 | Nov 4 | U2 changed to the LD1085V50 because the LM1086 was backordered. New ribbon connector symbol and C4 part number. No wiring changes. |
