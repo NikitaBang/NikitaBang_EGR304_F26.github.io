@@ -77,7 +77,13 @@ Figure 4: DRC results with the board in the same screenshot
 
 ## As Built (Nov 25)
 
-I built and tested the board for the subsystem verification. It matches this layout, with a few differences:
+I built and tested the board for the subsystem verification.
+
+![Finished Main Control Board](PCB_Photo.jpg){ width="100%" }
+
+Figure 5: The finished board, with the Curiosity Nano in its socket and the LDR plugged into J8
+
+It matches this layout, with a few differences:
 
 - D7-D10 are 1N4007 diodes instead of 1N5817. They use the same DO-41 footprint.
 - D1, D5, and D6 aren't installed. These are the surface-mount indicator LEDs, and hand-soldering them was too much work without the proper equipment. Their pads are empty. Their resistors (R1, R4, R25) are installed.
