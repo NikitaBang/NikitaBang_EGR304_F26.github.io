@@ -1,0 +1,1553 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+
+<meta name="robots" content="nofollow">
+
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nikitabang.github.io/NikitaBang_EGR304_F26.github.io/07-Code/Code/">
+      
+      
+        <link rel="prev" href="../../06-PCB/PCB/">
+      
+      
+        <link rel="next" href="../../Appendix/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../static/logo304.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+            
+
+    
+
+    
+      
+        <title>Microcontroller Code - EGR 304 Nikita Bangiyev Data Sheet</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#microcontroller-code" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="EGR 304 Nikita Bangiyev Data Sheet" class="md-header__button md-logo" aria-label="EGR 304 Nikita Bangiyev Data Sheet" data-md-component="logo">
+      
+  <img src="../../static/logo304.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EGR 304 Nikita Bangiyev Data Sheet
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Microcontroller Code
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/NikitaBang/NikitaBang_EGR304_F26.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-Block-Diagram/Block-Diagram/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  01 Block Diagram
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-Component-Selection/Component-Selection/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  02 Component Selection
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-BOM/BOM/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  03 BOM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-Schematic/schematic/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  04 Schematic
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-Power-Budget/Power-Budget/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  05 Power Budget
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-PCB/PCB/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  06 PCB
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  07 Code
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Appendix/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Appendix
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="EGR 304 Nikita Bangiyev Data Sheet" class="md-nav__button md-logo" aria-label="EGR 304 Nikita Bangiyev Data Sheet" data-md-component="logo">
+      
+  <img src="../../static/logo304.svg" alt="logo">
+
+    </a>
+    EGR 304 Nikita Bangiyev Data Sheet
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/NikitaBang/NikitaBang_EGR304_F26.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../01-Block-Diagram/Block-Diagram/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 Block Diagram
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../02-Component-Selection/Component-Selection/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 Component Selection
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../03-BOM/BOM/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 BOM
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../04-Schematic/schematic/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 Schematic
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../05-Power-Budget/Power-Budget/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 Power Budget
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../06-PCB/PCB/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 PCB
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 Code
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    07 Code
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microcontroller Code
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microcontroller Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#what-it-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What It Does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bench-results-nov-24-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bench Results (Nov 24-25)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Run It
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Appendix/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#what-it-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What It Does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bench-results-nov-24-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bench Results (Nov 24-25)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Run It
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    07 Code
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/NikitaBang/NikitaBang_EGR304_F26.github.io/edit/main/docs/07-Code/Code.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="microcontroller-code">Microcontroller Code</h1>
+<p>This is the hardware test program I used for the individual subsystem verification (Nov 25, 2026). It runs on the PIC18F57Q43 Curiosity Nano on my Main Control Board and tests my whole board at once: the ribbon outputs, the ribbon inputs, and the cup sensor ADC.</p>
+<p>Download: <a href="../Rev7_HW_Test.zip">Rev7_HW_Test.zip</a> (MPLAB X project) or just <a href="../main.c">main.c</a></p>
+<p>I built it with MPLAB X v6.35 and XC8 v3.10. It's one C file and doesn't use MCC.</p>
+<h2 id="what-it-does">What It Does</h2>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Pins</th>
+<th>What the code does</th>
+<th>How I check it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heartbeat</td>
+<td>RF3 (the Nano's LED)</td>
+<td>Blinks about twice a second</td>
+<td>If it blinks, the program is running</td>
+</tr>
+<tr>
+<td>Ribbon outputs</td>
+<td>RD4, RD3 (J2), RF6, RF5 (J3)</td>
+<td>High for 2 s, low for 2 s, forever</td>
+<td>Meter on J2 pins 1-2 and J3 pins 1-2</td>
+</tr>
+<tr>
+<td>Ribbon inputs</td>
+<td>RC7, RC6 (J1), RE1, RE0 (J3)</td>
+<td>Reads them every 10 ms into <code>ribbon_in</code>. RC7, RC6, and RE1 also turn on the yellow, green, and red LEDs.</td>
+<td>5V on one pin at a time, then pause the debugger and read <code>ribbon_in</code>: 8, 4, 2, 1</td>
+</tr>
+<tr>
+<td>Cup sensor</td>
+<td>RA5 (ANA5)</td>
+<td>12-bit ADC read every 10 ms into <code>adc_value</code> and <code>adc_mv</code></td>
+<td>Compare <code>adc_mv</code> to the meter on TP9</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bench-results-nov-24-25">Bench Results (Nov 24-25)</h2>
+<p>Every ribbon output switched between 4.4V and 0V every 2 seconds. The high is 4.4V instead of 5V because of the 1N4007 diode drop.</p>
+<p>For the cup sensor, I put the meter on TP9 and read <code>adc_mv</code> and <code>adc_value</code> in the debugger at three light levels:</p>
+<table>
+<thead>
+<tr>
+<th>Light on the LDR</th>
+<th>Meter on TP9</th>
+<th>adc_mv</th>
+<th>adc_value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uncovered</td>
+<td>0.004V</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Hand over it</td>
+<td>about 2.34V</td>
+<td>2343</td>
+<td>1919</td>
+</tr>
+<tr>
+<td>Covered</td>
+<td>5.00V</td>
+<td>4997</td>
+<td>4093</td>
+</tr>
+</tbody>
+</table>
+<p>The PIC's reading matches the meter at all three levels. The count is about TP9 / 5 x 4095.</p>
+<h2 id="how-to-run-it">How to Run It</h2>
+<ol>
+<li>Plug the 9-12V adapter into J4 first, then USB into the Nano. VOFF is tied to ground, so USB alone doesn't power the PIC. The JP1 shunt has to be on, and JP2 has to be on for the ADC.</li>
+<li>Open Rev7_HW_Test.X in MPLAB X and set it as the main project.</li>
+<li>If the build says "no device-support files specified", open Project Properties, pick your PIC18F-Q_DFP pack and XC8 under Conf: [default], and build again.</li>
+<li>Click Make and Program Device. The Nano's LED starts blinking.</li>
+<li>To see the numbers, use Debug Main Project, add <code>ribbon_in</code>, <code>adc_value</code>, and <code>adc_mv</code> to the Watches window, and click Pause to refresh them.</li>
+</ol>
+<h2 id="code">Code</h2>
+<div class="highlight"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm"> * rev7_hw_test.c</span>
+<span class="cm"> * Hardware verification test for the Fill-A-Bot main control board, Rev 7</span>
+<span class="cm"> * PIC18F57Q43 Curiosity Nano, XC8, no MCC needed (one file)</span>
+<span class="cm"> * Nikita Bangiyev, EGR 304 Team 201</span>
+<span class="cm"> *</span>
+<span class="cm"> * Everything runs at the same time, no menus:</span>
+<span class="cm"> *</span>
+<span class="cm"> * 0. Sign of life</span>
+<span class="cm"> *    The Nano's own little LED (LED0, RF3) blinks about twice a second.</span>
+<span class="cm"> *    Blinking = the PIC is powered, programmed and running this code.</span>
+<span class="cm"> *    Not blinking = the PIC is not running (check power, main project, Hold in Reset).</span>
+<span class="cm"> *</span>
+<span class="cm"> * 1. Ribbon WRITE</span>
+<span class="cm"> *    RD4, RD3, RF6, RF5 go high for 2 s, then low for 2 s, forever.</span>
+<span class="cm"> *    Meter on J2 pin 1, J2 pin 2, J3 pin 1, J3 pin 2:</span>
+<span class="cm"> *    about 4.4 V high (1N4007 diodes), 0 V low.</span>
+<span class="cm"> *</span>
+<span class="cm"> * 2. Ribbon READ</span>
+<span class="cm"> *    RC7, RC6, RE1, RE0 get read every 10 ms and copied to an LED:</span>
+<span class="cm"> *      J1 pin 3 (RC7, flow S1 from Cole)    -&gt; D2 yellow</span>
+<span class="cm"> *      J1 pin 4 (RC6, flow S0 from Cole)    -&gt; D3 green</span>
+<span class="cm"> *      J3 pin 3 (RE1, weight S1 from Troy)  -&gt; D4 red</span>
+<span class="cm"> *      J3 pin 4 (RE0, weight S0 from Troy)  -&gt; Watch window only (Nano LED is the heartbeat)</span>
+<span class="cm"> *    Put 5 V on one of those ribbon pins and its LED turns on.</span>
+<span class="cm"> *    The 100k pull-downs make an unplugged pin read 0 (LED off).</span>
+<span class="cm"> *    Watch window: ribbon_in  (bit 3 = RC7, bit 2 = RC6, bit 1 = RE1, bit 0 = RE0)</span>
+<span class="cm"> *</span>
+<span class="cm"> * 3. Cup sensor ADC</span>
+<span class="cm"> *    RA5 (ANA5, TP9 / CUP_ADC) gets read every 10 ms.</span>
+<span class="cm"> *    Watch window: adc_value (0-4095) and adc_mv (about the same as TP9 on the meter)</span>
+<span class="cm"> *    Hold any button (UP, DOWN, START or STOP) and the 3 LEDs turn into a level bar:</span>
+<span class="cm"> *      yellow = over 1/4, + green = over 1/2, + red = over 3/4</span>
+<span class="cm"> *    Cover the LDR -&gt; AMP_OUT goes up -&gt; more LEDs light.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Power order: adapter into J4 FIRST, then USB. VOFF is tied to ground on this</span>
+<span class="cm"> * board, so USB alone does not power the PIC.</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xc.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+
+<span class="cm">/* Config bits. If MPLAB complains about one of these lines, delete them and make</span>
+<span class="cm"> * new ones with Window &gt; Target Memory Views &gt; Configuration Bits</span>
+<span class="cm"> * (FEXTOSC off, RSTOSC HFINTOSC 64 MHz, WDT off), then paste those in. */</span>
+<span class="cp">#pragma config FEXTOSC = OFF            </span><span class="cm">/* no external oscillator */</span>
+<span class="cp">#pragma config RSTOSC = HFINTOSC_64MHZ  </span><span class="cm">/* internal oscillator, 64 MHz */</span>
+<span class="cp">#pragma config MCLRE = EXTMCLR          </span><span class="cm">/* MCLR pin is reset */</span>
+<span class="cp">#pragma config WDTE = OFF               </span><span class="cm">/* watchdog off */</span>
+<span class="cp">#pragma config LVP = ON                 </span><span class="cm">/* low-voltage programming (the Nano uses it) */</span>
+<span class="cp">#pragma config XINST = OFF              </span><span class="cm">/* normal instruction set */</span>
+
+<span class="cp">#define _XTAL_FREQ 64000000UL           </span><span class="cm">/* for __delay_ms() */</span>
+
+<span class="cm">/* Put these in the Watch window (Debug mode, then Pause to see them update) */</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">adc_value</span><span class="p">;</span><span class="w">   </span><span class="cm">/* 0-4095 */</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">adc_mv</span><span class="p">;</span><span class="w">      </span><span class="cm">/* adc_value in mV, assumes VDD = 5.00 V */</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w">  </span><span class="n">ribbon_in</span><span class="p">;</span><span class="w">   </span><span class="cm">/* bit3 RC7, bit2 RC6, bit1 RE1, bit0 RE0 */</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w">  </span><span class="n">ribbon_out</span><span class="p">;</span><span class="w">  </span><span class="cm">/* 1 = the 4 outputs are high right now */</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">adc_timeouts</span><span class="p">;</span><span class="w"> </span><span class="cm">/* should stay 0; counts ADC reads that never finished */</span>
+
+<span class="cp">#define LED_ON   0u            </span><span class="cm">/* LEDs are active low (anode to 5 V through 2.2k) */</span>
+<span class="cp">#define LED_OFF  1u</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* All pins digital except RA5 (cup sensor) */</span>
+<span class="w">    </span><span class="n">ANSELA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x20</span><span class="p">;</span><span class="w">             </span><span class="cm">/* RA5 analog */</span>
+<span class="w">    </span><span class="n">ANSELB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ANSELC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ANSELD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ANSELE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ANSELF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Safe starting values before the pins become outputs:</span>
+<span class="cm">     * LEDs off (high), ribbon outputs low (pump = 00 = stop) */</span>
+<span class="w">    </span><span class="n">LATD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x07</span><span class="p">;</span><span class="w">               </span><span class="cm">/* RD0-RD2 high = D2-D4 off, RD3/RD4 low */</span>
+<span class="w">    </span><span class="n">LATF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x08</span><span class="p">;</span><span class="w">               </span><span class="cm">/* RF3 high = Nano LED0 off, RF5/RF6 low */</span>
+
+<span class="w">    </span><span class="n">TRISA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">;</span><span class="w">              </span><span class="cm">/* RA0-RA3 buttons, RA5 cup sensor: inputs */</span>
+<span class="w">    </span><span class="n">TRISB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">;</span><span class="w">              </span><span class="cm">/* not used */</span>
+<span class="w">    </span><span class="n">TRISC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">;</span><span class="w">              </span><span class="cm">/* RC6, RC7 ribbon inputs */</span>
+<span class="w">    </span><span class="n">TRISE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">;</span><span class="w">              </span><span class="cm">/* RE0, RE1 ribbon inputs */</span>
+<span class="w">    </span><span class="n">TRISD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xE0</span><span class="p">;</span><span class="w">              </span><span class="cm">/* RD0-RD4 outputs, RD5-RD7 inputs (J5, not used) */</span>
+<span class="w">    </span><span class="n">TRISF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x97</span><span class="p">;</span><span class="w">              </span><span class="cm">/* RF3, RF5, RF6 outputs, the rest inputs */</span>
+
+<span class="w">    </span><span class="cm">/* ADC: VDD/VSS reference, channel ANA5, right justified, ADC's own RC clock */</span>
+<span class="w">    </span><span class="n">ADREF</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">;</span><span class="w">             </span><span class="cm">/* + ref = VDD, - ref = VSS */</span>
+<span class="w">    </span><span class="n">ADPCH</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mh">0x05</span><span class="p">;</span><span class="w">             </span><span class="cm">/* ANA5 = RA5 */</span>
+<span class="w">    </span><span class="n">ADCON0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x94</span><span class="p">;</span><span class="w">             </span><span class="cm">/* ON (bit 7), CS = ADCRC (bit 4), FM = right justified (bit 2) */</span>
+<span class="w">    </span><span class="n">__delay_us</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span><span class="w">            </span><span class="cm">/* let the input settle before the first reading */</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="nf">adc_read_ra5</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">guard</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ADCON0</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mh">0x01u</span><span class="p">;</span><span class="w">           </span><span class="cm">/* GO */</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">ADCON0</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x01u</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="cm">/* GO clears when the conversion is done */</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">++</span><span class="n">guard</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20000u</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">            </span><span class="cm">/* never hang here: give up and move on */</span>
+<span class="w">            </span><span class="n">ADCON0</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint8_t</span><span class="p">)</span><span class="o">~</span><span class="mh">0x01u</span><span class="p">;</span>
+<span class="w">            </span><span class="n">adc_timeouts</span><span class="o">++</span><span class="p">;</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">uint16_t</span><span class="p">)(((</span><span class="kt">uint16_t</span><span class="p">)</span><span class="n">ADRESH</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ADRESL</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ribbon_outputs</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">level</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">LATDbits</span><span class="p">.</span><span class="n">LATD4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">level</span><span class="p">;</span><span class="w">    </span><span class="cm">/* J2 pin 1, pump C1, through D7 */</span>
+<span class="w">    </span><span class="n">LATDbits</span><span class="p">.</span><span class="n">LATD3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">level</span><span class="p">;</span><span class="w">    </span><span class="cm">/* J2 pin 2, pump C0, through D8 */</span>
+<span class="w">    </span><span class="n">LATFbits</span><span class="p">.</span><span class="n">LATF6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">level</span><span class="p">;</span><span class="w">    </span><span class="cm">/* J3 pin 1, preset C1, through D9 */</span>
+<span class="w">    </span><span class="n">LATFbits</span><span class="p">.</span><span class="n">LATF5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">level</span><span class="p">;</span><span class="w">    </span><span class="cm">/* J3 pin 2, preset C0, through D10 */</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">ticks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w">  </span><span class="n">beat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">init</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* 1. ribbon outputs flip every 2 s (200 loops x 10 ms) */</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">++</span><span class="n">ticks</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">200u</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ticks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">ribbon_out</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="mi">1u</span><span class="p">;</span>
+<span class="w">            </span><span class="n">ribbon_outputs</span><span class="p">(</span><span class="n">ribbon_out</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/* 0. heartbeat: Nano LED0 toggles every 250 ms (25 loops x 10 ms) */</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">++</span><span class="n">beat</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">25u</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">beat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">LATFbits</span><span class="p">.</span><span class="n">LATF3</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="mi">1u</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/* 2. ribbon inputs */</span>
+<span class="w">        </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PORTCbits</span><span class="p">.</span><span class="n">RC7</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mh">0x08u</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PORTCbits</span><span class="p">.</span><span class="n">RC6</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mh">0x04u</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PORTEbits</span><span class="p">.</span><span class="n">RE1</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mh">0x02u</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PORTEbits</span><span class="p">.</span><span class="n">RE0</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mh">0x01u</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ribbon_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">;</span>
+
+<span class="w">        </span><span class="cm">/* 3. cup sensor */</span>
+<span class="w">        </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">adc_read_ra5</span><span class="p">();</span>
+<span class="w">        </span><span class="n">adc_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">        </span><span class="n">adc_mv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint16_t</span><span class="p">)(((</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5000u</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4095u</span><span class="p">);</span>
+
+<span class="w">        </span><span class="cm">/* LEDs: any button held = ADC level bar, otherwise show the ribbon inputs.</span>
+<span class="cm">         * Buttons pull RA0-RA3 low when pressed. */</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">PORTA</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x0Fu</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mh">0x0Fu</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">LATDbits</span><span class="p">.</span><span class="n">LATD0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1024u</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">LED_ON</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">LED_OFF</span><span class="p">;</span><span class="w">   </span><span class="cm">/* D2 yellow */</span>
+<span class="w">            </span><span class="n">LATDbits</span><span class="p">.</span><span class="n">LATD1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2048u</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">LED_ON</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">LED_OFF</span><span class="p">;</span><span class="w">   </span><span class="cm">/* D3 green */</span>
+<span class="w">            </span><span class="n">LATDbits</span><span class="p">.</span><span class="n">LATD2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3072u</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">LED_ON</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">LED_OFF</span><span class="p">;</span><span class="w">   </span><span class="cm">/* D4 red */</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">LATDbits</span><span class="p">.</span><span class="n">LATD0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">in</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x08u</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">LED_ON</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">LED_OFF</span><span class="p">;</span><span class="w">  </span><span class="cm">/* RC7 -&gt; yellow */</span>
+<span class="w">            </span><span class="n">LATDbits</span><span class="p">.</span><span class="n">LATD1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">in</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x04u</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">LED_ON</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">LED_OFF</span><span class="p">;</span><span class="w">  </span><span class="cm">/* RC6 -&gt; green */</span>
+<span class="w">            </span><span class="n">LATDbits</span><span class="p">.</span><span class="n">LATD2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">in</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x02u</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">LED_ON</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">LED_OFF</span><span class="p">;</span><span class="w">  </span><span class="cm">/* RE1 -&gt; red */</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">__delay_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../../06-PCB/PCB/" class="md-footer__link md-footer__link--prev" aria-label="Previous: PCB">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                PCB
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../Appendix/" class="md-footer__link md-footer__link--next" aria-label="Next: Appendix">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Appendix
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Nikita Bangiyev, Team 201
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow", "navigation.top", "navigation.path", "navigation.indexes", "navigation.prune", "content.action.edit", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

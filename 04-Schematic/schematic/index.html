@@ -361,6 +361,28 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../07-Code/Code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  07 Code
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../Appendix/" class="md-tabs__link">
           
   
@@ -833,6 +855,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#not-installed-dnp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not installed (DNP)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -979,6 +1012,61 @@
     
   
     06 PCB
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../07-Code/Code/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 Code
   
 
     
@@ -1169,6 +1257,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#not-installed-dnp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not installed (DNP)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1281,13 +1380,13 @@
 
 
 <h1 id="schematics">Schematics</h1>
-<p>This is the schematic for my Main Control Board, Rev 7 (Nov 7, 2026). The PCB made from it is on my <a href="../../06-PCB/PCB/">PCB</a> page.</p>
+<p>This is the schematic for my Main Control Board, Rev 7.1 (Nov 25, 2026). Rev 7.1 matches the board as I built it. The wiring is the same as Rev 7, and the parts I didn't install are marked DNP (red X). The PCB made from it is on my <a href="../../06-PCB/PCB/">PCB</a> page.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Nikita-Main-Control-Schematic.png" data-desc-position="bottom"><img alt="Main Control Board schematic" src="../Nikita-Main-Control-Schematic.png" width="100%"></a></p>
-<p>Figure 1: Main Control Board schematic, Rev 7</p>
-<p>Files: <a href="../Nikita-Main-Control-Schematic.pdf">Schematic PDF</a>, <a href="../Nikita-Main-Control-Schematic.png">Schematic image</a>, <a href="../EGR304_Main_Control_Nikita_Rev7.zip">KiCad project ZIP</a></p>
+<p>Figure 1: Main Control Board schematic, Rev 7.1 (as built)</p>
+<p>Files: <a href="../Nikita-Main-Control-Schematic.pdf">Schematic PDF</a>, <a href="../Nikita-Main-Control-Schematic.png">Schematic image</a>, <a href="../EGR304_Main_Control_Nikita_Rev7.1.zip">KiCad project ZIP</a></p>
 <h2 id="whats-on-it">What's On It</h2>
 <h3 id="power">Power</h3>
-<p>The barrel jack (J4) takes 9-12V, center positive. It goes through a T800mA fuse in a holder (F1) so it can be swapped, and then the LD1085V50 regulator (U2) makes 5V. C3 and C5 are on the input and the 10uF tantalum C4 is on the output, which is what the ST datasheet asks for. U2's tab is at 5V, so it gets an insulator on its heat sink. JP1 is between the regulator and the 5V rail so I can cut power or measure current. D6 lights up when fused VIN is on and D5 when 5V is on.</p>
+<p>The barrel jack (J4) takes 9-12V, center positive. It goes through a T800mA fuse in a holder (F1) so it can be swapped, and then the LD1085V50 regulator (U2) makes 5V. C3 and C5 are on the input and the 10uF tantalum C4 is on the output, which is what the ST datasheet asks for. The heat sink (HS1) has a footprint, but I didn't install it because the current is small (see my <a href="../../05-Power-Budget/Power-Budget/">Power Budget</a>). JP1 is between the regulator and the 5V rail so I can cut power or measure current. D6 (fused VIN) and D5 (5V) are power indicator LEDs, but they're not installed (see below).</p>
 <h3 id="nano">Nano</h3>
 <p>The Curiosity Nano gets 5V on VTG with VOFF tied to ground. C2 is its 0.1uF bypass cap.</p>
 <h3 id="buttons">Buttons</h3>
@@ -1297,9 +1396,11 @@
 <h3 id="status-leds">Status LEDs</h3>
 <p>Dispensing (yellow, RD0), Done (green, RD1), and Fault (red, RD2). They're active low. There's no screen on the board anymore, so these LEDs are how the user sees what's going on.</p>
 <h3 id="ribbons">Ribbons</h3>
-<p>J1, J2, and J3 go to Cole, Clay, and Troy. My four outputs go through 1N5817 diodes (D7-D10) with 10k pull-downs on the cable side (R30-R33), so a teammate's board can't push current back into my PIC. My four inputs have 100k pull-downs (R26-R29), so an unplugged cable reads 00 and the pump won't run. To cut off a teammate's board, I just unplug the cable.</p>
+<p>J1, J2, and J3 go to Cole, Clay, and Troy. My four outputs go through 1N4007 diodes (D7-D10) with 10k pull-downs on the cable side (R30-R33), so a teammate's board can't push current back into my PIC. Because of the diode drop, a high on the cable is about 4.4V. My four inputs have 100k pull-downs (R26-R29), so an unplugged cable reads 00 and the pump won't run. To cut off a teammate's board, I just unplug the cable.</p>
 <h3 id="debug-and-spare-pins">Debug and spare pins</h3>
-<p>D1 is the debug LED (RF2) and SW5 is the debug button (RF4). TP2-TP5 are on the power rails. J5 has +5V, GND, and 8 spare pins, and the other 14 spare pins go to test pads (TP18-TP31).</p>
+<p>SW5 is the debug button (RF4). D1, the debug LED on RF2, isn't installed. TP2-TP5 are on the power rails. J5 has +5V, GND, and 8 spare pins, and the other 14 spare pins go to test pads (TP18-TP31).</p>
+<h3 id="not-installed-dnp">Not installed (DNP)</h3>
+<p>I didn't install D1, D5, D6, R1, R4, or R25. These are the surface-mount indicator LEDs and their resistors. Hand-soldering parts that small was too much work, and we didn't have the proper equipment for it. They're only indicators, so nothing else on the board depends on them. I also left off the HS1 heat sink, since the current is small. These parts are marked DNP on the schematic, and their pads on the PCB are empty.</p>
 <p>ERC shows 0 errors and 0 warnings, and every part I have to buy has its manufacturer part number in the KiCad file.</p>
 <h2 id="requirements">Requirements</h2>
 <p>The numbers are from our team's <a href="https://egr304-2026-f-201.github.io/04-Product-Requirements/">Product Requirements</a> page.</p>
@@ -1399,6 +1500,11 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>7.1</td>
+<td>Nov 25</td>
+<td>As built, no wiring changes. D7-D10 are 1N4007 instead of 1N5817, so a high on the ribbon is about 4.4V. D1, D5, D6, R1, R4, and R25 (the surface-mount indicator LEDs and resistors) and HS1 (heat sink) are marked DNP.</td>
+</tr>
 <tr>
 <td>7</td>
 <td>Nov 7</td>

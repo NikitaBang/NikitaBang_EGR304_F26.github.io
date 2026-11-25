@@ -15,7 +15,7 @@
         <link rel="prev" href="../../05-Power-Budget/Power-Budget/">
       
       
-        <link rel="next" href="../../Appendix/">
+        <link rel="next" href="../../07-Code/Code/">
       
       
         
@@ -346,6 +346,28 @@
     
   
   06 PCB
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-Code/Code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  07 Code
 
         </a>
       </li>
@@ -920,6 +942,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#as-built-nov-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        As Built (Nov 25)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -931,6 +964,61 @@
             
           </ul>
         </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../07-Code/Code/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 Code
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
       
     </li>
   
@@ -1085,6 +1173,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#as-built-nov-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        As Built (Nov 25)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1168,7 +1267,7 @@
 <p>Figure 3: Top copper (left) and bottom copper (right) with the ground pours. The bottom is shown from underneath, so it's mirrored.</p>
 <h2 id="files">Files</h2>
 <ul>
-<li><a href="../EGR304_Main_Control_Nikita_Rev7.zip">KiCad project ZIP (Rev 7)</a>: schematic, PCB, my NB footprint library, symbols, and 3D models</li>
+<li><a href="../EGR304_Main_Control_Nikita_Rev7.1.zip">KiCad project ZIP (Rev 7.1, as built)</a>: schematic, PCB, my NB footprint library, symbols, and 3D models</li>
 <li><a href="../NikitaBangiyev201.zip">Gerber files ZIP</a>: top and bottom copper, solder mask, and silkscreen, the board outline, and the drill files</li>
 <li><a href="../PCB_1to1_Print.pdf">1:1 print (PDF)</a>: top and bottom copper at actual size, for checking that the parts fit</li>
 <li><a href="../DRC_Confirmation.png">DRC screenshot</a></li>
@@ -1261,6 +1360,14 @@
 <li>Ran the Gerbers through the JLCPCB DFM check and cleaned up the silkscreen, so the labels sit inside their parts where they fit and none are on a pad or a via.</li>
 <li>Set the solder mask clearance to 5 mil to match the class rules. That only changes the solder mask files.</li>
 </ul>
+<h2 id="as-built-nov-25">As Built (Nov 25)</h2>
+<p>I built and tested the board for the subsystem verification. It matches this layout, with a few differences:</p>
+<ul>
+<li>D7-D10 are 1N4007 diodes instead of 1N5817. They use the same DO-41 footprint.</li>
+<li>D1, D5, D6, R1, R4, and R25 aren't installed. These are the surface-mount indicator LEDs and their resistors, and hand-soldering them was too much work without the proper equipment. Their pads are empty.</li>
+<li>The HS1 heat sink isn't installed. The current is small and the regulator stayed cool during testing.</li>
+</ul>
+<p>The KiCad ZIP above is Rev 7.1, which marks these parts DNP. The copper and the Gerbers didn't change.</p>
 
 
 
@@ -1316,13 +1423,13 @@
         
         
           
-          <a href="../../Appendix/" class="md-footer__link md-footer__link--next" aria-label="Next: Appendix">
+          <a href="../../07-Code/Code/" class="md-footer__link md-footer__link--next" aria-label="Next: Microcontroller Code">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Appendix
+                Microcontroller Code
               </div>
             </div>
             <div class="md-footer__button md-icon">

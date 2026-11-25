@@ -361,6 +361,28 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../07-Code/Code/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  07 Code
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../Appendix/" class="md-tabs__link">
           
   
@@ -948,6 +970,61 @@
     
       
         
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../07-Code/Code/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 Code
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
           
         
       
@@ -1168,9 +1245,9 @@
 
 <h1 id="block-diagram">Block Diagram</h1>
 <p>Nikita Bangiyev, Team 201, Fill-A-Bot</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../nikita-block-diagram-rev7.png" data-desc-position="bottom"><img alt="Main control board block diagram" src="../nikita-block-diagram-rev7.png" width="100%"></a></p>
-<p>Figure 1: Main Control Board block diagram (Rev 7)</p>
-<p>Source files: <a href="../nikita-block-diagram-rev7-source.zip">nikita-block-diagram-rev7-source.zip</a> (draw.io file and PNG)</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../nikita-block-diagram-rev7-1.png" data-desc-position="bottom"><img alt="Main control board block diagram" src="../nikita-block-diagram-rev7-1.png" width="100%"></a></p>
+<p>Figure 1: Main Control Board block diagram (Rev 7.1, as built)</p>
+<p>Source files: <a href="../nikita-block-diagram-rev7-1-source.zip">nikita-block-diagram-rev7-1-source.zip</a> (draw.io file and PNG)</p>
 <h2 id="how-it-works">How It Works</h2>
 <p>The user presses UP for preset 1 or DOWN for preset 2, then presses START. My board sends the preset to Troy's board and tells Clay's board to run the pump. While it fills, my board watches the weight status from Troy and the flow status from Cole. When Troy's board says the target is reached, my board stops the pump. If Cole's board says there's no flow, it stops the pump and flashes the Fault LED. STOP cancels at any time.</p>
 <p>A photoresistor under the cup spot goes through an op amp and a low-pass filter into the ADC, so the pump only starts when there's a cup. Three LEDs show Dispensing, Done, and Fault.</p>
@@ -1187,7 +1264,7 @@
 <tbody>
 <tr>
 <td>Power</td>
-<td>9V adapter, barrel jack, T800mA fuse, and the LD1085V50 5V regulator on a heat sink. D6 lights up when 9V is in and D5 when 5V is on.</td>
+<td>9V adapter, barrel jack, T800mA fuse, and the LD1085V50 5V regulator. The heat sink and the power LEDs (D5, D6) aren't installed.</td>
 <td>+5V to every block</td>
 </tr>
 <tr>
@@ -1212,7 +1289,7 @@
 </tr>
 <tr>
 <td>Debug</td>
-<td>Debug button and LED</td>
+<td>Debug button (the debug LED isn't installed)</td>
 <td>Digital in / out</td>
 </tr>
 <tr>
@@ -1329,7 +1406,7 @@
 <td>LD1085V50</td>
 </tr>
 <tr>
-<td>Regulator heat sink</td>
+<td>Regulator heat sink (not installed)</td>
 <td>Same Sky</td>
 <td>HSE14-384225P</td>
 </tr>
@@ -1372,6 +1449,7 @@
 </table>
 <h2 id="changes">Changes</h2>
 <ul>
+<li>Rev 7.1 (Nov 25): Updated to match the board as I built it. The power LEDs and the debug LED are surface-mount, and hand-soldering them was too much work without the proper equipment, so they aren't installed. The heat sink isn't installed either, since the current is small.</li>
 <li>Rev 7 (Nov 7): I took the 16x2 LCD off the board, so its block is gone. The status shows on the LEDs now.</li>
 <li>Rev 5 (Nov 4): The LM1086 regulator was backordered, so I switched to the LD1085V50. Same pinout and same 4.9 to 5.1V output.</li>
 <li>After the Oct 26 design review I simplified the diagram: no pin numbers, one block per function, red arrows for power, and black arrows for signals.</li>
