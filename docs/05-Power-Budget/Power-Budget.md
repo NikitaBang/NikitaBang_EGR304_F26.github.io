@@ -8,6 +8,8 @@ This checks that my 9V adapter and 5V regulator can run everything on my board a
 
 I made this budget in Rev 5, when the board still had the 16x2 LCD. Rev 7 took the LCD off. The LCD lines below (logic, backlight, and contrast pot) add up to about 160mA, so the real Rev 7 current is a lot lower. The new 10k pull-downs on the ribbon outputs add less than 2mA.
 
+As built (Rev 7.1), the power LEDs (D5, D6) and the debug LED (D1) aren't installed either, which takes off another 6.7mA. Without the LCD and those LEDs, the 5V total from this budget is about 183mA, or about 229mA with the 25% margin. That's about half the load below, so I didn't install the heat sink, and the regulator stayed cool during testing.
+
 ## A. Major Components
 
 | Component | Part number | Supply voltage | Qty | Max current (mA) | Total (mA) |
@@ -56,7 +58,7 @@ N/A. My board runs off a wall adapter.
 
 ## Conclusions
 
-The adapter and regulator can easily power everything with the 25% margin, and nothing comes out negative. The regulator turns about 2W into heat at this load, so it has a heat sink. With the LD1085V50 that keeps it around 69 C (the limit is 125 C).
+The adapter and regulator can easily power everything with the 25% margin, and nothing comes out negative. The regulator turns about 2W into heat at this load, so it has a heat sink in the design (as built, the load is about half that and the heat sink isn't installed, see above). With the LD1085V50 that keeps it around 69 C (the limit is 125 C).
 
 Microchip only lists the PIC's max current at 3V, not 5V, so I used 170mA for the Nano to be safe. The real number should be a lot lower. I'll measure the board current through JP1 once it's built.
 

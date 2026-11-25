@@ -60,6 +60,12 @@ Rev 7 changed some parts after this order. That's listed under the table.
 
 Rev 7 took the LCD (DS1), its socket (J7), and the contrast pot (RV1) off the board, along with J6, J9, the ribbon jumpers (JP3-JP11), R24, and C7, C14, C15, and C16. It added four 1N5817 diodes on the ribbon outputs (D7-D10, Vishay 1N5817-E3/53) and four 10k pull-downs (R30-R33, Yageo MFR-25FRF52-10K), and J5 is now a 2x5 header (Sullins PRPC005DAAN-RC). The table above is still what I ordered on Nov 4.
 
+## As Built (Nov 25)
+
+- D7-D10: I used 1N4007 diodes instead of the 1N5817s.
+- D1, D5, D6, R1, R4, R25: ordered but not installed. They're surface-mount, and hand-soldering them was too much work without the proper equipment. They're only indicators.
+- Heat sink: ordered but not installed, since the current is small without the LCD.
+
 ## Notes
 
 - Prices are DigiKey prices from Oct 30, 2026, except the lines marked "Oct 25 price".

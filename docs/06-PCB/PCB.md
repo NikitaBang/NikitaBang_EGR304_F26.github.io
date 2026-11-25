@@ -20,7 +20,7 @@ Figure 3: Top copper (left) and bottom copper (right) with the ground pours. The
 
 ## Files
 
-- [KiCad project ZIP (Rev 7)](EGR304_Main_Control_Nikita_Rev7.zip): schematic, PCB, my NB footprint library, symbols, and 3D models
+- [KiCad project ZIP (Rev 7.1, as built)](EGR304_Main_Control_Nikita_Rev7.1.zip): schematic, PCB, my NB footprint library, symbols, and 3D models
 - [Gerber files ZIP](NikitaBangiyev201.zip): top and bottom copper, solder mask, and silkscreen, the board outline, and the drill files
 - [1:1 print (PDF)](PCB_1to1_Print.pdf): top and bottom copper at actual size, for checking that the parts fit
 - [DRC screenshot](DRC_Confirmation.png)
@@ -74,3 +74,13 @@ Figure 4: DRC results with the board in the same screenshot
 - Added 3D models for the diodes (D7-D10) and J5.
 - Ran the Gerbers through the JLCPCB DFM check and cleaned up the silkscreen, so the labels sit inside their parts where they fit and none are on a pad or a via.
 - Set the solder mask clearance to 5 mil to match the class rules. That only changes the solder mask files.
+
+## As Built (Nov 25)
+
+I built and tested the board for the subsystem verification. It matches this layout, with a few differences:
+
+- D7-D10 are 1N4007 diodes instead of 1N5817. They use the same DO-41 footprint.
+- D1, D5, D6, R1, R4, and R25 aren't installed. These are the surface-mount indicator LEDs and their resistors, and hand-soldering them was too much work without the proper equipment. Their pads are empty.
+- The HS1 heat sink isn't installed. The current is small and the regulator stayed cool during testing.
+
+The KiCad ZIP above is Rev 7.1, which marks these parts DNP. The copper and the Gerbers didn't change.

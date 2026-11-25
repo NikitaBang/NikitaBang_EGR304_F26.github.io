@@ -8,7 +8,7 @@ as part of<br>
 for<br>
 <font size="5">Team 201</font><br>
 
-<b>Updated: November 9, 2026</b>
+<b>Updated: November 25, 2026</b>
 </center>
 
 ## About
@@ -36,3 +36,4 @@ My board has the buttons and status LEDs the user sees, a light sensor that chec
 * [Schematics](04-Schematic/schematic.md)
 * [Power Budget](05-Power-Budget/Power-Budget.md)
 * [PCB](06-PCB/PCB.md)
+* [Microcontroller Code](07-Code/Code.md)

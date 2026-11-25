@@ -4,19 +4,19 @@ title: Schematics
 
 # Schematics
 
-This is the schematic for my Main Control Board, Rev 7 (Nov 7, 2026). The PCB made from it is on my [PCB](../06-PCB/PCB.md) page.
+This is the schematic for my Main Control Board, Rev 7.1 (Nov 25, 2026). Rev 7.1 matches the board as I built it. The wiring is the same as Rev 7, and the parts I didn't install are marked DNP (red X). The PCB made from it is on my [PCB](../06-PCB/PCB.md) page.
 
 ![Main Control Board schematic](Nikita-Main-Control-Schematic.png){ width="100%" }
 
-Figure 1: Main Control Board schematic, Rev 7
+Figure 1: Main Control Board schematic, Rev 7.1 (as built)
 
-Files: [Schematic PDF](Nikita-Main-Control-Schematic.pdf), [Schematic image](Nikita-Main-Control-Schematic.png), [KiCad project ZIP](EGR304_Main_Control_Nikita_Rev7.zip)
+Files: [Schematic PDF](Nikita-Main-Control-Schematic.pdf), [Schematic image](Nikita-Main-Control-Schematic.png), [KiCad project ZIP](EGR304_Main_Control_Nikita_Rev7.1.zip)
 
 ## What's On It
 
 ### Power
 
-The barrel jack (J4) takes 9-12V, center positive. It goes through a T800mA fuse in a holder (F1) so it can be swapped, and then the LD1085V50 regulator (U2) makes 5V. C3 and C5 are on the input and the 10uF tantalum C4 is on the output, which is what the ST datasheet asks for. U2's tab is at 5V, so it gets an insulator on its heat sink. JP1 is between the regulator and the 5V rail so I can cut power or measure current. D6 lights up when fused VIN is on and D5 when 5V is on.
+The barrel jack (J4) takes 9-12V, center positive. It goes through a T800mA fuse in a holder (F1) so it can be swapped, and then the LD1085V50 regulator (U2) makes 5V. C3 and C5 are on the input and the 10uF tantalum C4 is on the output, which is what the ST datasheet asks for. The heat sink (HS1) has a footprint, but I didn't install it because the current is small (see my [Power Budget](../05-Power-Budget/Power-Budget.md)). JP1 is between the regulator and the 5V rail so I can cut power or measure current. D6 (fused VIN) and D5 (5V) are power indicator LEDs, but they're not installed (see below).
 
 ### Nano
 
@@ -36,11 +36,15 @@ Dispensing (yellow, RD0), Done (green, RD1), and Fault (red, RD2). They're activ
 
 ### Ribbons
 
-J1, J2, and J3 go to Cole, Clay, and Troy. My four outputs go through 1N5817 diodes (D7-D10) with 10k pull-downs on the cable side (R30-R33), so a teammate's board can't push current back into my PIC. My four inputs have 100k pull-downs (R26-R29), so an unplugged cable reads 00 and the pump won't run. To cut off a teammate's board, I just unplug the cable.
+J1, J2, and J3 go to Cole, Clay, and Troy. My four outputs go through 1N4007 diodes (D7-D10) with 10k pull-downs on the cable side (R30-R33), so a teammate's board can't push current back into my PIC. Because of the diode drop, a high on the cable is about 4.4V. My four inputs have 100k pull-downs (R26-R29), so an unplugged cable reads 00 and the pump won't run. To cut off a teammate's board, I just unplug the cable.
 
 ### Debug and spare pins
 
-D1 is the debug LED (RF2) and SW5 is the debug button (RF4). TP2-TP5 are on the power rails. J5 has +5V, GND, and 8 spare pins, and the other 14 spare pins go to test pads (TP18-TP31).
+SW5 is the debug button (RF4). D1, the debug LED on RF2, isn't installed. TP2-TP5 are on the power rails. J5 has +5V, GND, and 8 spare pins, and the other 14 spare pins go to test pads (TP18-TP31).
+
+### Not installed (DNP)
+
+I didn't install D1, D5, D6, R1, R4, or R25. These are the surface-mount indicator LEDs and their resistors. Hand-soldering parts that small was too much work, and we didn't have the proper equipment for it. They're only indicators, so nothing else on the board depends on them. I also left off the HS1 heat sink, since the current is small. These parts are marked DNP on the schematic, and their pads on the PCB are empty.
 
 ERC shows 0 errors and 0 warnings, and every part I have to buy has its manufacturer part number in the KiCad file.
 
@@ -72,6 +76,7 @@ J1-J3 are Wurth 61200821621 2x4 box headers, drawn with the counter-clockwise sy
 
 | Rev | Date | What changed |
 |---|---|---|
+| 7.1 | Nov 25 | As built, no wiring changes. D7-D10 are 1N4007 instead of 1N5817, so a high on the ribbon is about 4.4V. D1, D5, D6, R1, R4, and R25 (the surface-mount indicator LEDs and resistors) and HS1 (heat sink) are marked DNP. |
 | 7 | Nov 7 | Took off the 16x2 LCD and its parts (J7, RV1, JP5, R24), plus C7, C14, C15, and C16. Took off J6, J9, the ribbon jumpers (JP3, JP4, JP6-JP11), and TP1, TP6, and TP10-TP17. Added the diodes D7-D10 and pull-downs R30-R33 on the ribbon outputs. J5 is now 2x5, and the spare pins go to test pads TP18-TP31. |
 | 6 | Nov 6 | No wiring changes. Moved the footprints into my NB library and added the Nano socket and heat sink footprints. |
 | 5 | Nov 4 | U2 changed to the LD1085V50 because the LM1086 was backordered. New ribbon connector symbol and C4 part number. No wiring changes. |

@@ -74,6 +74,8 @@ Heat check:
 
 So it stays well under the limit. I'll still check the real temperature once the board is built.
 
+**Update (Rev 7.1):** I didn't install the heat sink. Rev 7 took the LCD off, which was about 160mA of the 346mA load (before the margin), and the regulator stayed cool during testing.
+
 ## 5. Cup Sensor (Analog)
 
 | Solution | Pros | Cons |
@@ -139,7 +141,7 @@ This is how I set up each pin in MCC (Rev 7). "Start high" means the LAT bit is 
 | RD0 | Status LEDs | Digital output, start high | D2 Dispensing LED (yellow), 2.2k, active low |
 | RD1 | Status LEDs | Digital output, start high | D3 Done LED (green), 2.2k, active low |
 | RD2 | Status LEDs | Digital output, start high | D4 Fault LED (red), 2.2k, active low |
-| RF2 | Debug | Digital output, start high | D1 debug LED (red), 2.2k, active low |
+| RF2 | Debug | Digital output, start high | D1 debug LED (red), 2.2k, active low. Not installed (surface-mount) |
 | RC7 | Flow status from Cole | Digital input | J1 pin 3 (S1), 100k pull-down |
 | RC6 | Flow status from Cole | Digital input | J1 pin 4 (S0), 100k pull-down |
 | RD4 | Pump command to Clay | Digital output, start low | J2 pin 1 (C1) through D7 |

@@ -9,11 +9,11 @@ hide:
 
 Nikita Bangiyev, Team 201, Fill-A-Bot
 
-![Main control board block diagram](nikita-block-diagram-rev7.png){ width="100%" }
+![Main control board block diagram](nikita-block-diagram-rev7-1.png){ width="100%" }
 
-Figure 1: Main Control Board block diagram (Rev 7)
+Figure 1: Main Control Board block diagram (Rev 7.1, as built)
 
-Source files: [nikita-block-diagram-rev7-source.zip](nikita-block-diagram-rev7-source.zip) (draw.io file and PNG)
+Source files: [nikita-block-diagram-rev7-1-source.zip](nikita-block-diagram-rev7-1-source.zip) (draw.io file and PNG)
 
 ## How It Works
 
@@ -27,12 +27,12 @@ The boards don't use UART, I2C, or SPI. Each signal between boards is 2 plain wi
 
 | Block | What it does | Signal |
 |---|---|---|
-| Power | 9V adapter, barrel jack, T800mA fuse, and the LD1085V50 5V regulator on a heat sink. D6 lights up when 9V is in and D5 when 5V is on. | +5V to every block |
+| Power | 9V adapter, barrel jack, T800mA fuse, and the LD1085V50 5V regulator. The heat sink and the power LEDs (D5, D6) aren't installed. | +5V to every block |
 | Microcontroller | PIC18F57Q43 Curiosity Nano. Runs the fill. 5V goes to VTG and VOFF is tied to GND. | |
 | Buttons | UP, DOWN, START, STOP with pull-ups and RC debounce | Digital in |
 | Cup Sensor | Photoresistor, op amp buffer and gain stage, low-pass filter | Analog in |
 | Status LEDs | Dispensing, Done, Fault | Digital out |
-| Debug | Debug button and LED | Digital in / out |
+| Debug | Debug button (the debug LED isn't installed) | Digital in / out |
 | Expansion Headers | J5 (8 spare pins) and 14 test pads on the other spare pins | Digital in / out |
 | Ribbon Headers | J1 to Cole, J2 to Clay, J3 to Troy | 2-bit out, 2-bit in |
 
@@ -64,7 +64,7 @@ Right now I only use Preset 1 (UP) and Preset 2 (DOWN). The other two codes are 
 |---|---|---|
 | Curiosity Nano (U1) | Microchip | PIC18F57Q43 (DM164150) |
 | 5V regulator (U2) | STMicroelectronics | LD1085V50 |
-| Regulator heat sink | Same Sky | HSE14-384225P |
+| Regulator heat sink (not installed) | Same Sky | HSE14-384225P |
 | 9V wall adapter | Triad Magnetics | WSU090-2000 |
 | Barrel jack (J4) | Same Sky | PJ-102AH |
 | Fuse (F1) | Littelfuse | 0218.800MXP |
@@ -75,6 +75,7 @@ Right now I only use Preset 1 (UP) and Preset 2 (DOWN). The other two codes are 
 
 ## Changes
 
+- Rev 7.1 (Nov 25): Updated to match the board as I built it. The power LEDs and the debug LED are surface-mount, and hand-soldering them was too much work without the proper equipment, so they aren't installed. The heat sink isn't installed either, since the current is small.
 - Rev 7 (Nov 7): I took the 16x2 LCD off the board, so its block is gone. The status shows on the LEDs now.
 - Rev 5 (Nov 4): The LM1086 regulator was backordered, so I switched to the LD1085V50. Same pinout and same 4.9 to 5.1V output.
 - After the Oct 26 design review I simplified the diagram: no pin numbers, one block per function, red arrows for power, and black arrows for signals.
