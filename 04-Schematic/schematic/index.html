@@ -1400,7 +1400,7 @@
 <h3 id="debug-and-spare-pins">Debug and spare pins</h3>
 <p>SW5 is the debug button (RF4). D1, the debug LED on RF2, isn't installed. TP2-TP5 are on the power rails. J5 has +5V, GND, and 8 spare pins, and the other 14 spare pins go to test pads (TP18-TP31).</p>
 <h3 id="not-installed-dnp">Not installed (DNP)</h3>
-<p>I didn't install D1, D5, D6, R1, R4, or R25. These are the surface-mount indicator LEDs and their resistors. Hand-soldering parts that small was too much work, and we didn't have the proper equipment for it. They're only indicators, so nothing else on the board depends on them. I also left off the HS1 heat sink, since the current is small. These parts are marked DNP on the schematic, and their pads on the PCB are empty.</p>
+<p>I didn't install D1, D5, or D6. These are the surface-mount indicator LEDs. Hand-soldering LEDs that small was too much work, and we didn't have the proper equipment for it. They're only indicators, so nothing else on the board depends on them. Their resistors (R1, R4, R25) are installed, but with no LED they carry no current. I also left off the HS1 heat sink, since the current is small. These parts are marked DNP on the schematic, and their pads on the PCB are empty.</p>
 <p>ERC shows 0 errors and 0 warnings, and every part I have to buy has its manufacturer part number in the KiCad file.</p>
 <h2 id="requirements">Requirements</h2>
 <p>The numbers are from our team's <a href="https://egr304-2026-f-201.github.io/04-Product-Requirements/">Product Requirements</a> page.</p>
@@ -1503,7 +1503,7 @@
 <tr>
 <td>7.1</td>
 <td>Nov 25</td>
-<td>As built, no wiring changes. D7-D10 are 1N4007 instead of 1N5817, so a high on the ribbon is about 4.4V. D1, D5, D6, R1, R4, and R25 (the surface-mount indicator LEDs and resistors) and HS1 (heat sink) are marked DNP.</td>
+<td>As built, no wiring changes. D7-D10 are 1N4007 instead of 1N5817, so a high on the ribbon is about 4.4V. D1, D5, and D6 (the surface-mount indicator LEDs) and HS1 (heat sink) are marked DNP.</td>
 </tr>
 <tr>
 <td>7</td>
