@@ -22,6 +22,7 @@ Figure 3: Top copper (left) and bottom copper (right) with the ground pours. The
 
 - [KiCad project ZIP (Rev 7.1, as built)](EGR304_Main_Control_Nikita_Rev7.1.zip): schematic, PCB, my NB footprint library, symbols, and 3D models
 - [Gerber files ZIP](NikitaBangiyev201.zip): top and bottom copper, solder mask, and silkscreen, the board outline, and the drill files
+- [PCB layout (PDF)](PCB_Layout.pdf): top side (copper and silkscreen) on page 1, bottom side on page 2, seen from the bottom
 - [1:1 print (PDF)](PCB_1to1_Print.pdf): top and bottom copper at actual size, for checking that the parts fit
 - [DRC screenshot](DRC_Confirmation.png)
 

@@ -36,4 +36,4 @@ My board has the buttons and status LEDs the user sees, a light sensor that chec
 * [Schematics](04-Schematic/schematic.md)
 * [Power Budget](05-Power-Budget/Power-Budget.md)
 * [PCB](06-PCB/PCB.md)
-* [Microcontroller Code](07-Code/Code.md)
+* [Microcontroller Code](07-Microcontroller-Code/Code.md)
